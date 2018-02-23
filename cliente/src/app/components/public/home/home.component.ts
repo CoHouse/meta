@@ -8,12 +8,12 @@ import { HomeService } from '../../../services/home.service';
 })
 export class HomeComponent implements OnInit {
 
-  posts:Post[] = [];
-
-  constructor( private homeService:HomeService ) { }
+  // posts:Post[] = [];
+  //
+  // constructor( private homeService:HomeService ) { }
 
   ngOnInit() {
-    this.posts = this.homeService.getPosts();
+    // this.posts = this.homeService.getPosts();
   }
 
 }

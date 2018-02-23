@@ -15,7 +15,7 @@ export class HomeService {
     return this.httpObj.get( url ).map( res => {
       this.respuesta = res;
       return this.respuesta;
-      console.log(this.respuesta);
+    //  console.log(this.respuesta);
     });
   }
 
