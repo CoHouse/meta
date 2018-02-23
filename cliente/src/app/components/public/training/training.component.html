@@ -1,0 +1,130 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-2 col-md-6 offset-md-2 col-sm-12 col-xs-12 pt-3 animated fadeIn">
+      <h1>Titulo</h1>
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><h5>Plan Personalizado</h5></a>
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><h5>Otra cosa</h5></a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <div class="row mt-4">
+            <div class="col-lg-3">
+              <h6>Semana 1</h6>
+              <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio praesentium, iste esse iure repellendus quasi earum commodi cumque aperiam non sunt totam. A alias ad deserunt, quas unde magnam est.</p>
+            </div>
+            <div class="col-lg-3">
+              <h6>Semana 2</h6>
+              <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore nemo et voluptatem quibusdam excepturi suscipit ea unde delectus voluptates nihil nam, sed quod, ratione soluta perspiciatis laboriosam id molestiae facere.</p>
+            </div>
+            <div class="col-lg-3">
+              <h6>Semana 3</h6>
+              <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ipsum cum voluptatum optio odit, quam expedita suscipit. Iste iusto placeat mollitia, adipisci repellendus ad nostrum, ipsum aliquam dolor labore distinctio?</p>
+            </div>
+            <div class="col-lg-3">
+              <h6>Semana 4</h6>
+              <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ipsum cum voluptatum optio odit, quam expedita suscipit. Iste iusto placeat mollitia, adipisci repellendus ad nostrum, ipsum aliquam dolor labore distinctio?</p>
+            </div>
+          </div>
+        </div>
+        <!-- Separador de pestañas -->
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <div class="row mt-4">
+            <h1>consideraciones</h1>
+            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam consequuntur rem saepe, ab sequi a excepturi enim, obcaecati consequatur aspernatur sapiente eveniet iste, necessitatibus dolor harum! Impedit voluptatem tempore dolores?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur odio, libero adipisci nisi. Aut consectetur nesciunt harum commodi, corporis reprehenderit, accusantium saepe sint quaerat quisquam vitae adipisci numquam in nobis!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste laborum error maiores ad, suscipit fugit quae nesciunt eligendi nostrum perferendis dolor magnam in sapiente quas voluptate, fuga, similique ullam veritatis.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna 2 -->
+
+    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 pt-3 animated fadeIn">
+      <h2>Reto Diario</h2>
+      <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h5 class="card-title">Primary card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+
+      <h2>Reto Semanal</h2>
+      <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h5 class="card-title">Primary card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="py-3"></div>
+
+<div class="container">
+  <div class="row">
+    <h2>Mi entrenamiento</h2>
+    <div class="col-12">
+      <div class="text-center">
+        <img src="assets/img/img-ejerc.svg" alt="..." class="img-thumbnail">
+        <img src="assets/img/img-ejerc.svg" alt="..." class="img-thumbnail">
+        <img src="assets/img/img-ejerc.svg" alt="..." class="img-thumbnail">
+        <img src="assets/img/img-ejerc.svg" alt="..." class="img-thumbnail">
+        <img src="assets/img/img-ejerc.svg" alt="..." class="img-thumbnail">
+      </div>
+    </div>
+  </div>
+
+  <a *ngIf="!this.auth.isAuthenticated()" class="btn btn-danger bg-red btn-block mt-3" [routerLink]="['register']"><h4>Empieza tu entrenamiento personalizado hoy mismo</h4></a>
+  <a *ngIf="this.auth.isAuthenticated()" class="btn btn-success btn-block mt-3" [routerLink]="['training']"><h4>Ir a mi Plan Personalizado</h4></a>
+
+</div>
+
+<div class="py-3"></div>
+
+<div class="container">
+  <h2>Mi configuración</h2>
+  <div class="row">
+    <div class="col-lg-2">
+      <img src="assets/img/fit.PNG" alt="">
+    </div>
+    <div class="col-lg-2 pt-4">
+      <ul class="list-unstyled">
+        <li><h5>Ocupación</h5></li>
+        <li><h5>Cuenta</h5></li>
+        <li><h5>Meta</h5></li>
+        <li><h5>Fecha Registro</h5></li>
+      </ul>
+    </div>
+    <div class="col-lg-2 pt-4">
+      <ul class="list-unstyled">
+        <li><h5>Ocupación</h5></li>
+        <li><h5>Cuenta</h5></li>
+        <li><h5>Meta</h5></li>
+        <li><h5>Fecha Registro</h5></li>
+      </ul>
+    </div>
+    <div class="col-lg-2 pt-4">
+      <ul class="list-unstyled">
+        <li><h5>Ocupación</h5></li>
+        <li><h5>Cuenta</h5></li>
+        <li><h5>Meta</h5></li>
+        <li><h5>Fecha Registro</h5></li>
+      </ul>
+    </div>
+    <div class="col-lg-2 pt-4">
+      <ul class="list-unstyled">
+        <li><h5>Ocupación</h5></li>
+        <li><h5>Cuenta</h5></li>
+        <li><h5>Meta</h5></li>
+        <li><h5>Fecha Registro</h5></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="py-3"></div>

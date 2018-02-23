@@ -1,0 +1,53 @@
+<!-- <div class="container-fluid"> -->
+  <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark bg-black">
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-black">
+      <a class="navbar-brand" href="#">
+        <img src="/assets/img/logo.png" width="50" height="50" alt="">
+        Meta Body Changer
+      </a>
+    </nav>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto mx-auto">
+        <li *ngIf="this.auth.isAuthenticated()" class="nav-item px-3" routerLinkActive = "menu-active">
+          <!-- Bandera para validar si el usuario ya respondió completo el cuestionario -->
+          <a class="nav-link menu-item" [routerLink]="['inquest']">Cuestionario</a>
+        </li>
+        <li class="nav-item px-3" routerLinkActive = "menu-active">
+          <a class="nav-link menu-item" [routerLink]="['home']">Home</a>
+        </li>
+        <li class="nav-item px-3" routerLinkActive = "menu-active">
+          <a class="nav-link menu-item" [routerLink]="['training']">Entrenamiento</a>
+        </li>
+        <li class="nav-item px-3" routerLinkActive = "menu-active">
+          <a class="nav-link menu-item" [routerLink]="['blog']">Blog</a>
+        </li>
+        <li class="nav-item px-3" routerLinkActive = "menu-active">
+          <a class="nav-link menu-item" [routerLink]="['videos']">Videos</a>
+        </li>
+        <li class="nav-item px-3" routerLinkActive = "menu-active">
+          <a class="nav-link menu-item" [routerLink]="['ask']">Resuelve tu duda</a>
+        </li>
+        <li class="nav-item px-3" routerLinkActive = "menu-active">
+          <a class="nav-link menu-item" [routerLink]="['forum']">Foro</a>
+        </li>
+        <li class="nav-item px-3" routerLinkActive = "menu-active">
+          <a class="nav-link menu-item" [routerLink]="['challenge']">Retos</a>
+        </li>
+      </ul>
+
+
+      <button *ngIf="!this.auth.isAuthenticated()" (click)="login()" class="btn btn-sm align-middle btn-success mx-2" type="button">Ingresar</button>
+      <a *ngIf="!this.auth.isAuthenticated()" class="btn btn-sm align-middle btn-danger mx-2" [routerLink]="['register']">Regístrarse</a>
+      <button *ngIf="this.auth.isAuthenticated()" (click)="logout()" class="btn btn-sm align-middle btn-outline-info mx-2" type="button">Cerrar Sesión</button>
+
+    </div>
+
+  </nav>
+
+<div class="py-1 bg-red"></div>
+<!-- </div> -->

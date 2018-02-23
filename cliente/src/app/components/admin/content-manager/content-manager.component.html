@@ -1,0 +1,146 @@
+<div class="container">
+
+  <div class="row py-3">
+
+    <div class="col-lg-2">
+
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#update-blog" role="tab" aria-controls="v-pills-home" aria-selected="true">Administración Blog</a>
+        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#update-videos" role="tab" aria-controls="v-pills-profile" aria-selected="false">Administración Video</a>
+        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#update-pagos" role="tab" aria-controls="v-pills-messages" aria-selected="false">Administración Pagos</a>
+      </div>
+    </div>
+
+    <div class="col-lg-10">
+      <div class="tab-content" id="v-pills-tabContent">
+        <!--= Tab Blog =-->
+        <div class="tab-pane fade show active" id="update-blog" role="tabpanel" aria-labelledby="v-pills-home-tab">
+          <h4 class="pb-2">Alta de Registro - Blog</h4>
+
+          <form>
+            <div class="form-group">
+              <label for="post-title"><h6>Título</h6></label>
+              <input type="text" class="form-control" id="post-title" aria-describedby="emailHelp" placeholder="Título">
+              <small id="titleHelp" class="form-text text-muted">Máximo X caracteres y que sea muy descriptivo.</small>
+            </div>
+            <div class="form-group">
+              <label for="post-subtitle"><h6>Subtítulo</h6></label>
+              <input type="text" class="form-control" id="post-subtitle" placeholder="Subtítulo">
+              <small id="subtitleHelp" class="form-text text-muted">Complementario al título.</small>
+            </div>
+            <div class="form-group">
+              <label for="post-image"><h6>Imagen</h6></label>
+              <input type="file" class="form-control-file" id="post-image">
+            </div>
+            <div class="form-group">
+              <label for="post-body"><h6>Post</h6></label>
+              <textarea class="form-control" id="post-body" rows="10"></textarea>
+              <small id="postbodyHelp" class="form-text text-muted">Ingresar el texto en HTML.</small>
+            </div>
+
+            <h6>Visibilidad</h6>
+            <div class="form-group">
+              <div class="form-check form-check-inline">
+                <input class="form-check-inline" type="radio" name="visible" id="blog-visible-all" value="V">
+                <label class="form-check-label" for="blog-visible-all">Todos</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-inline" type="radio" name="visible" id="blog-visible-register" value="R">
+                <label class="form-check-label" for="blog-visible-register">Usuarios Registrados</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-inline" type="radio" name="visible" id="blog-visible-vip" value="B">
+                <label class="form-check-label" for="blog-visible-vip">Solo VIP</label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-danger">Guardar</button>
+          </form>
+
+        </div>
+
+        <!--= Tab Videos =-->
+        <div class="tab-pane fade" id="update-videos" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+          <h4 class="pb-2">Alta de Registro - Video</h4>
+
+          <form>
+            <div class="form-group">
+              <label for="video-title"><h6>Título</h6></label>
+              <input type="text" class="form-control" id="video-title" aria-describedby="videoTitle" placeholder="Título">
+              <small id="videotitleHelp" class="form-text text-muted">Máximo X caracteres y que sea muy descriptivo.</small>
+            </div>
+            <div class="form-group">
+              <label for="video"><h6>Video</h6></label>
+              <input type="file" class="form-control-file" id="video">
+            </div>
+            <div class="form-group">
+              <label for="video-body"><h6>Descripción</h6></label>
+              <textarea class="form-control" id="video-body" rows="3"></textarea>
+              <small id="postbodyHelp" class="form-text text-muted">Ingresar el texto en HTML.</small>
+            </div>
+
+            <h6>Visibilidad</h6>
+            <div class="form-group">
+              <div class="form-check form-check-inline">
+                <input class="form-check-inline" type="radio" name="video-visible" id="video-visible-all" value="V">
+                <label class="form-check-label" for="video-visible-all">Todos</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-inline" type="radio" name="video-visible" id="video-visible-register" value="R">
+                <label class="form-check-label" for="video-visible-register">Usuarios Registrados</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-inline" type="radio" name="video-visible" id="video-visible-vip" value="B">
+                <label class="form-check-label" for="video-visible-vip">Solo VIP</label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-danger">Guardar</button>
+          </form>
+        </div>
+
+        <!--= Tab Pagos =-->
+        <div class="tab-pane fade" id="update-pagos" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+          <h4>Administración de Pagos</h4>
+
+          <form class="form-inline" #formPayments="ngForm">
+            <div *ngFor="let element of rows; index as i" class="row py-1">
+
+              <div class="form-group">
+                <label class="px-1" for="mail"><h6>Email</h6></label>
+                <input type="email" class="form-control" name="mail-{{ i }}" placeholder="Ingresar email" ngModel required #paymentMail="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label class="px-1" for="mail"><h6>Fecha de Inicio</h6></label>
+                <input type="email" class="form-control" name="inicio-{{ i }}" placeholder="dd/mm/aaaa" ngModel required #paymentIniVig="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label class="px-1" for="mail"><h6>Fecha de Fin</h6></label>
+                <input type="email" class="form-control" name="fin-{{ i }}" placeholder="dd/mm/aaaa" ngModel required #paymentFinVig="ngModel">
+              </div>
+
+            </div>
+          </form>
+
+          <div class="row">
+            <div class="form-group">
+              <button (click)="addRow()" [disabled]="!formPayments.valid" class="btn btn-primary btn-sm mx-1 my-1"><h5><i class="far fa-plus-square"></i></h5></button>
+            </div>
+            <div *ngIf="counter > 1" class="form-group">
+              <button (click)="delRow()" class="btn btn-primary btn-sm mx-1 my-1"><h5><i class="fas fa-trash-alt"></i></h5></button>
+            </div>
+          </div>
+
+          <div class="form-group row pt-3">
+            <button (click)="savePayments(formPayments)" [disabled]="!formPayments.valid" class="btn btn-danger mt-3">Guardar</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

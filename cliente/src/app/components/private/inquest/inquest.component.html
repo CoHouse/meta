@@ -1,0 +1,592 @@
+<div class="py-2"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+
+      <h2>Cuestionario inicial <small>Gracias por responderlo completo</small></h2>
+
+      <p class="text-justify py-3">El cuestionario abarca 5 rubros de preguntas: <strong>Alimenticios, Antropométricos, Bioquímicos, Clínicos, dietéticos</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint saepe, dolores quia perferendis totam dolorum nam, eligendi, debitis architecto cumque repellat, odio est doloribus accusamus. Eum laudantium minus inventore at!</p>
+
+      <div class="py-2"></div>
+
+      <!-- TABs -->
+      <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active enlace-foro" id="home-tab" data-toggle="tab" href="#alimenticios" role="tab" aria-controls="home" aria-selected="true"><h6>Alimenticios</h6></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link enlace-foro" id="profile-tab" data-toggle="tab" href="#antropometricos" role="tab" aria-controls="profile" aria-selected="false"><h6>Antropométricos</h6></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link enlace-foro" id="contact-tab" data-toggle="tab" href="#bioquimicos" role="tab" aria-controls="contact" aria-selected="false"><h6>Bioquímicos</h6></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link enlace-foro" id="contact-tab" data-toggle="tab" href="#clinicos" role="tab" aria-controls="contact" aria-selected="false"><h6>Clínicos</h6></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link enlace-foro" id="contact-tab" data-toggle="tab" href="#dieteticos" role="tab" aria-controls="contact" aria-selected="false"><h6>dietéticos</h6></a>
+        </li>
+      </ul>
+      <!-- End TABs -->
+
+      <div class="tab-content" id="myTabContent">
+
+        <!-- Tab << Alimenticio >> -->
+        <div class="tab-pane fade show active" id="alimenticios" role="tabpanel" aria-labelledby="home-tab">
+
+          <form (ngSubmit)="saveDataAlimenticios(formAlimenticios)" #formAlimenticios="ngForm" >
+
+            <!-- Cuestion 1 -->
+            <h6 class="pt-4 pl-3">¿Cuál es la frecuencia con la que hace ejercicio a la semana (días)?</h6>
+
+            <div class="form-group row">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta1opcion1" name="alimentacionPregunta1" class="custom-control-input" value="Ningún día" ngModel required #alimentacionPregunta1="ngModel" >
+                <label class="custom-control-label" for="alimentacionPregunta1opcion1">a)	Ningún día</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta1opcion2" name="alimentacionPregunta1" class="custom-control-input" value="de 1 a 3 días" ngModel required #alimentacionPregunta1="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta1opcion2">b) de 1 a 3 días</label>
+              </div>
+
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta1opcion3" name="alimentacionPregunta1" class="custom-control-input" value="de 3 a 5 días" ngModel required #alimentacionPregunta1="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta1opcion3">c) de 3 a 5 días</label>
+              </div>
+
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta1opcion4" name="alimentacionPregunta1" class="custom-control-input" value="toda la semana" ngModel required #alimentacionPregunta1="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta1opcion4">d) toda la semana</label>
+              </div>
+            </div>
+
+            <!-- Cuestion 2 -->
+            <h6 class="pt-3 pl-3">¿Con que intensidad realiza esta actividad?</h6>
+
+            <div class="form-group row">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta2opcion1" name="alimentacionPregunta2" class="custom-control-input" value="Muy baja" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta2opcion1">a)	Muy baja</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta2opcion2" name="alimentacionPregunta2" class="custom-control-input" value="baja" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta2opcion2">b) baja</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta2opcion3" name="alimentacionPregunta2" class="custom-control-input" value="moderada" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta2opcion3">c) moderada</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta2opcion4" name="alimentacionPregunta2" class="custom-control-input" value="intensa" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta2opcion4">d) intensa</label>
+              </div>
+            </div>
+
+            <!-- Cuestion 3 -->
+            <h6 class="pt-3 pl-3">¿Qué tipo de ejercicio hace (trote, ejercicios como sentadillas, lagartijas, etc.)?</h6>
+
+            <div class="form-group row">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta3opcion1" name="alimentacionPregunta3" class="custom-control-input" value="Trote" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta3opcion1">a)	Trote</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta3opcion2" name="alimentacionPregunta3" class="custom-control-input" value="lagartijas, sentadillas, etc." ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta3opcion2">b) lagartijas, sentadillas, etc.</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta3opcion3" name="alimentacionPregunta3" class="custom-control-input" value="pesas" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta3opcion3">c) pesas</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta3opcion4" name="alimentacionPregunta3" class="custom-control-input" value="algún deporte tal como natación, futbol, etc." ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta3opcion4">d) algún deporte tal como natación, futbol, etc.</label>
+              </div>
+            </div>
+
+            <!-- Cuestion 4 -->
+            <h6 class="pt-3 pl-3">¿Qué duración por sesión le dedica al ejercicio (en minutos)?</h6>
+
+            <div class="form-group row">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta4opcion1" name="alimentacionPregunta4" class="custom-control-input" value="30 minutos" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta4opcion1">a)	30 minutos</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta4opcion2" name="alimentacionPregunta4" class="custom-control-input" value="1 hora" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta4opcion2">b) 1 hora</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta4opcion3" name="alimentacionPregunta4" class="custom-control-input" value="2 horas o más" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta4opcion3">c) 2 horas o más</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta4opcion4" name="alimentacionPregunta4" class="custom-control-input" value="menos de 30 minutos" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta4opcion4">d) menos de 30 minutos</label>
+              </div>
+            </div>
+
+            <!-- Cuestion 5 -->
+            <h6 class="pt-3 pl-3">¿Cuándo fue la última vez que participo en un programa de ejercicio regular?</h6>
+
+            <div class="form-group row">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta5opcion1" name="alimentacionPregunta5" class="custom-control-input" value="A" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta5opcion1">a)	Hace menos de un mes</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta5opcion2" name="alimentacionPregunta5" class="custom-control-input" value="B" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta5opcion2">b) más de un mes</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta5opcion3" name="alimentacionPregunta5" class="custom-control-input" value="C" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta5opcion3">c) más de 3 meses</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta5opcion4" name="alimentacionPregunta5" class="custom-control-input" value="D" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta5opcion4">d) más de 6 meses</label>
+              </div>
+            </div>
+
+            <!-- Cuestion 6 -->
+            <h6 class="pt-3 pl-3">¿Cuánto tiempo tiene sin realizar ejercicio físico regular?</h6>
+
+            <div class="form-group row">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta6opcion1" name="alimentacionPregunta6" class="custom-control-input" value="A" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta6opcion1">a)	Hace menos de un mes</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta6opcion2" name="alimentacionPregunta6" class="custom-control-input" value="B" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta6opcion2">b) más de un mes</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta6opcion3" name="alimentacionPregunta6" class="custom-control-input" value="C" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta6opcion3">c) más de 3 meses</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta6opcion4" name="alimentacionPregunta6" class="custom-control-input" value="D" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta6opcion4">d) más de 6 meses</label>
+              </div>
+            </div>
+
+            <!-- Cuestion 7 -->
+            <h6 class="pt-3 pl-3">¿Cuál es el lugar donde puede realizar su ejercicio? <small>(Seleccione todas las opciones de acuerdo a sus posibilidades)</small></h6>
+
+            <div class="form-group row">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta7opcion1" name="alimentacionPregunta7-1" ngModel #X="ngModel">
+                <label class="custom-control-label pr-3" for="alimentacionPregunta7opcion1">a)	Parques</label>
+              </div>
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta7opcion2" name="alimentacionPregunta7-2" ngModel #X="ngModel">
+                <label class="custom-control-label pr-3" for="alimentacionPregunta7opcion2">b) albercas</label>
+              </div>
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta7opcion3" name="alimentacionPregunta7-3" ngModel #X="ngModel">
+                <label class="custom-control-label pr-3" for="alimentacionPregunta7opcion3">c) gimnasio de pesas</label>
+              </div>
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta7opcion4" name="alimentacionPregunta7-4" ngModel #X="ngModel">
+                <label class="custom-control-label pr-3" for="alimentacionPregunta7opcion4">d) pista de atletismo</label>
+              </div>
+            </div>
+
+            <!-- Cuestion 8 -->
+            <h6 class="pt-3 pl-3">¿Qué le gustaría incluir en su programa? <small>Seleccione todas las opciones que le gustaría incluir</small></h6>
+
+            <div class="form-group row">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta8opcion1" name="alimentacionPregunta8-1" ngModel #X="ngModel">
+                <label class="custom-control-label pr-3" for="alimentacionPregunta8opcion1">a)	Plan de ejercicios</label>
+              </div>
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta8opcion2" name="alimentacionPregunta8-2" ngModel #X="ngModel">
+                <label class="custom-control-label pr-3" for="alimentacionPregunta8opcion2">b) Dieta</label>
+              </div>
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta8opcion3" name="alimentacionPregunta8-3" ngModel #X="ngModel">
+                <label class="custom-control-label pr-3" for="alimentacionPregunta8opcion3">c) Suplementos</label>
+              </div>
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta8opcion4" name="alimentacionPregunta8-4" ngModel #X="ngModel">
+                <label class="custom-control-label pr-3" for="alimentacionPregunta8opcion4">d) otro</label>
+                <!-- <div *ngIf="alimentacionPregunta8opcion4 == 'true'"> <small>Por favor especifique cuál:</small> Esto aparece si marco la casilla otro</div> -->
+              </div>
+            </div>
+
+            <!-- Cuestion 9 -->
+            <h6 class="pt-3 pl-3">¿Cuál es su principal objetivo al integrarse a un programa de ejercicio?</h6>
+
+            <div class="form-group row">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta9opcion1" name="alimentacionPregunta9" class="custom-control-input" value="A" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta9opcion1">a)	Eliminar grasa</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta9opcion2" name="alimentacionPregunta9" class="custom-control-input" value="B" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta9opcion2">b) ganar masa muscular</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta9opcion3" name="alimentacionPregunta9" class="custom-control-input" value="C" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta9opcion3">c) mejorar mi condición física</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta9opcion4" name="alimentacionPregunta9" class="custom-control-input" value="D" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta9opcion4">d) realizar actividad física para mi salud</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="alimentacionPregunta9opcion5" name="alimentacionPregunta9" class="custom-control-input" value="E" ngModel required #X="ngModel">
+                <label class="custom-control-label" for="alimentacionPregunta9opcion5">e) Transformar mi apariencia</label>
+              </div>
+            </div>
+
+            <!-- Alert -->
+            <div *ngIf="alimentacionPregunta1.errors?.required" class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>Alerta de error:</strong> Favor de responder todas las preguntas.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group row pt-3" *ngIf="formAlimenticios">
+              <button [disabled]="!formAlimenticios.valid" class="btn btn-info px-5">Seguir a Antropométricos (2 de 5)</button>
+            </div>
+
+          </form>
+
+        </div>
+        <!-- End Tab << Alimenticio >> -->
+
+        <!-- Tab << Antropométricos >> -->
+        <div class="tab-pane fade" id="antropometricos" role="tabpanel" aria-labelledby="profile-tab">
+
+          <form (ngSubmit)="saveDataAntropometricos(formAntropometricos)" #formAntropometricos="ngForm" novalidate>
+
+            <!-- Cuestion 1 -->
+            <div class="form-group">
+              <h6 class="pt-4 pl-3">Talla en metros. <small>Por ejemplo: 1.74m</small></h6>
+              <!-- <label for="exampleInputEmail1">Email address</label> -->
+              <input type="text" class="form-control" id="exampleInputEmail1" name="antropometricoPregunta1" placeholder="P.ej. 1.74" ngModel>
+            </div>
+
+            <!-- Cuestion 2 -->
+            <div class="form-group">
+              <h6 class="pt-3 pl-3">Peso en Kilogramos. </h6>
+              <input type="text" class="form-control" id="exampleInputEmail1" name="antropometricoPregunta2" placeholder="P.ej. 75.2" ngModel>
+            </div>
+
+            <!-- Cuestion 3 -->
+            <div class="form-group">
+            <h6 class="pt-3 pl-3">Porcentaje de grasa. <small>(en caso de poder realizarlo, no es un dato vital pero es muy importante conocer el porcentaje de grasa y de musculo ya que el peso a veces no nos dice la realidad de nuestra apariencia ni nuestros objetivos). </small></h6>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="antropometricoPregunta3" placeholder="buscar ejemplo" ngModel>
+          </div>
+
+            <!-- Button -->
+            <div class="form-group row pt-3" *ngIf="formAntropometricos">
+              <button class="btn btn-danger bg-red px-5">Seguir a Bioquímicos (3 de 5)</button>
+            </div>
+
+          </form>
+        </div>
+        <!-- Tab << End Antropométricos >> -->
+
+        <!-- Tab << Bioquímicos >> -->
+        <div class="tab-pane fade" id="bioquimicos" role="tabpanel" aria-labelledby="contact-tab">
+
+          <form (ngSubmit)="saveDataBioquimicos(formBioquimicos)" #formBioquimicos="ngForm" novalidate>
+            <div class="form-group">
+              <h6 class="pt-4 pl-3">En caso de poder realizar un análisis de laboratorio, nos brindaría mucha mayor información para realizar su plan alimenticio y de ejercicio.</h6>
+
+              <div class="custom-control custom-radio">
+                <input type="radio" id="bioquimicosPregunta1Opcion1" name="bioquimicosPregunta1" class="custom-control-input" value="No cuenta con análisis" ngModel>
+                <label class="custom-control-label" for="bioquimicosPregunta1Opcion1">No cuento con un análisis de Laboratorio.</label>
+              </div>
+
+              <div class="custom-control custom-radio">
+                <input type="radio" id="bioquimicosPregunta1Opcion2" name="bioquimicosPregunta1" class="custom-control-input" value="Sí cuenta con análisis" ngModel>
+                <label class="custom-control-label" for="bioquimicosPregunta1Opcion2">Sí cuento con un análisis de Laboratorio.</label>
+                <!-- <div *ngIf="bioquimicosPregunta1Opcion2 == 'Sí cuenta con análisis'"> <small>Por favor especifique cuál:</small> Esto aparece si marco la casilla otro</div> -->
+              </div>
+
+              <!-- Button -->
+              <div class="form-group row pt-3" *ngIf="formBioquimicos">
+                <button class="btn btn-danger bg-red px-5">Seguir a Clínicos (4 de 5)</button>
+              </div>
+
+            </div>
+          </form>
+
+        </div>
+        <!-- Tab << End Bioquímicos >> -->
+
+        <!-- Tab << Clínicos >> -->
+        <div class="tab-pane fade" id="clinicos" role="tabpanel" aria-labelledby="contact-tab">
+
+          <form (ngSubmit)="saveDataClinicos(formClinicos)" #formClinicos="ngForm" novalidate>
+            <!-- Cuestion 1 -->
+            <h6 class="pt-4 pl-3">Antecedentes familiares de enfermedades crónicas degenerativas (diabetes, hipertension, cardiopatías, cáncer, etc.)</h6>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" id="clinicosPregunta1Opcion1" name="clinicosPregunta1" class="custom-control-input" value="No" ngModel>
+              <label class="custom-control-label" for="clinicosPregunta1Opcion1">No</label>
+            </div>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" id="clinicosPregunta1Opcion2" name="clinicosPregunta1" class="custom-control-input" value="Sí" ngModel>
+              <label class="custom-control-label" for="clinicosPregunta1Opcion2">Sí</label>
+            </div>
+
+            <!-- Cuestion 2 -->
+            <h6 class="pt-4 pl-3">Enfermedades sufridas anteriormente (Diabetes, hipertensión, cardiopatías, artritis, etc.)</h6>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" id="clinicosPregunta2Opcion1" name="clinicosPregunta2" class="custom-control-input" value="No" ngModel>
+              <label class="custom-control-label" for="clinicosPregunta2Opcion1">No</label>
+            </div>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" id="clinicosPregunta2Opcion2" name="clinicosPregunta2" class="custom-control-input" value="Sí" ngModel>
+              <label class="custom-control-label" for="clinicosPregunta2Opcion2">Sí</label>
+            </div>
+
+            <!-- Cuestion 3 -->
+            <h6 class="pt-4 pl-3">¿Padece de alguna alergia, intolerancia o aversión alimenticia (algún alimento que no soporte comer)?</h6>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" id="clinicosPregunta3Opcion1" name="clinicosPregunta3" class="custom-control-input" value="No" ngModel>
+              <label class="custom-control-label" for="clinicosPregunta3Opcion1">No</label>
+            </div>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" id="clinicosPregunta3Opcion2" name="clinicosPregunta3" class="custom-control-input" value="Sí" ngModel>
+              <label class="custom-control-label" for="clinicosPregunta3Opcion2">Sí</label>
+            </div>
+
+            <!-- Cuestion 4 -->
+            <h6 class="pt-4 pl-3">¿Usa algún fármaco actualmente?</h6>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" id="clinicosPregunta4Opcion1" name="clinicosPregunta4" class="custom-control-input" value="No" ngModel>
+              <label class="custom-control-label" for="clinicosPregunta4Opcion1">No</label>
+            </div>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" id="clinicosPregunta4Opcion2" name="clinicosPregunta4" class="custom-control-input" value="Sí" ngModel>
+              <label class="custom-control-label" for="clinicosPregunta4Opcion2">Sí</label>
+            </div>
+
+            <!-- Cuestion 5 -->
+            <h6 class="pt-4 pl-3">¿Usa algún suplemento alimenticio actualmente?</h6>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" id="clinicosPregunta5Opcion1" name="clinicosPregunta5" class="custom-control-input" value="No" ngModel>
+              <label class="custom-control-label" for="clinicosPregunta5Opcion1">No</label>
+            </div>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" id="clinicosPregunta5Opcion2" name="clinicosPregunta5" class="custom-control-input" value="Sí" ngModel>
+              <label class="custom-control-label" for="clinicosPregunta5Opcion2">Sí</label>
+            </div>
+
+            <!-- Cuestion 6 -->
+            <h6 class="pt-4 pl-3">En caso de haber contestado si en la pregunta anterior, ¿Qué suplemento es y con qué objetivo?</h6>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" id="clinicosPregunta6Opcion1" name="clinicosPregunta6" class="custom-control-input" value="No" ngModel>
+              <label class="custom-control-label" for="clinicosPregunta6Opcion1">No</label>
+            </div>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" id="clinicosPregunta6Opcion2" name="clinicosPregunta6" class="custom-control-input" value="Sí" ngModel>
+              <label class="custom-control-label" for="clinicosPregunta6Opcion2">Sí</label>
+            </div>
+
+            <!-- Cuestion 7 -->
+            <h6 class="pt-4 pl-3">¿Cuántas horas duerme al día?</h6>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" id="clinicosPregunta7Opcion1" name="clinicosPregunta7" class="custom-control-input" value="No" ngModel>
+              <label class="custom-control-label" for="clinicosPregunta7Opcion1">No</label>
+            </div>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" id="clinicosPregunta7Opcion2" name="clinicosPregunta7" class="custom-control-input" value="Sí" ngModel>
+              <label class="custom-control-label" for="clinicosPregunta7Opcion2">Sí</label>
+            </div>
+
+            <!-- Cuestion 8 -->
+            <h6 class="pt-4 pl-3">Aviso de Provacidad y Descargo de Responsabilidad</h6>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" id="clinicosPregunta8Opcion1" name="clinicosPregunta8" class="custom-control-input" value="No" ngModel>
+              <label class="custom-control-label" for="clinicosPregunta8Opcion1">No</label>
+            </div>
+
+            <div class="custom-control custom-radio">
+              <input type="radio" id="clinicosPregunta8Opcion2" name="clinicosPregunta8" class="custom-control-input" value="Sí" ngModel>
+              <label class="custom-control-label" for="clinicosPregunta8Opcion2">Sí</label>
+            </div>
+
+            <div class="form-group row pt-3" *ngIf="formClinicos">
+              <button class="btn btn-info px-5">Finalizar el Registro</button>
+            </div>
+          </form>
+
+
+        </div>
+        <!-- Tab << End Clínicos >> -->
+
+        <!-- Tab << Dietéticos >> -->
+        <div class="tab-pane fade" id="dieteticos" role="tabpanel" aria-labelledby="contact-tab">
+
+          <form (ngSubmit)="saveDataDieteticos(formDietetico)" #formDietetico="ngForm" novalidate>
+            <!-- Cuestion 1 -->
+            <h6 class="pt-4 pl-3">¿Cuántas comidas hace al día?</h6>
+              <div class="form-group row">
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="dieteticoPregunta1opcion1" name="dieteticoPregunta1" class="custom-control-input" value="2 comidas/día" ngModel>
+                  <label class="custom-control-label" for="dieteticoPregunta1opcion1">a)	2</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="dieteticoPregunta1opcion2" name="dieteticoPregunta1" class="custom-control-input" value="3 comidas/día" ngModel>
+                  <label class="custom-control-label" for="dieteticoPregunta1opcion2">b) 3</label>
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="dieteticoPregunta1opcion3" name="dieteticoPregunta1" class="custom-control-input" value="4 comidas/día" ngModel>
+                  <label class="custom-control-label" for="dieteticoPregunta1opcion3">c) 4</label>
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="dieteticoPregunta1opcion4" name="dieteticoPregunta1" class="custom-control-input" value="5 comidas/día" ngModel>
+                  <label class="custom-control-label" for="dieteticoPregunta1opcion4">d) 5</label>
+                </div>
+              </div>
+
+            <!-- Cuestion 2 -->
+            <h6 class="pt-4 pl-3">¿Incluye colaciones?</h6>
+
+            <div class="form-group row">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="dieteticoPregunta2opcion1" name="dieteticoPregunta2" class="custom-control-input" value="Sí" ngModel>
+                <label class="custom-control-label" for="dieteticoPregunta2opcion1">a)	Sí</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="dieteticoPregunta2opcion2" name="dieteticoPregunta2" class="custom-control-input" value="No" ngModel>
+                <label class="custom-control-label" for="dieteticoPregunta2opcion2">b) No</label>
+              </div>
+            </div>
+
+            <!-- Cuestion 3 -->
+            <h6 class="pt-4 pl-3">¿Qué tipo de carbohidrato es mas común en su dieta?</h6>
+
+            <div class="form-group row">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="dieteticoPregunta3opcion1" name="dieteticoPregunta3" class="custom-control-input" value="Arroz" ngModel>
+                <label class="custom-control-label" for="dieteticoPregunta3opcion1">a)	Arroz</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="dieteticoPregunta3opcion2" name="dieteticoPregunta3" class="custom-control-input" value="Pasta" ngModel>
+                <label class="custom-control-label" for="dieteticoPregunta3opcion2">b) Pasta</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="dieteticoPregunta3opcion3" name="dieteticoPregunta3" class="custom-control-input" value="Pan" ngModel>
+                <label class="custom-control-label" for="dieteticoPregunta3opcion3">c) Pan</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="dieteticoPregunta3opcion4" name="dieteticoPregunta3" class="custom-control-input" value="Tortillas" ngModel>
+                <label class="custom-control-label" for="dieteticoPregunta3opcion4">d) Tortilla</label>
+              </div>
+            </div>
+
+            <!-- Cuestion 4 -->
+            <h6 class="pt-4 pl-3">¿Qué proteínas consume con mayor regularidad?</h6>
+
+            <div class="form-group row">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="dieteticoPregunta4opcion1" name="dieteticoPregunta4" class="custom-control-input" value="A" ngModel>
+                <label class="custom-control-label" for="dieteticoPregunta4opcion1">a)	Carne</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="dieteticoPregunta4opcion2" name="dieteticoPregunta4" class="custom-control-input" value="B" ngModel>
+                <label class="custom-control-label" for="dieteticoPregunta4opcion2">b) Pollo</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="dieteticoPregunta4opcion3" name="dieteticoPregunta4" class="custom-control-input" value="C" ngModel>
+                <label class="custom-control-label" for="dieteticoPregunta4opcion3">c) Pescado</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="dieteticoPregunta4opcion4" name="dieteticoPregunta4" class="custom-control-input" value="D" ngModel>
+                <label class="custom-control-label" for="dieteticoPregunta4opcion4">d) Otro</label>
+              </div>
+            </div>
+
+
+            <!-- Cuestion 5 -->
+            <h6 class="pt-4 pl-3">¿con que regularidad consume frutas y verduras?</h6>
+
+            <div class="form-group row">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="dieteticoPregunta5opcion1" name="dieteticoPregunta5" class="custom-control-input" value="A" ngModel>
+                <label class="custom-control-label" for="dieteticoPregunta5opcion1">a)	1 día a la semana</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="dieteticoPregunta5opcion2" name="dieteticoPregunta5" class="custom-control-input" value="B" ngModel>
+                <label class="custom-control-label" for="dieteticoPregunta5opcion2">b) 3 dias a la semana</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="dieteticoPregunta5opcion3" name="dieteticoPregunta5" class="custom-control-input" value="C" ngModel>
+                <label class="custom-control-label" for="dieteticoPregunta5opcion3">c) 5 o más días a la semana</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="dieteticoPregunta5opcion4" name="dieteticoPregunta5" class="custom-control-input" value="D" ngModel>
+                <label class="custom-control-label" for="dieteticoPregunta5opcion4">d) Ningún día a la semana</label>
+              </div>
+            </div>
+
+
+            <!-- Cuestion 6 -->
+            <h6 class="pt-4 pl-3">¿Gusta de las dietas veganas?</h6>
+
+            <div class="form-group row">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="dieteticoPregunta6Opcion1" name="dieteticoPregunta6" class="custom-control-input" value="A" ngModel>
+                <label class="custom-control-label" for="dieteticoPregunta6Opcion1">a)	Sí</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="dieteticoPregunta6Opcion2" name="dieteticoPregunta6" class="custom-control-input" value="B" ngModel>
+                <label class="custom-control-label" for="dieteticoPregunta6Opcion2">b) No</label>
+              </div>
+            </div>
+
+            <!-- Cuestion 7 -->
+            <h6 class="pt-4 pl-3">Escriba brevemente cómo es su dieta regular (por favor, facilitanos por lo menos 3 dias).</h6>
+              <div class="form-group">
+                <textarea class="form-control" id="dieteticoPregunta7" name="dieteticoPregunta7" rows="3" ngModel></textarea>
+              </div>
+
+            <div class="form-group row pt-3" *ngIf="formDietetico">
+              <button class="btn btn-info px-5">Finalizar el Registro</button>
+            </div>
+          </form>
+
+
+        </div>
+        <!-- Tab << End Dietéticos >> -->
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="py-2"></div>

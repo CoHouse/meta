@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="py-4">Mi Cuenta</h1>
+
+      <div>
+        <button (click)="getAccountData()">Botón 1</button>
+      </div>
+
+      <div class="py-4">
+        <h4>{{ accService.respuesta.message }}</h4>
+        <p>{{ accService.respuesta.otro }}</p>
+      </div>
+    </div>
+  </div>
+</div>
