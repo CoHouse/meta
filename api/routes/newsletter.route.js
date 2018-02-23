@@ -8,6 +8,7 @@ var newsletterController = require("../controllers/newsletter.controller.js");
 /* Carga de Router de ExpressJS para crear rutas en la API REST */
 var api = express.Router();
 
+/* Comentario de prueba para Github */
 api.post("/registerNl", newsletterController.registerNL );
 
 module.exports = api;
