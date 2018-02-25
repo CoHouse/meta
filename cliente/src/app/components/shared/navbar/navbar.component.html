@@ -14,11 +14,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto mx-auto">
         <li *ngIf="this.auth.isAuthenticated()" class="nav-item px-3" routerLinkActive = "menu-active">
-          <!-- Bandera para validar si el usuario ya respondió completo el cuestionario -->
           <a class="nav-link menu-item" [routerLink]="['inquest']">Cuestionario</a>
-        </li>
-        <li class="nav-item px-3" routerLinkActive = "menu-active">
-          <a class="nav-link menu-item" [routerLink]="['home']">Home</a>
         </li>
         <li class="nav-item px-3" routerLinkActive = "menu-active">
           <a class="nav-link menu-item" [routerLink]="['training']">Entrenamiento</a>

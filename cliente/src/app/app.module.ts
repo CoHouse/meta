@@ -29,6 +29,7 @@ import { AccountService } from './services/account.service';
 
 /* Routes */
 import { APP_ROUTING } from './app-routes';
+import { GymsComponent } from './components/private/gyms/gyms.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { APP_ROUTING } from './app-routes';
     AccountComponent,
     InquestComponent,
     RegisterComponent,
-    ContentManagerComponent
+    ContentManagerComponent,
+    GymsComponent
   ],
   imports: [
     BrowserModule,
