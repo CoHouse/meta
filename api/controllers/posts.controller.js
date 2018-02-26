@@ -1,7 +1,12 @@
 "use strict"
 
 var objPost = require("../models/posts.model.js");
+var homePosts = 3;
+var publicModifier = 'V';
+var registerModifier = 'R';
+var userModifier = 'U';
 
+/* GET */
 function showPosts( req, res ){
   objPost.find( ( error, showPosts )=>{
     if( error ){
@@ -13,12 +18,61 @@ function showPosts( req, res ){
   } );
 }
 
-// function showPublicPosts(){}
-//
-// function showRegistredPosts(){}
-//
-// function showPrivatePosts(){}
+function showHomePosts( req, res ){
+  objPost.find( ( error, homePosts )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición"} );
+    }else{
+      res.status(200).send( { homePosts } );
+    }
+  } ).where('visibleLevel').equals( publicModifier ).limit( homePosts );
+}
 
+function showPublicPosts( req, res ){
+  objPost.find( ( error, showPosts )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición"} );
+    }else{
+      res.status(200).send( { showPosts } );
+      console.log( showPosts );
+    }
+  } ).where('visibleLevel').equals( publicModifier );
+}
+
+function showRegistredPosts( req, res ){
+  objPost.find( ( error, showPosts )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición"} );
+    }else{
+      res.status(200).send( { showPosts } );
+      console.log( showPosts );
+    }
+  } ).where('visibleLevel').equals( registerModifier );
+}
+
+function showPrivatePosts( req, res ){
+  objPost.find( ( error, showPosts )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición"} );
+    }else{
+      res.status(200).send( { showPosts } );
+      console.log( showPosts );
+    }
+  } ).where('visibleLevel').equals( userModifier );
+}
+
+function showPostByCategory( req, res, category ){
+  objPost.find( ( error, showPosts )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición"} );
+    }else{
+      res.status(200).send( { showPosts } );
+      console.log( showPosts );
+    }
+  } ).where('category').equals( category );
+}
+
+/* POST */
 function savePost( req, res ){
 
   var post = new objPost();
@@ -32,20 +86,25 @@ function savePost( req, res ){
   post.image = params.image;
   post.date = params.date;
   post.author = params.author;
+  post.category = params.category;
   post.visibleLevel = params.visibleLevel;
 
   post.save( ( error, guardado ) => {
-    if(error){
-      res.status(500).send({ msg: "error"})
+    if( error ){
+      res.status( 500 ).send({ msg: "error"})
     }else{
-      res.status(200).send( guardado )
+      res.status( 200 ).send( guardado )
     }
   });
 
 }
 
-/* Exportar los metodos del módulo, cada uno devolverá algo diferente o hará una función distinta */
 module.exports = {
   savePost,
-  showPosts
+  showPosts,
+  showHomePosts,
+  showPublicPosts,
+  showRegistredPosts,
+  showPrivatePosts,
+  showPostByCategory
 }

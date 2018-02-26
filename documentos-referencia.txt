@@ -1,0 +1,9 @@
+
+Mongoose JS
+http://mongoosejs.com/docs/api.html
+
+http://mongoosejs.com/docs/queries.html
+
+Exportar Base Mongo
+
+http://ingmmurillo.blogspot.mx/2012/08/como-exportar-e-importar-una-base-de.html

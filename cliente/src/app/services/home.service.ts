@@ -8,13 +8,16 @@ export class HomeService {
 
   respuesta: any;
 
-  constructor( public httpObj:HttpClient ) { }
+  constructor( public httpObj:HttpClient ) {
+  //  this.getPosts();
+  }
 
   getPosts(){
-    let url = Ruta.url + "getPosts";
+    let url = Ruta.url + "getPostsHome";
     return this.httpObj.get( url ).map( res => {
-      this.respuesta = res;
-      return this.respuesta;
+      console.log( res );
+      // this.respuesta = res;
+      // return this.respuesta;
     //  console.log(this.respuesta);
     });
   }
@@ -28,5 +31,6 @@ export interface Post{
   image:string;
   date:string;
   author:string;
+  category:string;
   visibleLevel:string;
 }

@@ -12,6 +12,7 @@ var postSchema = schema({
   image: String,
   date: String,
   author: String,
+  category: String,
   visibleLevel: String
 });
 
