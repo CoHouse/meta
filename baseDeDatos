@@ -1,0 +1,122 @@
+/*=============================================>>>>>
+= Estructura de tablas necesarias =
+===============================================>>>>>*/
+
+categories
+  name: String,
+  modifier: String,
+  type: String
+
+posts
+  title: String,
+  subtitle: String,
+  image: String,
+  date: String,
+  author: String,
+  visibleLevel: String,
+  category  : String,
+
+
+
+
+/*=============================================>>>>>
+= Datos de la tabla "categories" =
+===============================================>>>>>*/
+{
+  "name" : "Volúmen"
+  "modifier" : "V"
+  "type" : "blog"
+}
+{
+  "name" : "Nutrición"
+  "modifier" : "N"
+  "type" : "blog"
+}
+{
+  "name" : "Ejercicios"
+  "modifier" : "E"
+  "type" : "blog"
+}
+{
+  "name" : "Suplementos"
+  "modifier" : "S"
+  "type" : "blog"
+}
+{
+  "name" : "Ejercicios"
+  "modifier" : ""
+  "type" : "video"
+}
+{
+  "name" : ""
+  "modifier" : ""
+  "type" : "video"
+}
+{
+  "name" : ""
+  "modifier" : ""
+  "type" : "video"
+}
+{
+  "name" : ""
+  "modifier" : ""
+  "type" : "video"
+}
+
+/*=============================================>>>>>
+= Datos de la tabla "posts" (Datos de prueba) =
+===============================================>>>>>*/
+{
+    "_id" : ObjectId("5a8af7e0992fac339051ded1"),
+    "title" : "Blog DB 1",
+    "subtitle" : "sub title",
+    "image" : "assets/blog/post1.jpg",
+    "date" : "19-01-18 10:00",
+    "author" : "MT Crew",
+    "category" : "V",
+    "visibleLevel" : "V"
+}
+
+{
+    "_id" : ObjectId("5a8f2d6f4ebaa34874f8c706"),
+    "title" : "Blog DB 2",
+    "subtitle" : "sub title 2",
+    "image" : "assets/blog/18/post2.jpg",
+    "date" : "19-01-18 10:00",
+    "author" : "MT Crew",
+    "category" : "V",
+    "visibleLevel" : "V"
+}
+
+{
+    "_id" : ObjectId("5a8f2e034ebaa34874f8c707"),
+    "title" : "Blog DB 3",
+    "subtitle" : "sub title 3",
+    "image" : "assets/blog/18/post3.jpg",
+    "date" : "19-01-18 10:00",
+    "author" : "MT Crew",
+    "category" : "V",
+    "visibleLevel" : "R"
+}
+
+{
+    "_id" : ObjectId("5a8f2e134ebaa34874f8c708"),
+    "title" : "Blog DB 4",
+    "subtitle" : "sub title 4",
+    "image" : "assets/blog/18/post4.jpg",
+    "date" : "19-01-18 10:00",
+    "author" : "MT Crew",
+    "category" : "V",
+    "visibleLevel" : "B"
+}
+
+{
+    "_id" : ObjectId("5a8f2e2a4ebaa34874f8c709"),
+    "title" : "Blog DB 5",
+    "subtitle" : "sub title 5",
+    "image" : "assets/blog/18/post5.jpg",
+    "date" : "19-01-18 10:00",
+    "author" : "MT Crew",
+    "category" : "V",
+    "visibleLevel" : "B"
+}
