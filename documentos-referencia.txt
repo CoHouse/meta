@@ -7,3 +7,19 @@ http://mongoosejs.com/docs/queries.html
 Exportar Base Mongo
 
 http://ingmmurillo.blogspot.mx/2012/08/como-exportar-e-importar-una-base-de.html
+
+Documentación GIT
+
+https://git-scm.com/book/es/v2/Appendix-C%3A-Comandos-de-Git-Compartir-y-Actualizar-Proyectos
+
+Actualizar Angular CLI proyecto local
+
+Método 1:
+  1. ng --version
+  2. npm install --save-dev @angular/cli@latest
+
+Método 2:
+  npm uninstall --save-dev angular-cli
+  npm install --save-dev @angular/cli@latest
+  npm install
+  ng --version
