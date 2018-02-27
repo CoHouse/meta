@@ -20,16 +20,21 @@ import { RegisterComponent } from './components/public/register/register.compone
 import { AccountComponent } from './components/private/account/account.component';
 import { InquestComponent } from './components/private/inquest/inquest.component';
 import { ContentManagerComponent } from './components/admin/content-manager/content-manager.component';
+import { GymsComponent } from './components/private/gyms/gyms.component';
+import { PostComponent } from './components/public/post/post.component';
 
 /* Services */
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AdminService } from './services/admin.service';
 import { AccountService } from './services/account.service';
+import { HomeService } from './services/home.service';
+
+/* Pipes */
+import { KeysPipe } from './pipes/keys.pipe';
 
 /* Routes */
 import { APP_ROUTING } from './app-routes';
-import { GymsComponent } from './components/private/gyms/gyms.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +53,9 @@ import { GymsComponent } from './components/private/gyms/gyms.component';
     InquestComponent,
     RegisterComponent,
     ContentManagerComponent,
-    GymsComponent
+    GymsComponent,
+    PostComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,
@@ -61,7 +68,8 @@ import { GymsComponent } from './components/private/gyms/gyms.component';
     AuthService,
     AuthGuardService,
     AdminService,
-    AccountService
+    AccountService,
+    HomeService
   ],
   bootstrap: [ AppComponent ]
 })

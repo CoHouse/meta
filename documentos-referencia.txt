@@ -12,7 +12,17 @@ Documentación GIT
 
 https://git-scm.com/book/es/v2/Appendix-C%3A-Comandos-de-Git-Compartir-y-Actualizar-Proyectos
 
+Arrays en Typescript
+
+https://www.tutorialspoint.com/typescript/typescript_arrays.htm
+
+Documentación Oficial ExpressJS
+
+http://expressjs.com/es/4x/api.html#router
+
 Actualizar Angular CLI proyecto local
+
+https://stackoverflow.com/questions/44525746/global-angular-cli-version-greater-than-local-version
 
 Método 1:
   1. ng --version

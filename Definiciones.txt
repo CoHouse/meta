@@ -1,0 +1,31 @@
+Master GIT
+
+https://github.com/CoHouse/meta.git
+
+Modificadores de acceso Tabla "posts"
+
+V - Visitor
+R - Register
+C - Changer
+
+Modificadores de Acceso tabla "categories"
+
+V - Volúmen
+N - Nutrición
+E - Ejercicios
+S - Suplementos
+
+E - Ejercicios
+P - Pierna
+  PP - con Pesas
+  PL - Con liga
+  PO - Potencia
+T - Tronco
+  TA - Abdomen
+  TE - Espalda
+  TO - Oblicuos
+  TB - Brazos
+
+  Con Pesas
+  con Ligas
+  con el propio peso

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../../../services/home.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -10,11 +11,16 @@ export class HomeComponent implements OnInit {
 
   posts:any[] = [];
 
-  constructor( private homeService:HomeService ) { }
+  constructor( private homeService:HomeService ) {
 
-  ngOnInit() {
-    // this.posts = this.homeService.getPosts( );
-    // console.log( this.posts );
-  }
+    this.homeService.getHomePosts().subscribe( homePosts => {
+      // console.log( homePosts );
+      this.posts = homePosts;
+
+     });
+
+   }
+
+  ngOnInit() { }
 
 }

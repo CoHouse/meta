@@ -15,18 +15,18 @@
 
     <div class="card-deck">
 
-      <div *ngFor="let post of posts; i as index" class="card border-danger ">
-        <img class="card-img-top" src="{{ post.image }}" alt="{{ post.title }}">
+      <div *ngFor="let p of posts | keys" class="card border-danger ">
+        <img class="card-img-top" src="" alt="">
         <div class="card-body">
-          <h5 class="card-title">{{ post.title }}</h5>
-          <p class="card-text">{{ post.subtitle }}</p>
+          <h5 class="card-title">{{ posts[p].name }}</h5>
+          <p class="card-text"></p>
 
           <div class="text-center">
             <a href="id" class="btn btn-outline-danger btn-lg">Más Info...</a>
           </div>
         </div>
         <div class="card-footer">
-          <small class="text-muted">{{ post.date }}</small>
+          <small class="text-muted"></small>
         </div>
       </div>
 

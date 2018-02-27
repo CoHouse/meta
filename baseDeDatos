@@ -14,109 +14,131 @@ posts
   date: String,
   author: String,
   visibleLevel: String,
-  category  : String,
+  category: String,
+  text: String
+
+newsletters
+  email : String,
+  terms : String
 
 
+/*= End of Fin de las estructuras =*/
 
 
 /*=============================================>>>>>
 = Datos de la tabla "categories" =
 ===============================================>>>>>*/
 {
-  "name" : "Volúmen"
-  "modifier" : "V"
+  {
+  "name" : "Volúmen",
+  "modifier" : "V",
   "type" : "blog"
-}
-{
-  "name" : "Nutrición"
-  "modifier" : "N"
+  }
+  {
+  "name" : "Nutrición",
+  "modifier" : "N",
   "type" : "blog"
-}
-{
-  "name" : "Ejercicios"
-  "modifier" : "E"
+  }
+  {
+  "name" : "Ejercicios",
+  "modifier" : "E",
   "type" : "blog"
-}
-{
-  "name" : "Suplementos"
-  "modifier" : "S"
+  }
+  {
+  "name" : "Suplementos",
+  "modifier" : "S",
   "type" : "blog"
-}
-{
-  "name" : "Ejercicios"
-  "modifier" : ""
-  "type" : "video"
-}
-{
-  "name" : ""
-  "modifier" : ""
-  "type" : "video"
-}
-{
-  "name" : ""
-  "modifier" : ""
-  "type" : "video"
-}
-{
-  "name" : ""
-  "modifier" : ""
-  "type" : "video"
+  }
 }
 
 /*=============================================>>>>>
 = Datos de la tabla "posts" (Datos de prueba) =
 ===============================================>>>>>*/
 {
-    "_id" : ObjectId("5a8af7e0992fac339051ded1"),
-    "title" : "Blog DB 1",
-    "subtitle" : "sub title",
-    "image" : "assets/blog/post1.jpg",
-    "date" : "19-01-18 10:00",
-    "author" : "MT Crew",
-    "category" : "V",
-    "visibleLevel" : "V"
-}
+  {
+      "title" : "Blog DB 1",
+      "subtitle" : "sub title",
+      "image" : "assets/blog/post1.jpg",
+      "date" : "19-01-18 10:00",
+      "author" : "MT Crew",
+      "category" : "V",
+      "visibleLevel" : "V",
+      "text" : "<p style=\"text-align: justify;\">Muchas de las dudas más recurrentes de los usuarios menos experimentados son relacionadas a los trades, wallets y en general las herramientas para comprar y vender criptomonedas, hoy haremos una guía en relación a al sitio de trading más famoso de México (aunque no opera exclusivamente en dicho país).</p>\r\n\r\n<h2 style=\"text-align: justify;\">Bitso</h2>\r\n<p style=\"text-align: justify;\">Algún experto nos ha comentado que Bitso es un sitio seguro para tener ahí nuestras criptomonedas (Bitcoin, Ether y Ripple), además de que la interfaz es realmente sencilla de entender, sobretodo si vamos empezando en estos menesteres.</p>\r\n<p style=\"text-align: justify;\">Lo que se puede hacer es realmente básico, no esperes muchas funciones o miles de criptomonedas aunque en mi opinión, esto es una ventaja ya que es la sencillez de la interfaz lo que hace de este sitio un ideal para comenzar en un mundo tan complicado.</p>\r\n\r\n<h2>Creando una cuenta en Bitso</h2>\r\nLo primer es ir a la <a href=\"https://bitso.com/\" target=\"_blank\" rel=\"noopener noreferrer\">página de inicio dando clic aquí</a>. A penas entrar a la página, puedes ver un llamativo botón que pone \"ABRE TU CUENTA Y COMPRA BITCOIN\" es ahí en donde daremos clic para iniciar el proceso de creación de cuenta."
+  }
 
-{
-    "_id" : ObjectId("5a8f2d6f4ebaa34874f8c706"),
-    "title" : "Blog DB 2",
-    "subtitle" : "sub title 2",
-    "image" : "assets/blog/18/post2.jpg",
-    "date" : "19-01-18 10:00",
-    "author" : "MT Crew",
-    "category" : "V",
-    "visibleLevel" : "V"
-}
+  {
+      "title" : "Blog DB 2",
+      "subtitle" : "sub title 2",
+      "image" : "assets/blog/post2.jpg",
+      "date" : "27-02-18 10:00",
+      "author" : "MT Crew",
+      "category" : "V",
+      "visibleLevel" : "V",
+      "text" : "<p style=\"text-align: justify;\">Muchas de las dudas más recurrentes de los usuarios menos experimentados son relacionadas a los trades, wallets y en general las herramientas para comprar y vender criptomonedas, hoy haremos una guía en relación a al sitio de trading más famoso de México (aunque no opera exclusivamente en dicho país).</p>\r\n\r\n<h2 style=\"text-align: justify;\">Bitso</h2>\r\n<p style=\"text-align: justify;\">Algún experto nos ha comentado que Bitso es un sitio seguro para tener ahí nuestras criptomonedas (Bitcoin, Ether y Ripple), además de que la interfaz es realmente sencilla de entender, sobretodo si vamos empezando en estos menesteres.</p>\r\n<p style=\"text-align: justify;\">Lo que se puede hacer es realmente básico, no esperes muchas funciones o miles de criptomonedas aunque en mi opinión, esto es una ventaja ya que es la sencillez de la interfaz lo que hace de este sitio un ideal para comenzar en un mundo tan complicado.</p>\r\n\r\n<h2>Creando una cuenta en Bitso</h2>\r\nLo primer es ir a la <a href=\"https://bitso.com/\" target=\"_blank\" rel=\"noopener noreferrer\">página de inicio dando clic aquí</a>. A penas entrar a la página, puedes ver un llamativo botón que pone \"ABRE TU CUENTA Y COMPRA BITCOIN\" es ahí en donde daremos clic para iniciar el proceso de creación de cuenta."
+  }
 
-{
-    "_id" : ObjectId("5a8f2e034ebaa34874f8c707"),
-    "title" : "Blog DB 3",
-    "subtitle" : "sub title 3",
-    "image" : "assets/blog/18/post3.jpg",
-    "date" : "19-01-18 10:00",
-    "author" : "MT Crew",
-    "category" : "V",
-    "visibleLevel" : "R"
-}
+  {
+      "title" : "Blog DB 2",
+      "subtitle" : "sub title 2",
+      "image" : "assets/blog/post2.jpg",
+      "date" : "27-02-18 10:00",
+      "author" : "MT Crew",
+      "category" : "V",
+      "visibleLevel" : "V",
+      "text" : "<p style=\"text-align: justify;\">Muchas de las dudas más recurrentes de los usuarios menos experimentados son relacionadas a los trades, wallets y en general las herramientas para comprar y vender criptomonedas, hoy haremos una guía en relación a al sitio de trading más famoso de México (aunque no opera exclusivamente en dicho país).</p>\r\n\r\n<h2 style=\"text-align: justify;\">Bitso</h2>\r\n<p style=\"text-align: justify;\">Algún experto nos ha comentado que Bitso es un sitio seguro para tener ahí nuestras criptomonedas (Bitcoin, Ether y Ripple), además de que la interfaz es realmente sencilla de entender, sobretodo si vamos empezando en estos menesteres.</p>\r\n<p style=\"text-align: justify;\">Lo que se puede hacer es realmente básico, no esperes muchas funciones o miles de criptomonedas aunque en mi opinión, esto es una ventaja ya que es la sencillez de la interfaz lo que hace de este sitio un ideal para comenzar en un mundo tan complicado.</p>\r\n\r\n<h2>Creando una cuenta en Bitso</h2>\r\nLo primer es ir a la <a href=\"https://bitso.com/\" target=\"_blank\" rel=\"noopener noreferrer\">página de inicio dando clic aquí</a>. A penas entrar a la página, puedes ver un llamativo botón que pone \"ABRE TU CUENTA Y COMPRA BITCOIN\" es ahí en donde daremos clic para iniciar el proceso de creación de cuenta."
+  }
 
-{
-    "_id" : ObjectId("5a8f2e134ebaa34874f8c708"),
-    "title" : "Blog DB 4",
-    "subtitle" : "sub title 4",
-    "image" : "assets/blog/18/post4.jpg",
-    "date" : "19-01-18 10:00",
-    "author" : "MT Crew",
-    "category" : "V",
-    "visibleLevel" : "B"
-}
+  {
+      "title" : "Blog DB 2",
+      "subtitle" : "sub title 2",
+      "image" : "assets/blog/post2.jpg",
+      "date" : "27-02-18 10:00",
+      "author" : "MT Crew",
+      "category" : "V",
+      "visibleLevel" : "R",
+      "text" : "<p style=\"text-align: justify;\">Muchas de las dudas más recurrentes de los usuarios menos experimentados son relacionadas a los trades, wallets y en general las herramientas para comprar y vender criptomonedas, hoy haremos una guía en relación a al sitio de trading más famoso de México (aunque no opera exclusivamente en dicho país).</p>\r\n\r\n<h2 style=\"text-align: justify;\">Bitso</h2>\r\n<p style=\"text-align: justify;\">Algún experto nos ha comentado que Bitso es un sitio seguro para tener ahí nuestras criptomonedas (Bitcoin, Ether y Ripple), además de que la interfaz es realmente sencilla de entender, sobretodo si vamos empezando en estos menesteres.</p>\r\n<p style=\"text-align: justify;\">Lo que se puede hacer es realmente básico, no esperes muchas funciones o miles de criptomonedas aunque en mi opinión, esto es una ventaja ya que es la sencillez de la interfaz lo que hace de este sitio un ideal para comenzar en un mundo tan complicado.</p>\r\n\r\n<h2>Creando una cuenta en Bitso</h2>\r\nLo primer es ir a la <a href=\"https://bitso.com/\" target=\"_blank\" rel=\"noopener noreferrer\">página de inicio dando clic aquí</a>. A penas entrar a la página, puedes ver un llamativo botón que pone \"ABRE TU CUENTA Y COMPRA BITCOIN\" es ahí en donde daremos clic para iniciar el proceso de creación de cuenta."
+  }
 
-{
-    "_id" : ObjectId("5a8f2e2a4ebaa34874f8c709"),
-    "title" : "Blog DB 5",
-    "subtitle" : "sub title 5",
-    "image" : "assets/blog/18/post5.jpg",
-    "date" : "19-01-18 10:00",
-    "author" : "MT Crew",
-    "category" : "V",
-    "visibleLevel" : "B"
+  {
+      "title" : "Blog DB 2",
+      "subtitle" : "sub title 2",
+      "image" : "assets/blog/post2.jpg",
+      "date" : "27-02-18 10:00",
+      "author" : "MT Crew",
+      "category" : "V",
+      "visibleLevel" : "R",
+      "text" : "<p style=\"text-align: justify;\">Muchas de las dudas más recurrentes de los usuarios menos experimentados son relacionadas a los trades, wallets y en general las herramientas para comprar y vender criptomonedas, hoy haremos una guía en relación a al sitio de trading más famoso de México (aunque no opera exclusivamente en dicho país).</p>\r\n\r\n<h2 style=\"text-align: justify;\">Bitso</h2>\r\n<p style=\"text-align: justify;\">Algún experto nos ha comentado que Bitso es un sitio seguro para tener ahí nuestras criptomonedas (Bitcoin, Ether y Ripple), además de que la interfaz es realmente sencilla de entender, sobretodo si vamos empezando en estos menesteres.</p>\r\n<p style=\"text-align: justify;\">Lo que se puede hacer es realmente básico, no esperes muchas funciones o miles de criptomonedas aunque en mi opinión, esto es una ventaja ya que es la sencillez de la interfaz lo que hace de este sitio un ideal para comenzar en un mundo tan complicado.</p>\r\n\r\n<h2>Creando una cuenta en Bitso</h2>\r\nLo primer es ir a la <a href=\"https://bitso.com/\" target=\"_blank\" rel=\"noopener noreferrer\">página de inicio dando clic aquí</a>. A penas entrar a la página, puedes ver un llamativo botón que pone \"ABRE TU CUENTA Y COMPRA BITCOIN\" es ahí en donde daremos clic para iniciar el proceso de creación de cuenta."
+  }
+
+  {
+      "title" : "Blog DB 2",
+      "subtitle" : "sub title 2",
+      "image" : "assets/blog/post2.jpg",
+      "date" : "27-02-18 10:00",
+      "author" : "MT Crew",
+      "category" : "V",
+      "visibleLevel" : "C",
+      "text" : "<p style=\"text-align: justify;\">Muchas de las dudas más recurrentes de los usuarios menos experimentados son relacionadas a los trades, wallets y en general las herramientas para comprar y vender criptomonedas, hoy haremos una guía en relación a al sitio de trading más famoso de México (aunque no opera exclusivamente en dicho país).</p>\r\n\r\n<h2 style=\"text-align: justify;\">Bitso</h2>\r\n<p style=\"text-align: justify;\">Algún experto nos ha comentado que Bitso es un sitio seguro para tener ahí nuestras criptomonedas (Bitcoin, Ether y Ripple), además de que la interfaz es realmente sencilla de entender, sobretodo si vamos empezando en estos menesteres.</p>\r\n<p style=\"text-align: justify;\">Lo que se puede hacer es realmente básico, no esperes muchas funciones o miles de criptomonedas aunque en mi opinión, esto es una ventaja ya que es la sencillez de la interfaz lo que hace de este sitio un ideal para comenzar en un mundo tan complicado.</p>\r\n\r\n<h2>Creando una cuenta en Bitso</h2>\r\nLo primer es ir a la <a href=\"https://bitso.com/\" target=\"_blank\" rel=\"noopener noreferrer\">página de inicio dando clic aquí</a>. A penas entrar a la página, puedes ver un llamativo botón que pone \"ABRE TU CUENTA Y COMPRA BITCOIN\" es ahí en donde daremos clic para iniciar el proceso de creación de cuenta."
+  }
+
+  {
+      "title" : "Blog DB 2",
+      "subtitle" : "sub title 2",
+      "image" : "assets/blog/post2.jpg",
+      "date" : "27-02-18 10:00",
+      "author" : "MT Crew",
+      "category" : "V",
+      "visibleLevel" : "C",
+      "text" : "<p style=\"text-align: justify;\">Muchas de las dudas más recurrentes de los usuarios menos experimentados son relacionadas a los trades, wallets y en general las herramientas para comprar y vender criptomonedas, hoy haremos una guía en relación a al sitio de trading más famoso de México (aunque no opera exclusivamente en dicho país).</p>\r\n\r\n<h2 style=\"text-align: justify;\">Bitso</h2>\r\n<p style=\"text-align: justify;\">Algún experto nos ha comentado que Bitso es un sitio seguro para tener ahí nuestras criptomonedas (Bitcoin, Ether y Ripple), además de que la interfaz es realmente sencilla de entender, sobretodo si vamos empezando en estos menesteres.</p>\r\n<p style=\"text-align: justify;\">Lo que se puede hacer es realmente básico, no esperes muchas funciones o miles de criptomonedas aunque en mi opinión, esto es una ventaja ya que es la sencillez de la interfaz lo que hace de este sitio un ideal para comenzar en un mundo tan complicado.</p>\r\n\r\n<h2>Creando una cuenta en Bitso</h2>\r\nLo primer es ir a la <a href=\"https://bitso.com/\" target=\"_blank\" rel=\"noopener noreferrer\">página de inicio dando clic aquí</a>. A penas entrar a la página, puedes ver un llamativo botón que pone \"ABRE TU CUENTA Y COMPRA BITCOIN\" es ahí en donde daremos clic para iniciar el proceso de creación de cuenta."
+  }
+  {
+      "title" : "Blog DB 2",
+      "subtitle" : "sub title 2",
+      "image" : "assets/blog/post2.jpg",
+      "date" : "27-02-18 10:00",
+      "author" : "MT Crew",
+      "category" : "V",
+      "visibleLevel" : "V",
+      "text" : "<p style=\"text-align: justify;\">Muchas de las dudas más recurrentes de los usuarios menos experimentados son relacionadas a los trades, wallets y en general las herramientas para comprar y vender criptomonedas, hoy haremos una guía en relación a al sitio de trading más famoso de México (aunque no opera exclusivamente en dicho país).</p>\r\n\r\n<h2 style=\"text-align: justify;\">Bitso</h2>\r\n<p style=\"text-align: justify;\">Algún experto nos ha comentado que Bitso es un sitio seguro para tener ahí nuestras criptomonedas (Bitcoin, Ether y Ripple), además de que la interfaz es realmente sencilla de entender, sobretodo si vamos empezando en estos menesteres.</p>\r\n<p style=\"text-align: justify;\">Lo que se puede hacer es realmente básico, no esperes muchas funciones o miles de criptomonedas aunque en mi opinión, esto es una ventaja ya que es la sencillez de la interfaz lo que hace de este sitio un ideal para comenzar en un mundo tan complicado.</p>\r\n\r\n<h2>Creando una cuenta en Bitso</h2>\r\nLo primer es ir a la <a href=\"https://bitso.com/\" target=\"_blank\" rel=\"noopener noreferrer\">página de inicio dando clic aquí</a>. A penas entrar a la página, puedes ver un llamativo botón que pone \"ABRE TU CUENTA Y COMPRA BITCOIN\" es ahí en donde daremos clic para iniciar el proceso de creación de cuenta."
+  }
 }

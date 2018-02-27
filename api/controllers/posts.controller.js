@@ -2,9 +2,9 @@
 
 var objPost = require("../models/posts.model.js");
 var homePosts = 3;
-var publicModifier = 'V';
+var visitorModifier = 'V';
 var registerModifier = 'R';
-var userModifier = 'U';
+var changerModifier = 'B';
 
 /* GET */
 function showPosts( req, res ){
@@ -18,6 +18,19 @@ function showPosts( req, res ){
   } );
 }
 
+function showPost( req, res ){
+  // validar funcionalidad
+  console.log("Implementar la funcionalidad que devuelva un solo registro");
+  // objPost.find( ( error, showPost )=>{
+  //   if( error ){
+  //     res.status(500).send( { message: "Error en la petición"} );
+  //   }else{
+  //     res.status(200).send( { showPost } );
+  //     console.log( showPosts );
+  //   }
+  // } ).where('_id').equals( visitorModifier ).limit(1);
+}
+
 function showHomePosts( req, res ){
   objPost.find( ( error, homePosts )=>{
     if( error ){
@@ -25,7 +38,7 @@ function showHomePosts( req, res ){
     }else{
       res.status(200).send( { homePosts } );
     }
-  } ).where('visibleLevel').equals( publicModifier ).limit( homePosts );
+  } ).where('visibleLevel').equals( visitorModifier ).limit( homePosts );
 }
 
 function showPublicPosts( req, res ){
@@ -36,7 +49,7 @@ function showPublicPosts( req, res ){
       res.status(200).send( { showPosts } );
       console.log( showPosts );
     }
-  } ).where('visibleLevel').equals( publicModifier );
+  } ).where('visibleLevel').equals( visitorModifier );
 }
 
 function showRegistredPosts( req, res ){
@@ -58,7 +71,7 @@ function showPrivatePosts( req, res ){
       res.status(200).send( { showPosts } );
       console.log( showPosts );
     }
-  } ).where('visibleLevel').equals( userModifier );
+  } ).where('visibleLevel').equals( changerModifier );
 }
 
 function showPostByCategory( req, res, category ){
@@ -88,6 +101,7 @@ function savePost( req, res ){
   post.author = params.author;
   post.category = params.category;
   post.visibleLevel = params.visibleLevel;
+  post.text = params.text;
 
   post.save( ( error, guardado ) => {
     if( error ){

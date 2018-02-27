@@ -13,7 +13,8 @@ var postSchema = schema({
   date: String,
   author: String,
   category: String,
-  visibleLevel: String
+  visibleLevel: String,
+  text: String
 });
 
  module.exports = mongoose.model('posts', postSchema);

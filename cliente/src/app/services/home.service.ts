@@ -1,36 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import 'rxjs/add/operator/map';
 import { Ruta } from '../global_route';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class HomeService {
 
-  respuesta: any;
+  response:any;
 
   constructor( public httpObj:HttpClient ) {
-  //  this.getPosts();
+    this.getHomePosts();
+    // this.getHomeVideos();
   }
 
-  getPosts(){
+  getHomePosts(){
     let url = Ruta.url + "getPostsHome";
-    return this.httpObj.get( url ).map( res => {
-      console.log( res );
-      // this.respuesta = res;
-      // return this.respuesta;
-    //  console.log(this.respuesta);
-    });
+    return this.httpObj.get( url ).map( res => this.response = res );
   }
 
-}
+  // getHomeVideos(){
+  //   let url = Ruta.url + "getVideosHome";
+  //   return this.httpObj.get( url ).map( res => {
+  //     console.log(res);
+  //   } );
+  // }
 
-export interface Post{
-  id:number;
-  title:string;
-  subtitle:string;
-  image:string;
-  date:string;
-  author:string;
-  category:string;
-  visibleLevel:string;
 }
