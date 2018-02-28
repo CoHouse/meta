@@ -6,16 +6,13 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class HomeService {
 
-  response:any;
+  posts:any = [];
 
-  constructor( public httpObj:HttpClient ) {
-    this.getHomePosts();
-    // this.getHomeVideos();
-  }
+  constructor( public httpObj:HttpClient ) { }
 
   getHomePosts(){
     let url = Ruta.url + "getPostsHome";
-    return this.httpObj.get( url ).map( res => this.response = res );
+    return this.httpObj.get( url ).map( res => res );
   }
 
   // getHomeVideos(){

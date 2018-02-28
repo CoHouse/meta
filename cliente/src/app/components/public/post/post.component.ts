@@ -8,7 +8,7 @@ import { Post } from '../../../services/post.service';
 })
 export class PostComponent implements OnInit {
 
-  private post:Post = {
+  private blogPost:Post = {
     title: "",
     subtitle: "",
     image: "",
@@ -19,7 +19,7 @@ export class PostComponent implements OnInit {
     text: ""
   }
 
-  constructor( private postService:Post ) {  }
+  constructor( ) {  }
 
   ngOnInit() {
   }

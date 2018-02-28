@@ -15,18 +15,19 @@
 
     <div class="card-deck">
 
-      <div *ngFor="let p of posts | keys" class="card border-danger ">
-        <img class="card-img-top" src="" alt="">
+      <!-- <div *ngFor="let id of posts | keys" class="card border-danger "> -->
+      <div *ngFor="let id of posts" class="card border-danger ">
+        <img class="card-img-top" src="{{ posts.image }}" alt="">
         <div class="card-body">
-          <h5 class="card-title">{{ posts[p].name }}</h5>
-          <p class="card-text"></p>
+          <h5 class="card-title">{{ posts.title }}</h5>
+          <p class="card-text">{{ posts.subtitle }}</p>
 
           <div class="text-center">
             <a href="id" class="btn btn-outline-danger btn-lg">Más Info...</a>
           </div>
         </div>
         <div class="card-footer">
-          <small class="text-muted"></small>
+          <small class="text-muted">Fecha de publicación: {{ posts.date }}</small>
         </div>
       </div>
 
@@ -57,12 +58,12 @@
           <small class="text-muted">Publicado el día 31 de Febrero de 1492</small>
         </div>
       </div>
-
-      <div class="card border-danger">
+      <div class="card border-danger ">
         <img class="card-img-top" src="assets/img/img.svg" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">Video 1</h5>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
           <div class="text-center">
             <a href="" class="btn btn-outline-danger btn-lg">Ver Más...</a>
           </div>
@@ -71,12 +72,12 @@
           <small class="text-muted">Publicado el día 31 de Febrero de 1492</small>
         </div>
       </div>
-
-      <div class="card border-danger">
+      <div class="card border-danger ">
         <img class="card-img-top" src="assets/img/img.svg" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">Video 1</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
           <div class="text-center">
             <a href="" class="btn btn-outline-danger btn-lg">Ver Más...</a>
           </div>
