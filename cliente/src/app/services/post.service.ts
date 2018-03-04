@@ -10,20 +10,7 @@ export class PostService {
 
   getPost( $key:string ){
     let url = Ruta.url + "getPost";
-    return this.http.get( url ).map( res => {
-      console.log(res);
-    } );
+    return this.http.get( url ).map( res => {} );
   }
 
-}
-
-export interface Post{
-  title: String,
-  subtitle: String,
-  image: String,
-  date: String,
-  author: String,
-  category: String,
-  visibleLevel: String,
-  text: String
 }

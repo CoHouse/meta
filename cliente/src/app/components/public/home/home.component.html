@@ -2,7 +2,7 @@
   <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 col-xs-12 pt-3 animated fadeIn slow">
     <!-- <img src="assets/img/logo.png" width="150" height="150" alt=""> -->
     <h1>Meta Body Changer</h1>
-    <h6 class="text-right">Bienvenido al nuevo concepto de entrenamiento personal, en el cual podrás cumplir tus objetivos de una forma optima y saludable, incorporando los mejores elementos de la vasta gama de deportes y actividades físicas así como nutrición y suplementación. <strong>Meta Body Changer</strong> como plan de entrenamiento ah sido probado en deportistas de alto rendimiento así como modelos fitness, participantes de reality shows, deportistas amateur así como principiantes en la actividad física mostrando grandes resultados con cambios notorios en las <strong>primeras semanas</strong> de haber iniciado el plan, probando nuestro sistema lo único que puedes perder son calorías y reservas lipídicas (o grasa). Únete a los mejores y cumple tus objetivos sin sacrificar tu salud ya que para nosotros la salud de nuestros miembros es lo más importante. Deja a un lado el “pain” y comienza el “gain”.</h6>
+    <h6 class="text-right">Bienvenido al nuevo concepto de entrenamiento personal, en el cual podrás cumplir tus objetivos de una forma optima y saludable, incorporando los mejores elementos de la vasta gama de deportes y actividades físicas así como nutrición y suplementación. <strong>Meta Body Changer</strong> como plan de entrenamiento ha sido probado en deportistas de alto rendimiento así como modelos fitness, participantes de reality shows, deportistas amateur así como principiantes en la actividad física mostrando grandes resultados con cambios notorios en las <strong>primeras semanas</strong> de haber iniciado el plan, probando nuestro sistema lo único que puedes perder son calorías y reservas lipídicas (o grasa). Únete a los mejores y cumple tus objetivos sin sacrificar tu salud ya que para nosotros la salud de nuestros miembros es lo más importante. Deja a un lado el “pain” y comienza el <strong>“gain”</strong>.</h6>
   </div>
 </div>
 
@@ -15,19 +15,18 @@
 
     <div class="card-deck">
 
-      <!-- <div *ngFor="let id of posts | keys" class="card border-danger "> -->
-      <div *ngFor="let id of posts" class="card border-danger ">
-        <img class="card-img-top" src="{{ posts.image }}" alt="">
+      <div *ngFor="let post of posts" class="card border-danger ">
+        <img class="card-img-top" src="{{ post.image }}" alt="{{ post.title }}" title="{{ post.title }}">
         <div class="card-body">
-          <h5 class="card-title">{{ posts.title }}</h5>
-          <p class="card-text">{{ posts.subtitle }}</p>
+          <h5 class="card-title">{{ post.title }}</h5>
+          <p class="card-text">{{ post.text | slice:0:70 }} ...</p>
 
           <div class="text-center">
             <a href="id" class="btn btn-outline-danger btn-lg">Más Info...</a>
           </div>
         </div>
         <div class="card-footer">
-          <small class="text-muted">Fecha de publicación: {{ posts.date }}</small>
+          <small class="text-muted">Fecha de publicación: {{ post.date }}</small>
         </div>
       </div>
 
@@ -44,46 +43,18 @@
     <h4>Videos</h4>
     <div class="card-deck">
 
-      <div class="card border-danger ">
-        <img class="card-img-top" src="assets/img/img.svg" alt="Card image cap">
+      <div *ngFor="let video of videos" class="card border-danger ">
+        <img class="card-img-top" src="{{ video.image }}" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">Video 1</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <h5 class="card-title">{{ video.title }}</h5>
+          <p class="card-text text-justify">{{ video.text | slice:0:70 }} ...</p>
 
           <div class="text-center">
             <a href="" class="btn btn-outline-danger btn-lg">Ver Más...</a>
           </div>
         </div>
         <div class="card-footer">
-          <small class="text-muted">Publicado el día 31 de Febrero de 1492</small>
-        </div>
-      </div>
-      <div class="card border-danger ">
-        <img class="card-img-top" src="assets/img/img.svg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Video 1</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-
-          <div class="text-center">
-            <a href="" class="btn btn-outline-danger btn-lg">Ver Más...</a>
-          </div>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Publicado el día 31 de Febrero de 1492</small>
-        </div>
-      </div>
-      <div class="card border-danger ">
-        <img class="card-img-top" src="assets/img/img.svg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Video 1</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-
-          <div class="text-center">
-            <a href="" class="btn btn-outline-danger btn-lg">Ver Más...</a>
-          </div>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Publicado el día 31 de Febrero de 1492</small>
+          <small class="text-muted">Fecha de publicación: {{ video.date }}</small>
         </div>
       </div>
 

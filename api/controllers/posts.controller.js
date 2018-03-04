@@ -1,7 +1,7 @@
 "use strict"
 
 var objPost = require("../models/posts.model.js");
-var homePosts = 3;
+var numberOfHomePosts = 3;
 var visitorModifier = 'V';
 var registerModifier = 'R';
 var changerModifier = 'B';
@@ -32,13 +32,13 @@ function showPost( req, res ){
 }
 
 function showHomePosts( req, res ){
-  objPost.find( ( error, homePosts )=>{
+  objPost.find( ( error, homePosts ) => {
     if( error ){
       res.status(500).send( { message: "Error en la petición"} );
     }else{
       res.status(200).send( { homePosts } );
     }
-  } ).where('visibleLevel').equals( visitorModifier ).limit( homePosts );
+  } ).where('visibleLevel').equals( visitorModifier ).limit( numberOfHomePosts );
 }
 
 function showPublicPosts( req, res ){
@@ -90,9 +90,6 @@ function savePost( req, res ){
 
   var post = new objPost();
   var params = req.body;
-
-  console.log(post);
-  console.log(params);
 
   post.title = params.title;
   post.subtitle = params.subtitle;

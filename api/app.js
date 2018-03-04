@@ -16,7 +16,8 @@ app.use( bodyParser.json( ) );
 = Cargar Rutas =
 ===============================================>>>>>*/
 var routePosts = require("./routes/posts.route.js");
-var newsletterPosts = require("./routes/newsletter.route.js");
+var routeNewsletter = require("./routes/newsletter.route.js");
+var routeVideos = require("./routes/videos.route.js");
 
 /*=============================================>>>>>
 = Configuración de cabeceras HTTP =
@@ -32,7 +33,8 @@ app.use((req, res, next)=>{
 /*=============================================>>>>>
 = Rutas Base de la aplicación =
 ===============================================>>>>>*/
-app.use("/api", routePosts);
-app.use("/api", newsletterPosts);
+app.use( "/api", routePosts );
+app.use( "/api", routeVideos );
+app.use( "/api", routeNewsletter );
 
 module.exports = app;

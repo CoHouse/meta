@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../../../services/home.service';
-// import { HttpClientModule } from '@angular/common/http';
+import { Http, Response } from "@angular/http"
 
 @Component({
   selector: 'app-home',
@@ -9,17 +9,22 @@ import { HomeService } from '../../../services/home.service';
 })
 export class HomeComponent implements OnInit {
 
-  posts:any[] = [];
+  public posts;
+  public videos;
 
-  constructor( private homeService:HomeService ) {
+  constructor( private _homeService:HomeService ) {
 
-    this.homeService.getHomePosts().subscribe( homePosts => {
+    this._homeService.getHomePosts().subscribe( result => {
+      this.posts = result.homePosts;
+    }, error => {
+      var errorMessage = <any>error;
+    });
 
-      for (let _id in homePosts){
-        console.log(homePosts[_id]);
-        this.posts.push(homePosts[_id]);
-      }
-     });
+    this._homeService.getHomeVideos().subscribe( result => {
+      this.videos = result.homeVideos;
+    }, error => {
+      var errorMessage = <any>error;
+    } );
 
    }
 
