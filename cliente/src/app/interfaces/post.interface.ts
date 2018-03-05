@@ -1,4 +1,5 @@
 export interface Post{
+  _id:String,
   title: String,
   subtitle: String,
   image: String,

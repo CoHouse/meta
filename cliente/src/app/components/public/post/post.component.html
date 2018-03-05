@@ -1,3 +1,77 @@
-<p>
-  post works!
-</p>
+  <div class="row pt-3">
+    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 text-center ml-3">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action flex-column align-items-start active">Categorías</li>
+        <!-- <li *ngFor="let category of categories" class="list-group-item">{{ category.name }} <span class="badge badge-primary badge-pill">14</span></li> -->
+      </ul>
+    </div>
+
+    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 text-center">
+      <img class="img-fluid mx-auto d-block w-50" src="{{ blogPost.image }}" alt="">
+      <!-- <img class="img-fluid mx-auto d-block w-25 h-25" src="{{ blogPost.image }}" alt=""> -->
+    </div>
+  </div>
+
+  <div class="row py-3">
+    <div class="col-lg-12">
+      <h6 class="text-center">{{ blogPost.category }}</h6>
+    </div>
+  </div>
+
+  <div class="row py-2">
+    <div class="col-lg-4 col-md-12 offset-lg-4 col-sm-2 col-xs-12 text-center">
+      <h1 class="text-align: center">{{ blogPost.title }}</h1>
+    </div>
+  </div>
+
+  <div class="row py-3">
+    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 offset-lg-2 offset-md-2 offset-sm-1">
+      <div>
+    </div>
+      {{ blogPost.text }}
+    </div>
+  </div>
+
+  <div class="row py-1">
+    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 offset-lg-2 offset-md-2 text-right">
+      <h6>Fecha de publicación: {{ blogPost.date }}</h6>
+    </div>
+  </div>
+
+  <div class="row py-1">
+    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 offset-lg-2 offset-md-2 text-right">
+      <h6>Publicado por: {{ blogPost.author }}</h6>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col ml-5">
+      <div class="text-left">
+        <h6>Anterior</h6>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="text-center">
+        <h6>Ir arriba</h6>
+      </div>
+    </div>
+
+    <div class="col mr-5">
+      <div class="text-right">
+        <h6>Siguiente</h6>
+      </div>
+    </div>
+  </div>
+
+
+<!--
+_id:"",
+title: "Título de prueba",
+subtitle: "subtítulo de prueba",
+image: "/assets/img/f.jpg",
+date: "05/03/18 13:00",
+author: "MBC Crew",
+category: "Ejercicios",
+visibleLevel: "V",
+text: "" -->

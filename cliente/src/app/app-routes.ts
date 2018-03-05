@@ -34,7 +34,7 @@ const APP_ROUTES: Routes = [
   { path: 'forum', component: ForumComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'cuenta', component: AccountComponent },
-  { path: 'post', component: PostComponent },
+  { path: 'post/:_id', component: PostComponent },
   { path: 'our-system', component: OursystemComponent },
 
   { path: 'training', component: TrainingComponent, canActivate: [ AuthGuardService, ChangerGuardService ] },

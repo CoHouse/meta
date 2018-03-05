@@ -24,4 +24,12 @@ export class HomeService {
     return this._http.get( this.url ).map( resV => resV );
   }
 
+  getPost( _id:string ){
+
+    let url = `${ Ruta.url }/getPost/${ _id }`;
+    //this.url = Ruta.url + "getPost/" + _id;
+    console.log( "La URL", url );
+    return this._http.get( url ).map( resPost => resPost );
+  }
+
 }

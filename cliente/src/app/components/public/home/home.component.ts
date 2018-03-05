@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../../../services/home.service';
 import { Http, Response } from "@angular/http";
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +13,9 @@ export class HomeComponent implements OnInit {
   public posts;
   public videos;
 
-  constructor( private _homeService:HomeService ) {
-
+  constructor(
+    private _homeService:HomeService,
+    private _activatedRoute:ActivatedRoute ) {
     this._homeService.getHomePosts().subscribe( result => {
       this.posts = result.homePosts;
     }, error => {

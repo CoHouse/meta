@@ -16,7 +16,7 @@ export class BlogComponent implements OnInit {
       this.categories = result.showBlogCategories;
     }, error => {
       var errorMessage = <any>error;
-    });    
+    });
   }
 
   ngOnInit(){ }

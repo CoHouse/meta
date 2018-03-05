@@ -10,7 +10,7 @@ var api = express.Router();
 
 /* Métodos GET */
 api.get("/getPosts", postsController.showPosts );
-//api.get("/getPost", postsController.showPost );
+api.get("/getPost/:_id", postsController.showPost );
 api.get("/getPostsHome", postsController.showHomePosts );
 api.get("/getPublicPosts", postsController.showPublicPosts );
 api.get("/getRegisteredPosts", postsController.showRegistredPosts );

@@ -18,12 +18,17 @@
       <div *ngFor="let post of posts" class="card border-danger ">
         <img class="card-img-top" src="{{ post.image }}" alt="{{ post.title }}" title="{{ post.title }}">
         <div class="card-body">
+
+          <pre>{{ post._id }}</pre>
+
           <h5 class="card-title">{{ post.title }}</h5>
-          <p class="card-text">{{ post.text | slice:0:70 }} ...</p>
+          <p class="card-text">{{ post.text | slice:0:100 }} ...</p>
 
           <div class="text-center">
-            <a href="id" class="btn btn-outline-danger btn-lg">Más Info...</a>
+            <a href="#/post/{{ post._id }}" class="btn btn-outline-danger btn-lg">Más Info...</a>
+            <a [routerLink]="['/post']" class="btn btn-outline-info btn-lg">Más Info...</a>
           </div>
+
         </div>
         <div class="card-footer">
           <small class="text-muted">Fecha de publicación: {{ post.date }}</small>

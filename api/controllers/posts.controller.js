@@ -7,28 +7,28 @@ var registerModifier = 'R';
 var changerModifier = 'B';
 
 /* GET */
+function showPost( req, res ){
+
+  objPost.find( ( error, showPost )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición: [showPost()]"} );
+    }else{
+      res.status(200).send( { showPost } );
+      console.log( req );
+    }
+  } ).where('_id').equals( req.params._id );
+
+}
+
 function showPosts( req, res ){
   objPost.find( ( error, showPosts )=>{
     if( error ){
-      res.status(500).send( { message: "Error en la petición"} );
+      res.status(500).send( { message: "Error en la petición: [showposts()]"} );
     }else{
       res.status(200).send( { showPosts } );
       console.log( showPosts );
     }
   } );
-}
-
-function showPost( req, res ){
-  // validar funcionalidad
-  console.log("Implementar la funcionalidad que devuelva un solo registro");
-  // objPost.find( ( error, showPost )=>{
-  //   if( error ){
-  //     res.status(500).send( { message: "Error en la petición"} );
-  //   }else{
-  //     res.status(200).send( { showPost } );
-  //     console.log( showPosts );
-  //   }
-  // } ).where('_id').equals( visitorModifier ).limit(1);
 }
 
 function showHomePosts( req, res ){
@@ -60,7 +60,7 @@ function showRegistredPosts( req, res ){
       res.status(200).send( { showPosts } );
       console.log( showPosts );
     }
-  } ).where('visibleLevel').equals( registerModifier );
+  } ).where('visibleLevel').equals( [ visitorModifier, registerModifier ] );
 }
 
 function showPrivatePosts( req, res ){
@@ -71,7 +71,7 @@ function showPrivatePosts( req, res ){
       res.status(200).send( { showPosts } );
       console.log( showPosts );
     }
-  } ).where('visibleLevel').equals( changerModifier );
+  } ).where('visibleLevel').equals( [ visitorModifier, registerModifier, changerModifier ] );
 }
 
 function showPostByCategory( req, res, category ){
@@ -111,11 +111,12 @@ function savePost( req, res ){
 }
 
 module.exports = {
-  savePost,
+  showPost,
   showPosts,
   showHomePosts,
   showPublicPosts,
   showRegistredPosts,
   showPrivatePosts,
-  showPostByCategory
+  showPostByCategory,
+  savePost
 }

@@ -1,0 +1,5 @@
+@echo off
+timeout /t 2 /nobreak
+FOR %%X IN ("C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe") DO rundll32 shell32.dll,ShellExec_RunDLL %%X
+timeout /t 2 /nobreak
+FOR %%X IN ("C:\Program Files\MongoDB\Server\3.4\bin\mongo.exe") DO rundll32 shell32.dll,ShellExec_RunDLL %%X
