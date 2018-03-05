@@ -1,26 +1,53 @@
 /*=============================================>>>>>
 = Estructura de tablas necesarias =
 ===============================================>>>>>*/
+{
 
-categories
-  name: String,
-  modifier: String,
-  type: String
+  categories
+    name: String,
+    modifier: String,
+    type: String
 
-posts
-  title: String,
-  subtitle: String,
-  image: String,
-  date: String,
-  author: String,
-  visibleLevel: String,
-  category: String,
-  text: String
+  posts
+    title: String,
+    subtitle: String,
+    image: String,
+    date: String,
+    author: String,
+    visibleLevel: String,
+    category: String,
+    text: String
 
-newsletters
-  email : String,
-  terms : String
+  videos
+    title: String
+    image: String
+    date: String
+    author: String
+    category: String
+    visibleLevel: String
+    text: String
 
+  admin-guard
+    email: String (encriptado)
+    startDate: date
+    endDate: date
+
+  nutritionist-guard
+    email: String (encriptado)
+    startDate: date
+    endDate: date
+
+  planner-guard
+    email: String (encriptado)
+    startDate: date
+    endDate: date
+
+  changer-guard
+    email: String (encriptado)
+    startDate: date
+    endDate: date
+
+}
 
 /*= End of Fin de las estructuras =*/
 
@@ -28,26 +55,75 @@ newsletters
 /*=============================================>>>>>
 = Datos de la tabla "categories" =
 ===============================================>>>>>*/
+/* BLOG */
 {
   {
-  "name" : "Volúmen",
+  "name" : "Todas las Entradas",
+  "modifier" : "A",
+  "ref" : "all",
+  "type" : "G"
+  }
+  {
+  "name" : "Volúmen e Intensidad",
   "modifier" : "V",
-  "type" : "blog"
+  "ref" : "volume",
+  "type" : "G"
   }
   {
   "name" : "Nutrición",
   "modifier" : "N",
-  "type" : "blog"
+  "ref" : "nutrition",
+  "type" : "G"
   }
   {
   "name" : "Ejercicios",
   "modifier" : "E",
-  "type" : "blog"
+  "ref" : "exercices",
+  "type" : "G"
   }
   {
   "name" : "Suplementos",
   "modifier" : "S",
-  "type" : "blog"
+  "ref" : "suplements",
+  "type" : "G"
+  }
+}
+
+/* VIDEO */
+{
+}
+
+/* FORUM */
+{
+  {
+  "name" : "Presentaciones",
+  "modifier" : "V",
+  "ref" : "ref",
+  "type" : "F"
+  }
+  {
+  "name" : "Dudas de la Plataforma",
+  "modifier" : "V",
+  "ref" : "ref",
+  "type" : "F"
+  }
+  {
+  "name" : "Transformaciones",
+  "modifier" : "C",
+  "ref" : "ref",
+  "type" : "F"
+  }
+  {
+  "name" : "Dudas con tu programa de Ejercicio",
+  "modifier" : "C",
+  "ref" : "ref",
+  "type" : "F"
+  }
+  {
+  "name" : "Dudas con tu programa Alimenticio",
+  "modifier" : "C",
+  "ref" : "ref",
+  "type" : "F"
   }
 }
 
@@ -142,3 +218,7 @@ newsletters
       "text" : "<p style=\"text-align: justify;\">Muchas de las dudas más recurrentes de los usuarios menos experimentados son relacionadas a los trades, wallets y en general las herramientas para comprar y vender criptomonedas, hoy haremos una guía en relación a al sitio de trading más famoso de México (aunque no opera exclusivamente en dicho país).</p>\r\n\r\n<h2 style=\"text-align: justify;\">Bitso</h2>\r\n<p style=\"text-align: justify;\">Algún experto nos ha comentado que Bitso es un sitio seguro para tener ahí nuestras criptomonedas (Bitcoin, Ether y Ripple), además de que la interfaz es realmente sencilla de entender, sobretodo si vamos empezando en estos menesteres.</p>\r\n<p style=\"text-align: justify;\">Lo que se puede hacer es realmente básico, no esperes muchas funciones o miles de criptomonedas aunque en mi opinión, esto es una ventaja ya que es la sencillez de la interfaz lo que hace de este sitio un ideal para comenzar en un mundo tan complicado.</p>\r\n\r\n<h2>Creando una cuenta en Bitso</h2>\r\nLo primer es ir a la <a href=\"https://bitso.com/\" target=\"_blank\" rel=\"noopener noreferrer\">página de inicio dando clic aquí</a>. A penas entrar a la página, puedes ver un llamativo botón que pone \"ABRE TU CUENTA Y COMPRA BITCOIN\" es ahí en donde daremos clic para iniciar el proceso de creación de cuenta."
   }
 }
+
+/*=============================================>>>>>
+= Section comment block =
+===============================================>>>>>*/

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Http, Response } from "@angular/http";
+import { BlogService } from '../../../services/blog.service';
 
 @Component({
   selector: 'app-blog',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  public categories;
+
+  constructor( public _blog:BlogService ) {
+    this._blog.getCategories().subscribe( result => {
+      this.categories = result.showBlogCategories;
+    }, error => {
+      var errorMessage = <any>error;
+    });
+  }
 
   ngOnInit() {
   }

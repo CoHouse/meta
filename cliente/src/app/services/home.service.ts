@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Ruta } from '../global_route';
-import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class HomeService {
 
   public url :string;
-
-  posts:any = [];
 
   constructor( public _http:HttpClient ) {
     this.getHomePosts();

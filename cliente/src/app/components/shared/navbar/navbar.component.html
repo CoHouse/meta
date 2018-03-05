@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-black">
       <a class="navbar-brand" href="#">
         <img src="/assets/img/logo.png" width="50" height="50" alt="">
-        MBC
+        Meta Body Changer
       </a>
     </nav>
 
@@ -12,11 +12,9 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto mx-auto">
-        <li *ngIf="this.auth.isAuthenticated()" class="nav-item px-3" routerLinkActive = "menu-active">
-          <a class="nav-link menu-item" [routerLink]="['inquest']">Cuestionario</a>
-        </li>
+        <!-- <li *ngIf="this.auth.isAuthenticated()" class="nav-item px-3" routerLinkActive = "menu-active"></li> -->
         <li class="nav-item px-3" routerLinkActive = "menu-active">
-          <a class="nav-link menu-item" [routerLink]="['training']">Entrenamiento</a>
+          <a class="nav-link menu-item" [routerLink]="['our-system']">Nuestro Sistema</a>
         </li>
         <li class="nav-item px-3" routerLinkActive = "menu-active">
           <a class="nav-link menu-item" [routerLink]="['blog']">Blog</a>
@@ -25,22 +23,28 @@
           <a class="nav-link menu-item" [routerLink]="['videos']">Videos</a>
         </li>
         <li class="nav-item px-3" routerLinkActive = "menu-active">
-          <a class="nav-link menu-item" [routerLink]="['ask']">Resuelve tu duda</a>
+          <a class="nav-link menu-item" [routerLink]="['ask']">Dudas</a>
         </li>
         <li class="nav-item px-3" routerLinkActive = "menu-active">
           <a class="nav-link menu-item" [routerLink]="['forum']">Foro</a>
         </li>
-        <li class="nav-item px-3" routerLinkActive = "menu-active">
-          <a class="nav-link menu-item" [routerLink]="['challenge']">Retos</a>
-        </li>
-        <li class="nav-item px-3" routerLinkActive = "menu-active">
-          <a class="nav-link menu-item" [routerLink]="['home']">Gimnasios</a>
-        </li>
+        <!-- Dropdown -->
+        <li class="nav-item dropdown menu-item">
+        <a *ngIf="this.auth.isAuthenticated()" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Mi Cuenta
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['inquest']">Cuestionario</a>
+          <a class="dropdown-item" [routerLink]="['training']">Entrenamiento</a>
+          <a class="dropdown-item" [routerLink]="['challenge']">Retos</a>
+          <a class="dropdown-item" [routerLink]="['home']">Gimnasios</a>
+        </div>
+      </li>
       </ul>
 
 
       <button *ngIf="!this.auth.isAuthenticated()" (click)="login()" class="btn btn-sm align-middle btn-success mx-2" type="button">Ingresar</button>
-      <a *ngIf="!this.auth.isAuthenticated()" class="btn btn-sm align-middle btn-danger mx-2" [routerLink]="['register']">Regístrarse</a>
+      <!-- <a *ngIf="!this.auth.isAuthenticated()" class="btn btn-sm align-middle btn-danger mx-2" [routerLink]="['register']">Regístrarse</a> -->
       <button *ngIf="this.auth.isAuthenticated()" (click)="logout()" class="btn btn-sm align-middle btn-outline-info mx-2" type="button">Cerrar Sesión</button>
 
     </div>

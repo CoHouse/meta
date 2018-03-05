@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../../../services/home.service';
-import { Http, Response } from "@angular/http"
+import { Http, Response } from "@angular/http";
 
 @Component({
   selector: 'app-home',
