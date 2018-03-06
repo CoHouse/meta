@@ -15,7 +15,7 @@ export class PostService {
 
   getCategories(){
     this.url = Ruta.url + "getBlogCategories";
-    return this._http.get( this.url ).map( resB => console.log(resB) );
+    return this._http.get( this.url ).map( resB => resB );
   }
 
   getPost( $key:string ){

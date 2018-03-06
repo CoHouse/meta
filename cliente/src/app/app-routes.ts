@@ -37,7 +37,7 @@ const APP_ROUTES: Routes = [
   { path: 'post/:_id', component: PostComponent },
   { path: 'our-system', component: OursystemComponent },
 
-  { path: 'training', component: TrainingComponent, canActivate: [ AuthGuardService, ChangerGuardService ] },
+  { path: 'training', component: TrainingComponent, canActivate: [ AuthGuardService ] },
   { path: 'inquest', component: InquestComponent, canActivate: [ AuthGuardService ] },
   { path: 'content-manager', component: ContentManagerComponent, canActivate: [ AuthGuardService, AdminGuardService ] },
   { path: '**',  component: HomeComponent },

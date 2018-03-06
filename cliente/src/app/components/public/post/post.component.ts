@@ -27,7 +27,7 @@ export class PostComponent implements OnInit {
   // constructor( private _postService:PostService, private _activatedRoute:ActivatedRoute ){  }
   constructor( public _post:PostService ){
     this._post.getCategories().subscribe( result => {
-      this.categories = console.log(result.showBlogCategories);
+      this.categories = result.showBlogCategories;
     }, error => {
       var errorMessage = <any>error;
     });

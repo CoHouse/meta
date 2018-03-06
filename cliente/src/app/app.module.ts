@@ -36,6 +36,7 @@ import { ChangerGuardService } from './services/changer-guard.service';
 import { AccountService } from './services/account.service';
 import { HomeService } from './services/home.service';
 import { BlogService } from './services/blog.service';
+import { PostService } from './services/post.service';
 /* Videos, Dudas, Foro */
 
 /* Pipes */
@@ -86,7 +87,8 @@ import { PlannerManagerComponent } from './components/admin/planner-manager/plan
     ChangerGuardService,
     AccountService,
     HomeService,
-    BlogService
+    BlogService,
+    PostService
   ],
   bootstrap: [ AppComponent ]
 })
