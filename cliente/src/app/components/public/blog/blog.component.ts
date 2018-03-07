@@ -13,7 +13,7 @@ export class BlogComponent implements OnInit {
 
   constructor( public _blog:BlogService ) {
     this._blog.getCategories().subscribe( result => {
-      this.categories = result.showBlogCategories;
+      this.categories = result['showBlogCategories'];
     }, error => {
       var errorMessage = <any>error;
     });

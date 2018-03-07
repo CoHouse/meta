@@ -14,7 +14,6 @@ function showPost( req, res ){
       res.status(500).send( { message: "Error en la petición: [showPost()]"} );
     }else{
       res.status(200).send( { showPost } );
-      console.log( req );
     }
   } ).where('_id').equals( req.params._id );
 
@@ -26,7 +25,6 @@ function showPosts( req, res ){
       res.status(500).send( { message: "Error en la petición: [showposts()]"} );
     }else{
       res.status(200).send( { showPosts } );
-      console.log( showPosts );
     }
   } );
 }

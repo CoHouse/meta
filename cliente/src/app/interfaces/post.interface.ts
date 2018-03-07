@@ -6,6 +6,6 @@ export interface Post{
   date: String,
   author: String,
   category: String,
-  visibleLevel: String,
+  visibleLevel?: String,
   text: String
 }

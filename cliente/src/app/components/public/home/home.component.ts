@@ -16,14 +16,15 @@ export class HomeComponent implements OnInit {
   constructor(
     private _homeService:HomeService,
     private _activatedRoute:ActivatedRoute ) {
+
     this._homeService.getHomePosts().subscribe( result => {
-      this.posts = result.homePosts;
+      this.posts = result['homePosts'];
     }, error => {
       var errorMessage = <any>error;
     });
 
     this._homeService.getHomeVideos().subscribe( result => {
-      this.videos = result.homeVideos;
+      this.videos = result['homeVideos'];
     }, error => {
       var errorMessage = <any>error;
     } );

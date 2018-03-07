@@ -18,9 +18,9 @@ export class PostService {
     return this._http.get( this.url ).map( resB => resB );
   }
 
-  getPost( $key:string ){
-    let url = Ruta.url + "getPost";
-    return this._http.get( url ).map( res => res );
+  getPost( _id:string ){
+    this.url = Ruta.url + "getPost/" + _id;
+    return this._http.get( this.url ).map( res => res );
   }
 
 
