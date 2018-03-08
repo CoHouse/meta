@@ -19,7 +19,3 @@ export class AccountService {
   }
 
 }
-
-/**
-* https://www.npmjs.com/package/request
-*/

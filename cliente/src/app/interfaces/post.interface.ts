@@ -1,11 +1,11 @@
 export interface Post{
-  _id:String,
-  title: String,
-  subtitle: String,
-  image: String,
-  date: String,
-  author: String,
-  category: String,
-  visibleLevel?: String,
-  text: String
+  _id?:string,
+  title: string,
+  subtitle: string,
+  image: string,
+  date: string,
+  author: string,
+  category: string,
+  visibleLevel?: string,
+  text: string
 }

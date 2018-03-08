@@ -13,18 +13,19 @@ export class PostComponent implements OnInit {
 
   public categories;
   public _id;
-  public blogPost:Post = {
-    _id:"",
+
+  public post:Post = {
     title: "title",
     subtitle: "subtitle",
-    image: "/assets/img/f.jpg",
+    image: "/assets/img/cube.jpg",
     date: "05/03/18 13:00",
     author: "MBC Crew",
     category: "Ejercicios",
     text: "text"
   }
 
-  // constructor( private _postService:PostService, private _activatedRoute:ActivatedRoute ){  }
+  displayDate = new Date().toLocaleDateString();
+
   constructor( public _post:PostService, public _activatedRoute:ActivatedRoute ){
 
   this._activatedRoute.params.subscribe( params => {
@@ -38,17 +39,11 @@ export class PostComponent implements OnInit {
     });
 
     this._post.getPost( this._id ).subscribe( result => {
-      this.blogPost = result['showPost'];
+      this.post = result['showPost'][0];
     });
 
  }
 
-  ngOnInit() {
-    this._post.getPost( this._id ).subscribe( result => {
-      this.blogPost = result['showPost'];
-    });
-
-
-  }
+  ngOnInit() { }
 
 }

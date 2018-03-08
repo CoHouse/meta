@@ -10,6 +10,9 @@ export class ContentManagerComponent implements OnInit {
 
   rows:string[] = ["1"];
   counter:number=1;
+  vActivaAdmin = false;
+  vActivaNutri = false;
+  vActivaPlane = false;
 
   constructor() { }
 
@@ -23,6 +26,18 @@ export class ContentManagerComponent implements OnInit {
   delRow(){
     this.rows.pop();
     this.counter--;
+  }
+
+  activaAdmin(){
+    this.vActivaAdmin = !this.vActivaAdmin;
+  }
+
+  activaNutritionist(){
+    this.vActivaNutri = !this.vActivaNutri;
+  }
+
+  activaPlanner(){
+    this.vActivaPlane = !this.vActivaPlane;
   }
 
   savePayments( form:NgForm ){

@@ -1,6 +1,6 @@
-<div  *ngFor="let post of blogPost" class="container-fluid">
+<div class="container-fluid">
   <div class="row pt-3">
-    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 text-center ml-3">
+    <div class="col-lg-2 col-md-2 col-sm-11 col-xs-11 offset-sm-1 offset-xs-1 text-center ml-3">
       <ul class="list-group">
         <li class="list-group-item list-group-item-action flex-column align-items-start active">Categorías</li>
         <li *ngFor="let category of categories" class="list-group-item"><a href="">{{ category.name }}</a> </li>
@@ -8,37 +8,22 @@
       </ul>
     </div>
 
-    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 text-center">
-      <!-- <img class="img-fluid mx-auto d-block w-75" src="{{ post.image }}" alt=""> -->
-
-
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="col-lg-9 col-md-9 col-sm-10 col-xs-10 offset-lg-0 offset-md-0 offset-sm-1 offset-xs-1 text-center">
         <div class="carousel-inner">
-
-          <!-- <div class="carousel-item active">
-            <img class="d-block w-100" src="{{ post.image }}" alt="First slide">
-          </div> -->
-
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="{{ post.image }}" alt="First slide">
+          <div class="carousel-item active pt-1">
+            <img class="d-block w-100" src="{{ post.image }}" alt="{{ post.title }} | {{ post.subtitle }}">
             <div class="carousel-caption d-none d-md-block">
-              <h1 class="py-5">{{ post.title }}</h1>
+              <h1 class="display-1 py-5">{{ post.title }}</h1>
               <h3 class="text-center py-2">{{ post.subtitle }}</h3>
             </div>
           </div>
-
         </div>
-      </div>
-
-      <!-- <img class="img-fluid mx-auto d-block w-25 h-25" src="{{ post.image }}" alt=""> -->
       <h6 class="text-center py-3">Categoría: {{ post.category }}</h6>
-      <!-- <h1 class="text-center py-2">{{ post.title }}</h1>
-      <h3 class="text-center py-2">{{ post.subtitle }}</h3> -->
 
     </div>
 
     <div class="row py-2 text-justify">
-      <div class="col-lg-9 col-md-9 offset-lg-2 offset-md-2 col-sm-12 col-xs-12">
+      <div class="col-lg-9 col-md-9 col-sm-10 col-xs-10 offset-lg-2 offset-md-2 offset-sm-1 offset-xs-1">
         {{ post.text }}
       </div>
     </div>
@@ -46,11 +31,10 @@
   </div>
 
   <div class="py-2 text-right">
-    <div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
+    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
       <h6 class="py-2">Fecha de publicación: {{ post.date }}</h6>
       <h6 class="py-2">Publicado por: {{ post.author }}</h6>
     </div>
-
   </div>
 
 </div>
