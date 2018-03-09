@@ -10,10 +10,8 @@ export class AuthGuardService implements CanActivate {
 
   canActivate( next:ActivatedRouteSnapshot, state:RouterStateSnapshot ){
     if ( this.auth.isAuthenticated() ){
-      console.log( "Pasó por el guard" );
       return true;
     } else {
-      console.error( "Bloqueado por el guard" );
       return false;
     }
   }

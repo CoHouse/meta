@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-content-manager',
@@ -40,8 +40,12 @@ export class ContentManagerComponent implements OnInit {
     this.vActivaPlane = !this.vActivaPlane;
   }
 
-  savePayments( form:NgForm ){
+  adminRegister( form:NgForm ){
     console.log(form);
+  }
+
+  savePayments( form:NgForm ){
+    console.log(form['value'][0]);
   }
 
 }
