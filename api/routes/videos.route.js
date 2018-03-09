@@ -11,6 +11,7 @@ var api = express.Router();
 /* Métodos GET */
 api.get("/getVideos", videosController.showVideos );
 api.get("/getVideosHome", videosController.showHomeVideos );
+api.get("/getVideo/:_id", videosController.showVideo);
 
 /* Métodos POST */
 api.post("/saveVideo", videosController.saveVideo );

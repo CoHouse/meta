@@ -5,21 +5,20 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class PostService {
+export class VideoService {
 
-    public url :string;
+  public url :string;
 
   constructor( private _http:HttpClient ) { }
 
   getCategories(){
-    this.url = Ruta.url + "getBlogCategories";
-    return this._http.get( this.url ).map( resB => resB );
+    this.url = Ruta.url + "getVideoCategories";
+    return this._http.get( this.url ).map( resV => resV );
   }
 
-  getPost( _id:string ){
-    this.url = Ruta.url + "getPost/" + _id;
+  getVideo( _id:string ){
+    this.url = Ruta.url + "getVideo/" + _id;
     return this._http.get( this.url ).map( res => res );
   }
-
 
 }

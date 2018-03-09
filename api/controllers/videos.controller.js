@@ -8,6 +8,17 @@ var changerModifier = 'B';
 
 /* GET */
 
+function showVideo( req, res ){
+  objVideo.find( ( error, showVideo )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición: [showVideo()]"} );
+    }else{
+      res.status(200).send( { showVideo } );
+    }
+  } ).where('_id').equals( req.params._id );
+
+}
+
 function showVideos( req, res ){
   objVideo.find( ( error, showVideos )=>{
     if( error ){
@@ -54,6 +65,7 @@ function saveVideo( req, res ){
 }
 
 module.exports = {
+  showVideo,
   saveVideo,
   showVideos,
   showHomeVideos

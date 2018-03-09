@@ -9,6 +9,7 @@ import { VideosComponent } from './components/public/videos/videos.component';
 import { ForumComponent } from './components/public/forum/forum.component';
 import { RegisterComponent } from './components/public/register/register.component';
 import { PostComponent } from './components/public/post/post.component';
+import { VideoComponent } from './components/public/video/video.component';
 import { OursystemComponent } from './components/public/oursystem/oursystem.component';
 
 /* Private Components */
@@ -35,6 +36,7 @@ const APP_ROUTES: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'cuenta', component: AccountComponent },
   { path: 'post/:_id', component: PostComponent },
+  { path: 'video/:_id', component: VideoComponent },
   { path: 'our-system', component: OursystemComponent },
 
   { path: 'training', component: TrainingComponent, canActivate: [ AuthGuardService ] },

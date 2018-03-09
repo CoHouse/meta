@@ -17,6 +17,8 @@ import { ChallengeComponent } from './components/public/challenge/challenge.comp
 import { ForumComponent } from './components/public/forum/forum.component';
 import { RegisterComponent } from './components/public/register/register.component';
 import { PostComponent } from './components/public/post/post.component';
+import { OursystemComponent } from './components/public/oursystem/oursystem.component';
+import { VideoComponent } from './components/public/video/video.component';
 
 import { TrainingComponent } from './components/private/training/training.component';
 import { AccountComponent } from './components/private/account/account.component';
@@ -25,6 +27,7 @@ import { GymsComponent } from './components/private/gyms/gyms.component';
 
 import { ContentManagerComponent } from './components/admin/content-manager/content-manager.component';
 import { NutritionistManagerComponent } from './components/admin/nutritionist-manager/nutritionist-manager.component';
+import { PlannerManagerComponent } from './components/admin/planner-manager/planner-manager.component';
 
 /* Services */
 import { AuthService } from './services/auth.service';
@@ -37,15 +40,14 @@ import { AccountService } from './services/account.service';
 import { HomeService } from './services/home.service';
 import { BlogService } from './services/blog.service';
 import { PostService } from './services/post.service';
-/* Videos, Dudas, Foro */
+import { VideoService } from './services/video.service';
+/* Dudas, Foro */
 
 /* Pipes */
 import { KeysPipe } from './pipes/keys.pipe';
 
 /* Routes */
 import { APP_ROUTING } from './app-routes';
-import { OursystemComponent } from './components/public/oursystem/oursystem.component';
-import { PlannerManagerComponent } from './components/admin/planner-manager/planner-manager.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,8 @@ import { PlannerManagerComponent } from './components/admin/planner-manager/plan
     KeysPipe,
     OursystemComponent,
     NutritionistManagerComponent,
-    PlannerManagerComponent
+    PlannerManagerComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +91,8 @@ import { PlannerManagerComponent } from './components/admin/planner-manager/plan
     AccountService,
     HomeService,
     BlogService,
-    PostService
+    PostService,
+    VideoService
   ],
   bootstrap: [ AppComponent ]
 })
