@@ -43,9 +43,6 @@ import { PostService } from './services/post.service';
 import { VideoService } from './services/video.service';
 /* Dudas, Foro */
 
-/* Pipes */
-import { KeysPipe } from './pipes/keys.pipe';
-
 /* Routes */
 import { APP_ROUTING } from './app-routes';
 
@@ -68,7 +65,6 @@ import { APP_ROUTING } from './app-routes';
     ContentManagerComponent,
     GymsComponent,
     PostComponent,
-    KeysPipe,
     OursystemComponent,
     NutritionistManagerComponent,
     PlannerManagerComponent,

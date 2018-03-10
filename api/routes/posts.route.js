@@ -14,7 +14,7 @@ api.get("/getPost/:_id", postsController.showPost );
 api.get("/getPostsHome", postsController.showHomePosts );
 api.get("/getPublicPosts", postsController.showPublicPosts );
 api.get("/getRegisteredPosts", postsController.showRegistredPosts );
-api.get("/getUserPosts", postsController.showPrivatePosts );
+api.get("/getChangerPosts", postsController.showPrivatePosts );
 // api.get("/getPostsByCategory:category", postsController.showPostByCategory );
 
 /* Métodos POST */

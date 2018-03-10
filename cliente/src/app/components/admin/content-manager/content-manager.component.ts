@@ -45,7 +45,7 @@ export class ContentManagerComponent implements OnInit {
   }
 
   savePayments( form:NgForm ){
-    console.log(form['value'][0]);
+    console.log(form['value']);
   }
 
 }
