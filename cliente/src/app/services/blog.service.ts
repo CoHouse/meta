@@ -38,20 +38,6 @@ export class BlogService {
     return this._http.get( this.url ).map( resB => resB );
   }
 
-  getPosts(){
-    if ( this._auth.isAuthenticated() && this._changer.isChanger() ){
-      console.log("Esto trae isChanger cuando eres changer", this._changer.isChanger());
-      this.url = Ruta.url + "getChangerPosts";
-      return this._http.get( this.url ).map( resChanger => resChanger );
-    } else if ( this._auth.isAuthenticated() && !this._changer.isChanger() ){
-      console.log("Esto trae isChanger cuando eres registrado", this._changer.isChanger());
-    this.url = Ruta.url + "getRegisteredPosts";
-    return this._http.get( this.url ).map( resChanger => resChanger );
-    } else {
-      console.log("Esto trae isChanger cuando eres visitante", this._changer.isChanger());
-    this.url = Ruta.url + "getPublicPosts";
-    return this._http.get( this.url ).map( resChanger => resChanger );
-    }
-  }
+  getPosts(){ }
 
 }

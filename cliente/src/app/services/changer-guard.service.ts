@@ -3,6 +3,7 @@ import { AuthService } from './auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Ruta } from '../global_route';
 import { Observable } from 'rxjs/Observable';
+// import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -33,30 +34,9 @@ export class ChangerGuardService {
 
 
   url = Ruta.url;
-  today = new Date();
 
   constructor( public _auth:AuthService, public _http:HttpClient ) { }
 
-  isChanger():boolean{
-
-    if ( this._auth.isAuthenticated() ){
-      //valida si su mail es changer y está vigente
-      this.url = Ruta.url + "getChanger";
-      this._http.get( this.url ).map( resB => {
-        if ( resB['email'] != null && resB['endDate'] >= this.today ){
-          console.log("esto trae el resultado de la llamada", resB)
-          return true;
-        }
-      });
-    }else{
-      console.log("esto trae el resultado de la llamada", resB)
-      return false;
-    }
-
-  }
-
-  isChangerValid():boolean{
-    return false;
-  }
+  isChanger( ){ }
 
 }

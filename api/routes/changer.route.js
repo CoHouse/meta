@@ -9,7 +9,7 @@ var changerController = require("../controllers/changer.controller.js");
 var api = express.Router();
 
 /* Métodos GET */
-api.get("/getchanger", changerController.getChanger );
+api.get("/getChanger", changerController.getChanger );
 
 /* Métodos POST */
 api.post("/saveChanger", changerController.saveChanger );

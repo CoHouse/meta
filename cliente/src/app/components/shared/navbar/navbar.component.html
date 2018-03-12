@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-black">
       <a class="navbar-brand" [routerLink]="['home']">
         <img src="/assets/img/logo.png" width="50" height="50" alt="">
-        Meta Body Changer
+        Meta Body Changer  <!-- {{ profile?.email }}  -->
       </a>
     </nav>
 
@@ -12,7 +12,7 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto mx-auto">
-        <!-- <li *ngIf="this.auth.isAuthenticated()" class="nav-item px-3" routerLinkActive = "menu-active"></li> -->
+        <li *ngIf="this.auth.isAuthenticated()" class="nav-item px-3" routerLinkActive = "menu-active"></li>
         <li class="nav-item px-3" routerLinkActive = "menu-active">
           <a class="nav-link menu-item" [routerLink]="['our-system']">Nuestro Sistema</a>
         </li>

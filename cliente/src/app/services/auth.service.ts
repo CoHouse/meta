@@ -50,6 +50,7 @@ export class AuthService {
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
+    localStorage.removeItem('email');
     // Go back to the home route
     this.router.navigate(['/']);
   }
@@ -64,7 +65,8 @@ export class AuthService {
   public getProfile(cb): void {
     const accessToken = localStorage.getItem('access_token');
     if (!accessToken) {
-      throw new Error('Access Token must exist to fetch profile');
+      // throw new Error('Access Token must exist to fetch profile');
+      console.log("No hay disponible un AT, favor de logearse en la plataforma");
     }
 
     const self = this;

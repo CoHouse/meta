@@ -44,3 +44,7 @@ Contar líneas en Git
 http://librosweb.es/foro/pregunta/265/como-contar-el-numero-total-de-lineas-de-codigo-en-un-repositorio-git/
 
 https://stackoverflow.com/questions/4822471/count-number-of-lines-in-a-git-repository
+
+Ver localstorage en chrome
+
+https://stackoverflow.com/questions/9404813/how-to-view-or-edit-localstorage

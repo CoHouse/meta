@@ -4,10 +4,9 @@ var objChanger = require("../models/changer.model.js");
 var bcrypt = require("bcrypt-nodejs");
 
 /* GET */
-function getChanger(){
-  //Obtener el mail del logeado y validar si es changer y está vigente
+function getChanger( req, res ){
+  console.log(req);
 }
-
 
 /* POST */
 function saveChanger( req, res ){
@@ -19,7 +18,7 @@ function saveChanger( req, res ){
   changer.startDate = params.startDate;
   changer.endDate = params.endDate;
 
-  if ( params.email != null || params.startDate != null || params.endDate != null ){
+  if ( params.email != null && params.startDate != null && params.endDate != null ){
 
     bcrypt.hash( params.email, null, null, function( error, hash ){
       changer.email = hash;
@@ -34,15 +33,16 @@ function saveChanger( req, res ){
 
     changer.save( ( error, save ) => {
       if( error ){
-        res.status( 500 ).send({ msg: "Error al guardar el usuario [saveChanger]"});
+        res.status( 500 ).send({ message: "Error al guardar el usuario [saveChanger]"});
       }else{
-        res.status( 200 ).send( save );
+        res.status( 200 ).send( save ); // Develop
+        // res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
       }
     });
 
     });
   }else{
-    res.status( 500 ).send({ msg: " Alguno de los datos viene vacío [saveChanger]"});
+    res.status( 500 ).send({ message: "Alguno de los datos viene vacío [saveChanger]"});
   }
 }
 

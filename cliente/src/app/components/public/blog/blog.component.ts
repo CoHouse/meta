@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from "@angular/http";
 import { BlogService } from '../../../services/blog.service';
+// import { AuthService } from '../../../services/auth.service';
+// import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-blog',
@@ -20,14 +22,8 @@ export class BlogComponent implements OnInit {
       var errorMessage = <any>error;
     });
 
-    this._blog.getPosts().subscribe( result => {
-      this.posts = result['showPosts'];
-    }, error => {
-      var errorMessage = <any>error;
-    });
-
   }
 
-  ngOnInit(){  }
+  ngOnInit(){ }
 
 }
