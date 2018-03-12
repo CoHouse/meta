@@ -30,22 +30,22 @@
   admin-guard
     email: String (encriptado)
     startDate: date
-    endDate: date
+    endDate: date (encriptado)
 
   nutritionist-guard
     email: String (encriptado)
     startDate: date
-    endDate: date
+    endDate: date (encriptado)
 
   planner-guard
     email: String (encriptado)
     startDate: date
-    endDate: date
+    endDate: date (encriptado)
 
   changer-guard
     email: String (encriptado)
     startDate: date
-    endDate: date
+    endDate: date (encriptado)
 
 }
 
@@ -126,6 +126,29 @@
   "type" : "F"
   }
 }
+
+/* CHANGER GUARD */
+{
+"email" : "String",
+"startDate" : "Date",
+"endDate" : "Dat"
+}
+
+/* NUTRITIONIST GUARD */
+{
+"email" : "String",
+"startDate" : "Date",
+"endDate" : "Dat"
+}
+
+/* PLANNER GUARD */
+{
+"email" : "String",
+"startDate" : "Date",
+"endDate" : "Dat"
+}
+
+
 
 /*=============================================>>>>>
 = Datos de la tabla "posts" (Datos de prueba) =

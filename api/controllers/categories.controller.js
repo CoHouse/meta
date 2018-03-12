@@ -2,10 +2,12 @@
 
 var objCategory = require("../models/categories.model.js");
 
+/* Modificadores de intreso/tipo de usuario*/
 var visitorModifier = 'V';
 var registerModifier = 'R';
 var changerModifier = 'B';
 
+/* Modificadores tipo de categoría, blog, video, foro */
 var blogTypeModifier = "G";
 var videoTypeModifier = "I";
 var forumTypeModifier = "F";

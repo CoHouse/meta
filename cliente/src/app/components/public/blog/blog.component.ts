@@ -10,13 +10,22 @@ import { BlogService } from '../../../services/blog.service';
 export class BlogComponent implements OnInit {
 
   public categories;
+  public posts;
 
   constructor( public _blog:BlogService ) {
+
     this._blog.getCategories().subscribe( result => {
       this.categories = result['showBlogCategories'];
     }, error => {
       var errorMessage = <any>error;
     });
+
+    this._blog.getPosts().subscribe( result => {
+      this.posts = result['showPosts'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
   }
 
   ngOnInit(){  }

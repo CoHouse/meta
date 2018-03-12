@@ -5,7 +5,15 @@
     <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5 pt-2 pb-4">
 
       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-          <a *ngFor="let category of categories; let i = index" class="nav-link" id="v-pills-{{ category.name }}-tab" data-toggle="pill" href="#v-pills-{{ category.ref }}" role="tab" aria-controls="v-pills-all" aria-selected="true"><h6>{{ category.name }}</h6></a>
+          <a
+          id="v-pills-{{ category.name }}-tab"
+          *ngFor="let category of categories; let i = index"
+          class="nav-link"
+          data-toggle="pill"
+          href="#v-pills-{{ category.ref }}"
+          role="tab"
+          aria-controls="v-pills-all"
+          aria-selected="true"><h6>{{ category.name }}</h6></a>
       </div>
 
     </div>
@@ -20,13 +28,12 @@
 
           <div class="card-deck">
 
-            <!-- Aquí el FOR -->
-            <div class="card" style="min-width:25%">
-              <a href=""><img class="card-img-top" src="assets/img/f.jpg" alt="Card image cap"></a>
+            <div *ngFor="let post of posts" class="card mb-3" style="min-width:25%; max-width:40%">
+              <a href="#/post/{{ post._id }}"><img class="card-img-top" src="assets/img/f.jpg" [alt]="post.title"></a>
               <div class="card-body">
-                <h5 class="card-title"><a href="#">Card title</a></h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <h5 class="card-title"><a href="#/post/{{ post._id }}">{{ post.title }}</a></h5>
+                <p class="card-text">{{ post.text | slice:0:100 }}</p>
+                <p class="card-text"><small class="text-muted">{{ post.date }}</small></p>
               </div>
             </div>
 
@@ -38,6 +45,7 @@
         <!-- Inicio Tab "Volúmen e Intensidad" -->
         <div class="tab-pane fade show" id="v-pills-volume" role="tabpanel" aria-labelledby="v-pills-volume-tab">
           <h2>Título de la categoría Volúmen e Intensidad</h2>
+
           <div class="card-deck">
 
             <div class="card" style="min-width:25%">

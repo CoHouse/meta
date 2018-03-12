@@ -8,6 +8,30 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ChangerGuardService {
 
+  /*
+  Campos en la base datos:
+    email: String,
+    startDate: Date,
+    endDate, Date
+   */
+
+ //   var today = new Date();
+ // var dd = today.getDate();
+ // var mm = today.getMonth()+1; //January is 0!
+ // var yyyy = today.getFullYear();
+ //
+ // if(dd<10) {
+ //     dd = '0'+dd
+ // }
+ //
+ // if(mm<10) {
+ //     mm = '0'+mm
+ // }
+ //
+ // today = mm + '/' + dd + '/' + yyyy;
+ // document.write(today);
+
+
   url = Ruta.url;
   today = new Date();
 
@@ -17,14 +41,15 @@ export class ChangerGuardService {
 
     if ( this._auth.isAuthenticated() ){
       //valida si su mail es changer y está vigente
-
       this.url = Ruta.url + "getChanger";
-      this._http.get( this.url ).map( resB => resB );
-
-      // sacar los datos del changer y ver si su mail está en la base y está vigente
-
-      return true;
+      this._http.get( this.url ).map( resB => {
+        if ( resB['email'] != null && resB['endDate'] >= this.today ){
+          console.log("esto trae el resultado de la llamada", resB)
+          return true;
+        }
+      });
     }else{
+      console.log("esto trae el resultado de la llamada", resB)
       return false;
     }
 
