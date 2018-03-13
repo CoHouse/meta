@@ -8,26 +8,11 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  profile:any;
-
   constructor( private auth:AuthService ) {
     auth.handleAuthentication();
   }
 
-  ngOnInit(){
-    if (this.auth.userProfile) {
-      this.profile = this.auth.userProfile;
-    } else {
-      this.auth.getProfile((err, profile) => {
-        this.profile = profile;
-        this.guardarmail();
-      });
-    }
-  }
-
-  guardarmail(){
-    localStorage.setItem('email', this.profile.email);
-  }
+  ngOnInit(){ }
 
   login(){
     this.auth.login();

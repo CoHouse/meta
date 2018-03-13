@@ -48,3 +48,7 @@ https://stackoverflow.com/questions/4822471/count-number-of-lines-in-a-git-repos
 Ver localstorage en chrome
 
 https://stackoverflow.com/questions/9404813/how-to-view-or-edit-localstorage
+
+Operadores lógicos en Javascript
+
+https://www.w3schools.com/js/js_comparisons.asp

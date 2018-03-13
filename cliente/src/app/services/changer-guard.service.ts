@@ -16,27 +16,13 @@ export class ChangerGuardService {
     endDate, Date
    */
 
- //   var today = new Date();
- // var dd = today.getDate();
- // var mm = today.getMonth()+1; //January is 0!
- // var yyyy = today.getFullYear();
- //
- // if(dd<10) {
- //     dd = '0'+dd
- // }
- //
- // if(mm<10) {
- //     mm = '0'+mm
- // }
- //
- // today = mm + '/' + dd + '/' + yyyy;
- // document.write(today);
-
-
   url = Ruta.url;
 
   constructor( public _auth:AuthService, public _http:HttpClient ) { }
 
-  isChanger( ){ }
+  isChanger( ){
+    this.url = Ruta.url + "getChanger/";
+    return this._http.get( this.url ).map( flag => flag );
+  }
 
 }
