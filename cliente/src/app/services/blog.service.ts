@@ -38,6 +38,6 @@ export class BlogService {
     return this._http.get( this.url ).map( resB => resB );
   }
 
-  getPosts(){ }
+  getPosts(){}
 
 }

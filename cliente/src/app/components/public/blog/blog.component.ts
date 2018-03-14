@@ -15,6 +15,8 @@ export class BlogComponent implements OnInit {
   public posts;
   public isChangerFlag:boolean;
 
+  public profile;
+
   constructor( public _blog:BlogService, public _changer:ChangerGuardService ) {
 
     this._blog.getCategories().subscribe( result => {
