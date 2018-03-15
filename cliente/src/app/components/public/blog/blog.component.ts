@@ -3,6 +3,8 @@ import { Http, Response } from "@angular/http";
 import { BlogService } from '../../../services/blog.service';
 import { ChangerGuardService } from '../../../services/changer-guard.service';
 import { AuthService } from '../../../services/auth.service';
+import { Changer } from '../../../interfaces/changer.interface';
+
 // import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -18,6 +20,12 @@ export class BlogComponent implements OnInit {
 
   profile: any;
 
+  changer:Changer = {
+    email: "",
+    startDate:"",
+    endDate: ""
+  }
+
   constructor( public _blog:BlogService, public _changer:ChangerGuardService, public auth:AuthService ) {
 
     this._blog.getCategories().subscribe( result => {
@@ -26,23 +34,37 @@ export class BlogComponent implements OnInit {
       var errorMessage = <any>error;
     });
 
-    // get user profile
-      if ( this.auth.userProfile ) {
-        this.profile = this.auth.userProfile;
-      } else {
-        this.auth.getProfile( ( err, profile ) => {
-          this.profile = profile;
-
-          this._changer.isChanger( this.profile.email ).subscribe( result => {
-            this.isChangerFlag = result['message'];
-          }, error => {
-            var errorMessage = <any>error;
-          });
-        });
-      }
+    // if( auth.isAuthenticated() ){
+    //     // get user profile
+    //     if ( this.auth.userProfile ) {
+    //     this.profile = this.auth.userProfile;
+    //   } else {
+    //     this.auth.getProfile( ( err, profile ) => {
+    //       this.profile = profile;
+    //
+    //       this.changer = {
+    //         email: this.profile['email'],
+    //         startDate:null,
+    //         endDate: null
+    //       }
+    //
+    //       this._changer.isChanger( this.changer ).subscribe( result => {
+    //         this.isChangerFlag = result['message'];
+    //       }, error => {
+    //         var errorMessage = <any>error;
+    //       });
+    //     });
+    //   }
+    // }else{
+    //   this.isChangerFlag = false;
+    // }
 
   }
 
-  ngOnInit(){ }
+  ngOnInit(){
+
+    this._blog.getPosts();
+
+  }
 
 }

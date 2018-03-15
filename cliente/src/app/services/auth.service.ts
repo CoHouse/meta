@@ -65,8 +65,8 @@ export class AuthService {
   public getProfile(cb): void {
     const accessToken = localStorage.getItem('access_token');
     if (!accessToken) {
-      // throw new Error('Access Token must exist to fetch profile');
-      console.log("No hay disponible un AT, favor de logearse en la plataforma");
+      throw new Error('Access Token must exist to fetch profile');
+      // console.log("No hay disponible un AT, favor de logearse en la plataforma");
     }
 
     const self = this;

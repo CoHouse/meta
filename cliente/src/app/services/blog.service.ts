@@ -6,9 +6,20 @@ import 'rxjs/add/operator/map';
 
 import { AuthService } from '../services/auth.service';
 import { ChangerGuardService } from '../services/changer-guard.service';
+import { Changer } from '../interfaces/changer.interface';
 
 @Injectable()
 export class BlogService {
+
+  public url :string;
+  public profile;
+  public isChangerFlag:boolean;
+
+  changer:Changer = {
+    email: "",
+    startDate:"",
+    endDate: ""
+  }
 
   /*
     type:
@@ -24,13 +35,13 @@ export class BlogService {
     S = Suplementos
   */
 
-  public url :string;
-  public profile;
-
   constructor( public _http:HttpClient,
                public _auth:AuthService,
                public _changer:ChangerGuardService ) {
+
     this.getCategories();
+    this.isChanger();
+
   }
 
   getCategories(){
@@ -38,6 +49,42 @@ export class BlogService {
     return this._http.get( this.url ).map( resB => resB );
   }
 
-  getPosts(){}
+  isChanger(){
+    if( this._auth.isAuthenticated() ){
+        // get user profile
+        if ( this._auth.userProfile ) {
+        this.profile = this._auth.userProfile;
+      } else {
+        this._auth.getProfile( ( err, profile ) => {
+          this.profile = profile;
+
+          this.changer = {
+            email: this.profile['email'],
+            startDate:null,
+            endDate: null
+          }
+
+          this._changer.isChanger( this.changer ).subscribe( result => {
+            console.log("Esto vale isChangerFlag justo antes de que result['message'] sea asignado:", this.isChangerFlag)
+            this.isChangerFlag = result['message'];
+            console.log("Esto vale isChangerFlag justo después de que result['message'] sea asignado:", this.isChangerFlag)
+          }, error => {
+            var errorMessage = <any>error;
+          });
+        });
+      }
+    }else{
+      this.isChangerFlag = false;
+    }
+  }
+
+  getPosts(){
+    if ( this.isChangerFlag ){
+      console.log()
+      console.log("Es Changer")
+    }else{
+      console.log("NO Es Changer")
+    }
+  }
 
 }

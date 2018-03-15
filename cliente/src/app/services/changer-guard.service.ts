@@ -15,22 +15,20 @@ export class ChangerGuardService {
 
   constructor( public _auth:AuthService, public _httpClient:HttpClient ) { }
 
-  isChanger( email ){
-
+  isChanger( changer:Changer ){
     this.url = Ruta.url + "getChanger/";
-    let body = JSON.stringify( email );
-
-    console.log("Esto viene en el body", body);
-
-    let headers = new HttpHeaders({ 'Content-Type':'application/json' });
+    let body = JSON.stringify( changer );
+    let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
 
     return this._httpClient.post( this.url, body, { headers } ).map( flag => flag );
+
   }
 
   sendChanger( changer:Changer ){
     this.url = Ruta.url + "saveChanger/";
-    let body = JSON.stringify(changer);
-    let headers = new HttpHeaders({ 'Content-Type':'application/json' });
+    let body = JSON.stringify( changer );
+
+    let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
 
     return this._httpClient.post( this.url, body, { headers } ).map( res => res );
   }

@@ -243,5 +243,16 @@
 }
 
 /*=============================================>>>>>
+= Integridad de "ChangerGuard" =
+===============================================>>>>>*/
+{
+    "_id" : ObjectId("5aaabe37f771292c84a412ac"),
+    "email" : "$2a$10$HinjfHMo6pGgfNrFuc2k1ugTOKml8kbjCgI0b8DzHM6Fmlt59X1ui",
+    "startDate" : "integridad",
+    "endDate" : "integridad",
+    "__v" : 0
+}
+
+/*=============================================>>>>>
 = Section comment block =
 ===============================================>>>>>*/
