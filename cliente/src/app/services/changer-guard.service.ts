@@ -1,28 +1,38 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Ruta } from '../global_route';
 import { Observable } from 'rxjs/Observable';
-// import { Router, ActivatedRoute } from '@angular/router';
+import { NgForm, FormsModule } from '@angular/forms';
+import { Changer } from '../interfaces/changer.interface';
 import 'rxjs/add/operator/map';
+// import { Router, ActivatedRoute } from '@angular/router';
 
 @Injectable()
 export class ChangerGuardService {
 
-  /*
-  Campos en la base datos:
-    email: String,
-    startDate: Date,
-    endDate, Date
-   */
-
   url = Ruta.url;
 
-  constructor( public _auth:AuthService, public _http:HttpClient ) { }
+  constructor( public _auth:AuthService, public _httpClient:HttpClient ) { }
 
-  isChanger( ){
+  isChanger( email ){
+
     this.url = Ruta.url + "getChanger/";
-    return this._http.get( this.url ).map( flag => flag );
+    let body = JSON.stringify( email );
+
+    console.log("Esto viene en el body", body);
+
+    let headers = new HttpHeaders({ 'Content-Type':'application/json' });
+
+    return this._httpClient.post( this.url, body, { headers } ).map( flag => flag );
+  }
+
+  sendChanger( changer:Changer ){
+    this.url = Ruta.url + "saveChanger/";
+    let body = JSON.stringify(changer);
+    let headers = new HttpHeaders({ 'Content-Type':'application/json' });
+
+    return this._httpClient.post( this.url, body, { headers } ).map( res => res );
   }
 
 }

@@ -9,9 +9,9 @@ var changerController = require("../controllers/changer.controller.js");
 var api = express.Router();
 
 /* Métodos GET */
-api.get("/getChanger", changerController.getChanger );
 
 /* Métodos POST */
+api.post("/getChanger", changerController.getChanger );
 api.post("/saveChanger", changerController.saveChanger );
 
 module.exports = api;

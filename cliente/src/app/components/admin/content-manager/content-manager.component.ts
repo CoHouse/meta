@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
+import { ChangerGuardService } from '../../../services/changer-guard.service';
+import { Changer } from '../../../interfaces/changer.interface';
 
 @Component({
   selector: 'app-content-manager',
@@ -8,24 +10,58 @@ import { NgForm, FormsModule } from '@angular/forms';
 })
 export class ContentManagerComponent implements OnInit {
 
-  rows:string[] = ["1"];
-  counter:number=1;
   vActivaAdmin = false;
   vActivaNutri = false;
   vActivaPlane = false;
+  saveSucess = false;
 
-  constructor() { }
+  changer:Changer = {
+    email: "",
+    startDate:"",
+    endDate: ""
+  }
+
+  admin:Changer = {
+    email: "",
+    startDate:"",
+    endDate: ""
+  };
+
+  constructor( public _changer:ChangerGuardService ) { }
 
   ngOnInit() { }
 
-  addRow(){
-    this.rows.push( (this.counter + 1).toString() );
-    this.counter++;
+  adminRegister( form:NgForm ){
+    this.admin = {
+      email: form['value']['adminEmail'],
+      startDate:form['value']['adminStartDate'],
+      endDate: form['value']['adminEndDate']
+    }
+
+    this._changer.sendChanger( this.changer ).subscribe( data => {
+      this.saveSucess = !this.saveSucess;
+      form.reset();
+    }, error => console.error( error ) );
   }
 
-  delRow(){
-    this.rows.pop();
-    this.counter--;
+  changerRegister( form:NgForm ){
+    this.changer = {
+      email: form['value']['paymentEmail'],
+      startDate:form['value']['paymentStartDate'],
+      endDate: form['value']['paymentEndDate']
+    }
+
+    this._changer.sendChanger( this.changer ).subscribe( data => {
+      this.saveSucess = !this.saveSucess;
+      form.reset();
+
+      // setTimeout( function(){
+      //   var x = document.getElementById("alertSucess");
+      //   this.saveSucess = false;
+      //   x.remove();
+      // }, 2000);
+
+    }, error => console.error( error ) );
   }
 
   activaAdmin(){
@@ -38,14 +74,6 @@ export class ContentManagerComponent implements OnInit {
 
   activaPlanner(){
     this.vActivaPlane = !this.vActivaPlane;
-  }
-
-  adminRegister( form:NgForm ){
-    console.log(form);
-  }
-
-  savePayments( form:NgForm ){
-    console.log(form['value']);
   }
 
 }

@@ -19,15 +19,19 @@
 
     </div>
 
+    {{ isChangerFlag }}
+
     <div class="col-lg-10 col-sm-12 col-xs-12">
 
       <div class="tab-content" id="v-pills-all-tab">
 
         <!-- Inicio Tab "Volúmen e Intensidad" -->
         <div class="tab-pane fade show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-volume-tab">
+          <!-- <h4>{{ isChangerFlag }}</h4> -->
+          <input type="hidden" name="email" value="{{ profile?.email }}">
           <h2>Todas las entradas del blog</h2>
 
-          <h4>{{ isChangerFlag }}</h4>
+          {{ profile?.email }} - {{ isChangerFlag }}
 
           <div class="card-deck">
 

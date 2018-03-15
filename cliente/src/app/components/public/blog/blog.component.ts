@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Response } from "@angular/http";
 import { BlogService } from '../../../services/blog.service';
 import { ChangerGuardService } from '../../../services/changer-guard.service';
+import { AuthService } from '../../../services/auth.service';
 // import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -15,9 +16,9 @@ export class BlogComponent implements OnInit {
   public posts;
   public isChangerFlag:boolean;
 
-  public profile;
+  profile: any;
 
-  constructor( public _blog:BlogService, public _changer:ChangerGuardService ) {
+  constructor( public _blog:BlogService, public _changer:ChangerGuardService, public auth:AuthService ) {
 
     this._blog.getCategories().subscribe( result => {
       this.categories = result['showBlogCategories'];
@@ -25,16 +26,23 @@ export class BlogComponent implements OnInit {
       var errorMessage = <any>error;
     });
 
+    // get user profile
+      if ( this.auth.userProfile ) {
+        this.profile = this.auth.userProfile;
+      } else {
+        this.auth.getProfile( ( err, profile ) => {
+          this.profile = profile;
+
+          this._changer.isChanger( this.profile.email ).subscribe( result => {
+            this.isChangerFlag = result['message'];
+          }, error => {
+            var errorMessage = <any>error;
+          });
+        });
+      }
+
   }
 
-  ngOnInit(){
-
-    this._changer.isChanger().subscribe( result => {
-      this.isChangerFlag = result['message'];
-    }, error => {
-      var errorMessage = <any>error;
-    });
-
-  }
+  ngOnInit(){ }
 
 }

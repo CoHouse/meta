@@ -100,7 +100,7 @@ function savePost( req, res ){
 
   post.save( ( error, guardado ) => {
     if( error ){
-      res.status( 500 ).send({ msg: "error"})
+      res.status( 500 ).send({ msg: "Error al guardar un post [savePost]"})
     }else{
       res.status( 200 ).send( guardado )
     }
