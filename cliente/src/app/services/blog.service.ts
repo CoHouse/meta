@@ -65,9 +65,7 @@ export class BlogService {
           }
 
           this._changer.isChanger( this.changer ).subscribe( result => {
-            console.log("Esto vale isChangerFlag justo antes de que result['message'] sea asignado:", this.isChangerFlag)
             this.isChangerFlag = result['message'];
-            console.log("Esto vale isChangerFlag justo después de que result['message'] sea asignado:", this.isChangerFlag)
           }, error => {
             var errorMessage = <any>error;
           });
@@ -79,11 +77,11 @@ export class BlogService {
   }
 
   getPosts(){
+    console.log( "Bandera antes de entrar al IF", this.isChangerFlag );
     if ( this.isChangerFlag ){
-      console.log()
-      console.log("Es Changer")
+      console.log( "Es Changer" );
     }else{
-      console.log("NO Es Changer")
+      console.log( "NO Es Changer" );
     }
   }
 

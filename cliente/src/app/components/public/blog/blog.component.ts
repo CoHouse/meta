@@ -63,7 +63,7 @@ export class BlogComponent implements OnInit {
 
   ngOnInit(){
 
-    this._blog.getPosts();
+  setTimeout(this._blog.getPosts(), 1000);
 
   }
 
