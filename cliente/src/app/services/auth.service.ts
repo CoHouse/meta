@@ -3,6 +3,10 @@ import { Router } from '@angular/router';
 import 'rxjs/add/operator/filter';
 import * as auth0 from 'auth0-js';
 
+/** Validate user **/
+import { Changer } from '..//interfaces/changer.interface';
+import { ChangerGuardService } from './changer-guard.service';
+
 @Injectable()
 export class AuthService {
 
@@ -18,7 +22,13 @@ export class AuthService {
 
   userProfile: any;
 
-  constructor( public router: Router ) { }
+  changer:Changer = {
+    email: "",
+    startDate:"",
+    endDate: ""
+  }
+
+  constructor( public router: Router, public _changer:ChangerGuardService ) { }
 
   public login(): void {
     this.auth0.authorize();
@@ -43,6 +53,31 @@ export class AuthService {
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
+
+    this.getProfile( ( err, profile ) => {
+      this.userProfile = profile;
+
+      this.changer = {
+        email: this.userProfile['email'],
+        startDate:null,
+        endDate: null
+      }
+
+      this._changer.isChanger( this.changer ).subscribe( result => {
+        let isChangerFlag = result['message'];
+
+        if( isChangerFlag == "true" ){
+          localStorage.setItem('about', "2018 MBC / cAbout");
+        }else{
+          localStorage.setItem('about', "2018 MBC / 160318");
+        }
+      }, error => {
+        var errorMessage = <any>error;
+      });
+
+      console.log( this.userProfile );
+    });
+
   }
 
   public logout(): void {
@@ -51,6 +86,7 @@ export class AuthService {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
     localStorage.removeItem('email');
+    localStorage.removeItem('about');
     // Go back to the home route
     this.router.navigate(['/']);
   }

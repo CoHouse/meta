@@ -40,7 +40,7 @@ export class BlogService {
                public _changer:ChangerGuardService ) {
 
     this.getCategories();
-    this.isChanger();
+    // this.isChanger();
 
   }
 
@@ -65,19 +65,22 @@ export class BlogService {
           }
 
           this._changer.isChanger( this.changer ).subscribe( result => {
-            this.isChangerFlag = result['message'];
+            return this.isChangerFlag = result['message'];
           }, error => {
             var errorMessage = <any>error;
           });
         });
       }
     }else{
-      this.isChangerFlag = false;
+      return this.isChangerFlag = false;
     }
   }
 
   getPosts(){
-    console.log( "Bandera antes de entrar al IF", this.isChangerFlag );
+
+    this.isChanger();
+
+    console.log( "Bandera antes de entrar al IF: ", this.isChangerFlag );
     if ( this.isChangerFlag ){
       console.log( "Es Changer" );
     }else{

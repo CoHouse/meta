@@ -16,7 +16,6 @@ export class BlogComponent implements OnInit {
 
   public categories;
   public posts;
-  public isChangerFlag:boolean;
 
   profile: any;
 
@@ -26,7 +25,9 @@ export class BlogComponent implements OnInit {
     endDate: ""
   }
 
-  constructor( public _blog:BlogService, public _changer:ChangerGuardService, public auth:AuthService ) {
+  constructor( public _blog:BlogService,
+               public _changer:ChangerGuardService,
+               public auth:AuthService ) {
 
     this._blog.getCategories().subscribe( result => {
       this.categories = result['showBlogCategories'];
@@ -63,7 +64,12 @@ export class BlogComponent implements OnInit {
 
   ngOnInit(){
 
-  setTimeout(this._blog.getPosts(), 1000);
+    setTimeout( ()=> {
+                this._blog.getPosts();
+            }, 500);
+
+    //setTimeout( alert("Retardo de 5000 mls"), 50000 );
+  // setTimeout( this._blog.getPosts(), 1000 );
 
   }
 

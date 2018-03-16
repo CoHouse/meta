@@ -13,7 +13,8 @@ export class ChangerGuardService {
 
   url = Ruta.url;
 
-  constructor( public _auth:AuthService, public _httpClient:HttpClient ) { }
+  constructor( public _httpClient:HttpClient ) { }
+  // constructor( public _auth:AuthService, public _httpClient:HttpClient ) { }
 
   isChanger( changer:Changer ){
     this.url = Ruta.url + "getChanger/";
@@ -21,7 +22,6 @@ export class ChangerGuardService {
     let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
 
     return this._httpClient.post( this.url, body, { headers } ).map( flag => flag );
-
   }
 
   sendChanger( changer:Changer ){
