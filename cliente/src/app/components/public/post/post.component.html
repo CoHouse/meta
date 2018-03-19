@@ -4,7 +4,6 @@
       <ul class="list-group">
         <li class="list-group-item list-group-item-action flex-column align-items-start active">Categorías</li>
         <li *ngFor="let category of categories" class="list-group-item"><a href="">{{ category.name }}</a> </li>
-        <!-- <span class="badge badge-primary badge-pill">14</span> -->
       </ul>
     </div>
 
@@ -33,7 +32,7 @@
   <div class="py-2 text-right">
     <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
       <h6 class="py-2">Fecha de publicación: {{ post.date }}</h6>
-      <h6 class="py-2">Publicado por: {{ post.author }}</h6>
+      <h6 class="py-2">Autor: {{ post.author }}</h6>
     </div>
   </div>
 

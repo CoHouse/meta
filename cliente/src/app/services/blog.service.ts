@@ -4,22 +4,11 @@ import { Ruta } from '../global_route';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { AuthService } from '../services/auth.service';
-import { ChangerGuardService } from '../services/changer-guard.service';
-import { Changer } from '../interfaces/changer.interface';
-
 @Injectable()
 export class BlogService {
 
   public url :string;
-  public profile;
-  public isChangerFlag:boolean;
-
-  changer:Changer = {
-    email: "",
-    startDate:"",
-    endDate: ""
-  }
+  public localStorageItems = 4;
 
   /*
     type:
@@ -35,13 +24,10 @@ export class BlogService {
     S = Suplementos
   */
 
-  constructor( public _http:HttpClient,
-               public _auth:AuthService,
-               public _changer:ChangerGuardService ) {
+  constructor( public _http:HttpClient ) {
 
     this.getCategories();
-    // this.isChanger();
-
+    this.getPosts( );
   }
 
   getCategories(){
@@ -49,43 +35,21 @@ export class BlogService {
     return this._http.get( this.url ).map( resB => resB );
   }
 
-  isChanger(){
-    if( this._auth.isAuthenticated() ){
-        // get user profile
-        if ( this._auth.userProfile ) {
-        this.profile = this._auth.userProfile;
-      } else {
-        this._auth.getProfile( ( err, profile ) => {
-          this.profile = profile;
+  getPosts(  ){
 
-          this.changer = {
-            email: this.profile['email'],
-            startDate:null,
-            endDate: null
-          }
+    if ( localStorage.length < this.localStorageItems ){
+      this.url = Ruta.url + "/getPublicPosts";
+      return this._http.get( this.url ).map( resV => resV );
+    }else{
+      let subs = localStorage.getItem( 'about' ).substring( 10, 17 );
 
-          this._changer.isChanger( this.changer ).subscribe( result => {
-            return this.isChangerFlag = result['message'];
-          }, error => {
-            var errorMessage = <any>error;
-          });
-        });
+      if ( parseInt( subs ) === 160318 ){
+        this.url = Ruta.url + "/getRegisteredPosts";
+        return this._http.get( this.url ).map( resV => resV );
+      }else{
+        this.url = Ruta.url + "/getChangerPosts";
+        return this._http.get( this.url ).map( resV => resV );
       }
-    }else{
-      return this.isChangerFlag = false;
     }
   }
-
-  getPosts(){
-
-    this.isChanger();
-
-    console.log( "Bandera antes de entrar al IF: ", this.isChangerFlag );
-    if ( this.isChangerFlag ){
-      console.log( "Es Changer" );
-    }else{
-      console.log( "NO Es Changer" );
-    }
-  }
-
 }

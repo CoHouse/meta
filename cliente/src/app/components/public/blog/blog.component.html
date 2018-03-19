@@ -19,6 +19,7 @@
           role="tab"
           aria-controls="v-pills-all"
           aria-selected="true"><h6>{{ category.name }}</h6></a>
+          <!-- <span class="badge badge-primary badge-pill">{{ posts.length }}</span> -->
       </div>
 
     </div>
@@ -31,8 +32,6 @@
         <div class="tab-pane fade show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-volume-tab">
 
           <h2>Todas las entradas del blog</h2>
-
-          {{ profile?.email }} - {{ isChangerFlag }}
 
           <div class="card-deck">
 

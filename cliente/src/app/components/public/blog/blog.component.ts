@@ -5,8 +5,6 @@ import { ChangerGuardService } from '../../../services/changer-guard.service';
 import { AuthService } from '../../../services/auth.service';
 import { Changer } from '../../../interfaces/changer.interface';
 
-// import { Router, ActivatedRoute } from '@angular/router';
-
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
@@ -19,15 +17,7 @@ export class BlogComponent implements OnInit {
 
   profile: any;
 
-  changer:Changer = {
-    email: "",
-    startDate:"",
-    endDate: ""
-  }
-
-  constructor( public _blog:BlogService,
-               public _changer:ChangerGuardService,
-               public auth:AuthService ) {
+  constructor( public _blog:BlogService ) {
 
     this._blog.getCategories().subscribe( result => {
       this.categories = result['showBlogCategories'];
@@ -35,42 +25,15 @@ export class BlogComponent implements OnInit {
       var errorMessage = <any>error;
     });
 
-    // if( auth.isAuthenticated() ){
-    //     // get user profile
-    //     if ( this.auth.userProfile ) {
-    //     this.profile = this.auth.userProfile;
-    //   } else {
-    //     this.auth.getProfile( ( err, profile ) => {
-    //       this.profile = profile;
-    //
-    //       this.changer = {
-    //         email: this.profile['email'],
-    //         startDate:null,
-    //         endDate: null
-    //       }
-    //
-    //       this._changer.isChanger( this.changer ).subscribe( result => {
-    //         this.isChangerFlag = result['message'];
-    //       }, error => {
-    //         var errorMessage = <any>error;
-    //       });
-    //     });
-    //   }
-    // }else{
-    //   this.isChangerFlag = false;
-    // }
 
+    this._blog.getPosts().subscribe( result => {
+      this.posts = result['showPosts'];
+      console.log( "esto trae this.posts dentro del ngoninit", this.posts );
+    }, error => {
+      var errorMessage = <any>error;
+    });
   }
 
-  ngOnInit(){
-
-    setTimeout( ()=> {
-                this._blog.getPosts();
-            }, 500);
-
-    //setTimeout( alert("Retardo de 5000 mls"), 50000 );
-  // setTimeout( this._blog.getPosts(), 1000 );
-
-  }
+  ngOnInit(){ }
 
 }

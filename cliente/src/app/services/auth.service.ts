@@ -28,6 +28,8 @@ export class AuthService {
     endDate: ""
   }
 
+  isChangerFlag;
+
   constructor( public router: Router, public _changer:ChangerGuardService ) { }
 
   public login(): void {
@@ -64,10 +66,11 @@ export class AuthService {
       }
 
       this._changer.isChanger( this.changer ).subscribe( result => {
-        let isChangerFlag = result['message'];
+        this.isChangerFlag = result['message'];
 
-        if( isChangerFlag == "true" ){
-          localStorage.setItem('about', "2018 MBC / cAbout");
+        if( this.isChangerFlag == "true" ){
+          console.log(this.isChangerFlag);
+          localStorage.setItem('about', "2018 MBC / 190318");
         }else{
           localStorage.setItem('about', "2018 MBC / 160318");
         }
@@ -75,7 +78,6 @@ export class AuthService {
         var errorMessage = <any>error;
       });
 
-      console.log( this.userProfile );
     });
 
   }
@@ -113,6 +115,5 @@ export class AuthService {
       cb(err, profile);
     });
   }
-
 
 }

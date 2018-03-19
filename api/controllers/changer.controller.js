@@ -41,19 +41,19 @@ function getChanger( req, res ){
 
   objChanger.find( ( error, showChangers ) => {
     if( error || showChangers.length <= 0 ){
-      return res.status( 404 ).send( { message: "[getChanger changerController]" } );
+       return res.status( 404 ).send( { message: "[getChanger changerController]" } );
     }else{
       for ( let i in showChangers ){
         if( !bcrypt.compareSync( params.email, showChangers[i].email ) ){
-          return res.status( 200 ).send( { message: "false" } );
+          /* hacer algo */
         }else{
           var today = dateformat( new Date(), "dd-mm-yyyy" );
           var endDate = dateformat( showChangers[i].endDate, "dd-mm-yyyy" );
 
           if( endDate >= today ){
-            return res.status( 200 ).send( { message: "true" } );
-          } else {
-            return res.status( 200 ).send( { message: "false" } );
+              return res.status( 200 ).send( { message: "true" } );
+            } else {
+              return res.status( 200 ).send( { message: "false" } );
           }
         }
       }

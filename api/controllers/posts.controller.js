@@ -2,13 +2,18 @@
 
 var objPost = require("../models/posts.model.js");
 var numberOfHomePosts = 3;
+
 var visitorModifier = 'V';
 var registerModifier = 'R';
 var changerModifier = 'B';
 
+var categoryVolume = 'V';
+var categoryNutrition = 'N';
+var categoryExercises = 'E';
+var categorySuplements = 'S';
+
 /* GET */
 function showPost( req, res ){
-
   objPost.find( ( error, showPost )=>{
     if( error ){
       res.status(500).send( { message: "Error en la petición: [showPost()]"} );
@@ -45,7 +50,6 @@ function showPublicPosts( req, res ){
       res.status(500).send( { message: "Error en la petición"} );
     }else{
       res.status(200).send( { showPosts } );
-      console.log( showPosts );
     }
   } ).where('visibleLevel').equals( visitorModifier );
 }
@@ -56,7 +60,6 @@ function showRegistredPosts( req, res ){
       res.status(500).send( { message: "Error en la petición"} );
     }else{
       res.status(200).send( { showPosts } );
-      console.log( showPosts );
     }
   } ).where('visibleLevel').equals( [ visitorModifier, registerModifier ] );
 }
@@ -67,7 +70,6 @@ function showPrivatePosts( req, res ){
       res.status(500).send( { message: "Error en la petición"} );
     }else{
       res.status(200).send( { showPosts } );
-      console.log( showPosts );
     }
   } ).where('visibleLevel').equals( [ visitorModifier, registerModifier, changerModifier ] );
 }
