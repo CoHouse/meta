@@ -15,7 +15,22 @@ api.get("/getPostsHome", postsController.showHomePosts );
 api.get("/getPublicPosts", postsController.showPublicPosts );
 api.get("/getRegisteredPosts", postsController.showRegistredPosts );
 api.get("/getChangerPosts", postsController.showPrivatePosts );
-// api.get("/getPostsByCategory:category", postsController.showPostByCategory );
+
+api.get("/getVolumePublicPosts", postsController.showVolumePublicPosts );
+api.get("/getVolumeRegisteredPosts", postsController.showVolumeRegisteredPosts );
+api.get("/getVolumeChangerPosts", postsController.showVolumeChangerPosts );
+
+api.get("/getNutritionPublicPosts", postsController.showNutritionPublicPosts );
+api.get("/getNutritionRegisteredPosts", postsController.showNutritionRegisteredPosts );
+api.get("/getNutritionChangerPosts", postsController.showNutritionChangerPosts );
+
+api.get("/getExercisesPublicPosts", postsController.showExercisesPublicPosts );
+api.get("/getExercisesRegisteredPosts", postsController.showExercisesRegisteredPosts );
+api.get("/getExercisesChangerPosts", postsController.showExercisesChangerPosts );
+
+api.get("/getSuplementsPublicPosts", postsController.showSuplementsPublicPosts );
+api.get("/getSuplementsRegisteredPosts", postsController.showSuplementsRegisteredPosts );
+api.get("/getSuplementsChangerPosts", postsController.showSuplementsChangerPosts );
 
 /* Métodos POST */
 api.post("/savePost", postsController.savePost );

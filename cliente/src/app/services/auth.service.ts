@@ -69,7 +69,6 @@ export class AuthService {
         this.isChangerFlag = result['message'];
 
         if( this.isChangerFlag == "true" ){
-          console.log(this.isChangerFlag);
           localStorage.setItem('about', "2018 MBC / 190318");
         }else{
           localStorage.setItem('about', "2018 MBC / 160318");

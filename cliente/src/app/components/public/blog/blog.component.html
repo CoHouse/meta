@@ -29,7 +29,7 @@
       <div class="tab-content" id="v-pills-all-tab">
 
         <!-- Inicio Tab "Volúmen e Intensidad" -->
-        <div class="tab-pane fade show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-volume-tab">
+        <div class="tab-pane fade show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all">
 
           <h2>Todas las entradas del blog</h2>
 
@@ -57,7 +57,7 @@
 
           <div class="card-deck">
 
-            <div class="card" style="min-width:25%">
+            <div *ngFor="let post of postsVolume" class="card" style="min-width:25%">
               <a href=""><img class="card-img-top" src="assets/img/img.svg" alt="Card image cap"></a>
               <div class="card-body">
                 <h5 class="card-title"><a href="#">Card title</a></h5>

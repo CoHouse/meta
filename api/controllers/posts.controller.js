@@ -74,16 +74,63 @@ function showPrivatePosts( req, res ){
   } ).where('visibleLevel').equals( [ visitorModifier, registerModifier, changerModifier ] );
 }
 
-function showPostByCategory( req, res, category ){
+function showVolumePublicPosts( req, res ){
   objPost.find( ( error, showPosts )=>{
     if( error ){
       res.status(500).send( { message: "Error en la petición"} );
     }else{
       res.status(200).send( { showPosts } );
-      console.log( showPosts );
     }
-  } ).where('category').equals( category );
+  } ).where('visibleLevel').equals( visitorModifier ).where( 'category' ).equals( categoryVolume );
 }
+
+function showVolumeRegisteredPosts( req, res ){
+  objPost.find( ( error, showPosts )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición"} );
+    }else{
+      res.status(200).send( { showPosts } );
+    }
+  } ).where('visibleLevel').equals( [ visitorModifier, registerModifier ] ).where( 'category' ).equals( categoryVolume );
+}
+
+function showVolumeChangerPosts( req, res ){
+  objPost.find( ( error, showPosts )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición"} );
+    }else{
+      res.status(200).send( { showPosts } );
+    }
+  } ).where('visibleLevel').equals( [ visitorModifier, registerModifier, changerModifier ] ).where( 'category' ).equals( categoryVolume );
+}
+
+function showNutritionPublicPosts( req, res ){
+}
+
+function showNutritionRegisteredPosts( req, res ){
+}
+
+function showNutritionChangerPosts( req, res ){
+}
+
+function showExercisesPublicPosts( req, res ){
+}
+
+function showExercisesRegisteredPosts( req, res ){
+}
+
+function showExercisesChangerPosts( req, res ){
+}
+
+function showSuplementsPublicPosts( req, res ){
+}
+
+function showSuplementsRegisteredPosts( req, res ){
+}
+
+function showSuplementsChangerPosts( req, res ){
+}
+
 
 /* POST */
 function savePost( req, res ){
@@ -117,6 +164,17 @@ module.exports = {
   showPublicPosts,
   showRegistredPosts,
   showPrivatePosts,
-  showPostByCategory,
-  savePost
+  savePost,
+  showVolumePublicPosts,
+  showVolumeRegisteredPosts,
+  showVolumeChangerPosts,
+  showNutritionPublicPosts,
+  showNutritionRegisteredPosts,
+  showNutritionChangerPosts,
+  showExercisesPublicPosts,
+  showExercisesRegisteredPosts,
+  showExercisesChangerPosts,
+  showSuplementsPublicPosts,
+  showSuplementsRegisteredPosts,
+  showSuplementsChangerPosts
 }

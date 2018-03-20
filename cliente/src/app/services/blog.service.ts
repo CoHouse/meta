@@ -30,13 +30,12 @@ export class BlogService {
     this.getPosts( );
   }
 
-  getCategories(){
+  getCategories( ){
     this.url = Ruta.url + "getBlogCategories";
     return this._http.get( this.url ).map( resB => resB );
   }
 
-  getPosts(  ){
-
+  getPosts( ){
     if ( localStorage.length < this.localStorageItems ){
       this.url = Ruta.url + "/getPublicPosts";
       return this._http.get( this.url ).map( resV => resV );
@@ -52,4 +51,75 @@ export class BlogService {
       }
     }
   }
+
+  getVolumePosts( ){
+    if ( localStorage.length < this.localStorageItems ){
+      this.url = Ruta.url + "/getVolumePublicPosts";
+      return this._http.get( this.url ).map( resV => resV );
+    }else{
+      let subs = localStorage.getItem( 'about' ).substring( 10, 17 );
+
+      if ( parseInt( subs ) === 160318 ){
+        this.url = Ruta.url + "/getVolumeRegisteredPosts";
+        return this._http.get( this.url ).map( resV => resV );
+      }else{
+        this.url = Ruta.url + "/getVolumeChangerPosts";
+        return this._http.get( this.url ).map( resV => resV );
+      }
+    }
+  }
+
+  getNutritionPosts( ){
+    if ( localStorage.length < this.localStorageItems ){
+      this.url = Ruta.url + "/getNutritionPublicPosts";
+      return this._http.get( this.url ).map( resV => resV );
+    }else{
+      let subs = localStorage.getItem( 'about' ).substring( 10, 17 );
+
+      if ( parseInt( subs ) === 160318 ){
+        this.url = Ruta.url + "/getNutritionRegisteredPosts";
+        return this._http.get( this.url ).map( resV => resV );
+      }else{
+        this.url = Ruta.url + "/getNutritionChangerPosts";
+        return this._http.get( this.url ).map( resV => resV );
+      }
+    }
+  }
+
+  getExercisesPosts( ){
+    if ( localStorage.length < this.localStorageItems ){
+      this.url = Ruta.url + "/getExercisesPublicPosts";
+      return this._http.get( this.url ).map( resV => resV );
+    }else{
+      let subs = localStorage.getItem( 'about' ).substring( 10, 17 );
+
+      if ( parseInt( subs ) === 160318 ){
+        this.url = Ruta.url + "/getExercisesRegisteredPosts";
+        return this._http.get( this.url ).map( resV => resV );
+      }else{
+        this.url = Ruta.url + "/getExercisesChangerPosts";
+        return this._http.get( this.url ).map( resV => resV );
+      }
+    }
+  }
+
+  getSuplementsPosts( ){
+    if ( localStorage.length < this.localStorageItems ){
+      this.url = Ruta.url + "/getSuplementsPublicPosts";
+      return this._http.get( this.url ).map( resV => resV );
+    }else{
+      let subs = localStorage.getItem( 'about' ).substring( 10, 17 );
+
+      if ( parseInt( subs ) === 160318 ){
+        this.url = Ruta.url + "/getSuplementsRegisteredPosts";
+        return this._http.get( this.url ).map( resV => resV );
+      }else{
+        this.url = Ruta.url + "/getSuplementsChangerPosts";
+        return this._http.get( this.url ).map( resV => resV );
+      }
+    }
+  }
+
+
+
 }

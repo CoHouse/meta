@@ -15,6 +15,11 @@ export class BlogComponent implements OnInit {
   public categories;
   public posts;
 
+  public postsVolume;
+  public postsNutrition;
+  public postsExercises;
+  public postsSuplements;
+
   profile: any;
 
   constructor( public _blog:BlogService ) {
@@ -34,6 +39,32 @@ export class BlogComponent implements OnInit {
     });
   }
 
-  ngOnInit(){ }
+  ngOnInit(){
+
+    this._blog.getVolumePosts().subscribe( result => {
+      this.postsVolume = result['showPosts'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
+    this._blog.getNutritionPosts().subscribe( result => {
+      this.postsNutrition = result['showPosts'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
+    this._blog.getExercisesPosts().subscribe( result => {
+      this.postsExercises = result['showPosts'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
+    this._blog.getSuplementsPosts().subscribe( result => {
+      this.postsSuplements = result['showPosts'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
+  }
 
 }
