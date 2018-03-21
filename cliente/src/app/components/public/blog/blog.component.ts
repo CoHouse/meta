@@ -28,14 +28,34 @@ export class BlogComponent implements OnInit {
     this._activatedRoute.params.subscribe( params => {
       this.category = params['category'];
 
-      if( this.category == undefined ){
-        console.log("caes en el blog general todas las entradas");
-      }else if( this.category == "volume" ){
-        alert("this.category = volume");
-        setTimeout(()=>{
-          $('#v-pills-volume').tab('show');
-        }, 1000)
+      switch( this.category ) {
+          case "volume":
+            setTimeout( ()=>{
+              $('.nav-tabs a[href="#v-pills-volume"]').tab('show');
+            }, 50);
+              break;
+
+          case "nutrition":
+            setTimeout( ()=>{
+              $('.nav-tabs a[href="#v-pills-nutrition"]').tab('show');
+            }, 50);
+              break;
+
+          case "exercices":
+            setTimeout( ()=>{
+              $('.nav-tabs a[href="#v-pills-exercices"]').tab('show');
+            }, 50);
+              break;
+
+          case "suplements":
+            setTimeout( ()=>{
+              $('.nav-tabs a[href="#v-pills-suplements"]').tab('show');
+            }, 50);
+          break;
+
+          default:
       }
+
     });
 
     this._blog.getCategories().subscribe( result => {
@@ -43,7 +63,6 @@ export class BlogComponent implements OnInit {
     }, error => {
       var errorMessage = <any>error;
     });
-
 
     this._blog.getPosts().subscribe( result => {
       this.posts = result['showPosts'];
@@ -77,6 +96,13 @@ export class BlogComponent implements OnInit {
     }, error => {
       var errorMessage = <any>error;
     });
+
+  }
+
+  muestraTab(){
+    // $('#volume').tab('show')
+
+    // $('.nav-tabs a[href="#home"]').tab('show');
 
   }
 
