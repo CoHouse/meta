@@ -29,6 +29,7 @@ import { ChangerGuardService } from './services/changer-guard.service';
 const APP_ROUTES: Routes = [
   { path: 'ask', component: AskComponent },
   { path: 'blog', component: BlogComponent },
+  { path: 'blog/:category', component: BlogComponent },
   { path: 'challenge', component: ChallengeComponent },
   { path: 'videos', component: VideosComponent },
   { path: 'home', component: HomeComponent },

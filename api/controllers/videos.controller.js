@@ -39,7 +39,6 @@ function showHomeVideos( req, res ){
   } ).where('visibleLevel').equals( visitorModifier ).limit( numberOfHomeVideos );
 }
 
-
 /* POST */
 function saveVideo( req, res ){
 

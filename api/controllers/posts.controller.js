@@ -105,32 +105,94 @@ function showVolumeChangerPosts( req, res ){
 }
 
 function showNutritionPublicPosts( req, res ){
+  objPost.find( ( error, showPosts )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición"} );
+    }else{
+      res.status(200).send( { showPosts } );
+    }
+  } ).where('visibleLevel').equals( visitorModifier ).where( 'category' ).equals( categoryNutrition );
 }
 
 function showNutritionRegisteredPosts( req, res ){
+  objPost.find( ( error, showPosts )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición"} );
+    }else{
+      res.status(200).send( { showPosts } );
+    }
+  } ).where('visibleLevel').equals( [ visitorModifier, registerModifier ] ).where( 'category' ).equals( categoryNutrition );
 }
 
 function showNutritionChangerPosts( req, res ){
+  objPost.find( ( error, showPosts )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición"} );
+    }else{
+      res.status(200).send( { showPosts } );
+    }
+  } ).where('visibleLevel').equals( [ visitorModifier, registerModifier, changerModifier ] ).where( 'category' ).equals( categoryNutrition );
 }
 
 function showExercisesPublicPosts( req, res ){
+  objPost.find( ( error, showPosts )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición"} );
+    }else{
+      res.status(200).send( { showPosts } );
+    }
+  } ).where('visibleLevel').equals( visitorModifier ).where( 'category' ).equals( categoryExercises );
 }
 
 function showExercisesRegisteredPosts( req, res ){
+  objPost.find( ( error, showPosts )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición"} );
+    }else{
+      res.status(200).send( { showPosts } );
+    }
+  } ).where('visibleLevel').equals( [ visitorModifier, registerModifier ] ).where( 'category' ).equals( categoryExercises );
 }
 
 function showExercisesChangerPosts( req, res ){
+  objPost.find( ( error, showPosts )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición"} );
+    }else{
+      res.status(200).send( { showPosts } );
+    }
+  } ).where('visibleLevel').equals( [ visitorModifier, registerModifier, changerModifier ] ).where( 'category' ).equals( categoryExercises );
 }
 
 function showSuplementsPublicPosts( req, res ){
+  objPost.find( ( error, showPosts )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición"} );
+    }else{
+      res.status(200).send( { showPosts } );
+    }
+  } ).where('visibleLevel').equals( visitorModifier ).where( 'category' ).equals( categorySuplements );
 }
 
 function showSuplementsRegisteredPosts( req, res ){
+  objPost.find( ( error, showPosts )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición"} );
+    }else{
+      res.status(200).send( { showPosts } );
+    }
+  } ).where('visibleLevel').equals( [ visitorModifier, registerModifier ] ).where( 'category' ).equals( categorySuplements );
 }
 
 function showSuplementsChangerPosts( req, res ){
+  objPost.find( ( error, showPosts )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición"} );
+    }else{
+      res.status(200).send( { showPosts } );
+    }
+  } ).where('visibleLevel').equals( [ visitorModifier, registerModifier, changerModifier ] ).where( 'category' ).equals( categorySuplements );
 }
-
 
 /* POST */
 function savePost( req, res ){

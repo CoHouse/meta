@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AuthService } from './auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Ruta } from '../global_route';
-import { Observable } from 'rxjs/Observable';
 import { NgForm, FormsModule } from '@angular/forms';
 import { Changer } from '../interfaces/changer.interface';
 import 'rxjs/add/operator/map';
-// import { Router, ActivatedRoute } from '@angular/router';
 
 @Injectable()
 export class ChangerGuardService {
@@ -14,7 +11,6 @@ export class ChangerGuardService {
   url = Ruta.url;
 
   constructor( public _httpClient:HttpClient ) { }
-  // constructor( public _auth:AuthService, public _httpClient:HttpClient ) { }
 
   isChanger( changer:Changer ){
     this.url = Ruta.url + "getChanger/";

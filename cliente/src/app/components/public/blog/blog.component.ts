@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from "@angular/http";
 import { BlogService } from '../../../services/blog.service';
-import { ChangerGuardService } from '../../../services/changer-guard.service';
-import { AuthService } from '../../../services/auth.service';
 import { Changer } from '../../../interfaces/changer.interface';
+import { Router, ActivatedRoute } from '@angular/router';
+declare var $:any;
 
 @Component({
   selector: 'app-blog',
@@ -14,15 +14,29 @@ export class BlogComponent implements OnInit {
 
   public categories;
   public posts;
-
   public postsVolume;
   public postsNutrition;
   public postsExercises;
   public postsSuplements;
 
+  public category;
+
   profile: any;
 
-  constructor( public _blog:BlogService ) {
+  constructor( public _blog:BlogService, public _activatedRoute:ActivatedRoute ) {
+
+    this._activatedRoute.params.subscribe( params => {
+      this.category = params['category'];
+
+      if( this.category == undefined ){
+        console.log("caes en el blog general todas las entradas");
+      }else if( this.category == "volume" ){
+        alert("this.category = volume");
+        setTimeout(()=>{
+          $('#v-pills-volume').tab('show');
+        }, 1000)
+      }
+    });
 
     this._blog.getCategories().subscribe( result => {
       this.categories = result['showBlogCategories'];
@@ -33,7 +47,6 @@ export class BlogComponent implements OnInit {
 
     this._blog.getPosts().subscribe( result => {
       this.posts = result['showPosts'];
-      console.log( "esto trae this.posts dentro del ngoninit", this.posts );
     }, error => {
       var errorMessage = <any>error;
     });

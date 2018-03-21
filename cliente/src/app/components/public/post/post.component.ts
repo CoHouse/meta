@@ -4,6 +4,7 @@ import { PostService } from '../../../services/post.service';
 import { Http, Response } from "@angular/http";
 import { Router, ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -20,7 +21,7 @@ export class PostComponent implements OnInit {
     image: "/assets/img/cube.jpg",
     date: "05/03/18 13:00",
     author: "MBC Crew",
-    category: "Ejercicios",
+    category: "E",
     text: "text"
   }
 
