@@ -2,19 +2,72 @@
 
 <div class="container">
 
-  <div class="row bg-panal py-3">
+  <div class="row background-black py-3">
     <div class="col-12">
       <h4>Deja tu pregunta <small class="text-muted">Haz tu pregunta relacionada a acondicionamiento, nutrición, cargas, ejercicios o lo que quieras. (solo pueden guardar preguntas los miembros registrados)</small></h4>
 
+      <div class="py-1"></div>
+
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">Password</label>
+            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAddress">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="form-group">
+          <label for="inputAddress2">Address 2</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">City</label>
+            <input type="text" class="form-control" id="inputCity">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">State</label>
+            <select id="inputState" class="form-control">
+              <option selected>Choose...</option>
+              <option>...</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">Zip</label>
+            <input type="text" class="form-control" id="inputZip">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Check me out
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </form>
+
       <form>
         <div class="form-group">
-          <label for="exampleFormControlTextarea1">Título de la Pregunta</label>
+          <label for="exampleFormControlTextarea1"><h4>Tu Nombre</h4></label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1"><h4>Pregunta</h4></label>
           <div class="form-group">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea2" rows="1"></textarea>
           </div>
-          <label for="exampleFormControlTextarea2">Descripción</label>
+          <label for="exampleFormControlTextarea2"><h4>Descripción</h4></label>
           <div class="form-group">
-            <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea3" rows="3"></textarea>
           </div>
           <button type="submit" class="btn btn-success btn-primary">Enviar pregunta</button>
         </div>

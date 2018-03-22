@@ -40,12 +40,12 @@
 
       <div class="card-deck">
 
-        <div *ngFor="let post of posts" class="card border-light ">
+        <div *ngFor="let post of posts" class="card border-light shadow">
           <img class="card-img-top" src="{{ post.image }}" alt="{{ post.title }}" title="{{ post.title }}">
           <div class="card-body">
 
             <h5 class="card-title text-center">{{ post.title }}</h5>
-            <p class="card-text">{{ post.text | slice:0:200 }} ...</p>
+            <p class="card-text" [innerHtml]='post.text | slice:0:200'></p>
 
             <div class="text-left">
               <a href="#/post/{{ post._id }}" class=""><h6>Leer más ></h6></a>
@@ -67,6 +67,8 @@
 
   </div>
 </div>
+
+<div class="py-3"></div>
 
 <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

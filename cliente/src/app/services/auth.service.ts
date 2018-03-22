@@ -30,7 +30,11 @@ export class AuthService {
 
   isChangerFlag;
 
-  constructor( public router: Router, public _changer:ChangerGuardService ) { }
+  constructor( public router: Router, public _changer:ChangerGuardService ) {
+    if ( !this.isAuthenticated() ){
+      this.logout();
+    }
+  }
 
   public login(): void {
     this.auth0.authorize();
@@ -95,7 +99,7 @@ export class AuthService {
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
     // Access Token's expiry time
-    const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    const expiresAt = JSON.parse( localStorage.getItem('expires_at') );
     return new Date().getTime() < expiresAt;
   }
 
@@ -103,15 +107,14 @@ export class AuthService {
     const accessToken = localStorage.getItem('access_token');
     if (!accessToken) {
       throw new Error('Access Token must exist to fetch profile');
-      // console.log("No hay disponible un AT, favor de logearse en la plataforma");
     }
 
     const self = this;
-    this.auth0.client.userInfo(accessToken, (err, profile) => {
-      if (profile) {
+    this.auth0.client.userInfo( accessToken, ( err, profile ) => {
+      if ( profile ) {
         self.userProfile = profile;
       }
-      cb(err, profile);
+      cb( err, profile );
     });
   }
 

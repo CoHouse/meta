@@ -36,7 +36,7 @@
              <a href="#/post/{{ post._id }}"><img class="card-img-top" [src]="post.image" [alt]="post.title"></a>
              <div class="card-body">
                  <h5 class="card-title"><a href="#/post/{{ post._id }}">{{ post.title }}</a></h5>
-                 <p class="card-text">{{ post.text | slice:0:100 }}</p>
+                 <p class="card-text" [innerHtml]='post.text | slice:0:200'></p>
              </div>
              <div class="card-footer">
                <small class="text-muted">Publicado el: {{ post.date }}</small>
