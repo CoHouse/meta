@@ -1,36 +1,122 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid"> -->
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="assets/img/b.jpg" alt="First slide">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+
+
+<!-- <div class="container-fluid">
   <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 col-xs-12 pt-3 animated fadeIn slow">
-    <!-- <img src="assets/img/logo.png" width="150" height="150" alt=""> -->
+    <img src="assets/img/logo.png" width="150" height="150" alt="">
+
     <h1>Meta Body Changer</h1>
     <h6 class="text-right">Bienvenido al nuevo concepto de entrenamiento personal, en el cual podrás cumplir tus objetivos de una forma optima y saludable, incorporando los mejores elementos de la vasta gama de deportes y actividades físicas así como nutrición y suplementación. <strong>Meta Body Changer</strong> como plan de entrenamiento ha sido probado en deportistas de alto rendimiento así como modelos fitness, participantes de reality shows, deportistas amateur así como principiantes en la actividad física mostrando grandes resultados con cambios notorios en las <strong>primeras semanas</strong> de haber iniciado el plan, probando nuestro sistema lo único que puedes perder son calorías y reservas lipídicas (o grasa). Únete a los mejores y cumple tus objetivos sin sacrificar tu salud ya que para nosotros la salud de nuestros miembros es lo más importante. Deja a un lado el “pain” y comienza el <strong>“gain”</strong>.</h6>
   </div>
+</div> -->
+
+<div class="pt-1 background-white"></div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5 background-black white-font">
+      <h4 class="text-center text-uppercase">Últimos <b class="underlined">Artículos&emsp;&emsp;</b></h4>
+    </div>
+  </div>
 </div>
 
 <div class="py-3"></div>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row animated fadeInLeft">
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 offset-lg-1 offset-md-1 offset-sm-1">
 
-    <h4>Últimos Artículos</h4>
+      <div class="card-deck">
 
-    <div class="card-deck">
+        <div *ngFor="let post of posts" class="card border-light ">
+          <img class="card-img-top" src="{{ post.image }}" alt="{{ post.title }}" title="{{ post.title }}">
+          <div class="card-body">
 
-      <div *ngFor="let post of posts" class="card border-danger ">
-        <img class="card-img-top" src="{{ post.image }}" alt="{{ post.title }}" title="{{ post.title }}">
-        <div class="card-body">
+            <h5 class="card-title text-center">{{ post.title }}</h5>
+            <p class="card-text">{{ post.text | slice:0:200 }} ...</p>
 
-          <h5 class="card-title text-center">{{ post.title }}</h5>
-          <p class="card-text">{{ post.text | slice:0:100 }} ...</p>
+            <div class="text-left">
+              <a href="#/post/{{ post._id }}" class=""><h6>Leer más ></h6></a>
+              <!-- <a [routerLink]="['/post']" class="btn btn-outline-info btn-lg">Más Info...</a> -->
+            </div>
 
-          <div class="text-center">
-            <a href="#/post/{{ post._id }}" class="btn btn-outline-danger btn-lg">Más Info...</a>
-            <!-- <a [routerLink]="['/post']" class="btn btn-outline-info btn-lg">Más Info...</a> -->
           </div>
 
+          <div class="py-1 background-black"></div>
+
+          <div class="card-footer text-right">
+            <small class="text-muted">Fecha de publicación: {{ post.date }}</small>
+          </div>
         </div>
-        <div class="card-footer">
-          <small class="text-muted">Fecha de publicación: {{ post.date }}</small>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="assets/img/a.jpg" alt="First slide">
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="py-3"></div>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5 background-black white-font">
+    <h4 class="text-center text-uppercase">Últimos <b class="underlined">Videos&emsp;&emsp;</b></h4>
+  </div>
+</div>
+
+<div class="py-3"></div>
+
+<div class="container-fluid">
+  <div class="row animated fadeInLeft">
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 offset-lg-1 offset-md-1 offset-sm-1">
+
+      <div class="card-deck">
+
+        <div *ngFor="let video of videos" class="card border-light ">
+          <img class="card-img-top" src="{{ video.image }}" alt="{{ video.title }}" title="{{ video.title }}">
+          <div class="card-body">
+
+            <h5 class="card-title text-center">{{ video.title }}</h5>
+            <p class="card-text">{{ video.text | slice:0:200 }} ...</p>
+
+            <div class="text-left">
+              <a href="#/post/{{ video._id }}" class=""><h6>Leer más ></h6></a>
+              <!-- <a [routerLink]="['/post']" class="btn btn-outline-info btn-lg">Más Info...</a> -->
+            </div>
+
+          </div>
+
+          <div class="py-1 background-black"></div>
+
+          <div class="card-footer text-right">
+            <small class="text-muted">Fecha de publicación: {{ video.date }}</small>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -40,54 +126,58 @@
 
 <div class="py-3"></div>
 
-<div class="container">
-  <div class="row animated fadeInRight">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5 background-black white-font">
+      <h4 class="text-center text-uppercase">Suscríbete a nuestro <b class="underlined">Newsletter&emsp;&emsp;</b></h4>
 
-    <h4>Videos</h4>
-    <div class="card-deck">
-
-      <div *ngFor="let video of videos" class="card border-danger ">
-        <img class="card-img-top" src="{{ video.image }}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{ video.title }}</h5>
-          <p class="card-text text-justify">{{ video.text | slice:0:70 }} ...</p>
-
-          <div class="text-center">
-            <a href="#/video/{{ video._id }}" class="btn btn-outline-danger btn-lg">Ver Video</a>
-          </div>
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="inputPassword6"><h4>Tú Nombre | </h4></label>
+          <input type="text" id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
         </div>
-        <div class="card-footer">
-          <small class="text-muted">Fecha de publicación: {{ video.date }}</small>
+
+        <div class="form-group">
+          <label for="inputPassword6"><h4>Tu Mail | </h4></label>
+          <input type="text" id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
         </div>
-      </div>
+        <div class="form-group">
+          <button class="btn btn-link" type="" name="button"><h4>Enviar ></h4></button>
+        </div>
+      </form>
+
+
+      <form class="form-inline" enctype="application/x-www-form-urlencoded" action="https://mbchanger.ip-zone.com/ccm/subscribe/index/form/" method="post">
+        <dl class="zend_form">
+         <dt id="name-label">
+         <label for="name" class="optional">Nombre</label>
+         </dt>
+         <dd id="name-element">
+         <input type="text" name="name" id="name" value=""></dd>
+         <dt id="email-label">
+         <label for="email" class="required">Email</label>
+         </dt>
+         <dd id="email-element">
+         <input type="text" name="email" id="email" value=""></dd>
+         <dt id="groups-label">
+         <label class="optional">Grupos</label>
+         </dt>
+         <dd id="groups-element">
+         <label>
+         <input type="checkbox" name="groups[]" id="groups-1" value="1">default</label>
+         </dd>
+         <dt id="anotheremail-label"> </dt>
+         <dd id="anotheremail-element">
+         <input type="text" name="anotheremail" id="anotheremail" value="" style="position: absolute; left: -5000px" tabindex="-1"></dd>
+         <dt id="submit-label"> </dt>
+         <dd id="submit-element">
+         <input type="submit" name="submit" id="submit" value="Suscribir"></dd>
+        </dl>
+        </form>
+
 
     </div>
-
   </div>
-
 </div>
 
 <div class="py-3"></div>
-
-<div class="container-fluid bg-panal py-3">
-  <div class="col-lg-4 offset-lg-4 col-md-4 offset-md-4 col-sm-12 col-xs-12 pt-3 animated fadeIn slow">
-    <h3>Suscríbete a nuestro Newsletter</h3>
-    <!-- MailRelayfrom -->
-    <!-- <form enctype="application/x-www-form-urlencoded" action="https://mbchanger.ip-zone.com/ccm/subscribe/index/form/3nxe8hcgt5" method="post">
-      <dl class="zend_form">
-        <dd id="groups-element"><input type="hidden" name="groups[]" value="1"></dd>
-         <label for="name" class="optional">Nombre</label>
-         <input type="text" name="name" id="name" value=""><br>
-
-         <label for="email" class="required">Email</label>
-         <input type="text" name="email" id="email" value="">
-
-         <dd id="submit-element">
-         <input class="btn btn-outline-sucess" type="submit" name="submit" id="submit" value="Suscribir"></dd>
-      </dl>
-    </form> -->
-    <!-- html comment -->
-  </div>
-</div>
-
-<!-- <div class="py-4"></div> -->

@@ -1,49 +1,20 @@
+/*=============================================>>>>>
+= Navbar & Generals =
+===============================================>>>>>*/
 
-.menu-item{
-  text-transform: uppercase;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
-  font-size: 1.7em;
+.background-black{
+  background-color: #000;
 }
 
-.bg-black{
-  background-color: #000 !important;
+.background-white{
+  background-color: #fff;
 }
 
-.bg-red{
-  background-color: #7F100A !important;
+.white-font{
+  color: #fff;
 }
 
-.badge-red{
-  background-color: #7F100A !important;
-}
-
-.bg-panal{
-  background-image: url("assets/img/bg-form.svg");
-  color:#fff;
-}
-
-.menu-active{
-  background-color: #7F100A;
-  color: #000 !important;
-}
-
-.opaco{
-  opacity: .3;
-}
-
-.enlace-foro{
-  color: #7F100A !important;
-}
-
-.custom-control-input:checked~.custom-control-label::before {
-  background-color: #7F100A !important;
-}
-
-.custom-radio .custom-control-input:checked~.custom-control-label::before{
-  background-color: #7F100A !important;
-}
-
-h1, h2, h3, h4, h5, h6{
-  text-transform: uppercase;
-  font-family: 'Oswald', sans-serif;
+.underlined {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 4px;
 }

@@ -29,23 +29,23 @@
 
   admin-guard
     email: String (encriptado)
-    startDate: date
-    endDate: date (encriptado)
+    startDate: String
+    endDate: String 
 
   nutritionist-guard
     email: String (encriptado)
-    startDate: date
-    endDate: date (encriptado)
+    startDate: String
+    endDate: String 
 
   planner-guard
     email: String (encriptado)
-    startDate: date
-    endDate: date (encriptado)
+    startDate: String
+    endDate: String 
 
   changer-guard
     email: String (encriptado)
-    startDate: date
-    endDate: date (encriptado)
+    startDate: String
+    endDate: String 
 
 }
 
@@ -148,97 +148,320 @@
 "endDate" : "Dat"
 }
 
-
-
 /*=============================================>>>>>
 = Datos de la tabla "posts" (Datos de prueba) =
 ===============================================>>>>>*/
 {
+  /* 1 */
   {
-      "title" : "Blog DB 1",
-      "subtitle" : "sub title",
-      "image" : "assets/blog/post1.jpg",
+      "title" : "Public 1",
+      "subtitle" : "volumen 1",
+      "image" : "/assets/blog/2018/03/21/1.webp",
       "date" : "19-01-18 10:00",
       "author" : "MT Crew",
       "category" : "V",
       "visibleLevel" : "V",
-      "text" : "<p style=\"text-align: justify;\">Muchas de las dudas más recurrentes de los usuarios menos experimentados son relacionadas a los trades, wallets y en general las herramientas para comprar y vender criptomonedas, hoy haremos una guía en relación a al sitio de trading más famoso de México (aunque no opera exclusivamente en dicho país).</p>\r\n\r\n<h2 style=\"text-align: justify;\">Bitso</h2>\r\n<p style=\"text-align: justify;\">Algún experto nos ha comentado que Bitso es un sitio seguro para tener ahí nuestras criptomonedas (Bitcoin, Ether y Ripple), además de que la interfaz es realmente sencilla de entender, sobretodo si vamos empezando en estos menesteres.</p>\r\n<p style=\"text-align: justify;\">Lo que se puede hacer es realmente básico, no esperes muchas funciones o miles de criptomonedas aunque en mi opinión, esto es una ventaja ya que es la sencillez de la interfaz lo que hace de este sitio un ideal para comenzar en un mundo tan complicado.</p>\r\n\r\n<h2>Creando una cuenta en Bitso</h2>\r\nLo primer es ir a la <a href=\"https://bitso.com/\" target=\"_blank\" rel=\"noopener noreferrer\">página de inicio dando clic aquí</a>. A penas entrar a la página, puedes ver un llamativo botón que pone \"ABRE TU CUENTA Y COMPRA BITCOIN\" es ahí en donde daremos clic para iniciar el proceso de creación de cuenta."
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
   }
 
+  /* 2 */
   {
-      "title" : "Blog DB 2",
-      "subtitle" : "sub title 2",
-      "image" : "assets/blog/post2.jpg",
-      "date" : "27-02-18 10:00",
+      "title" : "Public 2",
+      "subtitle" : "volumen 2",
+      "image" : "/assets/blog/2018/03/21/1.webp",
+      "date" : "19-01-18 10:00",
       "author" : "MT Crew",
       "category" : "V",
       "visibleLevel" : "V",
-      "text" : "<p style=\"text-align: justify;\">Muchas de las dudas más recurrentes de los usuarios menos experimentados son relacionadas a los trades, wallets y en general las herramientas para comprar y vender criptomonedas, hoy haremos una guía en relación a al sitio de trading más famoso de México (aunque no opera exclusivamente en dicho país).</p>\r\n\r\n<h2 style=\"text-align: justify;\">Bitso</h2>\r\n<p style=\"text-align: justify;\">Algún experto nos ha comentado que Bitso es un sitio seguro para tener ahí nuestras criptomonedas (Bitcoin, Ether y Ripple), además de que la interfaz es realmente sencilla de entender, sobretodo si vamos empezando en estos menesteres.</p>\r\n<p style=\"text-align: justify;\">Lo que se puede hacer es realmente básico, no esperes muchas funciones o miles de criptomonedas aunque en mi opinión, esto es una ventaja ya que es la sencillez de la interfaz lo que hace de este sitio un ideal para comenzar en un mundo tan complicado.</p>\r\n\r\n<h2>Creando una cuenta en Bitso</h2>\r\nLo primer es ir a la <a href=\"https://bitso.com/\" target=\"_blank\" rel=\"noopener noreferrer\">página de inicio dando clic aquí</a>. A penas entrar a la página, puedes ver un llamativo botón que pone \"ABRE TU CUENTA Y COMPRA BITCOIN\" es ahí en donde daremos clic para iniciar el proceso de creación de cuenta."
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
   }
 
+  /* 3 */
   {
-      "title" : "Blog DB 2",
-      "subtitle" : "sub title 2",
-      "image" : "assets/blog/post2.jpg",
-      "date" : "27-02-18 10:00",
+      "title" : "Public 3",
+      "subtitle" : "nutrición 1",
+      "image" : "/assets/blog/2018/03/21/2.webp",
+      "date" : "19-01-18 10:00",
       "author" : "MT Crew",
-      "category" : "V",
+      "category" : "N",
       "visibleLevel" : "V",
-      "text" : "<p style=\"text-align: justify;\">Muchas de las dudas más recurrentes de los usuarios menos experimentados son relacionadas a los trades, wallets y en general las herramientas para comprar y vender criptomonedas, hoy haremos una guía en relación a al sitio de trading más famoso de México (aunque no opera exclusivamente en dicho país).</p>\r\n\r\n<h2 style=\"text-align: justify;\">Bitso</h2>\r\n<p style=\"text-align: justify;\">Algún experto nos ha comentado que Bitso es un sitio seguro para tener ahí nuestras criptomonedas (Bitcoin, Ether y Ripple), además de que la interfaz es realmente sencilla de entender, sobretodo si vamos empezando en estos menesteres.</p>\r\n<p style=\"text-align: justify;\">Lo que se puede hacer es realmente básico, no esperes muchas funciones o miles de criptomonedas aunque en mi opinión, esto es una ventaja ya que es la sencillez de la interfaz lo que hace de este sitio un ideal para comenzar en un mundo tan complicado.</p>\r\n\r\n<h2>Creando una cuenta en Bitso</h2>\r\nLo primer es ir a la <a href=\"https://bitso.com/\" target=\"_blank\" rel=\"noopener noreferrer\">página de inicio dando clic aquí</a>. A penas entrar a la página, puedes ver un llamativo botón que pone \"ABRE TU CUENTA Y COMPRA BITCOIN\" es ahí en donde daremos clic para iniciar el proceso de creación de cuenta."
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
   }
 
+  /* 4 */
   {
-      "title" : "Blog DB 2",
-      "subtitle" : "sub title 2",
-      "image" : "assets/blog/post2.jpg",
-      "date" : "27-02-18 10:00",
+      "title" : "Public 4",
+      "subtitle" : "nutrición 2",
+      "image" : "/assets/blog/2018/03/21/2.webp",
+      "date" : "19-01-18 10:00",
+      "author" : "MT Crew",
+      "category" : "N",
+      "visibleLevel" : "V",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
+  }
+
+  /* 5 */
+  {
+      "title" : "Public 5",
+      "subtitle" : "Ejercicios 1",
+      "image" : "/assets/blog/2018/03/21/3.webp",
+      "date" : "19-01-18 10:00",
+      "author" : "MT Crew",
+      "category" : "E",
+      "visibleLevel" : "V",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
+  }
+
+  /* 6 */
+  {
+      "title" : "Public 6",
+      "subtitle" : "Ejercicios 2",
+      "image" : "/assets/blog/2018/03/21/3.webp",
+      "date" : "19-01-18 10:00",
+      "author" : "MT Crew",
+      "category" : "E",
+      "visibleLevel" : "V",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
+  }
+
+  /* 7 */
+  {
+      "title" : "Public 7",
+      "subtitle" : "suplementos 1",
+      "image" : "/assets/blog/2018/03/21/4.webp",
+      "date" : "19-01-18 10:00",
+      "author" : "MT Crew",
+      "category" : "S",
+      "visibleLevel" : "V",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
+  }
+
+  /* 8 */
+  {
+      "title" : "Public 8",
+      "subtitle" : "suplementos 2",
+      "image" : "/assets/blog/2018/03/21/4.webp",
+      "date" : "19-01-18 10:00",
+      "author" : "MT Crew",
+      "category" : "S",
+      "visibleLevel" : "V",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
+  }
+
+  /* 9 */
+  {
+      "title" : "Registred 1",
+      "subtitle" : "volumen 1",
+      "image" : "/assets/blog/2018/03/21/6.webp",
+      "date" : "19-01-18 10:00",
       "author" : "MT Crew",
       "category" : "V",
       "visibleLevel" : "R",
-      "text" : "<p style=\"text-align: justify;\">Muchas de las dudas más recurrentes de los usuarios menos experimentados son relacionadas a los trades, wallets y en general las herramientas para comprar y vender criptomonedas, hoy haremos una guía en relación a al sitio de trading más famoso de México (aunque no opera exclusivamente en dicho país).</p>\r\n\r\n<h2 style=\"text-align: justify;\">Bitso</h2>\r\n<p style=\"text-align: justify;\">Algún experto nos ha comentado que Bitso es un sitio seguro para tener ahí nuestras criptomonedas (Bitcoin, Ether y Ripple), además de que la interfaz es realmente sencilla de entender, sobretodo si vamos empezando en estos menesteres.</p>\r\n<p style=\"text-align: justify;\">Lo que se puede hacer es realmente básico, no esperes muchas funciones o miles de criptomonedas aunque en mi opinión, esto es una ventaja ya que es la sencillez de la interfaz lo que hace de este sitio un ideal para comenzar en un mundo tan complicado.</p>\r\n\r\n<h2>Creando una cuenta en Bitso</h2>\r\nLo primer es ir a la <a href=\"https://bitso.com/\" target=\"_blank\" rel=\"noopener noreferrer\">página de inicio dando clic aquí</a>. A penas entrar a la página, puedes ver un llamativo botón que pone \"ABRE TU CUENTA Y COMPRA BITCOIN\" es ahí en donde daremos clic para iniciar el proceso de creación de cuenta."
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
   }
 
+  /* 10 */
   {
-      "title" : "Blog DB 2",
-      "subtitle" : "sub title 2",
-      "image" : "assets/blog/post2.jpg",
-      "date" : "27-02-18 10:00",
+      "title" : "Registred 2",
+      "subtitle" : "volumen 2",
+      "image" : "/assets/blog/2018/03/21/6.webp",
+      "date" : "19-01-18 10:00",
       "author" : "MT Crew",
       "category" : "V",
       "visibleLevel" : "R",
-      "text" : "<p style=\"text-align: justify;\">Muchas de las dudas más recurrentes de los usuarios menos experimentados son relacionadas a los trades, wallets y en general las herramientas para comprar y vender criptomonedas, hoy haremos una guía en relación a al sitio de trading más famoso de México (aunque no opera exclusivamente en dicho país).</p>\r\n\r\n<h2 style=\"text-align: justify;\">Bitso</h2>\r\n<p style=\"text-align: justify;\">Algún experto nos ha comentado que Bitso es un sitio seguro para tener ahí nuestras criptomonedas (Bitcoin, Ether y Ripple), además de que la interfaz es realmente sencilla de entender, sobretodo si vamos empezando en estos menesteres.</p>\r\n<p style=\"text-align: justify;\">Lo que se puede hacer es realmente básico, no esperes muchas funciones o miles de criptomonedas aunque en mi opinión, esto es una ventaja ya que es la sencillez de la interfaz lo que hace de este sitio un ideal para comenzar en un mundo tan complicado.</p>\r\n\r\n<h2>Creando una cuenta en Bitso</h2>\r\nLo primer es ir a la <a href=\"https://bitso.com/\" target=\"_blank\" rel=\"noopener noreferrer\">página de inicio dando clic aquí</a>. A penas entrar a la página, puedes ver un llamativo botón que pone \"ABRE TU CUENTA Y COMPRA BITCOIN\" es ahí en donde daremos clic para iniciar el proceso de creación de cuenta."
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
   }
 
+  /* 11 */
   {
-      "title" : "Blog DB 2",
-      "subtitle" : "sub title 2",
-      "image" : "assets/blog/post2.jpg",
-      "date" : "27-02-18 10:00",
+      "title" : "Registred 3",
+      "subtitle" : "nutricion 1",
+      "image" : "/assets/blog/2018/03/21/7.webp",
+      "date" : "19-01-18 10:00",
       "author" : "MT Crew",
-      "category" : "V",
-      "visibleLevel" : "C",
-      "text" : "<p style=\"text-align: justify;\">Muchas de las dudas más recurrentes de los usuarios menos experimentados son relacionadas a los trades, wallets y en general las herramientas para comprar y vender criptomonedas, hoy haremos una guía en relación a al sitio de trading más famoso de México (aunque no opera exclusivamente en dicho país).</p>\r\n\r\n<h2 style=\"text-align: justify;\">Bitso</h2>\r\n<p style=\"text-align: justify;\">Algún experto nos ha comentado que Bitso es un sitio seguro para tener ahí nuestras criptomonedas (Bitcoin, Ether y Ripple), además de que la interfaz es realmente sencilla de entender, sobretodo si vamos empezando en estos menesteres.</p>\r\n<p style=\"text-align: justify;\">Lo que se puede hacer es realmente básico, no esperes muchas funciones o miles de criptomonedas aunque en mi opinión, esto es una ventaja ya que es la sencillez de la interfaz lo que hace de este sitio un ideal para comenzar en un mundo tan complicado.</p>\r\n\r\n<h2>Creando una cuenta en Bitso</h2>\r\nLo primer es ir a la <a href=\"https://bitso.com/\" target=\"_blank\" rel=\"noopener noreferrer\">página de inicio dando clic aquí</a>. A penas entrar a la página, puedes ver un llamativo botón que pone \"ABRE TU CUENTA Y COMPRA BITCOIN\" es ahí en donde daremos clic para iniciar el proceso de creación de cuenta."
+      "category" : "N",
+      "visibleLevel" : "R",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
   }
 
+  /* 12 */
   {
-      "title" : "Blog DB 2",
-      "subtitle" : "sub title 2",
-      "image" : "assets/blog/post2.jpg",
-      "date" : "27-02-18 10:00",
+      "title" : "Registred 4",
+      "subtitle" : "nutricion 2",
+      "image" : "/assets/blog/2018/03/21/7.webp",
+      "date" : "19-01-18 10:00",
       "author" : "MT Crew",
-      "category" : "V",
-      "visibleLevel" : "C",
-      "text" : "<p style=\"text-align: justify;\">Muchas de las dudas más recurrentes de los usuarios menos experimentados son relacionadas a los trades, wallets y en general las herramientas para comprar y vender criptomonedas, hoy haremos una guía en relación a al sitio de trading más famoso de México (aunque no opera exclusivamente en dicho país).</p>\r\n\r\n<h2 style=\"text-align: justify;\">Bitso</h2>\r\n<p style=\"text-align: justify;\">Algún experto nos ha comentado que Bitso es un sitio seguro para tener ahí nuestras criptomonedas (Bitcoin, Ether y Ripple), además de que la interfaz es realmente sencilla de entender, sobretodo si vamos empezando en estos menesteres.</p>\r\n<p style=\"text-align: justify;\">Lo que se puede hacer es realmente básico, no esperes muchas funciones o miles de criptomonedas aunque en mi opinión, esto es una ventaja ya que es la sencillez de la interfaz lo que hace de este sitio un ideal para comenzar en un mundo tan complicado.</p>\r\n\r\n<h2>Creando una cuenta en Bitso</h2>\r\nLo primer es ir a la <a href=\"https://bitso.com/\" target=\"_blank\" rel=\"noopener noreferrer\">página de inicio dando clic aquí</a>. A penas entrar a la página, puedes ver un llamativo botón que pone \"ABRE TU CUENTA Y COMPRA BITCOIN\" es ahí en donde daremos clic para iniciar el proceso de creación de cuenta."
+      "category" : "N",
+      "visibleLevel" : "R",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
   }
+
+  /* 13 */
   {
-      "title" : "Blog DB 2",
-      "subtitle" : "sub title 2",
-      "image" : "assets/blog/post2.jpg",
-      "date" : "27-02-18 10:00",
+      "title" : "Registred 5",
+      "subtitle" : "ejercicios 1",
+      "image" : "/assets/blog/2018/03/21/1.webp",
+      "date" : "19-01-18 10:00",
+      "author" : "MT Crew",
+      "category" : "E",
+      "visibleLevel" : "R",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
+  }
+
+  /* 14 */
+  {
+      "title" : "Registred 6",
+      "subtitle" : "ejercicios 2",
+      "image" : "/assets/blog/2018/03/21/1.webp",
+      "date" : "19-01-18 10:00",
+      "author" : "MT Crew",
+      "category" : "E",
+      "visibleLevel" : "R",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
+  }
+
+  /* 15 */
+  {
+      "title" : "Registred 7",
+      "subtitle" : "suplementos 1",
+      "image" : "/assets/blog/2018/03/21/2.webp",
+      "date" : "19-01-18 10:00",
+      "author" : "MT Crew",
+      "category" : "S",
+      "visibleLevel" : "R",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
+  }
+
+  /* 16 */
+  {
+      "title" : "Registred 8",
+      "subtitle" : "suplementos 2",
+      "image" : "/assets/blog/2018/03/21/3.webp",
+      "date" : "19-01-18 10:00",
+      "author" : "MT Crew",
+      "category" : "S",
+      "visibleLevel" : "R",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
+  }
+
+  /* 17 */
+  {
+      "title" : "Changer 1",
+      "subtitle" : "volumen 1",
+      "image" : "/assets/blog/2018/03/21/4.webp",
+      "date" : "19-01-18 10:00",
       "author" : "MT Crew",
       "category" : "V",
-      "visibleLevel" : "V",
-      "text" : "<p style=\"text-align: justify;\">Muchas de las dudas más recurrentes de los usuarios menos experimentados son relacionadas a los trades, wallets y en general las herramientas para comprar y vender criptomonedas, hoy haremos una guía en relación a al sitio de trading más famoso de México (aunque no opera exclusivamente en dicho país).</p>\r\n\r\n<h2 style=\"text-align: justify;\">Bitso</h2>\r\n<p style=\"text-align: justify;\">Algún experto nos ha comentado que Bitso es un sitio seguro para tener ahí nuestras criptomonedas (Bitcoin, Ether y Ripple), además de que la interfaz es realmente sencilla de entender, sobretodo si vamos empezando en estos menesteres.</p>\r\n<p style=\"text-align: justify;\">Lo que se puede hacer es realmente básico, no esperes muchas funciones o miles de criptomonedas aunque en mi opinión, esto es una ventaja ya que es la sencillez de la interfaz lo que hace de este sitio un ideal para comenzar en un mundo tan complicado.</p>\r\n\r\n<h2>Creando una cuenta en Bitso</h2>\r\nLo primer es ir a la <a href=\"https://bitso.com/\" target=\"_blank\" rel=\"noopener noreferrer\">página de inicio dando clic aquí</a>. A penas entrar a la página, puedes ver un llamativo botón que pone \"ABRE TU CUENTA Y COMPRA BITCOIN\" es ahí en donde daremos clic para iniciar el proceso de creación de cuenta."
+      "visibleLevel" : "B",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
+  }
+
+  /* 18 */
+  {
+      "title" : "Changer 2",
+      "subtitle" : "volumen 2",
+      "image" : "/assets/blog/2018/03/21/4.webp",
+      "date" : "19-01-18 10:00",
+      "author" : "MT Crew",
+      "category" : "V",
+      "visibleLevel" : "B",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
+  }
+
+  /* 19 */
+  {
+      "title" : "Changer 3",
+      "subtitle" : "nutricion 1",
+      "image" : "/assets/blog/2018/03/21/5.webp",
+      "date" : "19-01-18 10:00",
+      "author" : "MT Crew",
+      "category" : "N",
+      "visibleLevel" : "B",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
+  }
+
+  /* 20 */
+  {
+      "title" : "Changer 4",
+      "subtitle" : "nutricion 2",
+      "image" : "/assets/blog/2018/03/21/5.webp",
+      "date" : "19-01-18 10:00",
+      "author" : "MT Crew",
+      "category" : "N",
+      "visibleLevel" : "B",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
+  }
+
+  /* 21 */
+  {
+      "title" : "Changer 5",
+      "subtitle" : "ejercicios 1",
+      "image" : "/assets/blog/2018/03/21/6.webp",
+      "date" : "19-01-18 10:00",
+      "author" : "MT Crew",
+      "category" : "E",
+      "visibleLevel" : "B",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
+  }
+
+  /* 22 */
+  {
+      "title" : "Changer 6",
+      "subtitle" : "ejercicios 2",
+      "image" : "/assets/blog/2018/03/21/6.webp",
+      "date" : "19-01-18 10:00",
+      "author" : "MT Crew",
+      "category" : "E",
+      "visibleLevel" : "B",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
+  }
+
+  /* 23 */
+  {
+      "title" : "Changer 7",
+      "subtitle" : "suplementos 1",
+      "image" : "/assets/blog/2018/03/21/7.webp",
+      "date" : "19-01-18 10:00",
+      "author" : "MT Crew",
+      "category" : "S",
+      "visibleLevel" : "B",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
+  }
+
+  /* 24 */
+  {
+      "title" : "Changer 8",
+      "subtitle" : "suplementos 2",
+      "image" : "/assets/blog/2018/03/21/7.webp",
+      "date" : "19-01-18 10:00",
+      "author" : "MT Crew",
+      "category" : "S",
+      "visibleLevel" : "B",
+      "text" : "<h2>Algo de contenido</h2>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h3>otro subtitulo en h3</h3>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h4>otro título en h4</h4>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit at, ullam dignissimos delectus accusamus dolorem quo ab, iste necessitatibus. Quis est vitae expedita ab inventore! Atque accusamus maxime modi nobis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad iste recusandae dolores quasi laudantium natus eum tempore adipisci quod, assumenda aliquam sed quo nam dignissimos sint libero, ratione beatae minus.</p>\n\n<h5>titulo en h5 y lista ordenada</h5>\n\n<ul>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n  <li>Elemento de la lista 1</li>\n</ul>",
+      "__v" : 0
   }
 }
 
@@ -246,7 +469,6 @@
 = Integridad de "ChangerGuard" =
 ===============================================>>>>>*/
 {
-    "_id" : ObjectId("5aaabe37f771292c84a412ac"),
     "email" : "$2a$10$HinjfHMo6pGgfNrFuc2k1ugTOKml8kbjCgI0b8DzHM6Fmlt59X1ui",
     "startDate" : "integridad",
     "endDate" : "integridad",

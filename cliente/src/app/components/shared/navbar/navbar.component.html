@@ -1,6 +1,6 @@
-  <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark bg-black">
-    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-black">
-      <a class="navbar-brand" [routerLink]="['home']">
+  <nav class="navbar navbar-expand-lg  background-white"> <!-- sticky-top -->
+    <nav class="navbar navbar-expand-lg "> <!-- sticky-top -->
+      <a class="navbar-brand text-uppercase" [routerLink]="['home']">
         <img src="/assets/img/logo.png" width="50" height="50" alt="">
         Meta Body Changer
       </a>
@@ -12,20 +12,20 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto mx-auto">
-        <li *ngIf="this.auth.isAuthenticated()" class="nav-item px-3" routerLinkActive = "menu-active"></li>
-        <li class="nav-item px-3" routerLinkActive = "menu-active">
+        <li *ngIf="this.auth.isAuthenticated()" class="nav-item px-5" routerLinkActive = "menu-active"></li>
+        <li class="nav-item px-5 text-uppercase" routerLinkActive = "menu-active">
           <a class="nav-link menu-item" [routerLink]="['our-system']">Nuestro Sistema</a>
         </li>
-        <li class="nav-item px-3" routerLinkActive = "menu-active">
+        <li class="nav-item px-5 text-uppercase" routerLinkActive = "menu-active">
           <a class="nav-link menu-item" [routerLink]="['blog']">Blog</a>
         </li>
-        <li class="nav-item px-3" routerLinkActive = "menu-active">
+        <li class="nav-item px-5 text-uppercase" routerLinkActive = "menu-active">
           <a class="nav-link menu-item" [routerLink]="['videos']">Videos</a>
         </li>
-        <li class="nav-item px-3" routerLinkActive = "menu-active">
+        <li class="nav-item px-5 text-uppercase" routerLinkActive = "menu-active">
           <a class="nav-link menu-item" [routerLink]="['ask']">Dudas</a>
         </li>
-        <li class="nav-item px-3" routerLinkActive = "menu-active">
+        <li class="nav-item px-5 text-uppercase" routerLinkActive = "menu-active">
           <a class="nav-link menu-item" [routerLink]="['forum']">Foro</a>
         </li>
         <!-- Dropdown -->
@@ -51,4 +51,4 @@
 
   </nav>
 
-<div class="py-1 bg-red"></div>
+<div class="py-1 background-black"></div>
