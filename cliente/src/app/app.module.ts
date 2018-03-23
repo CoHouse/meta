@@ -41,6 +41,7 @@ import { HomeService } from './services/home.service';
 import { BlogService } from './services/blog.service';
 import { PostService } from './services/post.service';
 import { VideoService } from './services/video.service';
+import { QuestionService } from './services/question.service';
 /* Dudas, Foro */
 
 /* Routes */
@@ -88,7 +89,8 @@ import { APP_ROUTING } from './app-routes';
     HomeService,
     BlogService,
     PostService,
-    VideoService
+    VideoService,
+    QuestionService
   ],
   bootstrap: [ AppComponent ]
 })

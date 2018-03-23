@@ -5,6 +5,7 @@ var schema = mongoose.Schema;
 
 var questionSchema = schema({
   name: String,
+  email: String,
   question: String,
   text: String,
   answer: String

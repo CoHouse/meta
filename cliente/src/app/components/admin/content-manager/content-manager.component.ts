@@ -47,7 +47,7 @@ export class ContentManagerComponent implements OnInit {
   changerRegister( form:NgForm ){
     this.changer = {
       email: form['value']['paymentEmail'],
-      startDate:form['value']['paymentStartDate'],
+      startDate: form['value']['paymentStartDate'],
       endDate: form['value']['paymentEndDate']
     }
 

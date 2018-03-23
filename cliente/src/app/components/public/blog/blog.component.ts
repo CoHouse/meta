@@ -99,11 +99,4 @@ export class BlogComponent implements OnInit {
 
   }
 
-  muestraTab(){
-    // $('#volume').tab('show')
-
-    // $('.nav-tabs a[href="#home"]').tab('show');
-
-  }
-
 }
