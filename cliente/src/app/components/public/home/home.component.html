@@ -12,7 +12,6 @@
   </div>
 <!-- </div> -->
 
-
 <!-- <div class="container-fluid">
   <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 col-xs-12 pt-3 animated fadeIn slow">
     <img src="assets/img/logo.png" width="150" height="150" alt="">
@@ -98,7 +97,7 @@
 
       <div class="card-deck">
 
-        <div *ngFor="let video of videos" class="card border-light ">
+        <div *ngFor="let video of videos" class="card border-light shadow">
           <img class="card-img-top" src="{{ video.image }}" alt="{{ video.title }}" title="{{ video.title }}">
           <div class="card-body">
 
@@ -106,7 +105,7 @@
             <p class="card-text">{{ video.text | slice:0:200 }} ...</p>
 
             <div class="text-left">
-              <a href="#/post/{{ video._id }}" class=""><h6>Leer más ></h6></a>
+              <a href="#/post/{{ video._id }}" class="video-link"><h6>Ver más ></h6></a>
               <!-- <a [routerLink]="['/post']" class="btn btn-outline-info btn-lg">Más Info...</a> -->
             </div>
 
@@ -132,24 +131,33 @@
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5 background-black white-font">
       <h4 class="text-center text-uppercase">Suscríbete a nuestro <b class="underlined">Newsletter&emsp;&emsp;</b></h4>
+    </div>
+  </div>
+</div>
 
-      <form class="form-inline">
-        <div class="form-group">
-          <label for="inputPassword6"><h4>Tú Nombre | </h4></label>
-          <input type="text" id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
-        </div>
+<form>
+  <div class="form-row background-black white-font">
+    <div class="col-1 text-center">
+      <label><h4>Tú Nombre | </h4></label>
+    </div>
+    <div class="col-4">
+      <input type="text" class="form-control" placeholder="Ingresa tu nombre">
+    </div>
+    <div class="col-1 text-center">
+      <label><h4>Tú Mail | </h4></label>
+    </div>
+    <div class="col-4">
+      <input type="email" class="form-control" placeholder="Ingresa tu mail">
+    </div>
+  </div>
+  <div class="form-row background-black white-font">
+    <div class="col text-center py-4">
+      <button class="btn btn-link yellow-font" type="" name="button"><h4>Enviar ></h4></button>
+    </div>
+  </div>
+</form>
 
-        <div class="form-group">
-          <label for="inputPassword6"><h4>Tu Mail | </h4></label>
-          <input type="text" id="inputPassword6" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
-        </div>
-        <div class="form-group">
-          <button class="btn btn-link" type="" name="button"><h4>Enviar ></h4></button>
-        </div>
-      </form>
-
-
-      <form class="form-inline" enctype="application/x-www-form-urlencoded" action="https://mbchanger.ip-zone.com/ccm/subscribe/index/form/" method="post">
+      <!-- <form class="form-inline" enctype="application/x-www-form-urlencoded" action="https://mbchanger.ip-zone.com/ccm/subscribe/index/form/" method="post">
         <dl class="zend_form">
          <dt id="name-label">
          <label for="name" class="optional">Nombre</label>
@@ -175,11 +183,6 @@
          <dd id="submit-element">
          <input type="submit" name="submit" id="submit" value="Suscribir"></dd>
         </dl>
-        </form>
-
-
-    </div>
-  </div>
-</div>
+        </form> -->
 
 <div class="py-3"></div>

@@ -14,6 +14,14 @@
   color: #fff;
 }
 
+.yellow-font{
+  color: #ffff00 !important;
+}
+
+.video-link{
+  color: #ff3239 !important;
+}
+
 .underlined {
     border-bottom: 2px solid #fff;
     padding-bottom: 4px;
