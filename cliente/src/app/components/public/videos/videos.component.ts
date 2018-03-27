@@ -12,6 +12,25 @@ declare var $:any;
 })
 export class VideosComponent implements OnInit {
 
+  /**
+   *
+   * Ejercicios
+   * -Pierna
+   * --Con Pesas
+   * --Con Liga
+   * --Potencia
+
+   * -Brazos
+   * --Con Pesas
+   * --Con Liga
+   * --Bodyweight
+
+   * -Tronco
+   * --Abdomen
+   * --Espalda
+   * --Oblicuos
+   */
+
   public categories;
   public videos;
   public category;

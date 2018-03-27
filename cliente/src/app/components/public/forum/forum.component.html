@@ -1,47 +1,36 @@
-<div class="py-3"></div>
-
 <div class="container-fluid">
-  <div class="row">
+  <div class="row py-2">
 
-    <div class="col-lg-2 col-md-2 col col-sm-12 col-xs-12">
-
-      <div class="card" >
-        <div class="card-header">
-          <h5 class="card-title">Navegación</h5>
-        </div>
-        <div class="card-body">
-          <ul class="list-unstyled">
-            <li><h6><a class="enlace-foro text-capitalize" href="#">presentaciones</a></h6></li>
-            <li><h6><a class="enlace-foro text-capitalize" href="#">Dudas Con el sitio</a></h6></li>
-            <li><h6><a class="enlace-foro text-capitalize" href="#">Dudas con tu programa</a></h6></li>
-            <li><h6><a class="enlace-foro text-capitalize" href="#">Discusiones privadas</a></h6></li>
-            <li><h6><a class="enlace-foro text-capitalize" href="#">Transformaciones</a></h6></li>
-          </ul>
-        </div>
-      </div>
-
+    <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5 pb-3 text-center">
+      <ul class="nav nav-tabs flex-column" role="tablist" aria-orientation="vertical">
+        <li class="list-group-item list-group-item-action flex-column align-items-start background-black white-font"><h6>Categorías</h6></li>
+        <li *ngFor="let category of categories; let i = index;" class="list-group-item">
+          <a
+          data-toggle="tab"
+          [routerLink]="['category', category.ref ]"
+          aria-selected="true"><h6>{{ category.name }}</h6></a>
+        </li>
+      </ul>
     </div>
-
-<div class="py-3"></div>
 
     <div class="col-lg-10 col-md-10 col sm-12 col-xs-12">
 
-      <table class="table table-bordered">
+      <table *ngIf="categories" class="table table-bordered">
         <thead class="background-black" style="color:#fff;">
           <tr>
-            <th scope="col" colspan="4"><h5>Bienvenida nuevos usuarios</h5></th>
+            <th scope="col" colspan="4"><h5>Bienvenida a nuevos usuarios</h5></th>
           </tr>
         </thead>
         <tbody>
           <tr class="table-dark text-center">
-            <td class="bg-red"><h5>Categorías</h5></td>
-            <td class="bg-red"><h5>Hilos</h5></td>
-            <td class="bg-red"><h5>Comentarios</h5></td>
-            <td class="bg-red"><h5>Última discusión</h5></td>
+            <td class=""><h5>Categorías</h5></td>
+            <td class=""><h5>Temas</h5></td>
+            <td class=""><h5>Comentarios</h5></td>
+            <td class=""><h5>Última discusión</h5></td>
           </tr>
           <tr>
             <td scope="row">
-              <h6 class="align-middle"><a class="enlace-foro" href="#">¿Eres nuevo? Preséntate aquí</a></h6>
+              <h6 class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[0].ref ]">{{ categories[0].name }}</a></h6>
               <small>Bienvenidas y presentaciones</small>
             </td>
             <td class="text-center align-middle">10</td>
@@ -53,7 +42,7 @@
           </tr>
           <tr>
             <td scope="row">
-              <h6><a class="enlace-foro" href="#">Dudas Del sitio</a></h6>
+              <h6 class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[1].ref ]">{{ categories[1].name }}</a></h6>
               <small>Cualquier duda relacionada al funcionamiento del sitio</small>
             </td>
             <td class="text-center align-middle">15</td>
@@ -67,23 +56,23 @@
       </table>
 
 
-      <table class="table table-bordered">
+      <table *ngIf="categories" class="table table-bordered">
         <thead class="background-black" style="color:#fff;">
           <tr>
-            <th scope="col" colspan="4"><h5>Programas personalizados <span class="badge badge-pill badge-red">Usuarios Premium</span></h5></th>
+            <th scope="col" colspan="4"><h5>Programas personalizados <span class="badge badge-pill badge-info">Usuarios Premium</span></h5></th>
           </tr>
         </thead>
         <tbody>
           <tr class="table-dark text-center">
-            <td class="bg-red"><h5>Categorías</h5></td>
-            <td class="bg-red"><h5>Hilos</h5></td>
-            <td class="bg-red"><h5>Comentarios</h5></td>
-            <td class="bg-red"><h5>Última discusión</h5></td>
+            <td class=""><h5>Categorías</h5></td>
+            <td class=""><h5>Temas</h5></td>
+            <td class=""><h5>Comentarios</h5></td>
+            <td class=""><h5>Última discusión</h5></td>
           </tr>
           <tr>
             <td scope="row">
-              <h6 class="align-middle"><a class="enlace-foro" href="#">Dudas o comentarios con tu programa</a></h6>
-              <small>Bienvenidas y presentaciones</small>
+              <h6 class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[2].ref ]">{{ categories[2].name }}</a></h6>
+              <small>Muestra tu transformación a la comunidad e inspira a los demás</small>
             </td>
             <td class="text-center align-middle">10</td>
             <td class="text-center align-middle">30</td>
@@ -94,8 +83,8 @@
           </tr>
           <tr>
             <td scope="row">
-              <h6><a class="enlace-foro" href="#">Discusiones privadas</a></h6>
-              <small>Cualquier duda relacionada al funcionamiento del sitio</small>
+              <h6 class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[3].ref ]">{{ categories[3].name }}</a></h6>
+              <small>¿Tienes alguna duda con tu programa de ejercicio? Este es el lugar.</small>
             </td>
             <td class="text-center align-middle">15</td>
             <td class="text-center align-middle">150</td>
@@ -106,8 +95,8 @@
           </tr>
           <tr>
             <td scope="row">
-              <h6><a class="enlace-foro" href="#">Transformaciones</a></h6>
-              <small>Muestra tu transformación a la comunidad e inspira a los demás</small>
+              <h6 class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[4].ref ]">{{ categories[4].name }}</a></h6>
+              <small>Expon aquí cualquier duda o inquietud relacionada a tu plan alimenticio.</small>
             </td>
             <td class="text-center align-middle">50</td>
             <td class="text-center align-middle">500</td>

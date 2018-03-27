@@ -25,9 +25,15 @@
         </div>
         <div class="form-group">
           <label>Descripción</label>
-          <textarea class="form-control" id="question-description" name="text" rows="3" placeholder="Todos los días termino con los músculos muy fatigados y me gustaría saber cómo puedo aliviar esa sensación." ngModel></textarea>
+          <textarea
+          class="form-control"
+          id="question-description"
+          name="text"
+          rows="3"
+          placeholder="Todos los días termino con los músculos muy fatigados y me gustaría saber cómo puedo aliviar esa sensación."
+          ngModel></textarea>
         </div>
-        <button class="btn btn-success btn-primary py-2" (click)="questionRegister(formQuestion)" [disabled]="!formPayments.valid">Enviar pregunta</button>
+        <button class="btn btn-success btn-primary py-2" (click)="questionRegister(formQuestion)" [disabled]="!formPayments?.valid">Enviar pregunta</button>
       </form>
 
       <div *ngIf="saveSucess" class="alert alert-success alert-dismissible fade show my-3" role="alert">

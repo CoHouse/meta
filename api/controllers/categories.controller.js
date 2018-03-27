@@ -9,7 +9,7 @@ var changerModifier = 'B';
 
 /* Modificadores tipo de categoría, blog, video, foro */
 var blogTypeModifier = "G";
-var videoTypeModifier = "I";
+var videoTypeModifier = "V";
 var forumTypeModifier = "F";
 
 /* GET */

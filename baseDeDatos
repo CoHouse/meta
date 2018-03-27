@@ -30,22 +30,22 @@
   admin-guard
     email: String (encriptado)
     startDate: String
-    endDate: String 
+    endDate: String
 
   nutritionist-guard
     email: String (encriptado)
     startDate: String
-    endDate: String 
+    endDate: String
 
   planner-guard
     email: String (encriptado)
     startDate: String
-    endDate: String 
+    endDate: String
 
   changer-guard
     email: String (encriptado)
     startDate: String
-    endDate: String 
+    endDate: String
 
 }
 
@@ -91,38 +91,91 @@
 
 /* VIDEO */
 {
+  {
+  "name" : "Ejercicios",
+  "modifier" : "E",
+  "ref" : "exercises",
+  "type" : "V",
+  "subcategory":"0"
+  }
+
+  {
+  "name" : "Pierna",
+  "modifier" : "P",
+  "ref" : "leg",
+  "type" : "V",
+  "subcategory":"E"
+  }
+
+
+
+  * Ejercicios
+  * -Pierna
+  * --Con Pesas
+  * --Con Liga
+  * --Potencia
+
+  * -Brazos
+  * --Con Pesas
+  * --Con Liga
+  * --Bodyweight
+
+  * -Tronco
+  * --Abdomen
+  * --Espalda
+  * --Oblicuos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 /* FORUM */
 {
   {
   "name" : "Presentaciones",
-  "modifier" : "V",
-  "ref" : "ref",
+  "modifier" : "P",
+  "ref" : "presentations",
   "type" : "F"
   }
   {
   "name" : "Dudas de la Plataforma",
-  "modifier" : "V",
-  "ref" : "ref",
+  "modifier" : "D",
+  "ref" : "pdoubdts",
   "type" : "F"
   }
   {
   "name" : "Transformaciones",
-  "modifier" : "C",
-  "ref" : "ref",
+  "modifier" : "T",
+  "ref" : "transformations",
   "type" : "F"
   }
   {
   "name" : "Dudas con tu programa de Ejercicio",
-  "modifier" : "C",
-  "ref" : "ref",
+  "modifier" : "U",
+  "ref" : "epdoubdts",
   "type" : "F"
   }
   {
   "name" : "Dudas con tu programa Alimenticio",
-  "modifier" : "C",
-  "ref" : "ref",
+  "modifier" : "A",
+  "ref" : "fpdoubdts",
   "type" : "F"
   }
 }

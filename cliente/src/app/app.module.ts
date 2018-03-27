@@ -42,10 +42,12 @@ import { BlogService } from './services/blog.service';
 import { PostService } from './services/post.service';
 import { VideoService } from './services/video.service';
 import { QuestionService } from './services/question.service';
-/* Dudas, Foro */
+import { ForumService } from './services/forum.service';
 
 /* Routes */
 import { APP_ROUTING } from './app-routes';
+import { ForumcatComponent } from './components/public/forum/forumcat.component';
+import { TopicComponent } from './components/public/forum/topic.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import { APP_ROUTING } from './app-routes';
     OursystemComponent,
     NutritionistManagerComponent,
     PlannerManagerComponent,
-    VideoComponent
+    VideoComponent,
+    ForumcatComponent,
+    TopicComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +94,8 @@ import { APP_ROUTING } from './app-routes';
     BlogService,
     PostService,
     VideoService,
-    QuestionService
+    QuestionService,
+    ForumService
   ],
   bootstrap: [ AppComponent ]
 })
