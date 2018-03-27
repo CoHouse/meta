@@ -48,11 +48,13 @@
     <div class="col-12">
 
       <div *ngFor="let question of questions" class="card my-3">
-        <h5 class="card-header">Usuario: {{ question.name }}</h5>
+        <h5 class="card-header">Usuario: {{ question.name }} | {{ question.question }}</h5>
         <div class="card-body">
-          <h5 class="card-title">{{ question.question }}</h5>
+          <h5 class="card-title">Detalle:</h5>
           <p class="card-text">{{ question.text }}</p>
-          <a href="#" class="btn btn-primary">Regresar ></a>
+          <hr>
+          <h5 class="card-title">Respuesta:</h5>
+          <p class="card-text">{{ question.answer }}</p>
         </div>
       </div>
 

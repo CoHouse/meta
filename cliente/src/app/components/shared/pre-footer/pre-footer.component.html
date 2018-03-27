@@ -1,8 +1,8 @@
-<div class="container-fluid mb-5">
+<div class="container-fluid my-3">
   <div class="row">
 
     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-      <img src="assets/img/logo.png" alt="" style="max-width: 20rem;">
+      <img src="assets/img/logo.png" alt="" style="max-width: 15rem;">
     </div>
 
     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -10,17 +10,17 @@
         <div class="card-header"><h4>Secciones</h4></div>
         <div class="card-body text-danger">
           <ul class="list-unstyled">
-            <li><a href="#"><h6>Videos</h6></a></li>
-            <li><a href="#"><h6>Blog</h6></a></li>
-            <li><a href="#"><h6>Foro</h6></a></li>
-            <li><a href="#"><h6>Retos</h6></a></li>
+            <li><a [routerLink]="[ '/videos' ]"><h6>Videos</h6></a></li>
+            <li><a [routerLink]="[ '/blog' ]"><h6>Blog</h6></a></li>
+            <li><a [routerLink]="[ '/ask' ]"><h6>Dudas</h6></a></li>
+            <li><a [routerLink]="[ '/forum' ]"><h6>Foro</h6></a></li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-      <div class="card border-light mb-3" style="width: 20rem;">
+      <div class="card border-ligth mb-3" style="width: 20rem;">
         <div class="card-header"><h4>Legal</h4></div>
         <div class="card-body text-danger">
           <ul class="list-unstyled">

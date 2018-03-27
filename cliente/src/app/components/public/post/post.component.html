@@ -2,8 +2,8 @@
   <div class="row pt-3">
     <div class="col-lg-2 col-md-2 col-sm-11 col-xs-11 offset-sm-1 offset-xs-1 text-center ml-3">
       <ul class="list-group">
-        <li class="list-group-item list-group-item-action flex-column align-items-start active">Categorías</li>
-        <li *ngFor="let category of categories" class="list-group-item"><a [routerLink]="[ '/blog', category.ref ]">{{ category.name }}</a> </li>
+        <li class="list-group-item list-group-item-action flex-column align-items-start background-black white-font">Categorías</li>
+        <li *ngFor="let category of categories" class="list-group-item"><a [routerLink]="[ '/blog', category.ref ]"><h6>{{ category.name }}</h6></a> </li>
       </ul>
     </div>
 
@@ -17,15 +17,12 @@
             </div>
           </div>
         </div>
-      <h6 class="text-center py-3">Categoría: {{ post.category }}</h6>
-
+      <h6 class="text-center py-3">Categoría: {{ category.name }}</h6>
     </div>
 
     <div class="row py-2 text-justify">
       <div class="col-lg-9 col-md-9 col-sm-10 col-xs-10 offset-lg-2 offset-md-2 offset-sm-1 offset-xs-1" [innerHtml]='post.text'></div>
-
     </div>
-
   </div>
 
   <div class="py-2 text-right">
