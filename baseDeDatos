@@ -1,4 +1,11 @@
 /*=============================================>>>>>
+= Comandos MongoDB =
+===============================================>>>>>*/
+mongoimport -h ds259768.mlab.com:59768 -d metadb -c posts -u mbchanger -p 5al1x9SP45ED@us3Ac5 --file posts.json
+mongo ds259768.mlab.com:59768/metadb -u mbchanger -p 5al1x9SP45ED@us3Ac5
+
+
+/*=============================================>>>>>
 = Estructura de tablas necesarias =
 ===============================================>>>>>*/
 {
