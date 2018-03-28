@@ -1,10 +1,12 @@
+Package.json
+
 {
   "name": "api",
   "version": "1.0.0",
   "description": "api que gestiona los datos entre la base y el Meta Body Changer",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "index.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jose Sosa Abarca",
