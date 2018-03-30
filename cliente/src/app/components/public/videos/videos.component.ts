@@ -40,18 +40,17 @@ export class VideosComponent implements OnInit {
       this.category = params['category'];
     });
 
-
     this._video.getCategories().subscribe( result => {
-      this.categories = result['showBlogCategories'];
+      this.categories = result['showVideoCategories'];
     }, error => {
       var errorMessage = <any>error;
     });
 
-    // this._blog.getPosts().subscribe( result => {
-    //   this.posts = result['showPosts'];
-    // }, error => {
-    //   var errorMessage = <any>error;
-    // });
+    this._video.getVideos().subscribe( result => {
+      this.videos = result['showVideos'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
 
 
   }

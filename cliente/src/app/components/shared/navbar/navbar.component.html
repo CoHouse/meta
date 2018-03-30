@@ -6,8 +6,8 @@
       </a>
     </nav>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" style="background-color:#02487E" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon white-font"><i class="fas fa-bars mt-1"></i></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -41,7 +41,6 @@
         </div>
       </li>
       </ul>
-
 
       <button *ngIf="!this.auth.isAuthenticated()" (click)="login()" class="btn btn-sm align-middle btn-success mx-2" type="button">Ingresar</button>
       <!-- <a *ngIf="!this.auth.isAuthenticated()" class="btn btn-sm align-middle btn-danger mx-2" [routerLink]="['register']">Regístrarse</a> -->

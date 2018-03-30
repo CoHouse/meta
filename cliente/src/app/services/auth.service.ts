@@ -16,7 +16,7 @@ export class AuthService {
     responseType: 'token id_token',
     audience: 'https://personalplann.auth0.com/userinfo',
     redirectUri: 'http://localhost:4200/callback',
-    // redirectUri: 'http://sous.netherum.com/',
+    // redirectUri: 'http://mbchanger.com/',
     scope: 'openid profile email'
   });
 

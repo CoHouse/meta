@@ -14,15 +14,15 @@ app.set('port', port);
 var server = http.createServer(app);
 
 /* Conexión a base de datos */
-mongoose.connect("mongodb://mbchanger:5al1x9SP45EDus3Ac5@ds259768.mlab.com:59768/metadb", (error, response) => {
-  if( error ){
-    throw error;
-  } else {
-    server.listen( port, function(){
-      console.log("Server Online");
-    })
-  }
-} );
+// mongoose.connect("mongodb://mbchanger:5al1x9SP45EDus3Ac5@ds259768.mlab.com:59768/metadb", (error, response) => {
+//   if( error ){
+//     throw error;
+//   } else {
+//     server.listen( port, function(){
+//       console.log("Server Online");
+//     })
+//   }
+// } );
 
 /**
 * Listen on provided port, on all network interfaces.

@@ -1,16 +1,16 @@
-<!-- <div class="container-fluid"> -->
+<div class="container-fluid background-black animated fadeIn">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="assets/img/b.jpg" alt="First slide">
+            <img class="d-block w-100" src="assets/img/home/1.jpg" alt="First slide">
           </div>
         </div>
       </div>
     </div>
   </div>
-<!-- </div> -->
+</div>
 
 <!-- <div class="container-fluid">
   <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 col-xs-12 pt-3 animated fadeIn slow">
@@ -23,7 +23,7 @@
 
 <div class="pt-1 background-white"></div>
 
-<div class="container-fluid">
+<div class="container-fluid animated fadeIn">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5 background-black white-font">
       <h4 class="text-center text-uppercase">Últimos <b class="underlined">Artículos&emsp;&emsp;</b></h4>
@@ -33,101 +33,91 @@
 
 <div class="py-3"></div>
 
+<div class="container-fluid animated fadeInLeft">
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-lg-1 offset-md-1 offset-sm-3 offset-xs-3">
+
+      <div class="row">
+        <div *ngFor="let post of posts" class="col-sm-4 py-3">
+          <div class="card shadow">
+            <img class="card-img-top" src="{{ post.image }}" alt="{{ post.title }}" title="{{ post.title }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ post.title }}</h5>
+              <p class="card-text" [innerHtml]='post.text | slice:0:200'></p>
+              <div class="text-left">
+                <a href="#/post/{{ post._id }}" class=""><h6>Leer más ></h6></a>
+              </div>
+            </div>
+            <div class="py-1 background-black"></div>
+            <div class="card-footer text-right">
+              <small class="text-muted">Fecha de publicación: {{ post.date }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="py-3"></div>
+
+<div class="container-fluid background-black animated fadeIn">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="assets/img/home/2.jpg" alt="First slide">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pt-1"></div>
+
 <div class="container-fluid">
-  <div class="row animated fadeInLeft">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5 background-black white-font">
+      <h4 class="text-center text-uppercase">Últimos <b class="underlined">Videos&emsp;&emsp;</b></h4>
+    </div>
+  </div>
+</div>
+
+<div class="py-3"></div>
+
+<div class="container-fluid animated fadeInLeft">
+  <div class="row">
     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 offset-lg-1 offset-md-1 offset-sm-1">
 
-      <div class="card-deck">
-
-        <div *ngFor="let post of posts" class="card border-light shadow">
-          <img class="card-img-top" src="{{ post.image }}" alt="{{ post.title }}" title="{{ post.title }}">
-          <div class="card-body">
-
-            <h5 class="card-title text-center">{{ post.title }}</h5>
-            <p class="card-text" [innerHtml]='post.text | slice:0:200'></p>
-
-            <div class="text-left">
-              <a href="#/post/{{ post._id }}" class=""><h6>Leer más ></h6></a>
-              <!-- <a [routerLink]="['/post']" class="btn btn-outline-info btn-lg">Más Info...</a> -->
+      <div class="row">
+        <div *ngFor="let video of videos" class="col-sm-4 py-3">
+          <div class="card shadow">
+            <img class="card-img-top" src="{{ video.image }}" alt="{{ video.title }}" title="{{ video.title }}">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{ video.title }}</h5>
+              <p class="card-text" [innerHtml]='video.text | slice:0:200'></p>
+              <div class="text-left">
+                <a href="#/video/{{ video._id }}" class="video-link"><h6>Ver más ></h6></a>
+              </div>
             </div>
-
-          </div>
-
-          <div class="py-1 background-black"></div>
-
-          <div class="card-footer text-right">
-            <small class="text-muted">Fecha de publicación: {{ post.date }}</small>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-</div>
-
-<div class="py-3"></div>
-
-<div class="row">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100" src="assets/img/a.jpg" alt="First slide">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="py-3"></div>
-
-<div class="row">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5 background-black white-font">
-    <h4 class="text-center text-uppercase">Últimos <b class="underlined">Videos&emsp;&emsp;</b></h4>
-  </div>
-</div>
-
-<div class="py-3"></div>
-
-<div class="container-fluid">
-  <div class="row animated fadeInLeft">
-    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 offset-lg-1 offset-md-1 offset-sm-1">
-
-      <div class="card-deck">
-
-        <div *ngFor="let video of videos" class="card border-light shadow">
-          <img class="card-img-top" src="{{ video.image }}" alt="{{ video.title }}" title="{{ video.title }}">
-          <div class="card-body">
-
-            <h5 class="card-title text-center">{{ video.title }}</h5>
-            <p class="card-text">{{ video.text | slice:0:200 }} ...</p>
-
-            <div class="text-left">
-              <a href="#/post/{{ video._id }}" class="video-link"><h6>Ver más ></h6></a>
-              <!-- <a [routerLink]="['/post']" class="btn btn-outline-info btn-lg">Más Info...</a> -->
+            <div class="py-1 background-black"></div>
+            <div class="card-footer text-right">
+              <small class="text-muted">Fecha de publicación: {{ video.date }}</small>
             </div>
-
-          </div>
-
-          <div class="py-1 background-black"></div>
-
-          <div class="card-footer text-right">
-            <small class="text-muted">Fecha de publicación: {{ video.date }}</small>
           </div>
         </div>
-
       </div>
 
     </div>
-
   </div>
 </div>
 
 <div class="py-3"></div>
 
-<div class="container-fluid">
+<div class="container-fluid animated fadeIn">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5 background-black white-font">
       <h4 class="text-center text-uppercase">Suscríbete a nuestro <b class="underlined">Newsletter&emsp;&emsp;</b></h4>
@@ -135,29 +125,65 @@
   </div>
 </div>
 
-<form>
-  <div class="form-row background-black white-font">
-    <div class="col-1 text-center">
-      <label><h4>Tú Nombre | </h4></label>
-    </div>
-    <div class="col-4">
-      <input type="text" class="form-control" placeholder="Ingresa tu nombre">
-    </div>
-    <div class="col-1 text-center">
-      <label><h4>Tú Mail | </h4></label>
-    </div>
-    <div class="col-4">
-      <input type="email" class="form-control" placeholder="Ingresa tu mail">
-    </div>
-  </div>
-  <div class="form-row background-black white-font">
-    <div class="col text-center py-4">
-      <button class="btn btn-link yellow-font" type="" name="button"><h4>Enviar ></h4></button>
-    </div>
-  </div>
-</form>
+<div class="container-fluid animated fadeIn">
+  <div class="row py-4 background-black white-font">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <form #formNewsletter="ngForm">
+        <div class="row">
 
-      <!-- <form class="form-inline" enctype="application/x-www-form-urlencoded" action="https://mbchanger.ip-zone.com/ccm/subscribe/index/form/" method="post">
+          <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 text-center py-2">
+            <label><h4 class="text-center text-uppercase">Tú Nombre | </h4></label>
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 py-2">
+            <input type="text" class="form-control" name="name" placeholder="Ingresa tu nombre" ngModel required>
+          </div>
+
+          <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 text-center py-2">
+            <label><h4 class="text-center text-uppercase">Tú Mail | </h4></label>
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 py-2">
+            <input type="email" class="form-control" name="email" placeholder="Ingresa tu mail" ngModel required>
+          </div>
+
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center pt-3">
+            <button class="btn btn-link yellow-font" (click)="saveNewsletter( formNewsletter )" [disabled]="!formNewsletter.valid" name="button"><h3>Enviar ></h3></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container-fluid">
+  <div class="row">
+    <form>
+      <div class="form-row background-black white-font">
+        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 offset-sm-1 text-center">
+          <label><h4 class="text-center text-uppercase">Tú Nombre | </h4></label>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-1 col-xs-1 text-center">
+          <input type="text" class="form-control" placeholder="Ingresa tu nombre">
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 text-center">
+          <label><h4 class="text-center text-uppercase">Tú Mail | </h4></label>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-1 col-xs-1 text-center">
+          <input type="email" class="form-control" placeholder="Ingresa tu mail">
+        </div>
+      </div>
+
+      <div class="form-row background-black white-font">
+        <div class="col text-center py-4">
+          <button class="btn btn-link yellow-font" type="" name="button"><h3>Enviar ></h3></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div> -->
+
+<!-- <form class="form-inline" enctype="application/x-www-form-urlencoded" action="https://mbchanger.ip-zone.com/ccm/subscribe/index/form/" method="post">
         <dl class="zend_form">
          <dt id="name-label">
          <label for="name" class="optional">Nombre</label>

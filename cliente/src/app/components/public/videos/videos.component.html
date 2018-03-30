@@ -1,5 +1,7 @@
 <div class="container-fluid">
+
   <div class="row py-2">
+
     <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5 pb-3 text-center">
 
       <ul class="nav nav-tabs flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -17,159 +19,136 @@
 
     </div>
 
-    <div class="col-lg-10">
+    <div class="col-lg-10 col-sm-12 col-xs-12">
 
-      <div class="tab-content" id="v-pills-tabContent">
+      <div class="tab-content" id="v-pills-all-tab">
 
-        <!-- Inicio Tab "Carga" -->
-        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+        <!-- Inicio Tab "Todas" -->
+        <div class="tab-pane fade show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all">
+
+          <div class="card-deck">
+            <div *ngFor="let video of videos" class="card my-3 shadow-sm" style="min-width:25%; max-width:40%">
+             <a href="#/video/{{ video._id }}"><img class="card-img-top" [src]="video.image" [alt]="video.title"></a>
+             <div class="card-body">
+                 <h5 class="card-title"><a href="#/video/{{ video._id }}">{{ video.title }}</a></h5>
+                 <p class="card-text" [innerHtml]='video.text | slice:0:200'></p>
+                 <a href="#/video/{{ video._id }}" class=""><h6>Leer más ></h6></a>
+             </div>
+             <div class="card-footer">
+               <small class="text-muted">Publicado el: {{ video.date }}</small>
+             </div>
+           </div>
+
+          </div>
+
+        </div>
+        <!-- Fin Tab "todas" -->
+
+        <!-- Inicio Tab "Volúmen e Intensidad" -->
+        <div class="tab-pane fade" id="v-pills-volume" role="tabpanel" aria-labelledby="v-pills-volume-tab">
 
           <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5 background-black white-font">
-              <h4 class="text-center text-uppercase">Todas las entradas del <b class="underlined">blog&emsp;&emsp;</b></h4>
+              <h4 class="text-center text-uppercase">Volúmen e <b class="underlined">Intensidad&emsp;&emsp;</b></h4>
             </div>
           </div>
 
           <div class="card-deck">
-            <div class="card">
-              <img class="card-img-top" src="assets/img/img.svg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="assets/img/img.svg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="assets/img/img.svg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
+
+            <div *ngFor="let post of postsVolume" class="card my-3 shadow" style="min-width:25%; max-width:40%">
+             <a href="#/post/{{ post._id }}"><img class="card-img-top" src="{{ post.image }}" [alt]="post.title"></a>
+             <div class="card-body">
+                 <h5 class="card-title"><a href="#/post/{{ post._id }}">{{ post.title }}</a></h5>
+               <p class="card-text" [innerHtml]='post.text | slice:0:200'></p>
+             </div>
+             <div class="card-footer">
+               <small class="text-muted">Publicado el: {{ post.date }}</small>
+             </div>
+           </div>
+
           </div>
+
         </div>
         <!-- Fin Tab "Carga" -->
 
         <!-- Inicio Tab "Nutrición" -->
-        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+        <div class="tab-pane fade" id="v-pills-nutrition" role="tabpanel" aria-labelledby="v-pills-nutrition-tab">
 
           <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5 background-black white-font">
-              <h4 class="text-center text-uppercase">Todas las entradas del <b class="underlined">blog&emsp;&emsp;</b></h4>
+              <h4 class="text-center text-uppercase"><b class="underlined">Nutrición&emsp;&emsp;</b></h4>
             </div>
           </div>
 
           <div class="card-deck">
-            <div class="card">
-              <img class="card-img-top" src="assets/img/img.svg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="assets/img/img.svg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="assets/img/img.svg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
+
+            <div *ngFor="let post of postsNutrition" class="card my-3 shadow" style="min-width:25%; max-width:40%">
+             <a href="#/post/{{ post._id }}"><img class="card-img-top" src="{{ post.image }}" [alt]="post.title"></a>
+             <div class="card-body">
+                 <h5 class="card-title"><a href="#/post/{{ post._id }}">{{ post.title }}</a></h5>
+               <p class="card-text" [innerHtml]='post.text | slice:0:200'></p>
+             </div>
+             <div class="card-footer">
+               <small class="text-muted">Publicado el: {{ post.date }}</small>
+             </div>
+           </div>
+
           </div>
+
         </div>
         <!-- Fin Tab "Nutrición" -->
 
         <!-- Inicio Tab "Ejercicios" -->
-        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+        <div class="tab-pane fade" id="v-pills-exercices" role="tabpanel" aria-labelledby="v-pills-exercices-tab">
 
           <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5 background-black white-font">
-              <h4 class="text-center text-uppercase">Todas las entradas del <b class="underlined">blog&emsp;&emsp;</b></h4>
+              <h4 class="text-center text-uppercase"><b class="underlined">Ejercicios&emsp;&emsp;</b></h4>
             </div>
           </div>
 
           <div class="card-deck">
-            <div class="card">
-              <img class="card-img-top" src="assets/img/img.svg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="assets/img/img.svg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="assets/img/img.svg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
+
+            <div *ngFor="let post of postsExercises" class="card my-3 shadow" style="min-width:25%; max-width:40%">
+             <a href="#/post/{{ post._id }}"><img class="card-img-top" src="{{ post.image }}" [alt]="post.title"></a>
+             <div class="card-body">
+                 <h5 class="card-title"><a href="#/post/{{ post._id }}">{{ post.title }}</a></h5>
+               <p class="card-text" [innerHtml]='post.text | slice:0:200'></p>
+             </div>
+             <div class="card-footer">
+               <small class="text-muted">Publicado el: {{ post.date }}</small>
+             </div>
+           </div>
+
           </div>
+
         </div>
         <!-- Fin Tab "Ejercicios" -->
 
-        <!-- Inicio Tab "Complementos" -->
-        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+        <!-- Inicio Tab "Suplementos" -->
+        <div class="tab-pane fade" id="v-pills-suplements" role="tabpanel" aria-labelledby="v-pills-suplements-tab">
 
           <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5 background-black white-font">
-              <h4 class="text-center text-uppercase">Todas las entradas del <b class="underlined">blog&emsp;&emsp;</b></h4>
+              <h4 class="text-center text-uppercase"><b class="underlined">Suplementos&emsp;&emsp;</b></h4>
             </div>
           </div>
 
           <div class="card-deck">
-            <div class="card">
-              <img class="card-img-top" src="assets/img/img.svg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="assets/img/img.svg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="assets/img/img.svg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
+
+            <div *ngFor="let post of postsSuplements" class="card my-3 shadow" style="min-width:25%; max-width:40%">
+             <a href="#/post/{{ post._id }}"><img class="card-img-top" src="{{ post.image }}" [alt]="post.title"></a>
+             <div class="card-body">
+                 <h5 class="card-title"><a href="#/post/{{ post._id }}">{{ post.title }}</a></h5>
+               <p class="card-text" [innerHtml]='post.text | slice:0:200'></p>
+             </div>
+             <div class="card-footer">
+               <small class="text-muted">Publicado el: {{ post.date }}</small>
+             </div>
+           </div>
+
           </div>
+
         </div>
         <!-- fin Tab "Complementos" -->
 

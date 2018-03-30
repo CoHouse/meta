@@ -26,15 +26,13 @@
         <!-- Inicio Tab "Todas" -->
         <div class="tab-pane fade show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all">
 
-
-
           <div class="card-deck">
-
             <div *ngFor="let post of posts" class="card my-3 shadow-sm" style="min-width:25%; max-width:40%">
              <a href="#/post/{{ post._id }}"><img class="card-img-top" [src]="post.image" [alt]="post.title"></a>
              <div class="card-body">
                  <h5 class="card-title"><a href="#/post/{{ post._id }}">{{ post.title }}</a></h5>
                  <p class="card-text" [innerHtml]='post.text | slice:0:200'></p>
+                 <a href="#/post/{{ post._id }}" class=""><h6>Leer más ></h6></a>
              </div>
              <div class="card-footer">
                <small class="text-muted">Publicado el: {{ post.date }}</small>
