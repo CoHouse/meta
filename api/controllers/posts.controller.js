@@ -21,7 +21,6 @@ function showPost( req, res ){
       res.status(200).send( { showPost } );
     }
   } ).where('_id').equals( req.params._id );
-
 }
 
 function showPosts( req, res ){

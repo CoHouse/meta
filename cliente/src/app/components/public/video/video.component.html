@@ -18,18 +18,17 @@
             </div>
           </div>
         </div>
-      <h6 class="text-center py-3">Categoría: {{ video.category }}</h6>
+      <h6 class="text-center py-3"> Categoría: {{ video.category }} </h6>
 
-      <div class="embed-responsive embed-responsive-16by9">
-        <video class="embed-responsive-item" src="https://www.youtube.com/watch?v=FaGxKAgN_-g"></video>
+      <div class="embed-responsive embed-responsive-16by9 py-4">
+        <iframe class="embed-responsive-item" src="https://vimeo.com/256160363" allowfullscreen></iframe>
       </div>
+
 
     </div>
 
     <div class="row py-2 text-justify">
-      <div class="col-lg-9 col-md-9 col-sm-10 col-xs-10 offset-lg-2 offset-md-2 offset-sm-1 offset-xs-1">
-        {{ video.text }}
-      </div>
+      <div class="col-lg-9 col-md-9 col-sm-10 col-xs-10 offset-lg-2 offset-md-2 offset-sm-1 offset-xs-1" [innerHtml]='video.text'></div>
     </div>
 
   </div>

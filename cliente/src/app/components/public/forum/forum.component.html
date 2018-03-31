@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="categories && topicsPresentations && topicsDubtsPlattform && topicsTransformations && topicsExercise && topicsAlimentation">
   <div class="row py-2">
 
     <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5 pb-3 text-center">
@@ -18,38 +18,38 @@
       <table *ngIf="categories" class="table table-bordered">
         <thead class="background-black" style="color:#fff;">
           <tr>
-            <th scope="col" colspan="4"><h5>Bienvenida a nuevos usuarios</h5></th>
+            <th scope="col" colspan="3"><h5>Bienvenida a nuevos usuarios</h5></th>
           </tr>
         </thead>
         <tbody>
           <tr class="table-dark text-center">
             <td class=""><h5>Categorías</h5></td>
             <td class=""><h5>Temas</h5></td>
-            <td class=""><h5>Comentarios</h5></td>
             <td class=""><h5>Última discusión</h5></td>
           </tr>
+          <!-- Presentaciones -->
           <tr>
             <td scope="row">
               <h6 class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[0].ref ]">{{ categories[0].name }}</a></h6>
               <small>Bienvenidas y presentaciones</small>
             </td>
-            <td class="text-center align-middle">10</td>
-            <td class="text-center align-middle">30</td>
+            <td class="text-center align-middle">{{ numberPresentations }}</td>
             <td>
-              <h6><a class="enlace-foro" href="#">Hola a todos, me presento</a></h6>
-              <small>Luis Sosa el 10 de Enero de 2018</small>
+              <h6><a class="enlace-foro" [routerLink]="['/topic', topicsPresentations[ numberPresentations - 1 ]._id ]">{{ topicsPresentations[ numberPresentations - 1 ].title }}</a></h6>
+              <small>{{ topicsPresentations[ numberPresentations - 1 ].author }} el {{ topicsPresentations[ numberPresentations - 1 ].date }}</small>
             </td>
           </tr>
+
+          <!-- Dudas con la Plataforma -->
           <tr>
             <td scope="row">
               <h6 class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[1].ref ]">{{ categories[1].name }}</a></h6>
               <small>Cualquier duda relacionada al funcionamiento del sitio</small>
             </td>
-            <td class="text-center align-middle">15</td>
-            <td class="text-center align-middle">150</td>
+            <td class="text-center align-middle">{{ numberPlattaformDoubts }}</td>
             <td>
-              <h6><a class="enlace-foro" href="#">Formas de Pago</a></h6>
-              <small>Juan Pérez el 05 Enero de 2018</small>
+              <h6><a class="enlace-foro" [routerLink]="['/topic', topicsDubtsPlattform[ numberPlattaformDoubts - 1 ]._id ]">{{ topicsDubtsPlattform[ numberPlattaformDoubts - 1 ].title }}</a></h6>
+              <small>{{ topicsDubtsPlattform[ numberPlattaformDoubts - 1 ].author }} el {{ topicsDubtsPlattform[ numberPlattaformDoubts - 1 ].date }}</small>
             </td>
           </tr>
         </tbody>
@@ -59,50 +59,49 @@
       <table *ngIf="categories" class="table table-bordered">
         <thead class="background-black" style="color:#fff;">
           <tr>
-            <th scope="col" colspan="4"><h5>Programas personalizados <span class="badge badge-pill badge-info">Usuarios Premium</span></h5></th>
+            <th scope="col" colspan="3"><h5>Programas personalizados <span class="badge badge-pill badge-info">Usuarios Premium</span></h5></th>
           </tr>
         </thead>
         <tbody>
           <tr class="table-dark text-center">
             <td class=""><h5>Categorías</h5></td>
             <td class=""><h5>Temas</h5></td>
-            <td class=""><h5>Comentarios</h5></td>
             <td class=""><h5>Última discusión</h5></td>
           </tr>
+          <!-- Transformaciones -->
           <tr>
             <td scope="row">
               <h6 class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[2].ref ]">{{ categories[2].name }}</a></h6>
               <small>Muestra tu transformación a la comunidad e inspira a los demás</small>
             </td>
-            <td class="text-center align-middle">10</td>
-            <td class="text-center align-middle">30</td>
+            <td class="text-center align-middle">{{ numberTransformations }}</td>
             <td>
-              <h6>Hola a todos, me presento</h6>
-              <small>Luis Sosa el 10 de Enero de 2018</small>
+              <h6><a [routerLink]="['/topic', topicsTransformations[ numberTransformations - 1 ]._id ]">{{ topicsTransformations[ numberTransformations - 1 ].title }}</a></h6>
+              <small>{{ topicsTransformations[ numberTransformations - 1 ].author }} el {{ topicsTransformations[ numberTransformations - 1 ].date }}</small>
             </td>
           </tr>
+          <!-- Dudas Programa Ejercicio -->
           <tr>
             <td scope="row">
               <h6 class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[3].ref ]">{{ categories[3].name }}</a></h6>
               <small>¿Tienes alguna duda con tu programa de ejercicio? Este es el lugar.</small>
             </td>
-            <td class="text-center align-middle">15</td>
-            <td class="text-center align-middle">150</td>
+            <td class="text-center align-middle">{{ numberExercisesDoubts }}</td>
             <td>
-              <h6>Formas de Pago</h6>
-              <small>Juan Pérez el 05 Enero de 2018</small>
+              <h6><a [routerLink]="['/topic', topicsExercise[ numberExercisesDoubts - 1 ]._id ]">{{ topicsExercise[ numberExercisesDoubts - 1 ].title }}</a></h6>
+              <small>{{ topicsExercise[ numberExercisesDoubts - 1 ].author }} el {{ topicsExercise[ numberExercisesDoubts - 1 ].date }}</small>
             </td>
           </tr>
+          <!-- Dudas Programa Alimentación -->
           <tr>
             <td scope="row">
               <h6 class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[4].ref ]">{{ categories[4].name }}</a></h6>
               <small>Expon aquí cualquier duda o inquietud relacionada a tu plan alimenticio.</small>
             </td>
-            <td class="text-center align-middle">50</td>
-            <td class="text-center align-middle">500</td>
+            <td class="text-center align-middle">{{ numberAlimentationDoubts }}</td>
             <td>
-              <h6>Formas de Pago</h6>
-              <small>Juan Pérez el 05 Enero de 2018</small>
+              <h6><a [routerLink]="['/topic', topicsAlimentation[ numberPlattaformDoubts - 1 ]._id ]">{{ topicsAlimentation[ numberPlattaformDoubts - 1 ].title }}</a></h6>
+              <small>{{ topicsAlimentation[ numberAlimentationDoubts - 1 ].author }} el {{ topicsAlimentation[ numberAlimentationDoubts - 1 ].date }}</small>
             </td>
           </tr>
         </tbody>

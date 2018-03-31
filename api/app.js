@@ -31,6 +31,7 @@ var routeVideos = require("./routes/videos.route.js");
 var routeCategories = require("./routes/categories.route.js");
 var routeChanger = require("./routes/changer.route.js");
 var routeQuestion = require("./routes/questions.route.js");
+var routeTopic = require("./routes/topics.route.js");
 
 /*=============================================>>>>>
 = Rutas Base de la aplicación =
@@ -40,5 +41,6 @@ app.use( "/api", routeVideos );
 app.use( "/api", routeCategories );
 app.use( "/api", routeChanger );
 app.use( "/api", routeQuestion );
+app.use( "/api", routeTopic );
 
 module.exports = app;

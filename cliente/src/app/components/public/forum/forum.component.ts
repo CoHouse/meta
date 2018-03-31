@@ -14,6 +14,18 @@ export class ForumComponent implements OnInit {
   public categories;
   public category;
 
+  public numberPresentations;
+  public numberPlattaformDoubts;
+  public numberTransformations;
+  public numberExercisesDoubts;
+  public numberAlimentationDoubts;
+
+  public topicsPresentations;
+  public topicsDubtsPlattform;
+  public topicsTransformations;
+  public topicsExercise;
+  public topicsAlimentation;
+
   constructor( public _forum:ForumService, public _activatedRoute:ActivatedRoute ) {
 
     this._activatedRoute.params.subscribe( params => {
@@ -26,15 +38,43 @@ export class ForumComponent implements OnInit {
       var errorMessage = <any>error;
     });
 
-
-    /*
-      getLength x categoría
-      getCommentsLength x categoría
-      getLastTopic x categoría
-    */
-
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this._forum.getPresentationsTopics().subscribe( result => {
+      this.numberPresentations = result['showPresentationTopics'].length;
+      this.topicsPresentations = result['showPresentationTopics'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
+    this._forum.getDoubdtsPlattformTopics().subscribe( result => {
+      this.numberPlattaformDoubts = result['showDoubtsPlattformTopics'].length;
+      this.topicsDubtsPlattform = result['showDoubtsPlattformTopics'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
+    this._forum.getTransformationsTopics().subscribe( result => {
+      this.numberTransformations = result['showTransformationsTopics'].length;
+      this.topicsTransformations = result['showTransformationsTopics'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
+    this._forum.getExerciseProgramTopics().subscribe( result => {
+      this.numberExercisesDoubts = result['showExerciseProgramTopics'].length;
+      this.topicsExercise = result['showExerciseProgramTopics'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
+    this._forum.getAlimentationProgramTopics().subscribe( result => {
+      this.numberAlimentationDoubts = result['showAlimentationProgramTopics'].length;
+      this.topicsAlimentation = result['showAlimentationProgramTopics'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+  }
 
 }

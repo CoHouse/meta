@@ -8,6 +8,16 @@ var changerModifier = 'B';
 
 /* GET */
 
+function showVideos( req, res ){
+  objVideo.find( ( error, showVideos )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición [Videos - showVideos]"} );
+    }else{
+      res.status(200).send( { showVideos } );
+    }
+  } );
+}
+
 function showVideo( req, res ){
   objVideo.find( ( error, showVideo )=>{
     if( error ){
@@ -17,16 +27,6 @@ function showVideo( req, res ){
     }
   } ).where('_id').equals( req.params._id );
 
-}
-
-function showVideos( req, res ){
-  objVideo.find( ( error, showVideos )=>{
-    if( error ){
-      res.status(500).send( { message: "Error en la petición [Videos - showVideos]"} );
-    }else{
-      res.status(200).send( { showVideos } );
-    }
-  } );
 }
 
 function showHomeVideos( req, res ){

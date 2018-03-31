@@ -36,8 +36,38 @@ export class VideosComponent implements OnInit {
   public category;
 
   constructor( public _video:VideoService, public _activatedRoute:ActivatedRoute ){
+
     this._activatedRoute.params.subscribe( params => {
       this.category = params['category'];
+
+      switch( this.category ) {
+          case "volume":
+            setTimeout( ()=>{
+              $('.nav-tabs a[href="#v-pills-volume"]').tab('show');
+            }, 50);
+              break;
+
+          case "nutrition":
+            setTimeout( ()=>{
+              $('.nav-tabs a[href="#v-pills-nutrition"]').tab('show');
+            }, 50);
+              break;
+
+          case "exercices":
+            setTimeout( ()=>{
+              $('.nav-tabs a[href="#v-pills-exercices"]').tab('show');
+            }, 50);
+              break;
+
+          case "suplements":
+            setTimeout( ()=>{
+              $('.nav-tabs a[href="#v-pills-suplements"]').tab('show');
+            }, 50);
+          break;
+
+          default:
+      }
+
     });
 
     this._video.getCategories().subscribe( result => {
@@ -55,6 +85,32 @@ export class VideosComponent implements OnInit {
 
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+
+    this._blog.getVolumePosts().subscribe( result => {
+      this.postsVolume = result['showPosts'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
+    this._blog.getNutritionPosts().subscribe( result => {
+      this.postsNutrition = result['showPosts'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
+    this._blog.getExercisesPosts().subscribe( result => {
+      this.postsExercises = result['showPosts'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
+    this._blog.getSuplementsPosts().subscribe( result => {
+      this.postsSuplements = result['showPosts'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
+  }
 
 }
