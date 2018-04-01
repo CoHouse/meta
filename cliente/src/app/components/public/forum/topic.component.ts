@@ -14,8 +14,9 @@ export class TopicComponent implements OnInit {
 
   public category;
   public _id;
-  public response = false;
   public ref;
+
+  public response = false;
 
   public topic:Topic = {
     title: "title",
@@ -28,6 +29,7 @@ export class TopicComponent implements OnInit {
   constructor( public _activatedRoute:ActivatedRoute, public _forum:ForumService, public _topic:TopicService ) {
     this._activatedRoute.params.subscribe( params => {
       this.ref = params['category'];
+
       switch( this.ref ) {
           case "presentations":
           this.category = "Presentaciones";
@@ -45,6 +47,7 @@ export class TopicComponent implements OnInit {
 
           case "pdoubdts":
           this.category = "Dudas con la Plataforma";
+
           this._forum.getDoubdtsPlattformTopics().subscribe( result => {
             this._id = params['topic'];
             this._topic.getTopic( this._id ).subscribe( result => {
@@ -57,6 +60,7 @@ export class TopicComponent implements OnInit {
 
           case "transformations":
           this.category = "Transformaciones";
+
           this._forum.getTransformationsTopics().subscribe( result => {
             this._id = params['topic'];
             this._topic.getTopic( this._id ).subscribe( result => {
@@ -69,6 +73,7 @@ export class TopicComponent implements OnInit {
 
           case "epdoubdts":
           this.category = "Dudas con tu programa de Ejercicio";
+
           this._forum.getExerciseProgramTopics().subscribe( result => {
             this._id = params['topic'];
             this._topic.getTopic( this._id ).subscribe( result => {
@@ -81,6 +86,7 @@ export class TopicComponent implements OnInit {
 
           default:
           this.category = "Dudas con tu programa Alimenticio";
+
           this._forum.getAlimentationProgramTopics().subscribe( result => {
             this._id = params['topic'];
             this._topic.getTopic( this._id ).subscribe( result => {

@@ -23,15 +23,19 @@ export class ForumcatComponent implements OnInit {
 
   public category;
   public topics;
+  public categoryModifier;
 
   public saveSucess = false;
   public newTopicFlag = false;
+
+  moment = new Date();
 
   constructor( public _activatedRoute:ActivatedRoute, public _forum:ForumService, public _topic:TopicService ) {
     this._activatedRoute.params.subscribe( params => {
       switch( params['category'] ) {
           case "presentations":
           this.category = "Presentaciones";
+          this.categoryModifier = "P";
 
           this._forum.getPresentationsTopics().subscribe( result => {
             this.topics = result['showPresentationTopics'];
@@ -43,6 +47,8 @@ export class ForumcatComponent implements OnInit {
 
           case "pdoubdts":
           this.category = "Dudas con la Plataforma";
+          this.categoryModifier = "D";
+
           this._forum.getDoubdtsPlattformTopics().subscribe( result => {
             this.topics = result['showDoubtsPlattformTopics'];
           }, error => {
@@ -52,6 +58,8 @@ export class ForumcatComponent implements OnInit {
 
           case "transformations":
           this.category = "Transformaciones";
+          this.categoryModifier = "T";
+
           this._forum.getTransformationsTopics().subscribe( result => {
             this.topics = result['showTransformationsTopics'];
           }, error => {
@@ -61,6 +69,8 @@ export class ForumcatComponent implements OnInit {
 
           case "epdoubdts":
           this.category = "Dudas con tu programa de Ejercicio";
+          this.categoryModifier = "E";
+
           this._forum.getExerciseProgramTopics().subscribe( result => {
             this.topics = result['showExerciseProgramTopics'];
           }, error => {
@@ -70,6 +80,8 @@ export class ForumcatComponent implements OnInit {
 
           default:
           this.category = "Dudas con tu programa Alimenticio";
+          this.categoryModifier = "A";
+
           this._forum.getAlimentationProgramTopics().subscribe( result => {
             this.topics = result['showAlimentationProgramTopics'];
           }, error => {
@@ -84,10 +96,10 @@ export class ForumcatComponent implements OnInit {
   saveTopic( form:NgForm ){
     this.topic = {
       title: form['value']['title'],
-      author: form['value']['author'],
+      author: "TRAER DEL PERFIL",
       text: form['value']['text'],
-      category: form['value']['category'],
-      date: form['value']['date']
+      category: this.categoryModifier,
+      date: this.moment.toString()
     }
 
     this._topic.sendTopic( this.topic ).subscribe( data => {

@@ -36,7 +36,7 @@
               <small>{{ topic.text | slice:0:20 }}...</small>
             </td>
             <td class="text-center align-middle">{{ topic.author }}</td>
-            <td class="text-center align-middle">{{ topic.date }}</td>
+            <td class="text-center align-middle">{{ topic.date | date:" 'El' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX" }}</td>
           </tr>
         </tbody>
       </table>

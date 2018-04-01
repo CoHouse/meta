@@ -3,6 +3,9 @@ import { HomeService } from '../../../services/home.service';
 import { Http, Response } from "@angular/http";
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { registerLocaleData } from '@angular/common';
+import localeMx from '@angular/common/locales/es-MX';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,6 +15,8 @@ export class HomeComponent implements OnInit {
 
   public posts;
   public videos;
+
+  public hoy;
 
   constructor(
     private _homeService:HomeService,
@@ -32,5 +37,10 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit() { }
+
+  verHora(){
+    this.hoy = new Date();
+    console.log( this.hoy );
+  }
 
 }

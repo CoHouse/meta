@@ -87,29 +87,29 @@ export class VideosComponent implements OnInit {
 
   ngOnInit() {
 
-    this._blog.getVolumePosts().subscribe( result => {
-      this.postsVolume = result['showPosts'];
-    }, error => {
-      var errorMessage = <any>error;
-    });
-
-    this._blog.getNutritionPosts().subscribe( result => {
-      this.postsNutrition = result['showPosts'];
-    }, error => {
-      var errorMessage = <any>error;
-    });
-
-    this._blog.getExercisesPosts().subscribe( result => {
-      this.postsExercises = result['showPosts'];
-    }, error => {
-      var errorMessage = <any>error;
-    });
-
-    this._blog.getSuplementsPosts().subscribe( result => {
-      this.postsSuplements = result['showPosts'];
-    }, error => {
-      var errorMessage = <any>error;
-    });
+    // this._blog.getVolumePosts().subscribe( result => {
+    //   this.postsVolume = result['showPosts'];
+    // }, error => {
+    //   var errorMessage = <any>error;
+    // });
+    //
+    // this._blog.getNutritionPosts().subscribe( result => {
+    //   this.postsNutrition = result['showPosts'];
+    // }, error => {
+    //   var errorMessage = <any>error;
+    // });
+    //
+    // this._blog.getExercisesPosts().subscribe( result => {
+    //   this.postsExercises = result['showPosts'];
+    // }, error => {
+    //   var errorMessage = <any>error;
+    // });
+    //
+    // this._blog.getSuplementsPosts().subscribe( result => {
+    //   this.postsSuplements = result['showPosts'];
+    // }, error => {
+    //   var errorMessage = <any>error;
+    // });
 
   }
 

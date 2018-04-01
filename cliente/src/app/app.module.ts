@@ -1,6 +1,6 @@
 /* Modules */
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -84,6 +84,7 @@ import { APP_ROUTING } from './app-routes';
     APP_ROUTING
   ],
   providers: [
+    { provide: LOCALE_ID, useValue: 'es-MX' },
     AuthService,
     AuthGuardService,
     AdminGuardService,

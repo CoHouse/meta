@@ -1,7 +1,6 @@
 Developer realidad virtual/aumentada
 https://developer.oculus.com/unity/
 
-
 Mongoose JS
 http://mongoosejs.com/docs/api.html
 
@@ -40,7 +39,6 @@ Método 2:
   npm install --save-dev @angular/cli@latest
   npm install
   ng --version
-
 
 Contar líneas en Git
 

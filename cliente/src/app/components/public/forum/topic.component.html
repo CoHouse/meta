@@ -22,7 +22,7 @@
       <div class="card">
         <div class="card-header">
           <h6>{{ topic.title }}</h6>
-          <small>Por {{ topic.author }} el {{ topic.date }}</small>
+          <small>Por <strong>{{ topic.author }}</strong> el {{ topic.date | date:" 'El' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX" }}</small>
         </div>
         <div class="card-body">
           <h5 class="card-title">{{ topic.title }}</h5>

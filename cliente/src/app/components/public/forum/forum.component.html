@@ -23,7 +23,7 @@
         </thead>
         <tbody>
           <tr class="table-dark text-center">
-            <td class=""><h5>Categorías</h5></td>
+            <td class=""><h5>Categoría</h5></td>
             <td class=""><h5>Temas</h5></td>
             <td class=""><h5>Última discusión</h5></td>
           </tr>
@@ -35,8 +35,9 @@
             </td>
             <td class="text-center align-middle">{{ numberPresentations }}</td>
             <td>
-              <h6><a class="enlace-foro" [routerLink]="['/topic', topicsPresentations[ numberPresentations - 1 ]._id ]">{{ topicsPresentations[ numberPresentations - 1 ].title }}</a></h6>
-              <small>{{ topicsPresentations[ numberPresentations - 1 ].author }} el {{ topicsPresentations[ numberPresentations - 1 ].date }}</small>
+                                      <!-- forum/category/:category/topic/:topic -->
+              <h6><a class="enlace-foro" [routerLink]="['category', categories[0].ref, 'topic', topicsPresentations[ numberPresentations - 1 ]._id ]">{{ topicsPresentations[ numberPresentations - 1 ].title }}</a></h6>
+              <small>Por: <strong>{{ topicsPresentations[ numberPresentations - 1 ].author }}</strong> {{ topicsPresentations[ numberPresentations - 1 ].date | date:" 'el' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX" }}</small>
             </td>
           </tr>
 
@@ -48,7 +49,7 @@
             </td>
             <td class="text-center align-middle">{{ numberPlattaformDoubts }}</td>
             <td>
-              <h6><a class="enlace-foro" [routerLink]="['/topic', topicsDubtsPlattform[ numberPlattaformDoubts - 1 ]._id ]">{{ topicsDubtsPlattform[ numberPlattaformDoubts - 1 ].title }}</a></h6>
+              <h6><a class="enlace-foro" [routerLink]="['category', categories[1].ref, 'topic', topicsDubtsPlattform[ numberPlattaformDoubts - 1 ]._id ]">{{ topicsDubtsPlattform[ numberPlattaformDoubts - 1 ].title }}</a></h6>
               <small>{{ topicsDubtsPlattform[ numberPlattaformDoubts - 1 ].author }} el {{ topicsDubtsPlattform[ numberPlattaformDoubts - 1 ].date }}</small>
             </td>
           </tr>
@@ -76,7 +77,7 @@
             </td>
             <td class="text-center align-middle">{{ numberTransformations }}</td>
             <td>
-              <h6><a [routerLink]="['/topic', topicsTransformations[ numberTransformations - 1 ]._id ]">{{ topicsTransformations[ numberTransformations - 1 ].title }}</a></h6>
+              <h6><a [routerLink]="['category', categories[2].ref, 'topic', topicsTransformations[ numberTransformations - 1 ]._id ]">{{ topicsTransformations[ numberTransformations - 1 ].title }}</a></h6>
               <small>{{ topicsTransformations[ numberTransformations - 1 ].author }} el {{ topicsTransformations[ numberTransformations - 1 ].date }}</small>
             </td>
           </tr>
@@ -88,7 +89,7 @@
             </td>
             <td class="text-center align-middle">{{ numberExercisesDoubts }}</td>
             <td>
-              <h6><a [routerLink]="['/topic', topicsExercise[ numberExercisesDoubts - 1 ]._id ]">{{ topicsExercise[ numberExercisesDoubts - 1 ].title }}</a></h6>
+              <h6><a [routerLink]="['category', categories[3].ref, 'topic', topicsExercise[ numberExercisesDoubts - 1 ]._id ]">{{ topicsExercise[ numberExercisesDoubts - 1 ].title }}</a></h6>
               <small>{{ topicsExercise[ numberExercisesDoubts - 1 ].author }} el {{ topicsExercise[ numberExercisesDoubts - 1 ].date }}</small>
             </td>
           </tr>
@@ -100,7 +101,7 @@
             </td>
             <td class="text-center align-middle">{{ numberAlimentationDoubts }}</td>
             <td>
-              <h6><a [routerLink]="['/topic', topicsAlimentation[ numberPlattaformDoubts - 1 ]._id ]">{{ topicsAlimentation[ numberPlattaformDoubts - 1 ].title }}</a></h6>
+              <h6><a [routerLink]="['category', categories[4].ref, 'topic', topicsAlimentation[ numberAlimentationDoubts - 1 ]._id ]">{{ topicsAlimentation[ numberPlattaformDoubts - 1 ].title }}</a></h6>
               <small>{{ topicsAlimentation[ numberAlimentationDoubts - 1 ].author }} el {{ topicsAlimentation[ numberAlimentationDoubts - 1 ].date }}</small>
             </td>
           </tr>
