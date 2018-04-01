@@ -12,6 +12,7 @@ import { PostComponent } from './components/public/post/post.component';
 import { VideoComponent } from './components/public/video/video.component';
 import { OursystemComponent } from './components/public/oursystem/oursystem.component';
 import { ForumcatComponent } from './components/public/forum/forumcat.component';
+import { TopicComponent } from './components/public/forum/topic.component';
 
 /* Private Components */
 import { TrainingComponent } from './components/private/training/training.component';
@@ -36,6 +37,7 @@ const APP_ROUTES: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'forum', component: ForumComponent },
   { path: 'forum/category/:category', component: ForumcatComponent },
+  { path: 'forum/category/:category/topic/:topic', component: TopicComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'cuenta', component: AccountComponent },
   { path: 'post/:_id', component: PostComponent },

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ForumService } from '../../../services/forum.service';
 import { Http, Response } from "@angular/http";
-import { Changer } from '../../../interfaces/changer.interface';
 import { Router, ActivatedRoute } from '@angular/router';
-declare var $:any;
 
 @Component({
   selector: 'app-forum',

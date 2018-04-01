@@ -9,6 +9,7 @@ var topicsController = require("../controllers/topics.controller.js");
 var api = express.Router();
 
 /* Métodos GET */
+api.get("/getTopic/:_id", topicsController.getTopic );
 api.get("/getPresentationsTopics", topicsController.getPresentationsTopics );
 api.get("/getDoubdtsPlattformTopics", topicsController.getDoubdtsPlattformTopics );
 api.get("/getTransformationsTopics", topicsController.getTransformationsTopics );

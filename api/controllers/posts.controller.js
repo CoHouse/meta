@@ -16,7 +16,7 @@ var categorySuplements = 'S';
 function showPost( req, res ){
   objPost.find( ( error, showPost )=>{
     if( error ){
-      res.status(500).send( { message: "Error en la petición: [showPost()]"} );
+      res.status(500).send( { message: "Error en la petición: [showPost()]" } );
     }else{
       res.status(200).send( { showPost } );
     }

@@ -19,6 +19,8 @@ import { RegisterComponent } from './components/public/register/register.compone
 import { PostComponent } from './components/public/post/post.component';
 import { OursystemComponent } from './components/public/oursystem/oursystem.component';
 import { VideoComponent } from './components/public/video/video.component';
+import { ForumcatComponent } from './components/public/forum/forumcat.component';
+import { TopicComponent } from './components/public/forum/topic.component';
 
 import { TrainingComponent } from './components/private/training/training.component';
 import { AccountComponent } from './components/private/account/account.component';
@@ -43,11 +45,10 @@ import { PostService } from './services/post.service';
 import { VideoService } from './services/video.service';
 import { QuestionService } from './services/question.service';
 import { ForumService } from './services/forum.service';
+import { TopicService } from './services/topic.service';
 
 /* Routes */
 import { APP_ROUTING } from './app-routes';
-import { ForumcatComponent } from './components/public/forum/forumcat.component';
-import { TopicComponent } from './components/public/forum/topic.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import { TopicComponent } from './components/public/forum/topic.component';
     PostService,
     VideoService,
     QuestionService,
-    ForumService
+    ForumService,
+    TopicService
   ],
   bootstrap: [ AppComponent ]
 })

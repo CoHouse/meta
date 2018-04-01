@@ -1,3 +1,37 @@
-<p>
-  topic works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5 background-black white-font">
+      <h4 class="text-center text-uppercase">Categoría <b class="underlined">{{ category }}&emsp;&emsp;</b></h4>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-3">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a [routerLink]="['/forum']">Foro</a></li>
+          <li class="breadcrumb-item" aria-current="page"><a [routerLink]="[ '/forum', 'category', ref ]">{{ category }}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{ topic.title }}</li>
+        </ol>
+      </nav>
+
+      <div class="card">
+        <div class="card-header">
+          <h6>{{ topic.title }}</h6>
+          <small>Por {{ topic.author }} el {{ topic.date }}</small>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ topic.title }}</h5>
+          <hr>
+          <p class="card-text">{{ topic.text }}</p>
+        </div>
+        <div class="card-footer bg-transparent text-right"><button type="button" class="btn btn-success py-2">Responder <i class="far fa-comments"></i></button></div>
+      </div>
+
+    </div>
+  </div>
+</div>

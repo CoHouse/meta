@@ -29,6 +29,16 @@ var topicsAlimentationProgram = "A";
 */
 
 /* GET */
+function getTopic( req, res ){
+  objTopic.find( ( error, showTopic )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición: [showTopic()]"} );
+    }else{
+      res.status(200).send( { showTopic } );
+    }
+  } ).where('_id').equals( req.params._id );
+}
+
 function getPresentationsTopics( req, res ){
   objTopic.find( ( error, showPresentationTopics ) => {
     if( error ){
@@ -100,6 +110,7 @@ function saveTopic( req, res ){
 }
 
 module.exports = {
+  getTopic,
   getPresentationsTopics,
   getDoubdtsPlattformTopics,
   getTransformationsTopics,

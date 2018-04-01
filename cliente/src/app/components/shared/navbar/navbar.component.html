@@ -42,9 +42,9 @@
       </li>
       </ul>
 
-      <button *ngIf="!this.auth.isAuthenticated()" (click)="login()" class="btn btn-sm align-middle btn-success mx-2" type="button">Ingresar</button>
+      <button *ngIf="!this.auth.isAuthenticated()" (click)="login()" class="btn align-middle btn-success mx-2" type="button">Ingresar</button>
       <!-- <a *ngIf="!this.auth.isAuthenticated()" class="btn btn-sm align-middle btn-danger mx-2" [routerLink]="['register']">Regístrarse</a> -->
-      <button *ngIf="this.auth.isAuthenticated()" (click)="logout()" class="btn btn-sm align-middle btn-outline-info mx-2" type="button">Cerrar Sesión</button>
+      <button *ngIf="this.auth.isAuthenticated()" (click)="logout()" class="btn align-middle btn-outline-info mx-2" type="button">Cerrar Sesión</button>
 
     </div>
 

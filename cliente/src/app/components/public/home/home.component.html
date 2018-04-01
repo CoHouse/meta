@@ -136,7 +136,7 @@
           </div>
 
           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 py-2">
-            <input type="text" class="form-control" name="name" placeholder="Ingresa tu nombre" ngModel required>
+            <input type="text" class="form-control" name="name" placeholder="Ingresa tu nombre" ngModel minlength="4" required #name="ngModel">
           </div>
 
           <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 text-center py-2">
@@ -144,44 +144,27 @@
           </div>
 
           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 py-2">
-            <input type="email" class="form-control" name="email" placeholder="Ingresa tu mail" ngModel required>
+            <input type="email" class="form-control" name="email" placeholder="Ingresa tu mail" ngModel pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required #email="ngModel">
           </div>
 
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center pt-3">
-            <button class="btn btn-link yellow-font" (click)="saveNewsletter( formNewsletter )" [disabled]="!formNewsletter.valid" name="button"><h3>Enviar ></h3></button>
+            <button *ngIf="!formNewsletter.valid" class="btn btn-link disabled"><h3>Enviar ></h3></button>
+            <button *ngIf="formNewsletter.valid" class="btn btn-link yellow-font" (click)="saveNewsletter( formNewsletter )" name="button"><h3>Enviar ></h3></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 text-center pt-3"></div>
+          <div *ngIf="name.dirty && name.errors?.minlength" class="alert alert-danger" role="alert">
+            Favor de ingresar {{ name.errors.minlength.requiredLength }} caracteres o más.
+          </div>
+          <div *ngIf="email.dirty && email.errors?.pattern" class="alert alert-danger" role="alert">
+            Favor de ingresar un email válido
           </div>
         </div>
       </form>
     </div>
   </div>
 </div>
-
-<!-- <div class="container-fluid">
-  <div class="row">
-    <form>
-      <div class="form-row background-black white-font">
-        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 offset-sm-1 text-center">
-          <label><h4 class="text-center text-uppercase">Tú Nombre | </h4></label>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-1 col-xs-1 text-center">
-          <input type="text" class="form-control" placeholder="Ingresa tu nombre">
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 text-center">
-          <label><h4 class="text-center text-uppercase">Tú Mail | </h4></label>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-1 col-xs-1 text-center">
-          <input type="email" class="form-control" placeholder="Ingresa tu mail">
-        </div>
-      </div>
-
-      <div class="form-row background-black white-font">
-        <div class="col text-center py-4">
-          <button class="btn btn-link yellow-font" type="" name="button"><h3>Enviar ></h3></button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div> -->
 
 <!-- <form class="form-inline" enctype="application/x-www-form-urlencoded" action="https://mbchanger.ip-zone.com/ccm/subscribe/index/form/" method="post">
         <dl class="zend_form">

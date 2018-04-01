@@ -48,3 +48,7 @@
   background-color: #000;
   color: #fff;
 }
+
+.ng-invalid.ng-touched:not(form){
+  border: 1px solid red;
+  }
