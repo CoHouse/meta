@@ -13,32 +13,56 @@
       <!-- TABs -->
       <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active enlace-foro" id="home-tab" data-toggle="tab" href="#alimenticios" role="tab" aria-controls="home" aria-selected="true"><h6>Alimenticios</h6></a>
+          <a class="nav-link active enlace-foro" id="home-tab" data-toggle="tab" href="#generales" role="tab" aria-controls="home" aria-selected="true"><h6>Generales</h6></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link enlace-foro" id="profile-tab" data-toggle="tab" href="#antropometricos" role="tab" aria-controls="profile" aria-selected="false"><h6>Antropométricos</h6></a>
+          <a class="nav-link disabled" id="home-tab" data-toggle="tab" href="#alimenticios" role="tab" aria-controls="home" aria-selected="true"><h6>Alimenticios</h6></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link enlace-foro" id="contact-tab" data-toggle="tab" href="#bioquimicos" role="tab" aria-controls="contact" aria-selected="false"><h6>Bioquímicos</h6></a>
+          <a class="nav-link disabled" id="profile-tab" data-toggle="tab" href="#antropometricos" role="tab" aria-controls="profile" aria-selected="false"><h6>Antropométricos</h6></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link enlace-foro" id="contact-tab" data-toggle="tab" href="#clinicos" role="tab" aria-controls="contact" aria-selected="false"><h6>Clínicos</h6></a>
+          <a class="nav-link disabled" id="contact-tab" data-toggle="tab" href="#bioquimicos" role="tab" aria-controls="contact" aria-selected="false"><h6>Bioquímicos</h6></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link enlace-foro" id="contact-tab" data-toggle="tab" href="#dieteticos" role="tab" aria-controls="contact" aria-selected="false"><h6>dietéticos</h6></a>
+          <a class="nav-link disabled" id="contact-tab" data-toggle="tab" href="#clinicos" role="tab" aria-controls="contact" aria-selected="false"><h6>Clínicos</h6></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" id="contact-tab" data-toggle="tab" href="#dieteticos" role="tab" aria-controls="contact" aria-selected="false"><h6>Dietéticos</h6></a>
         </li>
       </ul>
       <!-- End TABs -->
 
       <div class="tab-content" id="myTabContent">
 
-        <!-- Tab << Alimenticio >> -->
-        <div class="tab-pane fade show active" id="alimenticios" role="tabpanel" aria-labelledby="home-tab">
+        <!-- Tab << Generales >> -->
+        <div class="tab-pane fade show active" id="generales" role="tabpanel" aria-labelledby="home-tab">
+          <form class="py-3 col-6 offset-3" (ngSubmit)="saveDataGenerales(formGenerales)" #formGenerales="ngForm">
+            <div class="form-group">
+             <label><h6>Nombre</h6></label>
+             <input type="text" class="form-control" placeholder="Nombre">
+           </div>
+           <div class="form-group">
+             <label><h6>Edad</h6></label>
+             <input type="text" class="form-control" placeholder="25">
+           </div>
 
-          <form (ngSubmit)="saveDataAlimenticios(formAlimenticios)" #formAlimenticios="ngForm" >
+           <div class="form-group pt-3" *ngIf="formGenerales">
+             <button  class="btn btn-info px-5">Seguir a Alimenticios (2 de 6)</button>
+             <!-- <button [disabled]="!formAlimenticios.valid" class="btn btn-info px-5">Seguir a Antropométricos (2 de 5)</button> -->
+           </div>
+
+          </form>
+        </div>
+        <!-- End Tab << Generales >> -->
+
+        <!-- Tab << Alimenticio >> -->
+        <div class="tab-pane fade show" id="alimenticios" role="tabpanel" aria-labelledby="home-tab">
+
+          <form (ngSubmit)="saveDataAlimenticios(formAlimenticios)" #formAlimenticios="ngForm">
 
             <!-- Cuestion 1 -->
-            <h6 class="pt-4 pl-3">¿Cuál es la frecuencia con la que hace ejercicio a la semana (días)?</h6>
+            <h6 class="pt-4 pl-3">¿Cuál es la frecuencia con la que hace ejercicio a la semana (en días)?</h6>
 
             <div class="form-group row">
               <div class="custom-control custom-radio custom-control-inline">
@@ -47,22 +71,22 @@
               </div>
               <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="alimentacionPregunta1opcion2" name="alimentacionPregunta1" class="custom-control-input" value="de 1 a 3 días" ngModel required #alimentacionPregunta1="ngModel">
-                <label class="custom-control-label" for="alimentacionPregunta1opcion2">b) de 1 a 3 días</label>
+                <label class="custom-control-label" for="alimentacionPregunta1opcion2">b) Entre 1 y 3 días</label>
               </div>
 
               <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="alimentacionPregunta1opcion3" name="alimentacionPregunta1" class="custom-control-input" value="de 3 a 5 días" ngModel required #alimentacionPregunta1="ngModel">
-                <label class="custom-control-label" for="alimentacionPregunta1opcion3">c) de 3 a 5 días</label>
+                <label class="custom-control-label" for="alimentacionPregunta1opcion3">c) Entre 3 y 5 días</label>
               </div>
 
               <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="alimentacionPregunta1opcion4" name="alimentacionPregunta1" class="custom-control-input" value="toda la semana" ngModel required #alimentacionPregunta1="ngModel">
-                <label class="custom-control-label" for="alimentacionPregunta1opcion4">d) toda la semana</label>
+                <label class="custom-control-label" for="alimentacionPregunta1opcion4">d) Toda la semana</label>
               </div>
             </div>
 
             <!-- Cuestion 2 -->
-            <h6 class="pt-3 pl-3">¿Con que intensidad realiza esta actividad?</h6>
+            <h6 class="pt-3 pl-3">¿Con qué intensidad realiza esta actividad?</h6>
 
             <div class="form-group row">
               <div class="custom-control custom-radio custom-control-inline">
@@ -84,7 +108,7 @@
             </div>
 
             <!-- Cuestion 3 -->
-            <h6 class="pt-3 pl-3">¿Qué tipo de ejercicio hace (trote, ejercicios como sentadillas, lagartijas, etc.)?</h6>
+            <h6 class="pt-3 pl-3">¿Qué tipo de ejercicio hace? (trote, ejercicios como sentadillas, lagartijas, etc.)</h6>
 
             <div class="form-group row">
               <div class="custom-control custom-radio custom-control-inline">
@@ -128,7 +152,7 @@
             </div>
 
             <!-- Cuestion 5 -->
-            <h6 class="pt-3 pl-3">¿Cuándo fue la última vez que participo en un programa de ejercicio regular?</h6>
+            <h6 class="pt-3 pl-3">¿Cuándo fue la última vez que participó en un programa de ejercicio regular?</h6>
 
             <div class="form-group row">
               <div class="custom-control custom-radio custom-control-inline">
@@ -172,7 +196,7 @@
             </div>
 
             <!-- Cuestion 7 -->
-            <h6 class="pt-3 pl-3">¿Cuál es el lugar donde puede realizar su ejercicio? <small>(Seleccione todas las opciones de acuerdo a sus posibilidades)</small></h6>
+            <h6 class="pt-3 pl-3">¿Cuál es el lugar en el que puede realizar ejercicio? <small>(Seleccione todas las opciones de acuerdo a sus posibilidades)</small></h6>
 
             <div class="form-group row">
               <div class="custom-control custom-checkbox">
@@ -258,7 +282,7 @@
 
             <!-- Button -->
             <div class="form-group row pt-3" *ngIf="formAlimenticios">
-              <button class="btn btn-info px-5">Seguir a Antropométricos (2 de 5)</button>
+              <button  class="btn btn-info px-5">Seguir a Antropométricos (2 de 5)</button>
               <!-- <button [disabled]="!formAlimenticios.valid" class="btn btn-info px-5">Seguir a Antropométricos (2 de 5)</button> -->
             </div>
 

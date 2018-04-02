@@ -15,7 +15,7 @@ export class InquestComponent implements OnInit {
 
   saveDataAlimenticios( form:NgForm ){
     // Guardar el formulario
-
+    console.log( 'Formulario Posteado', form );
     //Hacer Tab Anterior Inaccesible
 
     //Ir al siguiente Tab
@@ -23,8 +23,7 @@ export class InquestComponent implements OnInit {
   }
 
   saveDataAntropometricos( form:NgForm ){
-    console.log( 'Formulario Posteado' );
-    console.log( form );
+    console.log( 'Formulario Posteado', form );
     // console.log( form.alimentacionPregunta3.value );
   }
 

@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-expand-lg  background-white"> <!-- sticky-top -->
+  <nav class="navbar navbar-expand-lg  background-white text-center"> <!-- sticky-top -->
     <nav class="navbar navbar-expand-lg "> <!-- sticky-top -->
       <a class="navbar-brand text-uppercase" [routerLink]="['home']">
         <img src="assets/img/logo.png" width="50" height="50" alt="">
@@ -28,16 +28,25 @@
         <li class="nav-item px-5 text-uppercase" routerLinkActive = "menu-active">
           <a class="nav-link menu-item" [routerLink]="['forum']">Foro</a>
         </li>
+
+        <li class="nav-item px-5 text-uppercase" routerLinkActive = "menu-active">
+          <a class="nav-link menu-item" [routerLink]="['challenge']">Retos</a>
+        </li>
         <!-- Dropdown -->
-        <li class="nav-item dropdown menu-item">
-        <a *ngIf="this.auth.isAuthenticated()" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li *ngIf="this.auth.isAuthenticated()" class="nav-item dropdown menu-item">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Mi Cuenta
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" [routerLink]="['inquest']">Cuestionario</a>
-          <a class="dropdown-item" [routerLink]="['training']">Entrenamiento</a>
-          <a class="dropdown-item" [routerLink]="['challenge']">Retos</a>
-          <a class="dropdown-item" [routerLink]="['home']">Gimnasios</a>
+          <div *ngIf="isChanger()">
+            <a class="dropdown-item" [routerLink]="['inquest']">Cuestionario</a>
+            <a class="dropdown-item" [routerLink]="['training']">Entrenamiento</a>
+          </div>
+          <div *ngIf="!isChanger()">
+            <a class="dropdown-item disabled">Cuestionario</a>
+            <a class="dropdown-item disabled" >Entrenamiento</a>
+          </div>
+          <!-- <a class="dropdown-item" [routerLink]="['home']">Gimnasios</a> -->
         </div>
       </li>
       </ul>
