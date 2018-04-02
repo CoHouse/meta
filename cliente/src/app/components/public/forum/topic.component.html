@@ -29,7 +29,21 @@
           <hr>
           <p class="card-text">{{ topic.text }}</p>
         </div>
-        <div class="card-footer bg-transparent text-right"><button type="button" class="btn btn-success py-2">Responder <i class="far fa-comments"></i></button></div>
+        <hr *ngIf="response" class="shadow-sm">
+        <div *ngIf="response" class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1"><h5>Respuesta:</h5></label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+          </form>
+        </div>
+
+        <div *ngIf="!response" class="card-footer bg-transparent text-right"><button type="button" (click)="response = !response" class="btn btn-success py-2">Responder <i class="far fa-comments"></i></button></div>
+        <div *ngIf="response" class="card-footer bg-transparent text-right">
+          <button type="button" (click)="response = !response" class="btn btn-danger py-2">Cancelar <i class="fas fa-ban"></i></button>
+          <button type="button" class="btn btn-info py-2">Guardar <i class="far fa-comments"></i></button>
+        </div>
       </div>
 
     </div>

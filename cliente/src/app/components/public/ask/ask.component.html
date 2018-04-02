@@ -16,7 +16,7 @@
           </div>
           <div class="form-group col-md-8">
             <label for="inputPassword4">Email <small class="text-muted">(No lo compartirémos con nadie)</small></label>
-            <input type="email" class="form-control" id="question-email" name="email" placeholder="ejemplo@mail.com" ngModel>
+            <input type="email" class="form-control" id="question-email" name="email" placeholder="ejemplo@mail.com" ngModel pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
           </div>
         </div>
         <div class="form-group">
@@ -33,7 +33,7 @@
           placeholder="Todos los días termino con los músculos muy fatigados y me gustaría saber cómo puedo aliviar esa sensación."
           ngModel></textarea>
         </div>
-        <button class="btn btn-success btn-primary py-2" (click)="questionRegister(formQuestion)" [disabled]="!formPayments?.valid">Enviar pregunta</button>
+        <button class="btn btn-success btn-primary py-2" (click)="questionRegister(formQuestion)" [disabled]="!formQuestion?.valid">Enviar pregunta</button>
       </form>
 
       <div *ngIf="saveSucess" class="alert alert-success alert-dismissible fade show my-3" role="alert">

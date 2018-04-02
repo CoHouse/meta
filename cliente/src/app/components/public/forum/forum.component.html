@@ -35,7 +35,6 @@
             </td>
             <td class="text-center align-middle">{{ numberPresentations }}</td>
             <td>
-                                      <!-- forum/category/:category/topic/:topic -->
               <h6><a class="enlace-foro" [routerLink]="['category', categories[0].ref, 'topic', topicsPresentations[ numberPresentations - 1 ]._id ]">{{ topicsPresentations[ numberPresentations - 1 ].title }}</a></h6>
               <small>Por: <strong>{{ topicsPresentations[ numberPresentations - 1 ].author }}</strong> {{ topicsPresentations[ numberPresentations - 1 ].date | date:" 'el' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX" }}</small>
             </td>
@@ -50,7 +49,7 @@
             <td class="text-center align-middle">{{ numberPlattaformDoubts }}</td>
             <td>
               <h6><a class="enlace-foro" [routerLink]="['category', categories[1].ref, 'topic', topicsDubtsPlattform[ numberPlattaformDoubts - 1 ]._id ]">{{ topicsDubtsPlattform[ numberPlattaformDoubts - 1 ].title }}</a></h6>
-              <small>{{ topicsDubtsPlattform[ numberPlattaformDoubts - 1 ].author }} el {{ topicsDubtsPlattform[ numberPlattaformDoubts - 1 ].date }}</small>
+              <small>Por: <strong>{{ topicsDubtsPlattform[ numberPlattaformDoubts - 1 ].author }}</strong> el {{ topicsDubtsPlattform[ numberPlattaformDoubts - 1 ].date | date:" 'el' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX" }}</small>
             </td>
           </tr>
         </tbody>
@@ -72,13 +71,14 @@
           <!-- Transformaciones -->
           <tr>
             <td scope="row">
-              <h6 class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[2].ref ]">{{ categories[2].name }}</a></h6>
+              <h6 *ngIf="!isAuttenticated()" class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[2].ref ]">{{ categories[2].name }}</a></h6>
+              <h6 *ngIf="isAuttenticated()" class="align-middle">{{ categories[2].name }}</h6>
               <small>Muestra tu transformación a la comunidad e inspira a los demás</small>
             </td>
             <td class="text-center align-middle">{{ numberTransformations }}</td>
             <td>
               <h6><a [routerLink]="['category', categories[2].ref, 'topic', topicsTransformations[ numberTransformations - 1 ]._id ]">{{ topicsTransformations[ numberTransformations - 1 ].title }}</a></h6>
-              <small>{{ topicsTransformations[ numberTransformations - 1 ].author }} el {{ topicsTransformations[ numberTransformations - 1 ].date }}</small>
+              <small>Por: <strong>{{ topicsTransformations[ numberTransformations - 1 ].author }}</strong> el {{ topicsTransformations[ numberTransformations - 1 ].date  | date:" 'el' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX"  }}</small>
             </td>
           </tr>
           <!-- Dudas Programa Ejercicio -->
@@ -90,7 +90,7 @@
             <td class="text-center align-middle">{{ numberExercisesDoubts }}</td>
             <td>
               <h6><a [routerLink]="['category', categories[3].ref, 'topic', topicsExercise[ numberExercisesDoubts - 1 ]._id ]">{{ topicsExercise[ numberExercisesDoubts - 1 ].title }}</a></h6>
-              <small>{{ topicsExercise[ numberExercisesDoubts - 1 ].author }} el {{ topicsExercise[ numberExercisesDoubts - 1 ].date }}</small>
+              <small>Por: <strong>{{ topicsExercise[ numberExercisesDoubts - 1 ].author }}</strong> el {{ topicsExercise[ numberExercisesDoubts - 1 ].date  | date:" 'el' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX"  }}</small>
             </td>
           </tr>
           <!-- Dudas Programa Alimentación -->
@@ -102,7 +102,7 @@
             <td class="text-center align-middle">{{ numberAlimentationDoubts }}</td>
             <td>
               <h6><a [routerLink]="['category', categories[4].ref, 'topic', topicsAlimentation[ numberAlimentationDoubts - 1 ]._id ]">{{ topicsAlimentation[ numberPlattaformDoubts - 1 ].title }}</a></h6>
-              <small>{{ topicsAlimentation[ numberAlimentationDoubts - 1 ].author }} el {{ topicsAlimentation[ numberAlimentationDoubts - 1 ].date }}</small>
+              <small>Por: <strong>{{ topicsAlimentation[ numberAlimentationDoubts - 1 ].author }}</strong> el {{ topicsAlimentation[ numberAlimentationDoubts - 1 ].date  | date:" 'el' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX"  }}</small>
             </td>
           </tr>
         </tbody>
