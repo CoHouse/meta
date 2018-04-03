@@ -13,6 +13,37 @@ export class InquestComponent implements OnInit {
 
   ngOnInit(){ }
 
+  saveDataGenerales( form:NgForm ){
+    // Guardar el formulario
+    console.log( 'Formulario Posteado', form );
+    //Hacer Tab Anterior Inaccesible
+    $('.nav-tabs a[href="#generales"]').removeClass('active').addClass('disabled');
+    $('.nav-tabs a[href="#alimenticios"]').removeClass('disabled').tab('show');
+  }
+
+
+
+  changerRegister( form:NgForm ){
+    this.changer = {
+      email: form['value']['paymentEmail'],
+      startDate: form['value']['paymentStartDate'],
+      endDate: form['value']['paymentEndDate']
+    }
+
+    this._changer.sendChanger( this.changer ).subscribe( data => {
+      this.saveSucess = !this.saveSucess;
+      form.reset();
+
+      // setTimeout( function(){
+      //   var x = document.getElementById("alertSucess");
+      //   this.saveSucess = false;
+      //   x.remove();
+      // }, 2000);
+
+    }, error => console.error( error ) );
+  }
+
+
   saveDataAlimenticios( form:NgForm ){
     // Guardar el formulario
     console.log( 'Formulario Posteado', form );

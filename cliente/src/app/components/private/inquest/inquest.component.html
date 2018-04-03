@@ -13,22 +13,22 @@
       <!-- TABs -->
       <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active enlace-foro" id="home-tab" data-toggle="tab" href="#generales" role="tab" aria-controls="home" aria-selected="true"><h6>Generales</h6></a>
+          <a class="nav-link active enlace-foro" id="generals-tab" data-toggle="tab" href="#generales" role="tab" aria-controls="home" aria-selected="true"><h6>Generales</h6></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" id="home-tab" data-toggle="tab" href="#alimenticios" role="tab" aria-controls="home" aria-selected="true"><h6>Alimenticios</h6></a>
+          <a class="nav-link disabled" id="aliment-tab" data-toggle="tab" href="#alimenticios" role="tab" aria-controls="home" aria-selected="false"><h6>Alimenticios</h6></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" id="profile-tab" data-toggle="tab" href="#antropometricos" role="tab" aria-controls="profile" aria-selected="false"><h6>Antropométricos</h6></a>
+          <a class="nav-link disabled" id="antropo-tab" data-toggle="tab" href="#antropometricos" role="tab" aria-controls="profile" aria-selected="false"><h6>Antropométricos</h6></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" id="contact-tab" data-toggle="tab" href="#bioquimicos" role="tab" aria-controls="contact" aria-selected="false"><h6>Bioquímicos</h6></a>
+          <a class="nav-link disabled" id="bioquim-tab" data-toggle="tab" href="#bioquimicos" role="tab" aria-controls="contact" aria-selected="false"><h6>Bioquímicos</h6></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" id="contact-tab" data-toggle="tab" href="#clinicos" role="tab" aria-controls="contact" aria-selected="false"><h6>Clínicos</h6></a>
+          <a class="nav-link disabled" id="clinic-tab" data-toggle="tab" href="#clinicos" role="tab" aria-controls="contact" aria-selected="false"><h6>Clínicos</h6></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" id="contact-tab" data-toggle="tab" href="#dieteticos" role="tab" aria-controls="contact" aria-selected="false"><h6>Dietéticos</h6></a>
+          <a class="nav-link disabled" id="diet-tab" data-toggle="tab" href="#dieteticos" role="tab" aria-controls="contact" aria-selected="false"><h6>Dietéticos</h6></a>
         </li>
       </ul>
       <!-- End TABs -->
@@ -40,11 +40,11 @@
           <form class="py-3 col-6 offset-3" (ngSubmit)="saveDataGenerales(formGenerales)" #formGenerales="ngForm">
             <div class="form-group">
              <label><h6>Nombre</h6></label>
-             <input type="text" class="form-control" placeholder="Nombre">
+             <input type="text" class="form-control" placeholder="Nombre" name="name" ngModel>
            </div>
            <div class="form-group">
              <label><h6>Edad</h6></label>
-             <input type="text" class="form-control" placeholder="25">
+             <input type="text" class="form-control" placeholder="25" name="age" ngModel>
            </div>
 
            <div class="form-group pt-3" *ngIf="formGenerales">
@@ -86,7 +86,7 @@
             </div>
 
             <!-- Cuestion 2 -->
-            <h6 class="pt-3 pl-3">¿Con qué intensidad realiza esta actividad?</h6>
+            <h6 class="pt-3 pl-3">¿Con qué intensidad realiza esta actividad? </h6>
 
             <div class="form-group row">
               <div class="custom-control custom-radio custom-control-inline">
@@ -282,8 +282,7 @@
 
             <!-- Button -->
             <div class="form-group row pt-3" *ngIf="formAlimenticios">
-              <button  class="btn btn-info px-5">Seguir a Antropométricos (2 de 5)</button>
-              <!-- <button [disabled]="!formAlimenticios.valid" class="btn btn-info px-5">Seguir a Antropométricos (2 de 5)</button> -->
+              <button [disabled]="!formAlimenticios.valid" class="btn btn-info px-5">Seguir a Antropométricos (2 de 5)</button>
             </div>
 
           </form>
@@ -555,7 +554,6 @@
               </div>
             </div>
 
-
             <!-- Cuestion 5 -->
             <h6 class="pt-4 pl-3">¿con que regularidad consume frutas y verduras?</h6>
 
@@ -577,7 +575,6 @@
                 <label class="custom-control-label" for="dieteticoPregunta5opcion4">d) Ningún día a la semana</label>
               </div>
             </div>
-
 
             <!-- Cuestion 6 -->
             <h6 class="pt-4 pl-3">¿Gusta de las dietas veganas?</h6>
