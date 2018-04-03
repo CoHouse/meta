@@ -44,6 +44,10 @@
     text-align: center;
 }
 
+.opaco{
+  opacity: .5;
+}
+
 .nav-tabs > .background-black:hover{
   background-color: #000;
   color: #fff;
