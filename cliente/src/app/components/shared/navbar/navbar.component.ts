@@ -22,4 +22,12 @@ export class NavbarComponent implements OnInit {
     this.auth.logout();
   }
 
+  isChanger(){
+    if( localStorage.length > 0 && parseInt( localStorage.getItem( 'about' ).substring( 10, 17 ) ) === 190318 ){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
 }
