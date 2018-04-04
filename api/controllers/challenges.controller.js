@@ -1,35 +1,14 @@
 "use strict"
 
 var objChallenge = require("../models/challenges.model.js");
+var dateformat = require('dateformat');
 
 /* Modificadores de intreso/tipo de usuario*/
 var visitorModifier = 'V';
 var registerModifier = 'R';
 var changerModifier = 'B';
 
-/* Modificadores de video por categoría */
-
-
 /* GET */
-function showValidChallenge( req, res ){
-  objChallenge.find( ( error, showChallenges ) => {
-    if( error ){
-      res.status( 500 ).send( { message: "Error al recuperar las categorías: [showBlogCategories]" } );
-    }else{
-      res.status( 200 ).send( { showChallenges } );
-    }
-  }).where('type').equals( blogTypeModifier );
-}
-
-function showChallenges( req, res ){
-  objChallenge.find( ( error, showChallenges ) => {
-    if( error ){
-      res.status( 500 ).send( { message: "Error al recuperar las categorías: [showBlogCategories]" } );
-    }else{
-      res.status( 200 ).send( { showChallenges } );
-    }
-  });
-}
 
 function EJEMPLOVALIDAFECHAS( req, res ){
   var params = req.body;
@@ -56,6 +35,73 @@ function EJEMPLOVALIDAFECHAS( req, res ){
   });
 }
 
+
+
+/* Asegurar que el formulario envíe los datos en el formato: aaaa/mm/dd */
+
+
+function showValidChallenge( req, res ){
+  var params = req.body;
+
+  var startDate = dateformat( params.startDate, "isoDateTime" );
+  var endDate = dateformat( params.endDate , "isoDateTime");
+  var today = dateformat( new Date( ), "isoDateTime" );
+
+  if ( startDate <= today && endDate >= today ){
+    objChallenge.find( ( error, validChallenge ) => {
+      if( error ){
+        res.status( 500 ).send( { message: "Error al recuperar los retos: [validChallenge]" } );
+      }else{
+        res.status( 200 ).send( { validChallenge } );
+      }
+    });
+  } else {
+    console.log("NO VIGENTE");
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function showChallenges( req, res ){
+  objChallenge.find( ( error, showChallenges ) => {
+    if( error ){
+      res.status( 500 ).send( { message: "Error al recuperar los retos: [showChallenges]" } );
+    }else{
+      res.status( 200 ).send( { showChallenges } );
+    }
+  });
+}
 
 /* POST */
 function saveChallenge( req, res){

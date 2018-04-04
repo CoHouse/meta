@@ -32,6 +32,7 @@ var routeCategories = require("./routes/categories.route.js");
 var routeChanger = require("./routes/changer.route.js");
 var routeQuestion = require("./routes/questions.route.js");
 var routeTopic = require("./routes/topics.route.js");
+var routeChallenge = require("./routes/challenges.route.js");
 
 /*=============================================>>>>>
 = Rutas Base de la aplicación =
@@ -42,5 +43,6 @@ app.use( "/api", routeCategories );
 app.use( "/api", routeChanger );
 app.use( "/api", routeQuestion );
 app.use( "/api", routeTopic );
+app.use( "/api", routeChallenge );
 
 module.exports = app;

@@ -8,7 +8,6 @@ declare var $:any;
 })
 export class InquestComponent implements OnInit {
 
-
   constructor() { }
 
   ngOnInit(){ }
