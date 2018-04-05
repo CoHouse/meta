@@ -16,26 +16,26 @@ export class ChallengeService {
     return this._http.get( this.url ).map( resV => resV );
   }
 
-  getchallenges(){
+  getChallenges(){
     this.url = Ruta.url + "/getChallenges";
     return this._http.get( this.url ).map( resV => resV );
   }
 
-  getPosts( ){
-    if ( localStorage.length < 4 ){
-      this.url = Ruta.url + "/getPublicPosts";
-      return this._http.get( this.url ).map( resV => resV );
-    }else{
-      let subs = localStorage.getItem( 'about' ).substring( 10, 17 );
-
-      if ( parseInt( subs ) === 160318 ){
-        this.url = Ruta.url + "/getRegisteredPosts";
-        return this._http.get( this.url ).map( resV => resV );
-      }else{
-        this.url = Ruta.url + "/getChangerPosts";
-        return this._http.get( this.url ).map( resV => resV );
-      }
-    }
-  }
+  // getPosts( ){
+  //   if ( localStorage.length < 4 ){
+  //     this.url = Ruta.url + "/getPublicPosts";
+  //     return this._http.get( this.url ).map( resV => resV );
+  //   }else{
+  //     let subs = localStorage.getItem( 'about' ).substring( 10, 17 );
+  //
+  //     if ( parseInt( subs ) === 160318 ){
+  //       this.url = Ruta.url + "/getRegisteredPosts";
+  //       return this._http.get( this.url ).map( resV => resV );
+  //     }else{
+  //       this.url = Ruta.url + "/getChangerPosts";
+  //       return this._http.get( this.url ).map( resV => resV );
+  //     }
+  //   }
+  // }
 
 }

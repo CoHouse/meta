@@ -10,88 +10,40 @@ var changerModifier = 'B';
 
 /* GET */
 
-function EJEMPLOVALIDAFECHAS( req, res ){
-  var params = req.body;
 
-  objChanger.find( ( error, showChangers ) => {
-    if( error || showChangers.length <= 0 ){
-       return res.status( 404 ).send( { message: "[getChanger changerController]" } );
+/* Asegurar que el formulario envíe los datos en el formato: aaaa/mm/dd */
+function showValidChallenge( req, res ){
+  objChallenge.find( ( error, showChallenges ) => {
+    if( error || showChallenges.length <= 0 ){
+       // Hacer algo
     }else{
-      for ( let i in showChangers ){
-        if( !bcrypt.compareSync( params.email, showChangers[i].email ) ){
-          /* hacer algo */
-        }else{
-          var today = dateformat( new Date(), "dd-mm-yyyy" );
-          var endDate = dateformat( showChangers[i].endDate, "dd-mm-yyyy" );
+      for ( let i in showChallenges ){
+        console.log("------------ Datos antes del isoDateTime --------------");
+        console.log("startDate ", showChallenges.startDate, " endDate ", showChallenges.endDate);
+        console.log("--------------------------------------------------");
 
-          if( endDate >= today ){
-              return res.status( 200 ).send( { message: "true" } );
-            } else {
-              return res.status( 200 ).send( { message: "false" } );
-          }
+        var startDate = dateformat( i.startDate, "isoDateTime" );
+        var endDate = dateformat( i.endDate , "isoDateTime");
+        var today = dateformat( new Date( ), "isoDateTime" );
+
+        console.log("------------ Datos después del isoDateTime --------------");
+        console.log("startDate ",startDate, " endDate ", endDate, " today ",today);
+        console.log("--------------------------------------------------");
+
+        if ( startDate <= today && endDate >= today ){
+          // console.log("Esto vale i: ", i );
+          console.log("VIGENTE");
+          // res.status( 200 ).send( { i } );
+        } else {
+          console.log("NO VIGENTE");
+          // res.status( 500 ).send( { message: "No hay reto válido: [validChallenge]" } );
         }
+
       }
     }
   });
-}
-
-
-
-/* Asegurar que el formulario envíe los datos en el formato: aaaa/mm/dd */
-
-
-function showValidChallenge( req, res ){
-  var params = req.body;
-
-  var startDate = dateformat( params.startDate, "isoDateTime" );
-  var endDate = dateformat( params.endDate , "isoDateTime");
-  var today = dateformat( new Date( ), "isoDateTime" );
-
-  if ( startDate <= today && endDate >= today ){
-    objChallenge.find( ( error, validChallenge ) => {
-      if( error ){
-        res.status( 500 ).send( { message: "Error al recuperar los retos: [validChallenge]" } );
-      }else{
-        res.status( 200 ).send( { validChallenge } );
-      }
-    });
-  } else {
-    console.log("NO VIGENTE");
-  }
-
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function showChallenges( req, res ){
   objChallenge.find( ( error, showChallenges ) => {

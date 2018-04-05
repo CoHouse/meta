@@ -71,8 +71,8 @@
           <!-- Transformaciones -->
           <tr>
             <td scope="row">
-              <h6 *ngIf="!isAuttenticated()" class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[2].ref ]">{{ categories[2].name }}</a></h6>
-              <h6 *ngIf="isAuttenticated()" class="align-middle">{{ categories[2].name }}</h6>
+              <h6 *ngIf="!isAutenticated()" class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[2].ref ]">{{ categories[2].name }}</a></h6>
+              <h6 *ngIf="isAutenticated()" class="align-middle">{{ categories[2].name }}</h6>
               <small>Muestra tu transformación a la comunidad e inspira a los demás</small>
             </td>
             <td class="text-center align-middle">{{ numberTransformations }}</td>

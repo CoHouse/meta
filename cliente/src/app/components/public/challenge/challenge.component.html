@@ -8,12 +8,15 @@
       <div class="card shadow">
         <div class="card-body">
           <div class="row">
-            <div class="col-lg-3 col-md-3 text-center"><img class="w-50" src="assets/img/challenges/ex-1.jpg" alt=""></div>
+            <!-- {{ validChallenge.image }} -->
+            {{ validChallenge | json }}
+            <div class="col-lg-3 col-md-3 text-center"><img class="w-50" src="" alt=""></div>
             <div class="col-lg-3 col-md-3">
-              <h3>Levantamiento alternado de mancuerna</h3>
-              <h4>Objetivo: 50 Repeticiones</h4>
+              <h3>{{ validChallenge.title }}</h3>
+              <h4>Objetivo: </h4>
             </div>
-            <div class="col-lg-3 col-md-3"><h5>Fecha de vigencia:</h5> <h4><small>1 al 10 de enero</small></h4></div>
+            <!-- {{ validChallenge.startDate | date:"dd/LLLL/yyyy" }} al {{ validChallenge.endDate | date:"dd/LLLL/yyyy" }} -->
+            <div class="col-lg-3 col-md-3"><h5>Fecha de vigencia:</h5> <h4><small></small></h4></div>
             <div class="col-lg-3 col-md-3"><button class="btn btn-danger btn-block bg-red">Ver el Reto</button></div>
           </div>
         </div>

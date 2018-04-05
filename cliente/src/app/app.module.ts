@@ -46,6 +46,7 @@ import { VideoService } from './services/video.service';
 import { QuestionService } from './services/question.service';
 import { ForumService } from './services/forum.service';
 import { TopicService } from './services/topic.service';
+import { ChallengeService } from './services/challenge.service';
 
 /* Routes */
 import { APP_ROUTING } from './app-routes';
@@ -98,7 +99,8 @@ import { APP_ROUTING } from './app-routes';
     VideoService,
     QuestionService,
     ForumService,
-    TopicService
+    TopicService,
+    ChallengeService
   ],
   bootstrap: [ AppComponent ]
 })

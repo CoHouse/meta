@@ -8,6 +8,6 @@ var api = express.Router();
 api.get("/getChallenges", challengesController.showChallenges );
 
 /* Métodos POST */
-api.post("/getValidChallenge", challengesController.showValidChallenge );
+api.get("/getValidChallenge", challengesController.showValidChallenge );
 
 module.exports = api;

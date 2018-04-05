@@ -53,3 +53,7 @@ https://stackoverflow.com/questions/9404813/how-to-view-or-edit-localstorage
 Operadores lógicos en Javascript
 
 https://www.w3schools.com/js/js_comparisons.asp
+
+arrancar servidor en local MX
+
+ng serve --aot --locale es

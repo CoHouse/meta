@@ -9,7 +9,7 @@ var challengeSchema = schema({
   text: String,
   startDate: String,
   endDate: String,
-  userSucess: String,
+  userSucess: [String],
   visibleLevel: String
 });
 
