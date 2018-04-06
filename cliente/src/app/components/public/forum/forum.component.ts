@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ForumService } from '../../../services/forum.service';
 import { Http, Response } from "@angular/http";
 import { Router, ActivatedRoute } from '@angular/router';
+import { NavbarComponent } from '../../shared/navbar/navbar.component';
 
 @Component({
   selector: 'app-forum',
@@ -74,5 +75,14 @@ export class ForumComponent implements OnInit {
       var errorMessage = <any>error;
     });
   }
+
+  isChanger(){
+    if( localStorage.length > 0 && parseInt( localStorage.getItem( 'about' ).substring( 10, 17 ) ) === 190318 ){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
 
 }

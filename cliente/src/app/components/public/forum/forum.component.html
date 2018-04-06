@@ -71,8 +71,8 @@
           <!-- Transformaciones -->
           <tr>
             <td scope="row">
-              <h6 *ngIf="!isAutenticated()" class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[2].ref ]">{{ categories[2].name }}</a></h6>
-              <h6 *ngIf="isAutenticated()" class="align-middle">{{ categories[2].name }}</h6>
+              <h6 *ngIf="isChanger()" class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[2].ref ]">{{ categories[2].name }}</a></h6>
+              <h6 *ngIf="!isChanger()" class="align-middle"><a  href="#">{{ categories[2].name }}</a></h6>
               <small>Muestra tu transformación a la comunidad e inspira a los demás</small>
             </td>
             <td class="text-center align-middle">{{ numberTransformations }}</td>
@@ -84,7 +84,8 @@
           <!-- Dudas Programa Ejercicio -->
           <tr>
             <td scope="row">
-              <h6 class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[3].ref ]">{{ categories[3].name }}</a></h6>
+              <h6 *ngIf="isChanger()" class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[3].ref ]">{{ categories[3].name }}</a></h6>
+              <h6 *ngIf="!isChanger()" class="align-middle">{{ categories[3].name }}</h6>
               <small>¿Tienes alguna duda con tu programa de ejercicio? Este es el lugar.</small>
             </td>
             <td class="text-center align-middle">{{ numberExercisesDoubts }}</td>
@@ -96,7 +97,8 @@
           <!-- Dudas Programa Alimentación -->
           <tr>
             <td scope="row">
-              <h6 class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[4].ref ]">{{ categories[4].name }}</a></h6>
+              <h6 *ngIf="isChanger()" class="align-middle"><a class="enlace-foro" [routerLink]="['category', categories[4].ref ]">{{ categories[4].name }}</a></h6>
+              <h6 *ngIf="!isChanger()" class="align-middle">{{ categories[4].name }}</h6>
               <small>Expon aquí cualquier duda o inquietud relacionada a tu plan alimenticio.</small>
             </td>
             <td class="text-center align-middle">{{ numberAlimentationDoubts }}</td>
