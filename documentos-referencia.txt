@@ -57,3 +57,7 @@ https://www.w3schools.com/js/js_comparisons.asp
 arrancar servidor en local MX
 
 ng serve --aot --locale es
+
+material Angular, Validar
+
+https://material.angularjs.org/latest/getting-started
