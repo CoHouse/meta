@@ -21,26 +21,25 @@ export class InquestComponent implements OnInit {
   }
 
 
-
-  changerRegister( form:NgForm ){
-    this.changer = {
-      email: form['value']['paymentEmail'],
-      startDate: form['value']['paymentStartDate'],
-      endDate: form['value']['paymentEndDate']
-    }
-
-    this._changer.sendChanger( this.changer ).subscribe( data => {
-      this.saveSucess = !this.saveSucess;
-      form.reset();
-
-      // setTimeout( function(){
-      //   var x = document.getElementById("alertSucess");
-      //   this.saveSucess = false;
-      //   x.remove();
-      // }, 2000);
-
-    }, error => console.error( error ) );
-  }
+  // changerRegister( form:NgForm ){
+  //   this.changer = {
+  //     email: form['value']['paymentEmail'],
+  //     startDate: form['value']['paymentStartDate'],
+  //     endDate: form['value']['paymentEndDate']
+  //   }
+  //
+  //   this._changer.sendChanger( this.changer ).subscribe( data => {
+  //     this.saveSucess = !this.saveSucess;
+  //     form.reset();
+  //
+  //     setTimeout( function(){
+  //       var x = document.getElementById("alertSucess");
+  //       this.saveSucess = false;
+  //       x.remove();
+  //     }, 2000);
+  //
+  //   }, error => console.error( error ) );
+  // }
 
 
   saveDataAlimenticios( form:NgForm ){
