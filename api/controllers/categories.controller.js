@@ -3,6 +3,7 @@
 var objCategory = require("../models/categories.model.js");
 
 /* Modificadores de intreso/tipo de usuario*/
+/* Cambios en una rama diferente a master */
 var visitorModifier = 'V';
 var registerModifier = 'R';
 var changerModifier = 'B';
