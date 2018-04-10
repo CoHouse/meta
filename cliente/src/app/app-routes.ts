@@ -2,17 +2,19 @@ import { RouterModule, Routes } from '@angular/router';
 
 /* Public Components */
 import { HomeComponent } from './components/public/home/home.component';
-import { AskComponent } from './components/public/ask/ask.component';
-import { BlogComponent } from './components/public/blog/blog.component';
-import { ChallengeComponent } from './components/public/challenge/challenge.component';
-import { VideosComponent } from './components/public/videos/videos.component';
-import { ForumComponent } from './components/public/forum/forum.component';
-import { RegisterComponent } from './components/public/register/register.component';
-import { PostComponent } from './components/public/post/post.component';
-import { VideoComponent } from './components/public/video/video.component';
 import { OursystemComponent } from './components/public/oursystem/oursystem.component';
-import { ForumcatComponent } from './components/public/forum/forumcat.component';
-import { TopicComponent } from './components/public/forum/topic.component';
+import { BlogComponent } from './components/public/blog/blog.component';
+  import { PostComponent } from './components/public/post/post.component';
+import { VideosComponent } from './components/public/videos/videos.component';
+  import { VideoComponent } from './components/public/video/video.component';
+import { AskComponent } from './components/public/ask/ask.component';
+import { ForumComponent } from './components/public/forum/forum.component';
+  import { ForumcatComponent } from './components/public/forum/forumcat.component';
+    import { TopicComponent } from './components/public/forum/topic.component';
+import { ChallengeComponent } from './components/public/challenge/challenge.component';
+import { JoinComponent } from './components/public/join/join.component';
+
+import { RegisterComponent } from './components/public/register/register.component';
 
 /* Private Components */
 import { TrainingComponent } from './components/private/training/training.component';
@@ -43,6 +45,7 @@ const APP_ROUTES: Routes = [
   { path: 'post/:_id', component: PostComponent },
   { path: 'video/:_id', component: VideoComponent },
   { path: 'our-system', component: OursystemComponent },
+  { path: 'join', component: JoinComponent },
 
   { path: 'training', component: TrainingComponent, canActivate: [ AuthGuardService ] },
   { path: 'inquest', component: InquestComponent, canActivate: [ AuthGuardService ] },

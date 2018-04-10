@@ -26,4 +26,8 @@ export class TopicService {
     return this._http.post( this.url, body, { headers } ).map( res => res );
   }
 
+  getComments( _id:string ){
+
+  }
+
 }

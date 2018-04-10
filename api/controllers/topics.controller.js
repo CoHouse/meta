@@ -109,6 +109,19 @@ function saveTopic( req, res ){
   });
 }
 
+function getCommentsTopic( req, res ){
+  var _idTopic = req._idTopic;
+
+  objComment.find( ( error, showCommentsPerTopic ) => {
+    if( error ){
+      res.status( 500 ).send( { message: "Error al recuperar los comments por topic: [getCommentsTopic]" } );
+    }else{
+      res.status( 200 ).send( { showCommentsPerTopic } );
+    }
+  }).where('topic').equals( _idTopic );
+
+}
+
 module.exports = {
   getTopic,
   getPresentationsTopics,

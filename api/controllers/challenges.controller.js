@@ -18,25 +18,16 @@ function showValidChallenge( req, res ){
        // Hacer algo
     }else{
       for ( let i in showChallenges ){
-        console.log("------------ Datos antes del isoDateTime --------------");
-        console.log("startDate ", showChallenges.startDate, " endDate ", showChallenges.endDate);
-        console.log("--------------------------------------------------");
 
-        var startDate = dateformat( i.startDate, "isoDateTime" );
-        var endDate = dateformat( i.endDate , "isoDateTime");
-        var today = dateformat( new Date( ), "isoDateTime" );
+        if ( dateformat( i.startDate, "isoDateTime" ) <= dateformat( new Date( ), "isoDateTime" ) && dateformat( i.endDate , "isoDateTime") >= dateformat( new Date( ), "isoDateTime" ) ){
 
-        console.log("------------ Datos después del isoDateTime --------------");
-        console.log("startDate ",startDate, " endDate ", endDate, " today ",today);
-        console.log("--------------------------------------------------");
-
-        if ( startDate <= today && endDate >= today ){
-          // console.log("Esto vale i: ", i );
           console.log("VIGENTE");
-          // res.status( 200 ).send( { i } );
+
+          let challenge = showChallenges[i];
+
+          return res.status( 200 ).send( { challenge } );
         } else {
-          console.log("NO VIGENTE");
-          // res.status( 500 ).send( { message: "No hay reto válido: [validChallenge]" } );
+          //Hacer algo
         }
 
       }
@@ -52,8 +43,9 @@ function showChallenges( req, res ){
     }else{
       res.status( 200 ).send( { showChallenges } );
     }
-  });
+  }).where('visibleLevel').equals('V');
 }
+
 
 /* POST */
 function saveChallenge( req, res){
@@ -68,7 +60,7 @@ function saveChallenge( req, res){
 
   post.save( ( error, guardado ) => {
     if( error ){
-      res.status( 500 ).send({ msg: "Error al guardar un post [savePost]"})
+      res.status( 500 ).send({ msg: "Error al guardar un challenge [saveChallenge]"})
     }else{
       res.status( 200 ).send( guardado )
     }

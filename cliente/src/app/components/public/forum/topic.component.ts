@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from "@angular/http";
 import { Router, ActivatedRoute } from '@angular/router';
+import { NgForm, FormsModule } from '@angular/forms';
 import { ForumService } from '../../../services/forum.service';
 import { TopicService } from '../../../services/topic.service';
+import { CommentService } from '../../../services/comment.service';
 import { Topic } from '../../../interfaces/topic.interface';
 
 @Component({
@@ -13,8 +15,10 @@ import { Topic } from '../../../interfaces/topic.interface';
 export class TopicComponent implements OnInit {
 
   public category;
+  public idTopic;
   public _id;
   public ref;
+  public comments;
 
   public response = false;
 
@@ -26,7 +30,12 @@ export class TopicComponent implements OnInit {
     text: "text"
   }
 
-  constructor( public _activatedRoute:ActivatedRoute, public _forum:ForumService, public _topic:TopicService ) {
+  public comment:any = {
+    idTopic:null,
+    text: null
+  }
+
+  constructor( public _activatedRoute:ActivatedRoute, public _forum:ForumService, public _topic:TopicService, public _comment:CommentService ) {
     this._activatedRoute.params.subscribe( params => {
       this.ref = params['category'];
 
@@ -39,6 +48,7 @@ export class TopicComponent implements OnInit {
             this._topic.getTopic( this._id ).subscribe( result => {
               this.topic = result['showTopic'][0];
             });
+
           }, error => {
             var errorMessage = <any>error;
           });
@@ -101,5 +111,20 @@ export class TopicComponent implements OnInit {
   }
 
   ngOnInit() { }
+
+  commentRegister( form:NgForm ){
+    this.comment = {
+      idTopic: this._id,
+      text: form['value']['text']
+    }
+
+    this._comment.sendComment( this.comment ).subscribe( data => {
+      this.response = !this.response
+      // saveSucess = !saveSucess;
+      form.reset();
+
+    }, error => console.error( error ) );
+  }
+
 
 }

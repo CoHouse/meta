@@ -4,7 +4,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NgForm, FormsModule } from '@angular/forms';
 import { ForumService } from '../../../services/forum.service';
 import { TopicService } from '../../../services/topic.service';
+import { AuthService } from '../../../services/auth.service';
 import { Topic } from '../../../interfaces/topic.interface';
+
+import { ForumComponent } from './forum.component';
 
 @Component({
   selector: 'app-forumcat',
@@ -30,7 +33,7 @@ export class ForumcatComponent implements OnInit {
 
   moment = new Date();
 
-  constructor( public _activatedRoute:ActivatedRoute, public _forum:ForumService, public _topic:TopicService ) {
+  constructor( public _activatedRoute:ActivatedRoute, public _forum:ForumService, public _topic:TopicService, public _auth:AuthService ) {
     this._activatedRoute.params.subscribe( params => {
       switch( params['category'] ) {
           case "presentations":
@@ -111,6 +114,11 @@ export class ForumcatComponent implements OnInit {
         this.saveSucess = false;
         x.remove();
       }, 2000);
+
+      setTimeout( function(){
+        this._activatedRoute.navigate(['/forum']);
+      }, 100 );
+
 
     }, error => console.error( error ) );
   }

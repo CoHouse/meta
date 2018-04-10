@@ -16,18 +16,17 @@ export class ChallengeComponent implements OnInit {
   challenges;
 
   constructor( public _challenge:ChallengeService ) {
-    this.validChallenge = _challenge.getValidChallenge().subscribe( showValidChallenge => {
-      this.validChallenge = showValidChallenge['showValidChallenge'][0];
+
+    this.validChallenge = _challenge.getValidChallenge().subscribe( challenge => {
+      this.validChallenge = challenge;
     });
 
     _challenge.getChallenges().subscribe( challenges => {
-      this.challenges = challenges['showChallenges'][0];
+      this.challenges = challenges['showChallenges'];
     });
 
   }
 
   ngOnInit() { }
-
-
 
 }

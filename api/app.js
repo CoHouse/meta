@@ -15,13 +15,13 @@ app.use( bodyParser.json( ) );
 /*=============================================>>>>>
 = Configuración de cabeceras HTTP =
 ===============================================>>>>>*/
-app.use((req, res, next)=>{
+app.use( ( req, res, next )=>{
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method");
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   res.header("Allow", "GET, POST, OPTIONS, PUT, DELETE");
   next();
-})
+});
 
 /*=============================================>>>>>
 = Cargar Rutas =
@@ -33,6 +33,8 @@ var routeChanger = require("./routes/changer.route.js");
 var routeQuestion = require("./routes/questions.route.js");
 var routeTopic = require("./routes/topics.route.js");
 var routeChallenge = require("./routes/challenges.route.js");
+var routeComment = require("./routes/comments.route.js");
+
 
 /*=============================================>>>>>
 = Rutas Base de la aplicación =
@@ -44,5 +46,6 @@ app.use( "/api", routeChanger );
 app.use( "/api", routeQuestion );
 app.use( "/api", routeTopic );
 app.use( "/api", routeChallenge );
+app.use( "/api", routeComment );
 
 module.exports = app;

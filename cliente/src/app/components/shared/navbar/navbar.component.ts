@@ -8,7 +8,7 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor( private auth:AuthService ) {
+  constructor( public auth:AuthService ) {
     auth.handleAuthentication();
   }
 
@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
   isChanger(){
     if( localStorage.length > 0 && parseInt( localStorage.getItem( 'about' ).substring( 10, 17 ) ) === 190318 ){
       return true;
-    }else{
+    } else {
       return false;
     }
   }

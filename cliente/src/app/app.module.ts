@@ -47,9 +47,11 @@ import { QuestionService } from './services/question.service';
 import { ForumService } from './services/forum.service';
 import { TopicService } from './services/topic.service';
 import { ChallengeService } from './services/challenge.service';
+import { CommentService } from './services/comment.service';
 
 /* Routes */
 import { APP_ROUTING } from './app-routes';
+import { JoinComponent } from './components/public/join/join.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,8 @@ import { APP_ROUTING } from './app-routes';
     PlannerManagerComponent,
     VideoComponent,
     ForumcatComponent,
-    TopicComponent
+    TopicComponent,
+    JoinComponent
   ],
   imports: [
     BrowserModule,
@@ -100,7 +103,8 @@ import { APP_ROUTING } from './app-routes';
     QuestionService,
     ForumService,
     TopicService,
-    ChallengeService
+    ChallengeService,
+    CommentService
   ],
   bootstrap: [ AppComponent ]
 })

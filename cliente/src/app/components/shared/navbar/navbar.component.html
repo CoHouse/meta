@@ -12,7 +12,7 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto mx-auto">
-        <li *ngIf="this.auth.isAuthenticated()" class="nav-item px-5" routerLinkActive = "menu-active"></li>
+        <li *ngIf="auth.isAuthenticated()" class="nav-item px-5" routerLinkActive = "menu-active"></li>
         <li class="nav-item px-5 text-uppercase" routerLinkActive = "menu-active">
           <a class="nav-link menu-item" [routerLink]="['our-system']">Nuestro Sistema</a>
         </li>

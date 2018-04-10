@@ -20,6 +20,7 @@
       </nav>
 
       <div class="card">
+        <form #formComment="ngForm">
         <div class="card-header">
           <h6>{{ topic.title }}</h6>
           <small>Por <strong>{{ topic.author }}</strong> el {{ topic.date | date:" 'El' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX" }}</small>
@@ -29,21 +30,34 @@
           <hr>
           <p class="card-text">{{ topic.text }}</p>
         </div>
-        <hr *ngIf="response" class="shadow-sm">
-        <div *ngIf="response" class="card-body">
-          <form>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1"><h5>Respuesta:</h5></label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-          </form>
+
+        <div class="card-body ngfor-aqui">
+          <hr>
+          <h3>Respuestas</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus nihil excepturi incidunt ex, sapiente perferendis perspiciatis, quibusdam maxime deserunt, tenetur temporibus quidem esse impedit in cumque commodi rerum porro vel!</p>
         </div>
 
-        <div *ngIf="!response" class="card-footer bg-transparent text-right"><button type="button" (click)="response = !response" class="btn btn-success py-2">Responder <i class="far fa-comments"></i></button></div>
+        <hr *ngIf="response" class="shadow-sm">
+
+        <div *ngIf="response" class="card-body">
+            <div class="form-group">
+              <label><h5>Respuesta:</h5></label>
+              <textarea class="form-control" name="text" rows="3" ngModel required></textarea>
+            </div>
+        </div>
+
+
+
+        <div *ngIf="!response" class="card-footer bg-transparent text-right">
+          <button type="button" (click)="response = !response" class="btn btn-success py-2">Responder <i class="far fa-comments"></i></button>
+        </div>
+
         <div *ngIf="response" class="card-footer bg-transparent text-right">
           <button type="button" (click)="response = !response" class="btn btn-danger py-2">Cancelar <i class="fas fa-ban"></i></button>
-          <button type="button" class="btn btn-info py-2">Guardar <i class="far fa-comments"></i></button>
+          <button type="button" (click)="commentRegister(formComment)" [disabled]="!formComment.valid" class="btn btn-info py-2">Guardar <i class="far fa-comments"></i></button>
         </div>
+
+      </form>
       </div>
 
     </div>

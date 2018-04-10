@@ -13,6 +13,14 @@ export class ForumService {
     this.getCategories();
   }
 
+isChanger(){
+  if( localStorage.length > 0 && parseInt( localStorage.getItem( 'about' ).substring( 10, 17 ) ) === 190318 ){
+    return true;
+  }else{
+    return false;
+  }
+}
+
 getCategories( ){
     this.url = Ruta.url + "getForumCategories";
     return this._http.get( this.url ).map( resB => resB );
