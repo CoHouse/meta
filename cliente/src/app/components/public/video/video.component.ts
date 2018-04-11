@@ -40,7 +40,6 @@ export class VideoComponent implements OnInit {
       this.video = result['showVideo'][0];
     });
 
-
   }
 
   ngOnInit() { }

@@ -41,8 +41,8 @@
             </td>
             <td class="text-center align-middle">{{ numberPresentations }}</td>
             <td>
-              <h6><a class="enlace-foro" [routerLink]="['category', categories[0].ref, 'topic', topicsPresentations[ numberPresentations - 1 ]._id ]">{{ topicsPresentations[ numberPresentations - 1 ].title }}</a></h6>
-              <small>Por: <strong>{{ topicsPresentations[ numberPresentations - 1 ].author }}</strong> {{ topicsPresentations[ numberPresentations - 1 ].date | date:" 'el' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX" }}</small>
+              <h6><a class="enlace-foro" [routerLink]="['category', categories[0].ref, 'topic', topicsPresentations[0]._id ]">{{ topicsPresentations[0].title }}</a></h6>
+              <small>Por: <strong>{{ topicsPresentations[0].author }}</strong> {{ topicsPresentations[0].date | date:" 'el' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX" }}</small>
             </td>
           </tr>
 
@@ -54,8 +54,8 @@
             </td>
             <td class="text-center align-middle">{{ numberPlattaformDoubts }}</td>
             <td>
-              <h6><a class="enlace-foro" [routerLink]="['category', categories[1].ref, 'topic', topicsDubtsPlattform[ numberPlattaformDoubts - 1 ]._id ]">{{ topicsDubtsPlattform[ numberPlattaformDoubts - 1 ].title }}</a></h6>
-              <small>Por: <strong>{{ topicsDubtsPlattform[ numberPlattaformDoubts - 1 ].author }}</strong> el {{ topicsDubtsPlattform[ numberPlattaformDoubts - 1 ].date | date:" 'el' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX" }}</small>
+              <h6><a class="enlace-foro" [routerLink]="['category', categories[1].ref, 'topic', topicsDubtsPlattform[0]._id ]">{{ topicsDubtsPlattform[0].title }}</a></h6>
+              <small>Por: <strong>{{ topicsDubtsPlattform[0].author }}</strong> el {{ topicsDubtsPlattform[0].date | date:" 'el' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX" }}</small>
             </td>
           </tr>
         </tbody>
@@ -85,11 +85,11 @@
             <td class="text-center align-middle">{{ numberTransformations }}</td>
             <td>
 
-              <h6 *ngIf="_forum.isChanger()"><a [routerLink]="['category', categories[2].ref, 'topic', topicsTransformations[ numberTransformations - 1 ]._id ]">{{ topicsTransformations[ numberTransformations - 1 ].title }}</a></h6>
+              <h6 *ngIf="_forum.isChanger()"><a [routerLink]="['category', categories[2].ref, 'topic', topicsTransformations[0]._id ]">{{ topicsTransformations[0].title }}</a></h6>
 
-              <h6 *ngIf="!_forum.isChanger()"><a [routerLink]="['/join']">{{ topicsTransformations[ numberTransformations - 1 ].title }}</a></h6>
+              <h6 *ngIf="!_forum.isChanger()"><a [routerLink]="['/join']">{{ topicsTransformations[0].title }}</a></h6>
 
-              <small>Por: <strong>{{ topicsTransformations[ numberTransformations - 1 ].author }}</strong> el {{ topicsTransformations[ numberTransformations - 1 ].date  | date:" 'el' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX"  }}</small>
+              <small>Por: <strong>{{ topicsTransformations[0].author }}</strong> el {{ topicsTransformations[0].date  | date:" 'el' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX"  }}</small>
             </td>
           </tr>
 
@@ -102,11 +102,11 @@
             </td>
             <td class="text-center align-middle">{{ numberExercisesDoubts }}</td>
             <td>
-              <h6 *ngIf="_forum.isChanger()"><a [routerLink]="['category', categories[3].ref, 'topic', topicsExercise[ numberExercisesDoubts - 1 ]._id ]">{{ topicsExercise[ numberExercisesDoubts - 1 ].title }}</a></h6>
+              <h6 *ngIf="_forum.isChanger()"><a [routerLink]="['category', categories[3].ref, 'topic', topicsExercise[0]._id ]">{{ topicsExercise[0].title }}</a></h6>
 
-              <h6 *ngIf="!_forum.isChanger()"><a [routerLink]="['/join']">{{ topicsExercise[ numberExercisesDoubts - 1 ].title }}</a></h6>
+              <h6 *ngIf="!_forum.isChanger()"><a [routerLink]="['/join']">{{ topicsExercise[0].title }}</a></h6>
 
-              <small>Por: <strong>{{ topicsExercise[ numberExercisesDoubts - 1 ].author }}</strong> el {{ topicsExercise[ numberExercisesDoubts - 1 ].date  | date:" 'el' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX"  }}</small>
+              <small>Por: <strong>{{ topicsExercise[0].author }}</strong> el {{ topicsExercise[0].date  | date:" 'el' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX"  }}</small>
             </td>
           </tr>
 
@@ -119,11 +119,11 @@
             </td>
             <td class="text-center align-middle">{{ numberAlimentationDoubts }}</td>
             <td>
-              <h6 *ngIf="_forum.isChanger()"><a [routerLink]="['category', categories[4].ref, 'topic', topicsAlimentation[ numberAlimentationDoubts - 1 ]._id ]">{{ topicsAlimentation[ numberAlimentationDoubts - 1 ].title }}</a></h6>
+              <h6 *ngIf="_forum.isChanger()"><a [routerLink]="['category', categories[4].ref, 'topic', topicsAlimentation[0]._id ]">{{ topicsAlimentation[0].title }}</a></h6>
 
-              <h6 *ngIf="!_forum.isChanger()"><a [routerLink]="['/join']">{{ topicsAlimentation[ numberAlimentationDoubts - 1 ].title }}</a></h6>
+              <h6 *ngIf="!_forum.isChanger()"><a [routerLink]="['/join']">{{ topicsAlimentation[0].title }}</a></h6>
 
-              <small>Por: <strong>{{ topicsAlimentation[ numberAlimentationDoubts - 1 ].author }}</strong> el {{ topicsAlimentation[ numberAlimentationDoubts - 1 ].date  | date:" 'el' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX"  }}</small>
+              <small>Por: <strong>{{ topicsAlimentation[0].author }}</strong> el {{ topicsAlimentation[0].date  | date:" 'el' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX"  }}</small>
             </td>
           </tr>
         </tbody>

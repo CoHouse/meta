@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from "@angular/http";
 import { BlogService } from '../../../services/blog.service';
-import { Changer } from '../../../interfaces/changer.interface';
 import { Router, ActivatedRoute } from '@angular/router';
 declare var $:any;
 
@@ -20,8 +19,6 @@ export class BlogComponent implements OnInit {
   public postsSuplements;
 
   public category;
-
-  profile: any;
 
   constructor( public _blog:BlogService, public _activatedRoute:ActivatedRoute ) {
 

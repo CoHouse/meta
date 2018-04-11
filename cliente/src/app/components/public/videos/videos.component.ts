@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from "@angular/http";
-import { VideoService } from '../../../services/video.service';
-import { Changer } from '../../../interfaces/changer.interface';
+import { VideosService } from '../../../services/videos.service';
+import { Video } from '../../../interfaces/video.interface';
 import { Router, ActivatedRoute } from '@angular/router';
 declare var $:any;
 
@@ -12,56 +12,66 @@ declare var $:any;
 })
 export class VideosComponent implements OnInit {
 
-  /**
-   *
-   * Ejercicios
-   * -Pierna
-   * --Con Pesas
-   * --Con Liga
-   * --Potencia
-
-   * -Brazos
-   * --Con Pesas
-   * --Con Liga
-   * --Bodyweight
-
-   * -Tronco
-   * --Abdomen
-   * --Espalda
-   * --Oblicuos
-   */
-
   public categories;
   public videos;
+  public videosLegs;
+  public videosStraigtharms;
+  public videosStretcharms;
+  public videosChest;
+  public videosCore;
+  public videosGymnast;
+
   public category;
 
-  constructor( public _video:VideoService, public _activatedRoute:ActivatedRoute ){
+  public video:Video = {
+    title: "title",
+    image: "/assets/img/cube.jpg",
+    date: "05/03/18 13:00",
+    author: "MBC Crew",
+    category: "Ejercicios",
+    text: "text",
+    videoUrl:""
+  }
+
+  constructor( public _videos:VideosService, public _activatedRoute:ActivatedRoute ) {
 
     this._activatedRoute.params.subscribe( params => {
       this.category = params['category'];
 
       switch( this.category ) {
-          case "volume":
+          case "legs":
             setTimeout( ()=>{
-              $('.nav-tabs a[href="#v-pills-volume"]').tab('show');
+              $('.nav-tabs a[href="#v-pills-legs"]').tab('show');
             }, 50);
               break;
 
-          case "nutrition":
+          case "straigtharms":
             setTimeout( ()=>{
-              $('.nav-tabs a[href="#v-pills-nutrition"]').tab('show');
+              $('.nav-tabs a[href="#v-pills-straigtharms"]').tab('show');
             }, 50);
               break;
 
-          case "exercices":
+          case "stretcharms":
             setTimeout( ()=>{
-              $('.nav-tabs a[href="#v-pills-exercices"]').tab('show');
+              $('.nav-tabs a[href="#v-pills-stretcharms"]').tab('show');
             }, 50);
               break;
 
-          case "suplements":
+          case "chest":
             setTimeout( ()=>{
-              $('.nav-tabs a[href="#v-pills-suplements"]').tab('show');
+              $('.nav-tabs a[href="#v-pills-chest"]').tab('show');
+            }, 50);
+          break;
+
+          case "core":
+            setTimeout( ()=>{
+              $('.nav-tabs a[href="#v-pills-core"]').tab('show');
+            }, 50);
+          break;
+
+          case "gymnast":
+            setTimeout( ()=>{
+              $('.nav-tabs a[href="#v-pills-gymnast"]').tab('show');
             }, 50);
           break;
 
@@ -70,47 +80,56 @@ export class VideosComponent implements OnInit {
 
     });
 
-    this._video.getCategories().subscribe( result => {
+    this._videos.getCategories().subscribe( result => {
       this.categories = result['showVideoCategories'];
     }, error => {
       var errorMessage = <any>error;
     });
 
-    this._video.getVideos().subscribe( result => {
+    this._videos.getVideos().subscribe( result => {
       this.videos = result['showVideos'];
     }, error => {
       var errorMessage = <any>error;
     });
-
-
   }
 
   ngOnInit() {
 
-    // this._blog.getVolumePosts().subscribe( result => {
-    //   this.postsVolume = result['showPosts'];
-    // }, error => {
-    //   var errorMessage = <any>error;
-    // });
-    //
-    // this._blog.getNutritionPosts().subscribe( result => {
-    //   this.postsNutrition = result['showPosts'];
-    // }, error => {
-    //   var errorMessage = <any>error;
-    // });
-    //
-    // this._blog.getExercisesPosts().subscribe( result => {
-    //   this.postsExercises = result['showPosts'];
-    // }, error => {
-    //   var errorMessage = <any>error;
-    // });
-    //
-    // this._blog.getSuplementsPosts().subscribe( result => {
-    //   this.postsSuplements = result['showPosts'];
-    // }, error => {
-    //   var errorMessage = <any>error;
-    // });
+    this._videos.getLegsVideos().subscribe( result => {
+      this.videosLegs = result['showVideos'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
 
+    this._videos.getStraigtharmsVideos().subscribe( result => {
+      this.videosStraigtharms = result['showVideos'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
+    this._videos.getStretcharmsVideos().subscribe( result => {
+      this.videosStretcharms = result['showVideos'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
+    this._videos.getChestVideos().subscribe( result => {
+      this.videosChest = result['showVideos'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
+    this._videos.getCoreVideos().subscribe( result => {
+      this.videosCore = result['showVideos'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
+    this._videos.getGymnastVideos().subscribe( result => {
+      this.videosGymnast = result['showVideos'];
+    }, error => {
+      var errorMessage = <any>error;
+    });
   }
 
 }

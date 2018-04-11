@@ -56,3 +56,22 @@
 .ng-invalid.ng-touched:not(form){
   border: 1px solid red;
   }
+
+  .menu-item{
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1.5em;
+    color: #000;
+  }
+
+  .menu-active{
+    background-color: #000;
+  }
+
+  .menu-active > a{
+    color: white !important;
+  }
+
+  h1, h2, h3, h4, h5, h6{
+    text-transform: uppercase;
+    font-family: 'Ubuntu Mono', monospace;
+  }

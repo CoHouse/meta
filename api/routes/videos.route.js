@@ -13,11 +13,29 @@ api.get("/getVideos", videosController.showVideos );
 api.get("/getVideosHome", videosController.showHomeVideos );
 api.get("/getVideo/:_id", videosController.showVideo);
 
+api.get("/getPublicVideos", videosController.showPublicVideos);
+api.get("/getRegistredVideos", videosController.showRegistredVideos);
+api.get("/getPrivateVideos", videosController.showPrivateVideos);
+api.get("/getLegsPublicVideos", videosController.showLegsPublicVideos );
+api.get("/getLegsRegisteredVideos", videosController.showLegsRegisteredVideos );
+api.get("/getLegsChangerVideos", videosController.showLegsChangerVideos );
+api.get("/getStraigtharmsPublicVideos", videosController.showStraigtharmsPublicVideos );
+api.get("/getStraigtharmsRegisteredVideos", videosController.showStraigtharmsRegisteredVideos );
+api.get("/getStraigtharmsChangerVideos", videosController.showStraigtharmsChangerVideos );
+api.get("/getStretcharmsPublicVideos", videosController.showStretcharmsPublicVideos );
+api.get("/getStretcharmsRegisteredVideos", videosController.showStretcharmsRegisteredVideos );
+api.get("/getStretcharmsChangerVideos", videosController.showStretcharmsChangerVideos );
+api.get("/getChestPublicVideos", videosController.showChestPublicVideos );
+api.get("/getChestRegisteredVideos", videosController.showChestRegisteredVideos );
+api.get("/getChestChangerVideos", videosController.showChestChangerVideos );
+api.get("/getCorePublicVideos", videosController.showCorePublicVideos );
+api.get("/getCoreRegisteredVideos", videosController.showCoreRegisteredVideos );
+api.get("/getCoreChangerVideos", videosController.showCoreChangerVideos );
+api.get("/getGymnastPublicVideos", videosController.showGymnastPublicVideos );
+api.get("/getGymnastRegisteredVideos", videosController.showGymnastRegisteredVideos );
+api.get("/getGymnastChangerVideos", videosController.showGymnastChangerVideos );
+
 /* Métodos POST */
 api.post("/saveVideo", videosController.saveVideo );
-
-api.get( "/pruebaVid", function( error, response ){
-    response.status( 200 ).send( { message: 'Tienes el body', otro:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' } );
-} );
 
 module.exports = api;

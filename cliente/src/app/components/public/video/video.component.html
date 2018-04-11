@@ -3,7 +3,7 @@
     <div class="col-lg-2 col-md-2 col-sm-11 col-xs-11 offset-sm-1 offset-xs-1 text-center ml-3">
       <ul class="list-group">
         <li class="list-group-item list-group-item-action flex-column align-items-start active">Categorías</li>
-        <li *ngFor="let category of categories" class="list-group-item"><a href="">{{ category.name }}</a> </li>
+        <li *ngFor="let category of categories" class="list-group-item"><a [routerLink]="[ '/videos', category.ref ]">{{ category.name }}</a> </li>
         <!-- <span class="badge badge-primary badge-pill">14</span> -->
       </ul>
     </div>
@@ -11,7 +11,7 @@
     <div class="col-lg-9 col-md-9 col-sm-10 col-xs-10 offset-lg-0 offset-md-0 offset-sm-1 offset-xs-1 text-center">
         <div class="carousel-inner">
           <div class="carousel-item active pt-1">
-            <img class="d-block w-100" src="{{ video.image }}" alt="{{ video.title }} | {{ video.subtitle }}">
+            <img class="d-block w-75" src="{{ video.image }}" alt="{{ video.title }} | {{ video.subtitle }}">
             <div class="carousel-caption d-none d-md-block">
               <h1 class="display-1 py-5">{{ video.title }}</h1>
               <h3 class="text-center py-2">{{ video.subtitle }}</h3>

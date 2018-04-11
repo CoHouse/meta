@@ -27,7 +27,12 @@ export class TopicService {
   }
 
   getComments( _id:string ){
+    this.url = Ruta.url + "getComments/" + _id;
+    // let body = JSON.stringify( topic );
 
+    let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
+
+    return this._http.get( this.url ).map( res => res );
   }
 
 }

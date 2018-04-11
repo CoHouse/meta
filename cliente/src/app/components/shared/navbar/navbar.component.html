@@ -12,7 +12,6 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto mx-auto">
-        <li *ngIf="auth.isAuthenticated()" class="nav-item px-5" routerLinkActive = "menu-active"></li>
         <li class="nav-item px-5 text-uppercase" routerLinkActive = "menu-active">
           <a class="nav-link menu-item" [routerLink]="['our-system']">Nuestro Sistema</a>
         </li>
@@ -34,7 +33,7 @@
         </li>
         <!-- Dropdown -->
         <li *ngIf="this.auth.isAuthenticated()" class="nav-item dropdown menu-item">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle nav-link text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Mi Cuenta
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">

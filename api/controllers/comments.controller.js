@@ -9,6 +9,7 @@ function saveComment( req, res ){
 
   comment.idTopic = params.idTopic;
   comment.text = params.text;
+  comment.date = params.date;
 
   if ( params.idTopic != null && params.text != null ){
     comment.save( ( error, save ) => {
@@ -25,11 +26,11 @@ function saveComment( req, res ){
 }
 
 function getComments( req, res ){
-  objPost.find( ( error, showComments )=>{
+  objComment.find( ( error, showComments )=>{
     if( error ){
       res.status(500).send( { message: "Error en la petición: [getComments()]"} );
     }else{
-      res.status(200).send( { showComments } );
+        res.status(200).send( { showComments } );
     }
   } ).where('idTopic').equals( req.params._id );
 }

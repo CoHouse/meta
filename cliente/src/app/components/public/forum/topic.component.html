@@ -31,12 +31,6 @@
           <p class="card-text">{{ topic.text }}</p>
         </div>
 
-        <div class="card-body ngfor-aqui">
-          <hr>
-          <h3>Respuestas</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus nihil excepturi incidunt ex, sapiente perferendis perspiciatis, quibusdam maxime deserunt, tenetur temporibus quidem esse impedit in cumque commodi rerum porro vel!</p>
-        </div>
-
         <hr *ngIf="response" class="shadow-sm">
 
         <div *ngIf="response" class="card-body">
@@ -45,8 +39,6 @@
               <textarea class="form-control" name="text" rows="3" ngModel required></textarea>
             </div>
         </div>
-
-
 
         <div *ngIf="!response" class="card-footer bg-transparent text-right">
           <button type="button" (click)="response = !response" class="btn btn-success py-2">Responder <i class="far fa-comments"></i></button>
@@ -59,6 +51,16 @@
 
       </form>
       </div>
+
+      <div *ngIf="commentsSize > 0" class="card mt-3" style="width: 100%;">
+        <div class="card-header">
+          <h3>Respuestas</h3>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li *ngFor="let comment of comments" class="list-group-item">{{ comment.text }} <br> <div class="text-right"><small class="font-italic">{{ comment.date | date:" 'El' dd 'de' LLLL 'del' yyyy 'a las' h:mma":"es-MX" }}</small></div></li>
+        </ul>
+      </div>
+
 
     </div>
   </div>

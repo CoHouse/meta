@@ -43,6 +43,7 @@ import { HomeService } from './services/home.service';
 import { BlogService } from './services/blog.service';
 import { PostService } from './services/post.service';
 import { VideoService } from './services/video.service';
+import { VideosService } from './services/videos.service';
 import { QuestionService } from './services/question.service';
 import { ForumService } from './services/forum.service';
 import { TopicService } from './services/topic.service';
@@ -99,6 +100,7 @@ import { JoinComponent } from './components/public/join/join.component';
     HomeService,
     BlogService,
     PostService,
+    VideosService,
     VideoService,
     QuestionService,
     ForumService,

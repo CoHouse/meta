@@ -19,6 +19,7 @@ export class TopicComponent implements OnInit {
   public _id;
   public ref;
   public comments;
+  public commentsSize;
 
   public response = false;
 
@@ -49,6 +50,12 @@ export class TopicComponent implements OnInit {
               this.topic = result['showTopic'][0];
             });
 
+            this._topic.getComments( this._id ).subscribe( res => {
+              this.comments = res['showComments'];
+              this.commentsSize = res['showComments'].length;
+            });
+
+
           }, error => {
             var errorMessage = <any>error;
           });
@@ -63,6 +70,12 @@ export class TopicComponent implements OnInit {
             this._topic.getTopic( this._id ).subscribe( result => {
               this.topic = result['showTopic'][0];
             });
+
+            this._topic.getComments( this._id ).subscribe( res => {
+              this.comments = res['showComments'];
+              this.commentsSize = res['showComments'].length;
+            });
+
           }, error => {
             var errorMessage = <any>error;
           });
@@ -76,6 +89,12 @@ export class TopicComponent implements OnInit {
             this._topic.getTopic( this._id ).subscribe( result => {
               this.topic = result['showTopic'][0];
             });
+
+            this._topic.getComments( this._id ).subscribe( res => {
+              this.comments = res['showComments'];
+              this.commentsSize = res['showComments'].length;
+            });
+
           }, error => {
             var errorMessage = <any>error;
           });
@@ -89,6 +108,12 @@ export class TopicComponent implements OnInit {
             this._topic.getTopic( this._id ).subscribe( result => {
               this.topic = result['showTopic'][0];
             });
+
+            this._topic.getComments( this._id ).subscribe( res => {
+              this.comments = res['showComments'];
+              this.commentsSize = res['showComments'].length;
+            });
+
           }, error => {
             var errorMessage = <any>error;
           });
@@ -102,6 +127,12 @@ export class TopicComponent implements OnInit {
             this._topic.getTopic( this._id ).subscribe( result => {
               this.topic = result['showTopic'][0];
             });
+
+            this._topic.getComments( this._id ).subscribe( res => {
+              this.comments = res['showComments'];
+              this.commentsSize = res['showComments'].length;
+            });
+
           }, error => {
             var errorMessage = <any>error;
           });
@@ -115,7 +146,8 @@ export class TopicComponent implements OnInit {
   commentRegister( form:NgForm ){
     this.comment = {
       idTopic: this._id,
-      text: form['value']['text']
+      text: form['value']['text'],
+      date: new Date()
     }
 
     this._comment.sendComment( this.comment ).subscribe( data => {
