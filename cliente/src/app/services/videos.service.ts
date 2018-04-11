@@ -43,10 +43,10 @@ export class VideosService {
       let subs = localStorage.getItem( 'about' ).substring( 10, 17 );
 
       if ( parseInt( subs ) === 160318 ){
-        this.url = Ruta.url + "/getRegisteredVideos";
+        this.url = Ruta.url + "/getRegistredVideos";
         return this._http.get( this.url ).map( resV => resV );
       }else{
-        this.url = Ruta.url + "/getChangerVideos";
+        this.url = Ruta.url + "/getPrivateVideos";
         return this._http.get( this.url ).map( resV => resV );
       }
     }

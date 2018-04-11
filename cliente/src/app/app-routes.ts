@@ -36,6 +36,7 @@ const APP_ROUTES: Routes = [
   { path: 'blog/:category', component: BlogComponent },
   { path: 'challenge', component: ChallengeComponent },
   { path: 'videos', component: VideosComponent },
+  { path: 'videos/:category', component: VideosComponent },
   { path: 'home', component: HomeComponent },
   { path: 'forum', component: ForumComponent },
   { path: 'forum/category/:category', component: ForumcatComponent },

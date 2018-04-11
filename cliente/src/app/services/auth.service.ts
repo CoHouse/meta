@@ -15,8 +15,8 @@ export class AuthService {
     domain: 'personalplann.auth0.com',
     responseType: 'token id_token',
     audience: 'https://personalplann.auth0.com/userinfo',
-    // redirectUri: 'http://localhost:4200/callback',
-    redirectUri: 'http://mbchanger.com/',
+    redirectUri: 'http://localhost:4200/callback',
+    // redirectUri: 'http://mbchanger.com/',
     scope: 'openid profile email'
   });
 
@@ -90,7 +90,6 @@ export class AuthService {
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
-    localStorage.removeItem('email');
     localStorage.removeItem('about');
     // Go back to the home route
     this.router.navigate(['/']);

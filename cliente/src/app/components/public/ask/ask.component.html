@@ -8,7 +8,7 @@
 
       <div class="py-1"></div>
 
-      <form #formQuestion="ngForm">
+      <form *ngIf="isChanger()" #formQuestion="ngForm">
         <div class="form-row">
           <div class="form-group col-md-4">
             <label for="inputEmail4">Nombre</label>
@@ -36,6 +36,8 @@
         <button class="btn btn-success btn-primary py-2" (click)="questionRegister(formQuestion)" [disabled]="!formQuestion?.valid">Enviar pregunta</button>
       </form>
 
+      <button *ngIf="!isChanger()" class="btn btn-info btn-primary py-2" [routerLink]="['/join']">Únete para poder guardar preguntas</button>
+
       <div *ngIf="saveSucess" class="alert alert-success alert-dismissible fade show my-3" role="alert">
         <strong>Registro exitoso:</strong> Tu pregunta quedó registrada, si es elegida para respuesta te lo comunicarémos en un correo electrónico a la dirección proporcionada.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -46,12 +48,12 @@
     </div>
   </div>
 
-  <hr>
+  <hr *ngIf="isChanger()">
 
   <div class="row">
     <h3 class="pt-3">Preguntas de los miembros</h3>
 
-    <div class="col-12">
+    <div *ngIf="questions" class="col-12">
 
       <div *ngFor="let question of questions" class="card my-3">
         <h5 class="card-header">Usuario: {{ question.name }} | {{ question.question }}</h5>

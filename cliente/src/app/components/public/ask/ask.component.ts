@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
 import { QuestionService } from '../../../services/question.service';
+import { AuthService } from '../../../services/auth.service';
 import { Question } from '../../../interfaces/question.interface';
 
 @Component({
@@ -22,7 +23,7 @@ export class AskComponent implements OnInit {
 
   saveSucess = false;
 
-  constructor( public _question:QuestionService ) {
+  constructor( public _question:QuestionService, public _auth:AuthService ) {
     this._question.getPageQuestions().subscribe( result => {
       this.questions = result['showPageQuestions'];
     }, error => {
@@ -56,7 +57,16 @@ export class AskComponent implements OnInit {
 
   }
 
-
-
+  isChanger(){
+    if( this._auth.isAuthenticated() ){
+      if(parseInt( localStorage.getItem( 'about' ).substring( 10, 17 ) ) === 190318){
+        return true;
+      } else {
+        return false;
+      }
+    }else{
+      return false;
+    }
+  }
 
 }
