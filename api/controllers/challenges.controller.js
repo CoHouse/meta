@@ -9,8 +9,6 @@ var registerModifier = 'R';
 var changerModifier = 'B';
 
 /* GET */
-
-
 /* Asegurar que el formulario envíe los datos en el formato: aaaa/mm/dd */
 function showValidChallenge( req, res ){
   objChallenge.find( ( error, showChallenges ) => {
@@ -18,18 +16,13 @@ function showValidChallenge( req, res ){
        // Hacer algo
     }else{
       for ( let i in showChallenges ){
-
         if ( dateformat( i.startDate, "isoDateTime" ) <= dateformat( new Date( ), "isoDateTime" ) && dateformat( i.endDate , "isoDateTime") >= dateformat( new Date( ), "isoDateTime" ) ){
 
-          console.log("VIGENTE");
-
           let challenge = showChallenges[i];
-
           return res.status( 200 ).send( { challenge } );
         } else {
           //Hacer algo
         }
-
       }
     }
   });
@@ -43,9 +36,18 @@ function showChallenges( req, res ){
     }else{
       res.status( 200 ).send( { showChallenges } );
     }
-  }).where('visibleLevel').equals('V');
+  }).where('visibleLevel').equals('V').sort('-_id');
 }
 
+function showChallenge( req, res ){
+  objChallenge.find( ( error, showChallenge )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición: [showChallenge()]" } );
+    }else{
+      res.status(200).send( { showChallenge } );
+    }
+  } ).where('_id').equals( req.params._id );
+}
 
 /* POST */
 function saveChallenge( req, res){
@@ -70,5 +72,6 @@ function saveChallenge( req, res){
 module.exports = {
   showValidChallenge,
   showChallenges,
+  showChallenge,
   saveChallenge
 }

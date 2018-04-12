@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-pre-footer',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PreFooterComponent implements OnInit {
 
-  constructor() { }
+  constructor( public _auth:AuthService ) { }
 
   ngOnInit() {
   }

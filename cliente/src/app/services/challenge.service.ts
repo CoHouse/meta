@@ -21,4 +21,9 @@ export class ChallengeService {
     return this._http.get( this.url ).map( resV => resV );
   }
 
+  getChallenge( _id:string ){
+    this.url = Ruta.url + "getChallenge/" + _id;
+    return this._http.get( this.url ).map( res => res );
+  }
+
 }

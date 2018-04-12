@@ -30,7 +30,7 @@ function showPosts( req, res ){
     }else{
       res.status(200).send( { showPosts } );
     }
-  } );
+  } ).sort('-_id');
 }
 
 function showHomePosts( req, res ){
@@ -40,7 +40,7 @@ function showHomePosts( req, res ){
     }else{
       res.status(200).send( { homePosts } );
     }
-  } ).where('visibleLevel').equals( visitorModifier ).limit( numberOfHomePosts );
+  } ).where('visibleLevel').equals( visitorModifier ).limit( numberOfHomePosts ).sort('-_id');
 }
 
 function showPublicPosts( req, res ){

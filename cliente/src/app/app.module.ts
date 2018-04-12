@@ -21,6 +21,8 @@ import { OursystemComponent } from './components/public/oursystem/oursystem.comp
 import { VideoComponent } from './components/public/video/video.component';
 import { ForumcatComponent } from './components/public/forum/forumcat.component';
 import { TopicComponent } from './components/public/forum/topic.component';
+import { JoinComponent } from './components/public/join/join.component';
+import { DetailchallengeComponent } from './components/public/challenge/detailchallenge.component';
 
 import { TrainingComponent } from './components/private/training/training.component';
 import { AccountComponent } from './components/private/account/account.component';
@@ -52,7 +54,6 @@ import { CommentService } from './services/comment.service';
 
 /* Routes */
 import { APP_ROUTING } from './app-routes';
-import { JoinComponent } from './components/public/join/join.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { JoinComponent } from './components/public/join/join.component';
     VideoComponent,
     ForumcatComponent,
     TopicComponent,
-    JoinComponent
+    JoinComponent,
+    DetailchallengeComponent
   ],
   imports: [
     BrowserModule,

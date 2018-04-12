@@ -27,9 +27,11 @@ export class ForumcatComponent implements OnInit {
   public category;
   public topics;
   public categoryModifier;
+  public authorName;
 
   public saveSucess = false;
   public newTopicFlag = false;
+  public profile: any;
 
   moment = new Date();
 
@@ -94,12 +96,27 @@ export class ForumcatComponent implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+   if (this._auth.userProfile) {
+     this.profile = this._auth.userProfile;
+   } else {
+     this._auth.getProfile((err, profile) => {
+       this.profile = profile;
+     });
+   }
+ }
 
   saveTopic( form:NgForm ){
+
+    if ( this._auth.isAuthenticated() ){
+      this.authorName = this.profile.name;
+    }else{
+      this.authorName = "Visitante";
+    }
+
     this.topic = {
       title: form['value']['title'],
-      author: "TRAER DEL PERFIL",
+      author: this.authorName,
       text: form['value']['text'],
       category: this.categoryModifier,
       date: this.moment.toString()
@@ -118,7 +135,6 @@ export class ForumcatComponent implements OnInit {
       setTimeout( function(){
         this._activatedRoute.navigate(['/forum']);
       }, 100 );
-
 
     }, error => console.error( error ) );
   }

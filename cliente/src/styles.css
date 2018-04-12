@@ -6,12 +6,28 @@
   background-color: #000;
 }
 
+.background-gray{
+  background-color: #D5D5D5;
+}
+
 .background-white{
   background-color: #fff;
 }
 
 .white-font{
   color: #fff;
+}
+
+.black-font{
+  color: #000 !important;
+}
+
+.font-four{
+  font-size: 300%;
+}
+
+pre-footer-font > li > a{
+  color: #000 !important;
 }
 
 .yellow-font{
@@ -24,6 +40,11 @@
 
 .underlined {
     border-bottom: 2px solid #fff;
+    padding-bottom: 4px;
+}
+
+.underlined-inverse {
+    border-bottom: 2px solid #000;
     padding-bottom: 4px;
 }
 
@@ -71,7 +92,10 @@
     color: white !important;
   }
 
-  h1, h2, h3, h4, h5, h6{
-    text-transform: uppercase;
+  h1, h2, h3, h4, h5, h6, p, a{
     font-family: 'Ubuntu Mono', monospace;
+  }
+
+  p{
+    font-size: 1.2rem;
   }

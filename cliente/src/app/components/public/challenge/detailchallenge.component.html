@@ -1,0 +1,29 @@
+<div class="container-fluid">
+
+  <div class="row animated fadeIn">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5 background-black white-font">
+      <h2 class="text-center text-uppercase">Desafío <b class="underlined">Semanal&emsp;&emsp;</b></h2>
+    </div>
+  </div>
+
+  <div class="row py-3">
+    <div class="col-lg-6 col-md-6 offset-lg-3 offset-md-3 col-sm-12 col-xs-12">
+      <h3 class="display-4 text-center py-3">{{ challenge.title }}</h3>
+
+      <div class="text-center">
+        <img src="{{ challenge.image }}" alt="">
+        <p>{{ challenge.text }}</p>
+        <p><strong>Vigencia del:</strong> {{ challenge.startDate | date:"dd/LLLL/yyyy" }} <strong>al</strong> {{ challenge.endDate | date:"dd/LLLL/yyyy" }}</p>
+
+      </div>
+
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 text-center py-5">
+      <h4><strong>Finalizado</strong></h4>
+      <h5>Changers que han finalizado el reto: {{ challenge.userSucess.length }} </h5>
+      <button type="button" class="btn btn-link"><i style="color: green;" class="fas fa-check-circle font-four"></i></button>
+    </div>
+  </div>
+
+</div>

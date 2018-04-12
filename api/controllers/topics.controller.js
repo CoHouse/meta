@@ -46,7 +46,7 @@ function getPresentationsTopics( req, res ){
     }else{
       res.status( 200 ).send( { showPresentationTopics } );
     }
-  }).where('category').equals( topicsPresentations ).sort('-date');
+  }).where('category').equals( topicsPresentations ).sort('-_id');
 }
 
 function getDoubdtsPlattformTopics( req, res ){
@@ -56,7 +56,7 @@ function getDoubdtsPlattformTopics( req, res ){
     }else{
       res.status( 200 ).send( { showDoubtsPlattformTopics } );
     }
-  }).where('category').equals( topicsPlattformDoubts ).sort('-date');
+  }).where('category').equals( topicsPlattformDoubts ).sort('-_id');
 }
 
 function getTransformationsTopics( req, res ){
@@ -66,7 +66,7 @@ function getTransformationsTopics( req, res ){
     }else{
       res.status( 200 ).send( { showTransformationsTopics } );
     }
-  }).where('category').equals( topicsTransformations ).sort('-date');
+  }).where('category').equals( topicsTransformations ).sort('-_id');
 }
 
 function getExerciseProgramTopics( req, res ){
@@ -76,7 +76,7 @@ function getExerciseProgramTopics( req, res ){
     }else{
       res.status( 200 ).send( { showExerciseProgramTopics } );
     }
-  }).where('category').equals( topicsExercisesProgram ).sort('-date');
+  }).where('category').equals( topicsExercisesProgram ).sort('-_id');
 }
 
 function getAlimentationProgramTopics( req, res ){
@@ -86,7 +86,7 @@ function getAlimentationProgramTopics( req, res ){
     }else{
       res.status( 200 ).send( { showAlimentationProgramTopics } );
     }
-  }).where('category').equals( topicsAlimentationProgram ).sort('-date');
+  }).where('category').equals( topicsAlimentationProgram ).sort('-_id');
 }
 
 /* POST */

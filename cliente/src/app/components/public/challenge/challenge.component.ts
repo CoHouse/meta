@@ -14,11 +14,18 @@ export class ChallengeComponent implements OnInit {
 
   validChallenge;
   challenges;
+  successUsers;
 
   constructor( public _challenge:ChallengeService ) {
 
     this.validChallenge = _challenge.getValidChallenge().subscribe( challenge => {
+
       this.validChallenge = challenge;
+      this.successUsers = this.validChallenge.challenge.userSucess;
+
+      console.log("Usuarios que lo terminaron", this.successUsers);
+      console.log("Usuarios que lo terminaron length", this.successUsers.length);
+
     });
 
     _challenge.getChallenges().subscribe( challenges => {

@@ -12,6 +12,7 @@ import { ForumComponent } from './components/public/forum/forum.component';
   import { ForumcatComponent } from './components/public/forum/forumcat.component';
     import { TopicComponent } from './components/public/forum/topic.component';
 import { ChallengeComponent } from './components/public/challenge/challenge.component';
+  import { DetailchallengeComponent } from './components/public/challenge/detailchallenge.component';
 import { JoinComponent } from './components/public/join/join.component';
 
 import { RegisterComponent } from './components/public/register/register.component';
@@ -35,6 +36,7 @@ const APP_ROUTES: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'blog/:category', component: BlogComponent },
   { path: 'challenge', component: ChallengeComponent },
+  { path: 'detail-challenge/:_id', component: DetailchallengeComponent },
   { path: 'videos', component: VideosComponent },
   { path: 'videos/:category', component: VideosComponent },
   { path: 'home', component: HomeComponent },
