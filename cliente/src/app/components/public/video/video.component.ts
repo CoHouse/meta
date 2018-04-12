@@ -16,6 +16,7 @@ export class VideoComponent implements OnInit {
 
   public video:Video = {
     title: "title",
+    subtitle: "subtitle",
     image: "/assets/img/cube.jpg",
     date: "05/03/18 13:00",
     author: "MBC Crew",

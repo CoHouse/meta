@@ -1,6 +1,7 @@
 export interface Video{
   _id?:string,
   title: string,
+  subtitle: string,
   image: string,
   date: string,
   author: string,

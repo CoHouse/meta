@@ -1,3 +1,11 @@
+/*=============================================>>>>>
+= Subir la API a producción =
+===============================================>>>>>*/
+
+1. Crear y configurar server.js
+2. modificar el package.json poniendo "server.js" en el campo "main"
+
+
 Package.json
 
 {

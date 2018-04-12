@@ -1,3 +1,6 @@
+Compilar localizado
+ng build --prod --local es
+
 Developer realidad virtual/aumentada
 https://developer.oculus.com/unity/
 
