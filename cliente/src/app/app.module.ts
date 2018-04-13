@@ -51,6 +51,7 @@ import { ForumService } from './services/forum.service';
 import { TopicService } from './services/topic.service';
 import { ChallengeService } from './services/challenge.service';
 import { CommentService } from './services/comment.service';
+import { UserService } from './services/user.service';
 
 /* Routes */
 import { APP_ROUTING } from './app-routes';
@@ -108,7 +109,8 @@ import { APP_ROUTING } from './app-routes';
     ForumService,
     TopicService,
     ChallengeService,
-    CommentService
+    CommentService,
+    UserService
   ],
   bootstrap: [ AppComponent ]
 })

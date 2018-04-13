@@ -4,8 +4,8 @@
 
     <div class="col-lg-2 col-md-2 col-sm-5 col-xs-5 pb-3 text-center">
 
-      <ul class="nav nav-tabs flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <li class="list-group-item list-group-item-action flex-column align-items-start background-black white-font"><h6>Categorías</h6></li>
+      <ul class="nav nav-tabs flex-column text-uppercase shadow" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <li class="list-group-item list-group-item-action flex-column align-items-start background-black white-font"><h5>Categorías</h5></li>
         <li *ngFor="let category of categories; let i = index;" class="list-group-item">
           <a
           id="v-pills-{{ category.name }}-tab"
@@ -13,7 +13,7 @@
           href="#v-pills-{{ category.ref }}"
           role="tab"
           aria-controls="v-pills-all"
-          aria-selected="true"><h6>{{ category.name }}</h6></a>
+          aria-selected="true"><h5>{{ category.name }}</h5></a>
         </li>
       </ul>
 
@@ -26,18 +26,17 @@
         <div class="tab-pane fade show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all">
 
           <div class="card-deck">
-            <div *ngFor="let video of videos" class="card my-3 shadow-sm" style="min-width:25%; max-width:40%">
+            <div *ngFor="let video of videos" class="card my-3 shadow-sm" style="min-width:25%;">
              <a href="#/video/{{ video._id }}"><img class="card-img-top" [src]="video.image" [alt]="video.title"></a>
              <div class="card-body">
-                 <h5 class="card-title"><a href="#/video/{{ video._id }}">{{ video.title }}</a></h5>
+                 <h4 class="card-title"><a class="video-link" href="#/video/{{ video._id }}">{{ video.title }}</a></h4>
                  <p class="card-text" [innerHtml]='video.text | slice:0:200'></p>
-                 <a href="#/video/{{ video._id }}" class="video-link"><h6>Leer más ></h6></a>
+                 <a href="#/video/{{ video._id }}" class="video-link"><h4>Ver más ></h4></a>
              </div>
              <div class="card-footer">
                <small class="text-muted">Publicado el: {{ video.date }}</small>
              </div>
            </div>
-
           </div>
 
         </div>
@@ -52,8 +51,7 @@
           </div>
 
           <div class="card-deck">
-
-            <div *ngFor="let video of videosLegs" class="card my-3 shadow" style="min-width:25%; max-width:40%">
+            <div *ngFor="let video of videosLegs" class="card my-3 shadow" style="min-width:25%;">
              <a href="#/video/{{ video._id }}"><img class="card-img-top" src="{{ video.image }}" [alt]="video.title"></a>
              <div class="card-body">
                  <h5 class="card-title"><a href="#/video/{{ video._id }}">{{ video.title }}</a></h5>
@@ -63,7 +61,6 @@
                <small class="text-muted">Publicado el: {{ video.date }}</small>
              </div>
            </div>
-
           </div>
 
         </div>
@@ -78,8 +75,7 @@
           </div>
 
           <div class="card-deck">
-
-            <div *ngFor="let video of videosStraigtharms" class="card my-3 shadow" style="min-width:25%; max-width:40%">
+            <div *ngFor="let video of videosStraigtharms" class="card my-3 shadow" style="min-width:25%;">
              <a href="#/video/{{ video._id }}"><img class="card-img-top" src="{{ video.image }}" [alt]="video.title"></a>
              <div class="card-body">
                  <h5 class="card-title"><a href="#/video/{{ video._id }}">{{ video.title }}</a></h5>
@@ -89,7 +85,6 @@
                <small class="text-muted">Publicado el: {{ video.date }}</small>
              </div>
            </div>
-
           </div>
 
         </div>
@@ -104,8 +99,7 @@
           </div>
 
           <div class="card-deck">
-
-            <div *ngFor="let video of videosStretcharms" class="card my-3 shadow" style="min-width:25%; max-width:40%">
+            <div *ngFor="let video of videosStretcharms" class="card my-3 shadow" style="min-width:25%;">
              <a href="#/video/{{ video._id }}"><img class="card-img-top" src="{{ video.image }}" [alt]="video.title"></a>
              <div class="card-body">
                  <h5 class="card-title"><a href="#/video/{{ video._id }}">{{ video.title }}</a></h5>
@@ -115,7 +109,6 @@
                <small class="text-muted">Publicado el: {{ video.date }}</small>
              </div>
            </div>
-
           </div>
 
         </div>
@@ -130,8 +123,7 @@
           </div>
 
           <div class="card-deck">
-
-            <div *ngFor="let video of videosChest" class="card my-3 shadow" style="min-width:25%; max-width:40%">
+            <div *ngFor="let video of videosChest" class="card my-3 shadow" style="min-width:25%;">
              <a href="#/video/{{ video._id }}"><img class="card-img-top" src="{{ video.image }}" [alt]="video.title"></a>
              <div class="card-body">
                  <h5 class="card-title"><a href="#/video/{{ video._id }}">{{ video.title }}</a></h5>
@@ -141,7 +133,6 @@
                <small class="text-muted">Publicado el: {{ video.date }}</small>
              </div>
            </div>
-
           </div>
 
         </div>
@@ -156,8 +147,7 @@
           </div>
 
           <div class="card-deck">
-
-            <div *ngFor="let video of videosCore" class="card my-3 shadow" style="min-width:25%; max-width:40%">
+            <div *ngFor="let video of videosCore" class="card my-3 shadow" style="min-width:25%;">
              <a href="#/video/{{ video._id }}"><img class="card-img-top" src="{{ video.image }}" [alt]="video.title"></a>
              <div class="card-body">
                  <h5 class="card-title"><a href="#/video/{{ video._id }}">{{ video.title }}</a></h5>
@@ -167,7 +157,6 @@
                <small class="text-muted">Publicado el: {{ video.date }}</small>
              </div>
            </div>
-
           </div>
 
         </div>
@@ -182,8 +171,7 @@
           </div>
 
           <div class="card-deck">
-
-            <div *ngFor="let video of videosGymnast" class="card my-3 shadow" style="min-width:25%; max-width:40%">
+            <div *ngFor="let video of videosGymnast" class="card my-3 shadow" style="min-width:25%;">
              <a href="#/video/{{ video._id }}"><img class="card-img-top" src="{{ video.image }}" [alt]="video.title"></a>
              <div class="card-body">
                  <h5 class="card-title"><a href="#/video/{{ video._id }}">{{ video.title }}</a></h5>
@@ -193,7 +181,6 @@
                <small class="text-muted">Publicado el: {{ video.date }}</small>
              </div>
            </div>
-
           </div>
 
         </div>

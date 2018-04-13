@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Ruta } from '../global_route';
 import { Observable } from 'rxjs/Observable';
+import { AuthService } from './auth.service';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -9,15 +10,19 @@ export class ForumService {
 
   public url :string;
 
-  constructor( public _http:HttpClient ) {
+  constructor( public _http:HttpClient, public _auth:AuthService ) {
     this.getCategories();
   }
 
 isChanger(){
-  if( localStorage.length > 0 && parseInt( localStorage.getItem( 'about' ).substring( 10, 17 ) ) === 190318 ){
-    return true;
-  }else{
+  if( !this._auth.isAuthenticated() ){
     return false;
+  }else{
+    if( localStorage.length > 0 && parseInt( localStorage.getItem( 'about' ).substring( 10, 17 ) ) === 190318 ){
+      return true;
+    }else{
+      return false;
+    }
   }
 }
 

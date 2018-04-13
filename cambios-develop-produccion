@@ -31,3 +31,7 @@ Package.json
     "nodemon": "^1.14.12"
   }
 }
+
+
+allowed callbacks en author
+http://localhost:4200/callback, http://mbchanger.com/

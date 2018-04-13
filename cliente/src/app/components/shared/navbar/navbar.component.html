@@ -1,7 +1,7 @@
   <nav class="navbar navbar-expand-lg  background-white text-center"> <!-- sticky-top -->
     <nav class="navbar navbar-expand-lg "> <!-- sticky-top -->
       <a class="navbar-brand text-uppercase" [routerLink]="['home']">
-        <img src="assets/img/logo.png" width="50" height="50" alt="">
+        <img src="assets/img/logo.png" width="200" height="50" alt="MBC">
         Meta Body Changer
       </a>
     </nav>
@@ -36,7 +36,7 @@
         <a class="nav-link dropdown-toggle nav-link text-uppercase" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Mi Cuenta
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div *ngIf="this.auth.isAuthenticated()" class="dropdown-menu" aria-labelledby="navbarDropdown">
           <div *ngIf="isChanger()">
             <a class="dropdown-item" [routerLink]="['inquest']">Cuestionario</a>
             <a class="dropdown-item" [routerLink]="['training']">Entrenamiento</a>

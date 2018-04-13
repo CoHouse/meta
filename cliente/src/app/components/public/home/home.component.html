@@ -40,12 +40,12 @@
       <div class="row">
         <div *ngFor="let post of posts" class="col-sm-4 py-3">
           <div class="card shadow">
-            <img class="card-img-top" src="{{ post.image }}" alt="{{ post.title }}" title="{{ post.title }}">
+            <a href="#/post/{{ post._id }}"><img class="card-img-top" src="{{ post.image }}" alt="{{ post.title }}" title="{{ post.title }}"></a>
             <div class="card-body">
-              <h5 class="card-title">{{ post.title }}</h5>
+              <h5 class="card-title"><a href="#/post/{{ post._id }}">{{ post.title }}</a></h5>
               <p class="card-text" [innerHtml]='post.text | slice:0:200'></p>
               <div class="text-left">
-                <a href="#/post/{{ post._id }}" class=""><h6>Leer más ></h6></a>
+                <a href="#/post/{{ post._id }}"><h4>Leer más ></h4></a>
               </div>
             </div>
             <div class="py-1 background-black"></div>
@@ -95,12 +95,12 @@
       <div class="row">
         <div *ngFor="let video of videos" class="col-sm-4 py-3">
           <div class="card shadow">
-            <img class="card-img-top" src="{{ video.image }}" alt="{{ video.title }}" title="{{ video.title }}">
+            <a href="#/video/{{ video._id }}"><img class="card-img-top" src="{{ video.image }}" alt="{{ video.title }}" title="{{ video.title }}"></a>
             <div class="card-body">
-              <h5 class="card-title text-center">{{ video.title }}</h5>
+              <h5 class="card-title text-center"><a href="#/video/{{ video._id }}">{{ video.title }}</a></h5>
               <p class="card-text" [innerHtml]='video.text | slice:0:200'></p>
               <div class="text-left">
-                <a href="#/video/{{ video._id }}" class="video-link"><h6>Ver más ></h6></a>
+                <a href="#/video/{{ video._id }}" class="video-link"><h4>Ver más ></h4></a>
               </div>
             </div>
             <div class="py-1 background-black"></div>
