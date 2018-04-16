@@ -38,7 +38,7 @@
         </a>
         <div *ngIf="this.auth.isAuthenticated()" class="dropdown-menu" aria-labelledby="navbarDropdown">
           <div *ngIf="isChanger()">
-            <a class="dropdown-item" [routerLink]="['inquest']">Cuestionario</a>
+            <a class="dropdown-item" [routerLink]="['inquest', 'user']">Cuestionario</a>
             <a class="dropdown-item" [routerLink]="['training']">Entrenamiento</a>
           </div>
           <div *ngIf="!isChanger()">

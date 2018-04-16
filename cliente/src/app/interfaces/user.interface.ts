@@ -3,7 +3,8 @@ export interface User {
     generals:{
       userName: string,
       age: string,
-      email: string
+      email: string,
+      completedFlag: boolean
     },
     alimentary:{
       question1?: string,
@@ -12,8 +13,17 @@ export interface User {
       question4?: string,
       question5?: string,
       question6?: string,
-      question7?: string,
-      question8?: string,
+
+      question7A?: string,
+      question7B?: string,
+      question7C?: string,
+      question7D?: string,
+
+      question8A?: string,
+      question8B?: string,
+      question8C?: string,
+      question8D?: string,
+
       question9?: string,
       completedFlag: boolean
     },

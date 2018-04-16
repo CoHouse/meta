@@ -46,7 +46,7 @@
         <div class="tab-pane fade show active" id="generales" role="tabpanel" aria-labelledby="home-tab">
           <form class="py-3 col-6 offset-3" #formGenerales="ngForm">
             <div class="form-group">
-              <label><h6>Nombre de Usuario <small class="text-muted">Cómo te gustaría que te llamáramos.</small></h6></label>
+              <label><h6>Nombre de Usuario <small class="text-muted">Cómo te gustaría que te llamémos.</small></h6></label>
               <input type="text" class="form-control" placeholder="Nombre de usuario" name="userName" #userName="ngModel" ngModel required>
             </div>
             <div class="form-group">
@@ -67,12 +67,10 @@
 
         <!-- Tab << Alimenticio >> -->
         <div class="tab-pane fade show" id="alimenticios" role="tabpanel" aria-labelledby="home-tab">
-
-          <form (ngSubmit)="saveDataAlimenticios(formAlimenticios)" #formAlimenticios="ngForm">
+          <form (ngSubmit)="saveDataAlimenticios( formAlimenticios )" #formAlimenticios="ngForm">
 
             <!-- Cuestion 1 -->
-            <h6 class="pt-4 pl-3">¿Cuál es la frecuencia con la que hace ejercicio a la semana (en días)?</h6>
-
+            <h6 class="pt-4 pl-3">¿Cuál es la frecuencia con la que haces ejercicio a la semana (en días)?</h6>
             <div class="form-group row">
               <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="alimentacionPregunta1opcion1" name="alimentacionPregunta1" class="custom-control-input" value="Ningún día" ngModel required #alimentacionPregunta1="ngModel" >
@@ -96,160 +94,153 @@
 
             <!-- Cuestion 2 -->
             <h6 class="pt-3 pl-3">¿Con qué intensidad realiza esta actividad? </h6>
-
             <div class="form-group row">
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta2opcion1" name="alimentacionPregunta2" class="custom-control-input" value="Muy baja" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta2opcion1" name="alimentacionPregunta2" class="custom-control-input" value="Muy baja" ngModel required #alimentacionPregunta2="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta2opcion1">a)	Muy baja</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta2opcion2" name="alimentacionPregunta2" class="custom-control-input" value="baja" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta2opcion2" name="alimentacionPregunta2" class="custom-control-input" value="baja" ngModel required #alimentacionPregunta2="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta2opcion2">b) baja</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta2opcion3" name="alimentacionPregunta2" class="custom-control-input" value="moderada" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta2opcion3" name="alimentacionPregunta2" class="custom-control-input" value="moderada" ngModel required #alimentacionPregunta2="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta2opcion3">c) moderada</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta2opcion4" name="alimentacionPregunta2" class="custom-control-input" value="intensa" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta2opcion4" name="alimentacionPregunta2" class="custom-control-input" value="intensa" ngModel required #alimentacionPregunta2="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta2opcion4">d) intensa</label>
               </div>
             </div>
 
             <!-- Cuestion 3 -->
             <h6 class="pt-3 pl-3">¿Qué tipo de ejercicio hace? (trote, ejercicios como sentadillas, lagartijas, etc.)</h6>
-
             <div class="form-group row">
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta3opcion1" name="alimentacionPregunta3" class="custom-control-input" value="Trote" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta3opcion1" name="alimentacionPregunta3" class="custom-control-input" value="Trote" ngModel required #alimentacionPregunta3="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta3opcion1">a)	Trote</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta3opcion2" name="alimentacionPregunta3" class="custom-control-input" value="lagartijas, sentadillas, etc." ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta3opcion2" name="alimentacionPregunta3" class="custom-control-input" value="lagartijas, sentadillas, etc." ngModel required #alimentacionPregunta3="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta3opcion2">b) lagartijas, sentadillas, etc.</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta3opcion3" name="alimentacionPregunta3" class="custom-control-input" value="pesas" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta3opcion3" name="alimentacionPregunta3" class="custom-control-input" value="pesas" ngModel required #alimentacionPregunta3="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta3opcion3">c) pesas</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta3opcion4" name="alimentacionPregunta3" class="custom-control-input" value="algún deporte tal como natación, futbol, etc." ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta3opcion4" name="alimentacionPregunta3" class="custom-control-input" value="algún deporte tal como natación, futbol, etc." ngModel required #alimentacionPregunta3="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta3opcion4">d) algún deporte tal como natación, futbol, etc.</label>
               </div>
             </div>
 
             <!-- Cuestion 4 -->
             <h6 class="pt-3 pl-3">¿Qué duración por sesión le dedica al ejercicio (en minutos)?</h6>
-
             <div class="form-group row">
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta4opcion1" name="alimentacionPregunta4" class="custom-control-input" value="30 minutos" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta4opcion1" name="alimentacionPregunta4" class="custom-control-input" value="30 minutos" ngModel required #alimentacionPregunta4="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta4opcion1">a)	30 minutos</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta4opcion2" name="alimentacionPregunta4" class="custom-control-input" value="1 hora" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta4opcion2" name="alimentacionPregunta4" class="custom-control-input" value="1 hora" ngModel required #alimentacionPregunta4="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta4opcion2">b) 1 hora</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta4opcion3" name="alimentacionPregunta4" class="custom-control-input" value="2 horas o más" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta4opcion3" name="alimentacionPregunta4" class="custom-control-input" value="2 horas o más" ngModel required #alimentacionPregunta4="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta4opcion3">c) 2 horas o más</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta4opcion4" name="alimentacionPregunta4" class="custom-control-input" value="menos de 30 minutos" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta4opcion4" name="alimentacionPregunta4" class="custom-control-input" value="menos de 30 minutos" ngModel required #alimentacionPregunta4="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta4opcion4">d) menos de 30 minutos</label>
               </div>
             </div>
 
             <!-- Cuestion 5 -->
             <h6 class="pt-3 pl-3">¿Cuándo fue la última vez que participó en un programa de ejercicio regular?</h6>
-
             <div class="form-group row">
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta5opcion1" name="alimentacionPregunta5" class="custom-control-input" value="A" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta5opcion1" name="alimentacionPregunta5" class="custom-control-input" value="Hace menos de un mes" ngModel required #alimentacionPregunta5="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta5opcion1">a)	Hace menos de un mes</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta5opcion2" name="alimentacionPregunta5" class="custom-control-input" value="B" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta5opcion2" name="alimentacionPregunta5" class="custom-control-input" value="más de un mes" ngModel required #alimentacionPregunta5="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta5opcion2">b) más de un mes</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta5opcion3" name="alimentacionPregunta5" class="custom-control-input" value="C" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta5opcion3" name="alimentacionPregunta5" class="custom-control-input" value="más de 3 meses" ngModel required #alimentacionPregunta5="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta5opcion3">c) más de 3 meses</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta5opcion4" name="alimentacionPregunta5" class="custom-control-input" value="D" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta5opcion4" name="alimentacionPregunta5" class="custom-control-input" value="más de 6 meses" ngModel required #alimentacionPregunta5="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta5opcion4">d) más de 6 meses</label>
               </div>
             </div>
 
             <!-- Cuestion 6 -->
             <h6 class="pt-3 pl-3">¿Cuánto tiempo tiene sin realizar ejercicio físico regular?</h6>
-
             <div class="form-group row">
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta6opcion1" name="alimentacionPregunta6" class="custom-control-input" value="A" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta6opcion1" name="alimentacionPregunta6" class="custom-control-input" value="Hace menos de un mes" ngModel required #alimentacionPregunta6="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta6opcion1">a)	Hace menos de un mes</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta6opcion2" name="alimentacionPregunta6" class="custom-control-input" value="B" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta6opcion2" name="alimentacionPregunta6" class="custom-control-input" value="más de un mes" ngModel required #alimentacionPregunta6="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta6opcion2">b) más de un mes</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta6opcion3" name="alimentacionPregunta6" class="custom-control-input" value="C" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta6opcion3" name="alimentacionPregunta6" class="custom-control-input" value="más de 3 meses" ngModel required #alimentacionPregunta6="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta6opcion3">c) más de 3 meses</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta6opcion4" name="alimentacionPregunta6" class="custom-control-input" value="D" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta6opcion4" name="alimentacionPregunta6" class="custom-control-input" value="más de 6 meses" ngModel required #alimentacionPregunta6="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta6opcion4">d) más de 6 meses</label>
               </div>
             </div>
 
             <!-- Cuestion 7 -->
             <h6 class="pt-3 pl-3">¿Cuál es el lugar en el que puede realizar ejercicio? <small>(Seleccione todas las opciones de acuerdo a sus posibilidades)</small></h6>
-
             <div class="form-group row">
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta7opcion1" name="alimentacionPregunta7-1" ngModel #X="ngModel">
+                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta7opcion1" name="alimentacionPregunta7A" ngModel #alimentacionPregunta7A="ngModel">
                 <label class="custom-control-label pr-3" for="alimentacionPregunta7opcion1">a)	Parques</label>
               </div>
 
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta7opcion2" name="alimentacionPregunta7-2" ngModel #X="ngModel">
+                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta7opcion2" name="alimentacionPregunta7B" ngModel #alimentacionPregunta7B="ngModel">
                 <label class="custom-control-label pr-3" for="alimentacionPregunta7opcion2">b) albercas</label>
               </div>
 
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta7opcion3" name="alimentacionPregunta7-3" ngModel #X="ngModel">
+                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta7opcion3" name="alimentacionPregunta7C" ngModel #alimentacionPregunta7C="ngModel">
                 <label class="custom-control-label pr-3" for="alimentacionPregunta7opcion3">c) gimnasio de pesas</label>
               </div>
 
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta7opcion4" name="alimentacionPregunta7-4" ngModel #X="ngModel">
+                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta7opcion4" name="alimentacionPregunta7D" ngModel #alimentacionPregunta7D="ngModel">
                 <label class="custom-control-label pr-3" for="alimentacionPregunta7opcion4">d) pista de atletismo</label>
               </div>
             </div>
 
             <!-- Cuestion 8 -->
             <h6 class="pt-3 pl-3">¿Qué le gustaría incluir en su programa? <small>Seleccione todas las opciones que le gustaría incluir</small></h6>
-
             <div class="form-group row">
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta8opcion1" name="alimentacionPregunta8-1" ngModel #X="ngModel">
+                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta8opcion1" name="alimentacionPregunta8A" ngModel #alimentacionPregunta8A="ngModel">
                 <label class="custom-control-label pr-3" for="alimentacionPregunta8opcion1">a)	Plan de ejercicios</label>
               </div>
 
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta8opcion2" name="alimentacionPregunta8-2" ngModel #X="ngModel">
+                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta8opcion2" name="alimentacionPregunta8B" ngModel #alimentacionPregunta8B="ngModel">
                 <label class="custom-control-label pr-3" for="alimentacionPregunta8opcion2">b) Dieta</label>
               </div>
 
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta8opcion3" name="alimentacionPregunta8-3" ngModel #X="ngModel">
+                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta8opcion3" name="alimentacionPregunta8C" ngModel #alimentacionPregunta8C="ngModel">
                 <label class="custom-control-label pr-3" for="alimentacionPregunta8opcion3">c) Suplementos</label>
               </div>
 
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta8opcion4" name="alimentacionPregunta8-4" ngModel #X="ngModel">
+                <input type="checkbox" class="custom-control-input" id="alimentacionPregunta8opcion4" name="alimentacionPregunta8D" ngModel #alimentacionPregunta8D="ngModel">
                 <label class="custom-control-label pr-3" for="alimentacionPregunta8opcion4">d) otro</label>
                 <!-- <div *ngIf="alimentacionPregunta8opcion4 == 'true'"> <small>Por favor especifique cuál:</small> Esto aparece si marco la casilla otro</div> -->
               </div>
@@ -257,26 +248,25 @@
 
             <!-- Cuestion 9 -->
             <h6 class="pt-3 pl-3">¿Cuál es su principal objetivo al integrarse a un programa de ejercicio?</h6>
-
             <div class="form-group row">
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta9opcion1" name="alimentacionPregunta9" class="custom-control-input" value="A" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta9opcion1" name="alimentacionPregunta9" class="custom-control-input" value="Eliminar grasa" ngModel required #alimentacionPregunta9="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta9opcion1">a)	Eliminar grasa</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta9opcion2" name="alimentacionPregunta9" class="custom-control-input" value="B" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta9opcion2" name="alimentacionPregunta9" class="custom-control-input" value="ganar masa muscular" ngModel required #alimentacionPregunta9="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta9opcion2">b) ganar masa muscular</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta9opcion3" name="alimentacionPregunta9" class="custom-control-input" value="C" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta9opcion3" name="alimentacionPregunta9" class="custom-control-input" value="mejorar mi condición física" ngModel required #alimentacionPregunta9="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta9opcion3">c) mejorar mi condición física</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta9opcion4" name="alimentacionPregunta9" class="custom-control-input" value="D" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta9opcion4" name="alimentacionPregunta9" class="custom-control-input" value="realizar actividad física para mi salud" ngModel required #alimentacionPregunta9="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta9opcion4">d) realizar actividad física para mi salud</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta9opcion5" name="alimentacionPregunta9" class="custom-control-input" value="E" ngModel required #X="ngModel">
+                <input type="radio" id="alimentacionPregunta9opcion5" name="alimentacionPregunta9" class="custom-control-input" value="Transformar mi apariencia" ngModel required #alimentacionPregunta9="ngModel">
                 <label class="custom-control-label" for="alimentacionPregunta9opcion5">e) Transformar mi apariencia</label>
               </div>
             </div>

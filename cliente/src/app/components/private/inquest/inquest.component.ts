@@ -3,6 +3,7 @@ import { NgForm, FormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../interfaces/user.interface';
+import { Router, ActivatedRoute } from '@angular/router';
 declare var $:any;
 
 @Component({
@@ -16,7 +17,8 @@ export class InquestComponent implements OnInit {
       generals: {
         userName: null,
         age: null,
-        email:null
+        email:null,
+        completedFlag: true
       },
       alimentary:{
         completedFlag:false
@@ -44,7 +46,9 @@ export class InquestComponent implements OnInit {
     }
   }
   public profile;
-  constructor( public _auth:AuthService, public _user:UserService ) { }
+  public _id;
+
+  constructor( public _auth:AuthService, public _user:UserService, public _activatedRoute:ActivatedRoute, public router:Router ) { }
 
   ngOnInit(){
     if ( this._auth.userProfile ) {
@@ -61,9 +65,10 @@ export class InquestComponent implements OnInit {
     this.user = {
       inquest:{
         generals: {
-          userName: form['userName'],
-          age: form['age'],
-          email: this.profile.email
+          userName: form['value']['userName'],
+          age: form['value']['age'],
+          email: this.profile.email,
+          completedFlag: true
         },
         alimentary:{
           completedFlag:false
@@ -92,42 +97,114 @@ export class InquestComponent implements OnInit {
     }
 
     this._user.sendUser( this.user ).subscribe( data => {
-    // 2. Hacer Tab Anterior Inaccesible
+
+      // 1. Obtener el ID del registro guardado
+      this._id = data['_id'];
+
+      // 2. Hacer Tab Anterior Inaccesible
       $('.nav-tabs a[href="#generales"]').removeClass('active').addClass('disabled');
-    // 3. Ir al siguiente Tab
+
+      // 3. Ir al siguiente Tab
+      this.router.navigate(['/inquest', this._id ]);
       $('.nav-tabs a[href="#alimenticios"]').removeClass('disabled').tab('show');
+
+      // 4. Enviar id de usuario (ya existe) a la url
+
     }, error => console.error( error ) );
   }
 
   saveDataAlimenticios( form:NgForm ){
-    // Guardar el formulario
-    console.log( 'Formulario Posteado', form );
-    //Hacer Tab Anterior Inaccesible
-    $('.nav-tabs a[href="#alimenticios"]').removeClass('active').addClass('disabled');
-    $('.nav-tabs a[href="#antropometricos"]').removeClass('disabled').tab('show');
+
+    this.user = {
+      inquest:{
+        generals: {
+          userName: null,
+          age: null,
+          email: null,
+          completedFlag: true
+        },
+        alimentary:{
+          question1: form['value']['alimentacionPregunta1'],
+          question2: form['value']['alimentacionPregunta2'],
+          question3: form['value']['alimentacionPregunta3'],
+          question4: form['value']['alimentacionPregunta4'],
+          question5: form['value']['alimentacionPregunta5'],
+          question6: form['value']['alimentacionPregunta6'],
+          question7A: form['value']['alimentacionPregunta7A'],
+          question7B: form['value']['alimentacionPregunta7B'],
+          question7C: form['value']['alimentacionPregunta7C'],
+          question7D: form['value']['alimentacionPregunta7D'],
+          question8A: form['value']['alimentacionPregunta8A'],
+          question8B: form['value']['alimentacionPregunta8B'],
+          question8C: form['value']['alimentacionPregunta8C'],
+          question8D: form['value']['alimentacionPregunta8D'],
+          question9: form['value']['alimentacionPregunta9'],
+          completedFlag:true
+        },
+        anthropometric:{
+          completedFlag:false
+        },
+        biochemicals:{
+          completedFlag:false
+        },
+        clinical:{
+          completedFlag:false
+        },
+        dietetics:{
+          completedFlag: false
+        }
+      },
+      plan:{
+        alimentary:{
+          sendByDietist:false
+        },
+        exercise:{
+          sendByPlanner: false
+        }
+      }
+    }
+
+    this._user.updateUser( this.user, this._id ).subscribe( data => {
+
+      //Hacer Tab Inaccesible
+      $('.nav-tabs a[href="#alimenticios"]').removeClass('active').addClass('disabled');
+      //Pasar al siguiente formulario
+      $('.nav-tabs a[href="#antropometricos"]').removeClass('disabled').tab('show');
+    });
+
+    // Actualizar el formulario
+    // console.log( 'Formulario Posteado', form );
   }
 
   saveDataAntropometricos( form:NgForm ){
+    // Actualizar el formulario
     console.log( 'Formulario Posteado', form );
-    // console.log( form.alimentacionPregunta3.value );
+    //Hacer Tab Inaccesible
+    $('.nav-tabs a[href="#andtropometricos"]').removeClass('active').addClass('disabled');
+    //Pasar al siguiente formulario
+    $('.nav-tabs a[href="#bioquimicos"]').removeClass('disabled').tab('show');
   }
 
   saveDataBioquimicos( form:NgForm ){
-    console.log( 'Formulario Posteado' );
-    console.log( form );
-    // console.log( form.alimentacionPregunta3.value );
+    console.log( 'Formulario Posteado', form );
+    //Hacer Tab Inaccesible
+    $('.nav-tabs a[href="#bioquimicos"]').removeClass('active').addClass('disabled');
+    //Pasar al siguiente formulario
+    $('.nav-tabs a[href="#clinicos"]').removeClass('disabled').tab('show');
   }
 
   saveDataClinicos( form:NgForm ){
-    console.log( 'Formulario Posteado' );
-    console.log( form );
-    // console.log( form.alimentacionPregunta3.value );
+    console.log( 'Formulario Posteado', form );
+    $('.nav-tabs a[href="#clinicos"]').removeClass('active').addClass('disabled');
+    //Pasar al siguiente formulario
+    $('.nav-tabs a[href="#dieteticos"]').removeClass('disabled').tab('show');
   }
 
   saveDataDieteticos( form:NgForm ){
-    console.log( 'Formulario Posteado' );
-    console.log( form );
-    // console.log( form.alimentacionPregunta3.value );
+    console.log( 'Formulario Posteado', form );
+    $('.nav-tabs a[href="#dieteticos"]').removeClass('active').addClass('disabled');
+    //Pasar al siguiente formulario
+    // Enviar a pantalla de confirmación
   }
 
 }

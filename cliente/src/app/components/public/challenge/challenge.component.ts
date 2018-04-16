@@ -22,10 +22,6 @@ export class ChallengeComponent implements OnInit {
 
       this.validChallenge = challenge;
       this.successUsers = this.validChallenge.challenge.userSucess;
-
-      console.log("Usuarios que lo terminaron", this.successUsers);
-      console.log("Usuarios que lo terminaron length", this.successUsers.length);
-
     });
 
     _challenge.getChallenges().subscribe( challenges => {

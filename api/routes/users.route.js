@@ -8,6 +8,9 @@ var api = express.Router();
 api.get("/getUser", usersController.getUser );
 
 /* Métodos POST */
-api.get("/saveUser", usersController.saveUser );
+api.post("/saveUser", usersController.saveUser );
+
+/* Métodos PUT */
+api.put("/updateUser/:id", usersController.updateUser );
 
 module.exports = api;

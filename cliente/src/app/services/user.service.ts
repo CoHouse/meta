@@ -21,4 +21,15 @@ export class UserService {
     return this._http.post( this.url, body, { headers } ).map( res => res );
   }
 
+  updateUser( user:User, _id ){
+    this.url = Ruta.url + "updateUser/" + _id;
+
+    console.log("LA URL: ", this.url);
+
+    let body = JSON.stringify( user );
+    let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
+
+    return this._http.put( this.url, body, { headers } ).map( res => res );
+  }
+
 }

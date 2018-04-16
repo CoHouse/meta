@@ -8,7 +8,8 @@ var userSchema = schema({
     generals:{
       userName: String,
       age: String,
-      email: String
+      email: String,
+      completedFlag: String
     },
     alimentary:{
       question1: String,
@@ -17,8 +18,14 @@ var userSchema = schema({
       question4: String,
       question5: String,
       question6: String,
-      question7: String,
-      question8: String,
+      question7A: String,
+      question7B: String,
+      question7C: String,
+      question7D: String,
+      question8A: String,
+      question8B: String,
+      question8C: String,
+      question8D: String,
       question9: String,
       completedFlag: String
     },

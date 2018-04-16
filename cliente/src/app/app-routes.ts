@@ -51,8 +51,10 @@ const APP_ROUTES: Routes = [
   { path: 'join', component: JoinComponent },
 
   { path: 'training', component: TrainingComponent, canActivate: [ AuthGuardService ] },
-  { path: 'inquest', component: InquestComponent, canActivate: [ AuthGuardService ] },
+  { path: 'inquest/:_id', component: InquestComponent, canActivate: [ AuthGuardService ] },
+
   { path: 'content-manager', component: ContentManagerComponent, canActivate: [ AuthGuardService, AdminGuardService ] },
+
   { path: '**',  component: HomeComponent },
   { path: '', pathMatch: 'full', redirectTo: 'home' }
 ];
