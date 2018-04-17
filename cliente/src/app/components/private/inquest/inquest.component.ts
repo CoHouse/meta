@@ -115,6 +115,10 @@ export class InquestComponent implements OnInit {
 
   saveDataAlimenticios( form:NgForm ){
 
+    this._activatedRoute.params.subscribe( params => {
+      this._id = params['_id'];
+    });
+
     this.user = {
       inquest:{
         generals: {
@@ -166,14 +170,15 @@ export class InquestComponent implements OnInit {
 
     this._user.updateUser( this.user, this._id ).subscribe( data => {
 
+console.log("esto trae la respuesta del subscribe", data)
+
       //Hacer Tab Inaccesible
-      $('.nav-tabs a[href="#alimenticios"]').removeClass('active').addClass('disabled');
+      // $('.nav-tabs a[href="#alimenticios"]').removeClass('active').addClass('disabled');
       //Pasar al siguiente formulario
-      $('.nav-tabs a[href="#antropometricos"]').removeClass('disabled').tab('show');
+      // $('.nav-tabs a[href="#antropometricos"]').removeClass('disabled').tab('show');
     });
 
-    // Actualizar el formulario
-    // console.log( 'Formulario Posteado', form );
+
   }
 
   saveDataAntropometricos( form:NgForm ){

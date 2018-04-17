@@ -6,7 +6,6 @@ var objUser = require("../models/users.model.js");
 function saveUser( req, res ){
   var user = new objUser();
   var params = req.body;
-  var updatePack;
 
   /* Llenado del TAB Generales - Método POST */
   user.inquest.generals.userName = params.inquest.generals.userName;
@@ -37,34 +36,35 @@ function saveUser( req, res ){
 
 function updateUser( req, res ){
   var user = new objUser();
-  var id = req.params._id;
+  var _id = req.params._id;
   var params = req.body;
 
-  console.log("Esto viene en la bandera: ", params.inquest.alimentary.completedFlag);
+  console.log("El ID que tengo en la API: ", _id);
 
   if( params.inquest.alimentary.completedFlag ){
     // Llenar con el formulario de alimentación
     var updatePack = {
-      "user.inquest.alimentary.question1": params.inquest.alimentary.alimentacionPregunta1,
-      "user.inquest.alimentary.question2": params.inquest.alimentary.alimentacionPregunta2,
-      "user.inquest.alimentary.question3": params.inquest.alimentary.alimentacionPregunta3,
-      "user.inquest.alimentary.question4": params.inquest.alimentary.alimentacionPregunta4,
-      "user.inquest.alimentary.question5": params.inquest.alimentary.alimentacionPregunta5,
-      "user.inquest.alimentary.question6": params.inquest.alimentary.alimentacionPregunta6,
+      "user.inquest.alimentary.question1": params.inquest.alimentary.question1,
+      "user.inquest.alimentary.question2": params.inquest.alimentary.question2,
+      "user.inquest.alimentary.question3": params.inquest.alimentary.question3,
+      "user.inquest.alimentary.question4": params.inquest.alimentary.question4,
+      "user.inquest.alimentary.question5": params.inquest.alimentary.question5,
+      "user.inquest.alimentary.question6": params.inquest.alimentary.question6,
 
-      "user.inquest.alimentary.question7": params.inquest.alimentary.alimentacionPregunta7A,
-      "user.inquest.alimentary.question7": params.inquest.alimentary.alimentacionPregunta7B,
-      "user.inquest.alimentary.question7": params.inquest.alimentary.alimentacionPregunta7C,
-      "user.inquest.alimentary.question7": params.inquest.alimentary.alimentacionPregunta7D,
+      "user.inquest.alimentary.question7A": params.inquest.alimentary.question7A,
+      "user.inquest.alimentary.question7B": params.inquest.alimentary.question7B,
+      "user.inquest.alimentary.question7C": params.inquest.alimentary.question7C,
+      "user.inquest.alimentary.question7D": params.inquest.alimentary.question7D,
 
-      "user.inquest.alimentary.question8": params.inquest.alimentary.alimentacionPregunta8A,
-      "user.inquest.alimentary.question8": params.inquest.alimentary.alimentacionPregunta8B,
-      "user.inquest.alimentary.question8": params.inquest.alimentary.alimentacionPregunta8C,
-      "user.inquest.alimentary.question8": params.inquest.alimentary.alimentacionPregunta8D,
+      "user.inquest.alimentary.question8A": params.inquest.alimentary.question8A,
+      "user.inquest.alimentary.question8B": params.inquest.alimentary.question8B,
+      "user.inquest.alimentary.question8C": params.inquest.alimentary.question8C,
+      "user.inquest.alimentary.question8D": params.inquest.alimentary.question8D,
 
-      "user.inquest.alimentary.question9": params.inquest.alimentary.alimentacionPregunta9,
+      "user.inquest.alimentary.question9": params.inquest.alimentary.question9,
       "user.inquest.alimentary.completedFlag": params.inquest.alimentary.completedFlag
     }
+
   }
   // else if(params.inquest.alimentary.completedFlag && !params.inquest.anthropometric.completedFlag ){
   //   var updatePack = {
@@ -76,10 +76,12 @@ function updateUser( req, res ){
   //   "campo";valor
   // }
 
-  user.findByIdAndUpdate( id, updatePack, ( error, updatedUser )=>{
+
+  objUser.findByIdAndUpdate( _id, updatePack, ( error, updatedUser )=>{
     if( error ){
       res.status( 500 ).send({ message: "Error al guardar el usuario [updateUser]"});
     }else{
+      console.log("Entro al else, por lo que supongo guardó los datos");
       res.status( 200 ).send( updatedUser ); // Develop
       //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
     }

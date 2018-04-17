@@ -67,7 +67,7 @@
 
         <!-- Tab << Alimenticio >> -->
         <div class="tab-pane fade show" id="alimenticios" role="tabpanel" aria-labelledby="home-tab">
-          <form (ngSubmit)="saveDataAlimenticios( formAlimenticios )" #formAlimenticios="ngForm">
+          <form #formAlimenticios="ngForm">
 
             <!-- Cuestion 1 -->
             <h6 class="pt-4 pl-3">¿Cuál es la frecuencia con la que haces ejercicio a la semana (en días)?</h6>
@@ -272,7 +272,7 @@
             </div>
 
             <!-- Alert -->
-            <div *ngIf="alimentacionPregunta1.errors?.required" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <div *ngIf="!formAlimenticios.valid" class="alert alert-danger alert-dismissible fade show" role="alert">
               <strong>Alerta de error:</strong> Favor de responder todas las preguntas.
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -280,7 +280,7 @@
             </div>
 
             <!-- Button -->
-            <div class="form-group row pt-3" *ngIf="formAlimenticios">
+            <div (click)="saveDataAlimenticios( formAlimenticios )" class="form-group row pt-3" *ngIf="formAlimenticios">
               <button [disabled]="!formAlimenticios.valid" class="btn btn-info px-5">Seguir a Antropométricos (2 de 5)</button>
             </div>
 

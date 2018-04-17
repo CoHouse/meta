@@ -21,10 +21,11 @@ export class UserService {
     return this._http.post( this.url, body, { headers } ).map( res => res );
   }
 
-  updateUser( user:User, _id ){
-    this.url = Ruta.url + "updateUser/" + _id;
+  updateUser( user:User, _id:string ){
 
-    console.log("LA URL: ", this.url);
+    this.url = Ruta.url + "updateUser/" + _id;
+    console.log("El valor del id en updateuser servicio", _id)
+    console.log("la url con todo y id", this.url)
 
     let body = JSON.stringify( user );
     let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
