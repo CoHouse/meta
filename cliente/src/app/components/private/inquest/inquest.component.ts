@@ -12,6 +12,9 @@ declare var $:any;
 })
 export class InquestComponent implements OnInit {
 
+  public profile;
+  public _id;
+
   public user:User = {
     inquest:{
       generals: {
@@ -45,10 +48,12 @@ export class InquestComponent implements OnInit {
       }
     }
   }
-  public profile;
-  public _id;
 
-  constructor( public _auth:AuthService, public _user:UserService, public _activatedRoute:ActivatedRoute, public router:Router ) { }
+  constructor( public _auth:AuthService, public _user:UserService, public _activatedRoute:ActivatedRoute, public router:Router ) {
+    this._activatedRoute.params.subscribe( params => {
+      this._id = params['_id'];
+    });
+  }
 
   ngOnInit(){
     if ( this._auth.userProfile ) {
@@ -104,21 +109,17 @@ export class InquestComponent implements OnInit {
       // 2. Hacer Tab Anterior Inaccesible
       $('.nav-tabs a[href="#generales"]').removeClass('active').addClass('disabled');
 
-      // 3. Ir al siguiente Tab
+      // 3. Enviar id de usuario (ya existe) a la url
       this.router.navigate(['/inquest', this._id ]);
+      // 4. Ir al siguiente Tab
       $('.nav-tabs a[href="#alimenticios"]').removeClass('disabled').tab('show');
 
-      // 4. Enviar id de usuario (ya existe) a la url
 
     }, error => console.error( error ) );
   }
 
   saveDataAlimenticios( form:NgForm ){
-
-    this._activatedRoute.params.subscribe( params => {
-      this._id = params['_id'];
-    });
-
+    // Llenar los datos a enviar
     this.user = {
       inquest:{
         generals: {
@@ -168,22 +169,72 @@ export class InquestComponent implements OnInit {
       }
     }
 
+    // Hacer actualización
     this._user.updateUser( this.user, this._id ).subscribe( data => {
-
-console.log("esto trae la respuesta del subscribe", data)
-
       //Hacer Tab Inaccesible
       // $('.nav-tabs a[href="#alimenticios"]').removeClass('active').addClass('disabled');
       //Pasar al siguiente formulario
       // $('.nav-tabs a[href="#antropometricos"]').removeClass('disabled').tab('show');
     });
-
-
   }
 
   saveDataAntropometricos( form:NgForm ){
-    // Actualizar el formulario
-    console.log( 'Formulario Posteado', form );
+    // Llenar los datos a enviar
+    this.user = {
+      inquest:{
+        generals: {
+          userName: null,
+          age: null,
+          email: null,
+          completedFlag: true
+        },
+        alimentary:{
+          question1: null,
+          question2: null,
+          question3: null,
+          question4: null,
+          question5: null,
+          question6: null,
+          question7A: null,
+          question7B: null,
+          question7C: null,
+          question7D: null,
+          question8A: null,
+          question8B: null,
+          question8C: null,
+          question8D: null,
+          question9: null,
+          completedFlag:true
+        },
+        anthropometric:{
+          question1: form['value']['alimentacionPregunta8D'],
+          question2: form['value']['alimentacionPregunta8D'],
+          question3: form['value']['alimentacionPregunta8D'],
+          completedFlag:false
+        },
+        biochemicals:{
+          completedFlag:false
+        },
+        clinical:{
+          completedFlag:false
+        },
+        dietetics:{
+          completedFlag: false
+        }
+      },
+      plan:{
+        alimentary:{
+          sendByDietist:false
+        },
+        exercise:{
+          sendByPlanner: false
+        }
+      }
+    }
+
+
+
+
     //Hacer Tab Inaccesible
     $('.nav-tabs a[href="#andtropometricos"]').removeClass('active').addClass('disabled');
     //Pasar al siguiente formulario

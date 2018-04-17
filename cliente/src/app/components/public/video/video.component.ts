@@ -15,14 +15,14 @@ export class VideoComponent implements OnInit {
   public _id;
 
   public video:Video = {
-    title: "title",
-    subtitle: "subtitle",
-    image: "/assets/img/cube.jpg",
-    date: "05/03/18 13:00",
-    author: "MBC Crew",
-    category: "Ejercicios",
-    text: "text",
-    videoUrl:""
+    title: null,
+    subtitle: null,
+    image: null,
+    date: null,
+    author: null,
+    category: null,
+    text: null,
+    videoUrl:null
   }
 
   constructor( public _video:VideoService, public _activatedRoute:ActivatedRoute ) {

@@ -15,7 +15,7 @@ export class UserService {
   sendUser( user:User ){
     this.url = Ruta.url + "saveUser/";
     let body = JSON.stringify( user );
-
+     
     let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
 
     return this._http.post( this.url, body, { headers } ).map( res => res );
