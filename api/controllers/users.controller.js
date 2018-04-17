@@ -37,69 +37,69 @@ function updateUser( req, res ){
   var params = req.body;
   var user = new objUser();
 
+  console.log("params.inquest.alimentary.completedFlag: ",params.inquest.alimentary.completedFlag );
+  console.log("params.inquest.anthropometric.completedFlag: ",params.inquest.anthropometric.completedFlag );
+
   if( params.inquest.alimentary.completedFlag && !params.inquest.anthropometric.completedFlag ){
-    console.log("Entra a la condición pero no guarda, WTF!");
-    // Llenar con el formulario de alimentación
+
+    console.log("Entra al IF");
+
     var updatePack = {
-      "objUser.inquest.alimentary.question1": params.inquest.alimentary.question1,
-      "objUser.inquest.alimentary.question2": params.inquest.alimentary.question2,
-      "objUser.inquest.alimentary.question3": params.inquest.alimentary.question3,
-      "objUser.inquest.alimentary.question4": params.inquest.alimentary.question4,
-      "objUser.inquest.alimentary.question5": params.inquest.alimentary.question5,
-      "objUser.inquest.alimentary.question6": params.inquest.alimentary.question6,
+        "inquest.alimentary.question1": params.inquest.alimentary.question1,
+        "inquest.alimentary.question2": params.inquest.alimentary.question2,
+        "inquest.alimentary.question3": params.inquest.alimentary.question3,
+        "inquest.alimentary.question4": params.inquest.alimentary.question4,
+        "inquest.alimentary.question5": params.inquest.alimentary.question5,
+        "inquest.alimentary.question6": params.inquest.alimentary.question6,
 
-      "objUser.inquest.alimentary.question7A": params.inquest.alimentary.question7A,
-      "objUser.inquest.alimentary.question7B": params.inquest.alimentary.question7B,
-      "objUser.inquest.alimentary.question7C": params.inquest.alimentary.question7C,
-      "objUser.inquest.alimentary.question7D": params.inquest.alimentary.question7D,
+        "inquest.alimentary.question7A": params.inquest.alimentary.question7A,
+        "inquest.alimentary.question7B": params.inquest.alimentary.question7B,
+        "inquest.alimentary.question7C": params.inquest.alimentary.question7C,
+        "inquest.alimentary.question7D": params.inquest.alimentary.question7D,
 
-      "objUser.inquest.alimentary.question8A": params.inquest.alimentary.question8A,
-      "objUser.inquest.alimentary.question8B": params.inquest.alimentary.question8B,
-      "objUser.inquest.alimentary.question8C": params.inquest.alimentary.question8C,
-      "objUser.inquest.alimentary.question8D": params.inquest.alimentary.question8D,
+        "inquest.alimentary.question8A": params.inquest.alimentary.question8A,
+        "inquest.alimentary.question8B": params.inquest.alimentary.question8B,
+        "inquest.alimentary.question8C": params.inquest.alimentary.question8C,
+        "inquest.alimentary.question8D": params.inquest.alimentary.question8D,
 
-      "objUser.inquest.alimentary.question9": params.inquest.alimentary.question9,
-      "objUser.inquest.alimentary.completedFlag": params.inquest.alimentary.completedFlag
+        "inquest.alimentary.question9": params.inquest.alimentary.question9,
+        "inquest.alimentary.completedFlag": params.inquest.alimentary.completedFlag
     }
 
-
-    console.log("Esto trae el updatePack: ", updatePack);
+    console.log( "req.params.id: ", req.params.id );
+    console.log( "updatePack: ", updatePack );
 
     objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
-
-      console.log("dentro del findByIdAndUpdate, id:", req.params.id);
-
+      console.log("Entró en la function de actualizar.");
       if( error ){
-        res.status( 500 ).send({ message: "Error al guardar el usuario [updateUser]"});
+        return res.status( 500 ).send( {  message: "Error al guardar el usuario [updateUser]" } );
       }else{
-        return res.status( 200 ).send( console.log("respuesta de la api: ", updatedUser) ); // Develop
+        return res.status( 200 ).send( console.log("respuesta de la api: ", updatedUser ) ); // Develop
         //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
       }
     });
 
-  }else if( params.inquest.anthropometric.completedFlag && !params.inquest.biochemicals.completedFlag ){
-    // Llenar con el formulario de alimentación
-    console.log("Entra en la segunda condición, ID: ", req.params.id );
-    console.log("params: : ", req.params );
-    var updatePack = {
-      "objUser.inquest.alimentary.question1": params.inquest.alimentary.question1,
-      "objUser.inquest.alimentary.attached": params.inquest.alimentary.attached,
-      "objUser.inquest.alimentary.completedFlag": params.inquest.alimentary.completedFlag
-    }
-
-    objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
-      if( error ){
-        res.status( 500 ).send({ message: "Error al guardar el usuario [updateUser]"});
-      }else{
-        return res.status( 200 ).send( console.log("respuesta de la api: ", updatedUser) ); // Develop
-
-        //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
-      }
-    });
   }
-
-
-
+  // else if( params.inquest.anthropometric.completedFlag && !params.inquest.biochemicals.completedFlag ){
+  //   // Llenar con el formulario de alimentación
+  //   console.log("Entra en la segunda condición, ID: ", req.params.id );
+  //   console.log("params: : ", req.params );
+  //   var updatePack = {
+  //     "objUser.inquest.alimentary.question1": params.inquest.alimentary.question1,
+  //     "objUser.inquest.alimentary.attached": params.inquest.alimentary.attached,
+  //     "objUser.inquest.alimentary.completedFlag": params.inquest.alimentary.completedFlag
+  //   }
+  //
+  //   objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
+  //     if( error ){
+  //       res.status( 500 ).send({ message: "Error al guardar el usuario [updateUser]"});
+  //     }else{
+  //       return res.status( 200 ).send( console.log("respuesta de la api: ", updatedUser) ); // Develop
+  //
+  //       //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
+  //     }
+  //   });
+  // }
 
 }
 
