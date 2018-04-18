@@ -23,15 +23,18 @@ export class NavbarComponent implements OnInit {
   }
 
   isChanger(){
-      if( !this.auth.isAuthenticated() ){
-        return false;
-      }else{
-        if( localStorage.length > 0 && parseInt( localStorage.getItem( 'about' ).substring( 10, 17 ) ) === 190318 ){
+    if( this.auth.isAuthenticated() ){
+
+    if( localStorage.length > 0 && localStorage.getItem('about') ){
+        if( parseInt( localStorage.getItem( 'about' ).substring( 10, 17 ) ) === 190318 ){
           return true;
         }else{
           return false;
         }
+      }else{
+        return false;
       }
-  }
+    }
+}
 
 }

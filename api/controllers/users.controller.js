@@ -37,13 +37,8 @@ function updateUser( req, res ){
   var params = req.body;
   var user = new objUser();
 
-  console.log("params.inquest.alimentary.completedFlag: ",params.inquest.alimentary.completedFlag );
-  console.log("params.inquest.anthropometric.completedFlag: ",params.inquest.anthropometric.completedFlag );
-
   if( params.inquest.alimentary.completedFlag && !params.inquest.anthropometric.completedFlag ){
-
-    console.log("Entra al IF");
-
+console.log("Entró al primer IF");
     var updatePack = {
         "inquest.alimentary.question1": params.inquest.alimentary.question1,
         "inquest.alimentary.question2": params.inquest.alimentary.question2,
@@ -66,40 +61,36 @@ function updateUser( req, res ){
         "inquest.alimentary.completedFlag": params.inquest.alimentary.completedFlag
     }
 
-    console.log( "req.params.id: ", req.params.id );
-    console.log( "updatePack: ", updatePack );
-
     objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
-      console.log("Entró en la function de actualizar.");
       if( error ){
-        return res.status( 500 ).send( {  message: "Error al guardar el usuario [updateUser]" } );
+        return res.status( 500 ).send( {  message: "Error al guardar el usuario [updateUser Alimentary]" } );
       }else{
-        return res.status( 200 ).send( console.log("respuesta de la api: ", updatedUser ) ); // Develop
+        return res.status( 200 ).send( updatedUser ); // Develop
         //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
       }
     });
 
   }
-  // else if( params.inquest.anthropometric.completedFlag && !params.inquest.biochemicals.completedFlag ){
-  //   // Llenar con el formulario de alimentación
-  //   console.log("Entra en la segunda condición, ID: ", req.params.id );
-  //   console.log("params: : ", req.params );
-  //   var updatePack = {
-  //     "objUser.inquest.alimentary.question1": params.inquest.alimentary.question1,
-  //     "objUser.inquest.alimentary.attached": params.inquest.alimentary.attached,
-  //     "objUser.inquest.alimentary.completedFlag": params.inquest.alimentary.completedFlag
-  //   }
-  //
-  //   objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
-  //     if( error ){
-  //       res.status( 500 ).send({ message: "Error al guardar el usuario [updateUser]"});
-  //     }else{
-  //       return res.status( 200 ).send( console.log("respuesta de la api: ", updatedUser) ); // Develop
-  //
-  //       //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
-  //     }
-  //   });
-  // }
+  else if( params.inquest.anthropometric.completedFlag && !params.inquest.biochemicals.completedFlag ){
+    console.log("Entró al segundo IF");
+    // Llenar con el formulario de alimentación
+    var updatePack = {
+      "inquest.anthropometric.height": params.inquest.anthropometric.height,
+      "inquest.anthropometric.weight": params.inquest.anthropometric.weight,
+      "inquest.anthropometric.fatPercent": params.inquest.anthropometric.fatPercent,
+      "inquest.anthropometric.completedFlag": params.inquest.anthropometric.completedFlag
+    }
+
+    objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
+      if( error ){
+        res.status( 500 ).send({ message: "Error al guardar el usuario [updateUser Anthropometric]"});
+      }else{
+        return res.status( 200 ).send( updatedUser ); // Develop
+
+        //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
+      }
+    });
+  }
 
 }
 

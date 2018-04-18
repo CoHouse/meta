@@ -296,24 +296,29 @@
             <!-- Cuestion 1 -->
             <div class="form-group">
               <h6 class="pt-4 pl-3">Talla en metros. <small>Por ejemplo: 1.74m</small></h6>
-              <input type="text" class="form-control" id="exampleInputEmail1" name="antropometricoPregunta1" placeholder="P.ej. 1.74" #height="ngModel" ngModel required>
+              <input type="text" class="form-control" name="height" placeholder="P.ej. 1.74" #height="ngModel" ngModel required>
             </div>
 
             <!-- Cuestion 2 -->
             <div class="form-group">
               <h6 class="pt-3 pl-3">Peso en Kilogramos. </h6>
-              <input type="text" class="form-control" id="exampleInputEmail1" name="antropometricoPregunta2" placeholder="P.ej. 75.2" #weight="ngModel" ngModel required>
+              <input type="text" class="form-control" name="weight" placeholder="P.ej. 75.2" #weight="ngModel" ngModel required>
             </div>
 
             <!-- Cuestion 3 -->
             <div class="form-group">
             <h6 class="pt-3 pl-3">Porcentaje de grasa. <small>(en caso de poder realizarlo, no es un dato vital pero es muy importante conocer el porcentaje de grasa y de musculo ya que el peso a veces no nos dice la realidad de nuestra apariencia ni nuestros objetivos). </small></h6>
-            <input type="text" class="form-control" id="exampleInputEmail1" name="antropometricoPregunta3" placeholder="buscar ejemplo" ngModel>
+            <input type="text" class="form-control" name="fatPercent" placeholder="32" #fatPercent="ngModel" ngModel>
           </div>
 
             <!-- Button -->
-            <div class="form-group row pt-3" *ngIf="formAntropometricos">
-              <button class="btn btn-danger bg-red px-5">Seguir a Bioquímicos (3 de 5)</button>
+            <div class="form-group pt-3" *ngIf="formGenerales">
+              <button [disabled]="!formAntropometricos.valid" (click)="saveDataAntropometricos( formAntropometricos )" class="btn btn-info px-5">Seguir a Bioquímicos (3 de 6)</button>
+            </div>
+
+            <!-- Àlert -->
+            <div *ngIf="age.dirty && age.errors?.pattern" class="alert alert-danger" role="alert">
+              Favor de ingresar solo caractéres numéricos. Mínimo 2 caracteres máximo 3.
             </div>
 
           </form>

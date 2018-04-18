@@ -172,9 +172,9 @@ export class InquestComponent implements OnInit {
     // Hacer actualización
     this._user.updateUser( this.user, this._id ).subscribe( data => {
       //Hacer Tab Inaccesible
-      // $('.nav-tabs a[href="#alimenticios"]').removeClass('active').addClass('disabled');
+      $('.nav-tabs a[href="#alimenticios"]').removeClass('active').addClass('disabled');
       //Pasar al siguiente formulario
-      // $('.nav-tabs a[href="#antropometricos"]').removeClass('disabled').tab('show');
+      $('.nav-tabs a[href="#antropometricos"]').removeClass('disabled').tab('show');
     });
   }
 
@@ -207,10 +207,10 @@ export class InquestComponent implements OnInit {
           completedFlag:true
         },
         anthropometric:{
-          question1: form['value']['alimentacionPregunta8D'],
-          question2: form['value']['alimentacionPregunta8D'],
-          question3: form['value']['alimentacionPregunta8D'],
-          completedFlag:false
+          question1: form['value']['height'],
+          question2: form['value']['weight'],
+          question3: form['value']['fatPercent'],
+          completedFlag:true
         },
         biochemicals:{
           completedFlag:false
@@ -232,13 +232,13 @@ export class InquestComponent implements OnInit {
       }
     }
 
+    this._user.updateUser( this.user, this._id ).subscribe( data => {
+      //Hacer Tab Inaccesible
+      $('.nav-tabs a[href="#andtropometricos"]').removeClass('active').addClass('disabled');
+      //Pasar al siguiente formulario
+      $('.nav-tabs a[href="#bioquimicos"]').removeClass('disabled').tab('show');
+    });
 
-
-
-    //Hacer Tab Inaccesible
-    $('.nav-tabs a[href="#andtropometricos"]').removeClass('active').addClass('disabled');
-    //Pasar al siguiente formulario
-    $('.nav-tabs a[href="#bioquimicos"]').removeClass('disabled').tab('show');
   }
 
   saveDataBioquimicos( form:NgForm ){

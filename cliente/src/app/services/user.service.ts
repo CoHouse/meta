@@ -15,7 +15,7 @@ export class UserService {
   sendUser( user:User ){
     this.url = Ruta.url + "saveUser/";
     let body = JSON.stringify( user );
-     
+
     let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
 
     return this._http.post( this.url, body, { headers } ).map( res => res );
@@ -24,8 +24,6 @@ export class UserService {
   updateUser( user:User, _id:string ){
 
     this.url = Ruta.url + "updateUser/" + _id;
-    console.log("El valor del id en updateuser servicio", _id)
-    console.log("la url con todo y id", this.url)
 
     let body = JSON.stringify( user );
     let headers = new HttpHeaders( { 'Content-Type':'application/json' } );

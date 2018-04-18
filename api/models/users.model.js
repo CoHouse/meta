@@ -30,9 +30,9 @@ var userSchema = schema({
       completedFlag: String
     },
     anthropometric:{
-      question1: String,
-      question2: String,
-      question3: String,
+      height: String,
+      weight: String,
+      fatPercent: String,
       completedFlag: String
     },
     biochemicals:{
