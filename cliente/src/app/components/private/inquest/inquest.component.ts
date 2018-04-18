@@ -232,9 +232,11 @@ export class InquestComponent implements OnInit {
       }
     }
 
+    console.log("Lo que trae user en el componente y le pasa al servicio: ", this.user);
+
     this._user.updateUser( this.user, this._id ).subscribe( data => {
       //Hacer Tab Inaccesible
-      $('.nav-tabs a[href="#andtropometricos"]').removeClass('active').addClass('disabled');
+      $('.nav-tabs a[href="#antropometricos"]').removeClass('active').addClass('disabled');
       //Pasar al siguiente formulario
       $('.nav-tabs a[href="#bioquimicos"]').removeClass('disabled').tab('show');
     });
@@ -261,6 +263,7 @@ export class InquestComponent implements OnInit {
     $('.nav-tabs a[href="#dieteticos"]').removeClass('active').addClass('disabled');
     //Pasar al siguiente formulario
     // Enviar a pantalla de confirmación
+    this.router.navigate(['/inquest', this._id ]);
   }
 
 }

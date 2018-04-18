@@ -38,7 +38,7 @@ function updateUser( req, res ){
   var user = new objUser();
 
   if( params.inquest.alimentary.completedFlag && !params.inquest.anthropometric.completedFlag ){
-console.log("Entró al primer IF");
+
     var updatePack = {
         "inquest.alimentary.question1": params.inquest.alimentary.question1,
         "inquest.alimentary.question2": params.inquest.alimentary.question2,
@@ -72,12 +72,10 @@ console.log("Entró al primer IF");
 
   }
   else if( params.inquest.anthropometric.completedFlag && !params.inquest.biochemicals.completedFlag ){
-    console.log("Entró al segundo IF");
-    // Llenar con el formulario de alimentación
     var updatePack = {
-      "inquest.anthropometric.height": params.inquest.anthropometric.height,
-      "inquest.anthropometric.weight": params.inquest.anthropometric.weight,
-      "inquest.anthropometric.fatPercent": params.inquest.anthropometric.fatPercent,
+      "inquest.anthropometric.height": params.inquest.anthropometric.question1,
+      "inquest.anthropometric.weight": params.inquest.anthropometric.question2,
+      "inquest.anthropometric.fatPercent": params.inquest.anthropometric.question3,
       "inquest.anthropometric.completedFlag": params.inquest.anthropometric.completedFlag
     }
 
@@ -86,10 +84,34 @@ console.log("Entró al primer IF");
         res.status( 500 ).send({ message: "Error al guardar el usuario [updateUser Anthropometric]"});
       }else{
         return res.status( 200 ).send( updatedUser ); // Develop
-
         //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
       }
     });
+  }
+  else if ( params.inquest.biochemicals.completedFlag && !params.inquest.clinical.completedFlag ) {
+    var updatePack = {
+      "inquest.anthropometric.height": params.inquest.anthropometric.question1,
+      "inquest.anthropometric.weight": params.inquest.anthropometric.question2,
+      "inquest.anthropometric.fatPercent": params.inquest.anthropometric.question3,
+      "inquest.anthropometric.completedFlag": params.inquest.anthropometric.completedFlag
+    }
+
+    objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
+      if( error ){
+        res.status( 500 ).send({ message: "Error al guardar el usuario [updateUser Anthropometric]"});
+      }else{
+        return res.status( 200 ).send( updatedUser ); // Develop
+        //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
+      }
+    });
+  } else if ( params.inquest.clinical.completedFlag && !params.inquest.dietetics.completedFlag ) {
+    // Guardar datos Bioquímicos
+  } else if ( params.inquest.clinical.completedFlag && !params.inquest.dietetics.completedFlag ) {
+    // Guardar datos clínicos
+  }else if ( params.inquest.dietetics.completedFlag) {
+    // Has llegado al final del formulario
+  }else{
+    return null;
   }
 
 }
