@@ -329,40 +329,24 @@
 
           <form #formBioquimicos="ngForm" >
 
-            <!-- <div class="form-group row">
-              <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta2opcion1" name="alimentacionPregunta2" class="custom-control-input" value="Muy baja" ngModel required #alimentacionPregunta2="ngModel">
-                <label class="custom-control-label" for="alimentacionPregunta2opcion1">a)	Muy baja</label>
-              </div>
-              <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta2opcion2" name="alimentacionPregunta2" class="custom-control-input" value="baja" ngModel required #alimentacionPregunta2="ngModel">
-                <label class="custom-control-label" for="alimentacionPregunta2opcion2">b) baja</label>
-              </div>
-              <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta2opcion3" name="alimentacionPregunta2" class="custom-control-input" value="moderada" ngModel required #alimentacionPregunta2="ngModel">
-                <label class="custom-control-label" for="alimentacionPregunta2opcion3">c) moderada</label>
-              </div>
-              <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="alimentacionPregunta2opcion4" name="alimentacionPregunta2" class="custom-control-input" value="intensa" ngModel required #alimentacionPregunta2="ngModel">
-                <label class="custom-control-label" for="alimentacionPregunta2opcion4">d) intensa</label>
-              </div>
-            </div> -->
-
-            <h6 class="text-uppercase pt-4 pl-3">En caso de poder realizar un análisis de laboratorio, nos brindaría mucha mayor información para realizar su plan alimenticio y de ejercicio.</h6>
-
-            <div class="form-group row">
+            <h6 class="pt-4 pl-3">En caso de poder realizar un análisis de laboratorio, nos brindaría mucha mayor información para realizar su plan alimenticio y de ejercicio.</h6>
 
               <div class="custom-control custom-radio">
-                <input class="custom-control-input" type="radio" name="bioquimicosPregunta1" value="No cuenta con análisis" #bioquimicosPregunta1="ngModel" ngModel>
-                <label class="custom-control-label"><strong>No</strong> cuento con un análisis de Laboratorio.</label>
+                <input type="radio" id="bioquimico1" class="custom-control-input py-2"  name="bioquimicosPregunta1" value="No cuenta con análisis" #bioquimicosOpcion1="ngModel" ngModel>
+                <label class="custom-control-label" for="bioquimico1"><strong>No</strong> cuento con un análisis de Laboratorio.</label>
               </div>
-
               <div class="custom-control custom-radio">
-                <input type="radio" name="bioquimicosPregunta1" class="custom-control-input" value="Sí cuenta con análisis" #bioquimicosPregunta1="ngModel" ngModel>
-                <label class="custom-control-label" for="bioquimicosPregunta1Opcion2"><strong>Sí</strong> cuento con un análisis de Laboratorio.</label>
+                <input type="radio" id="bioquimico2" class="custom-control-input py-2" name="bioquimicosPregunta1" value="Sí cuenta con análisis" #bioquimicosOpcion1="ngModel" ngOnInit="false" ngModel>
+                <label class="custom-control-label" for="bioquimico2"><strong>Sí</strong> cuento con un análisis de Laboratorio.</label>
               </div>
 
-              <div *ngIf="bioquimicosPregunta1.value"> <small>Por favor especifique cuál:</small></div>
+
+              <div *ngIf="bioquimicosOpcion1.value == 'Sí cuenta con análisis' " > <small>Si cuentas con una copia, favor de subirla en cualquiera de los siguientes formatos: PDF, JPG, PNG</small>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="customFile">
+                  <label class="custom-file-label" for="customFile">Elegir archivo...</label>
+                </div>
+              </div>
 
               <!-- Button -->
               <div class="form-group pt-3" *ngIf="formGenerales">
@@ -374,7 +358,6 @@
                 Favor de ingresar solo caractéres numéricos. Mínimo 2 caracteres máximo 3.
               </div>
 
-            </div>
           </form>
 
         </div>

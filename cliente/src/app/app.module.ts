@@ -55,6 +55,7 @@ import { UserService } from './services/user.service';
 
 /* Routes */
 import { APP_ROUTING } from './app-routes';
+import { YouchangerComponent } from './components/private/inquest/youchanger.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { APP_ROUTING } from './app-routes';
     ForumcatComponent,
     TopicComponent,
     JoinComponent,
-    DetailchallengeComponent
+    DetailchallengeComponent,
+    YouchangerComponent
   ],
   imports: [
     BrowserModule,

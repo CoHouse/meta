@@ -37,6 +37,7 @@ function updateUser( req, res ){
   var params = req.body;
   var user = new objUser();
 
+  // Guardar tab Alimenticios
   if( params.inquest.alimentary.completedFlag && !params.inquest.anthropometric.completedFlag ){
 
     var updatePack = {
@@ -71,6 +72,7 @@ function updateUser( req, res ){
     });
 
   }
+  // Guardar tab Antropométricos
   else if( params.inquest.anthropometric.completedFlag && !params.inquest.biochemicals.completedFlag ){
     var updatePack = {
       "inquest.anthropometric.height": params.inquest.anthropometric.question1,
@@ -88,12 +90,13 @@ function updateUser( req, res ){
       }
     });
   }
+
   else if ( params.inquest.biochemicals.completedFlag && !params.inquest.clinical.completedFlag ) {
     var updatePack = {
-      "inquest.anthropometric.height": params.inquest.anthropometric.question1,
-      "inquest.anthropometric.weight": params.inquest.anthropometric.question2,
-      "inquest.anthropometric.fatPercent": params.inquest.anthropometric.question3,
-      "inquest.anthropometric.completedFlag": params.inquest.anthropometric.completedFlag
+      "inquest.biochemicals.": params.inquest.biochemicals.question1,
+      "inquest.biochemicals.": params.inquest.biochemicals.question2,
+      "inquest.biochemicals.": params.inquest.biochemicals.question3,
+      "inquest.biochemicals.completedFlag": params.inquest.biochemicals.completedFlag
     }
 
     objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{

@@ -20,15 +20,18 @@ import { RegisterComponent } from './components/public/register/register.compone
 /* Private Components */
 import { TrainingComponent } from './components/private/training/training.component';
 import { InquestComponent } from './components/private/inquest/inquest.component';
+import { YouchangerComponent } from './components/private/inquest/youchanger.component';
 import { AccountComponent } from './components/private/account/account.component';
 import { ContentManagerComponent } from './components/admin/content-manager/content-manager.component';
+import { PlannerManagerComponent } from './components/admin/planner-manager/planner-manager.component';
+import { NutritionistManagerComponent } from './components/admin/nutritionist-manager/nutritionist-manager.component';
 
 /* Guards */
 import { AuthGuardService } from './services/auth-guard.service';
-import { AdminGuardService } from './services/admin-guard.service';
-import { NutritionistGuardService } from './services/nutritionist-guard.service';
-import { PlannerGuardService } from './services/planner-guard.service';
 import { ChangerGuardService } from './services/changer-guard.service';
+import { AdminGuardService } from './services/admin-guard.service';
+import { PlannerGuardService } from './services/planner-guard.service';
+import { NutritionistGuardService } from './services/nutritionist-guard.service';
 
 /* Rutas */
 const APP_ROUTES: Routes = [
@@ -52,8 +55,11 @@ const APP_ROUTES: Routes = [
 
   { path: 'training', component: TrainingComponent, canActivate: [ AuthGuardService ] },
   { path: 'inquest/:_id', component: InquestComponent, canActivate: [ AuthGuardService ] },
+  { path: 'youchanger', component: YouchangerComponent, canActivate: [ AuthGuardService ] },
 
   { path: 'content-manager', component: ContentManagerComponent, canActivate: [ AuthGuardService, AdminGuardService ] },
+  { path: 'plans-manager', component: PlannerManagerComponent, canActivate: [ AuthGuardService, PlannerGuardService ] },
+  { path: 'nutritionist-manager', component: NutritionistManagerComponent, canActivate: [ AuthGuardService, NutritionistGuardService ] },
 
   { path: '**',  component: HomeComponent },
   { path: '', pathMatch: 'full', redirectTo: 'home' }

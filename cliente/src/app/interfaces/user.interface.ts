@@ -60,6 +60,7 @@ export interface User {
       completedFlag: boolean
     }
   },
+  completedInquestFlag?:boolean,
   plan:{
     alimentary:{
       sendByDietist: boolean
