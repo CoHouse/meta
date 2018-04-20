@@ -331,11 +331,11 @@
 
             <h6 class="pt-4 pl-3">En caso de poder realizar un análisis de laboratorio, nos brindaría mucha mayor información para realizar su plan alimenticio y de ejercicio.</h6>
 
-              <div class="custom-control custom-radio">
+              <div class="custom-control custom-radio py-3">
                 <input type="radio" id="bioquimico1" class="custom-control-input py-2"  name="bioquimicosPregunta1" value="No cuenta con análisis" #bioquimicosOpcion1="ngModel" ngModel>
                 <label class="custom-control-label" for="bioquimico1"><strong>No</strong> cuento con un análisis de Laboratorio.</label>
               </div>
-              <div class="custom-control custom-radio">
+              <div class="custom-control custom-radio py-3">
                 <input type="radio" id="bioquimico2" class="custom-control-input py-2" name="bioquimicosPregunta1" value="Sí cuenta con análisis" #bioquimicosOpcion1="ngModel" ngOnInit="false" ngModel>
                 <label class="custom-control-label" for="bioquimico2"><strong>Sí</strong> cuento con un análisis de Laboratorio.</label>
               </div>
@@ -343,8 +343,9 @@
 
               <div *ngIf="bioquimicosOpcion1.value == 'Sí cuenta con análisis' " > <small>Si cuentas con una copia, favor de subirla en cualquiera de los siguientes formatos: PDF, JPG, PNG</small>
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="customFile">
-                  <label class="custom-file-label" for="customFile">Elegir archivo...</label>
+                  <!-- class="custom-file-input" -->
+                  <input type="file" class="file" id="attachedFile" name="attached" accept=".jpg, .jpeg, .png, .pdf" #attached=ngModel ngModel>
+                  <label class="custom-file-label" for="attachedFile" ></label>
                 </div>
               </div>
 

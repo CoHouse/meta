@@ -2,9 +2,15 @@
 
 var express = require("express");
 var bodyParser = require("body-parser");
+var fileUpload = require('express-fileupload');
+
 
 /* Variable que sirve como motor de la aplicación, recibe peticiones http, crea controladores, rutas, etc. */
 var app = express();
+
+/* Se usa para poder subir archivos al servidor*/
+app.use( fileUpload( ) );
+
 
 /*=============================================>>>>>
 = Convertir a JSON los datos que lleguen vía las peticiones http =

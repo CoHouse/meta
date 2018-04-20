@@ -64,7 +64,7 @@ function updateUser( req, res ){
 
     objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
       if( error ){
-        return res.status( 500 ).send( {  message: "Error al guardar el usuario [updateUser Alimentary]" } );
+        return res.status( 500 ).send( {  message: "Error al actualizar el usuario [updateUser Alimentary]" } );
       }else{
         return res.status( 200 ).send( updatedUser ); // Develop
         //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
@@ -72,6 +72,7 @@ function updateUser( req, res ){
     });
 
   }
+
   // Guardar tab Antropométricos
   else if( params.inquest.anthropometric.completedFlag && !params.inquest.biochemicals.completedFlag ){
     var updatePack = {
@@ -83,7 +84,7 @@ function updateUser( req, res ){
 
     objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
       if( error ){
-        res.status( 500 ).send({ message: "Error al guardar el usuario [updateUser Anthropometric]"});
+        res.status( 500 ).send({ message: "Error al actualizar el usuario [updateUser Anthropometric]"});
       }else{
         return res.status( 200 ).send( updatedUser ); // Develop
         //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
@@ -91,28 +92,70 @@ function updateUser( req, res ){
     });
   }
 
+  // Guardar tab Bioquímicos
   else if ( params.inquest.biochemicals.completedFlag && !params.inquest.clinical.completedFlag ) {
+
     var updatePack = {
-      "inquest.biochemicals.": params.inquest.biochemicals.question1,
-      "inquest.biochemicals.": params.inquest.biochemicals.question2,
-      "inquest.biochemicals.": params.inquest.biochemicals.question3,
+      "inquest.biochemicals.question1": params.inquest.biochemicals.question1,
       "inquest.biochemicals.completedFlag": params.inquest.biochemicals.completedFlag
     }
 
-    objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
-      if( error ){
-        res.status( 500 ).send({ message: "Error al guardar el usuario [updateUser Anthropometric]"});
-      }else{
-        return res.status( 200 ).send( updatedUser ); // Develop
-        //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
+    // "inquest.biochemicals.attached": params.inquest.biochemicals.attached
+
+    if( !req.files ){
+      //Cambiar mensaje de error
+      res.status( 400 ).send({ message: "Error al actualizar el usuario [updateUser Biochemicals]"});
+    }
+
+    //Validaciones al archivo subido
+    var file = req.files.attached;
+    var splitName = file.name.split('.');
+    var fileExtension = splitName[ splitName.length -1 ];
+
+    // Extensiones permitidas
+    var validExtentions = [ 'png', 'jpg', 'jpeg', 'pdf' ];
+
+    // Validarque el archivo sea permitido
+    if( validExtentions.indexOf( fileExtension ) < 0 ){
+      res.status( 400 ).send({ message: "Extensión inválida [updateUser Biochemicals]"});
+    }
+
+    // Cambiar el nombre del archivo
+    var userId = req.params.id;
+    var fileName = `${ userId }-${ new Date().getMiliseconds() }.${ fileExtension }`;
+
+    //Mover el archivo a un directorio en el servidor (publicación o node?)
+    var path = `./uploads/${ fileName }`;
+
+    file.mv( path, err =>{
+      if( err ){
+        //Cambiar mensaje de error
+        res.status( 400 ).send({ message: "Error al mover el archivo al servidor [updateUser Biochemicals]"});
       }
+
+      // Actualización de datos luego del guardado delarchivo
+      objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
+        if( error ){
+          res.status( 500 ).send({ message: "Error al actualizar el usuario [updateUser Biochemicals]"});
+        }else{
+          return res.status( 200 ).send( updatedUser ); // Develop
+          //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
+        }
+      });
+
+
     });
+
+
   } else if ( params.inquest.clinical.completedFlag && !params.inquest.dietetics.completedFlag ) {
-    // Guardar datos Bioquímicos
+
+  // Guardar datos Clínicos
   } else if ( params.inquest.clinical.completedFlag && !params.inquest.dietetics.completedFlag ) {
-    // Guardar datos clínicos
+
+  // Guardar datos dietéticos
   }else if ( params.inquest.dietetics.completedFlag) {
-    // Has llegado al final del formulario
+
+  // Has llegado al final del formulario
   }else{
     return null;
   }
