@@ -4,6 +4,8 @@ var express = require("express");
 var usersController = require("../controllers/users.controller.js");
 var api = express.Router();
 
+var file = require('express-fileupload');
+
 /* Métodos GET */
 api.get("/getUser", usersController.getUser );
 

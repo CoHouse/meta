@@ -33,6 +33,7 @@ function saveUser( req, res ){
 }
 
 /* UPDATE */
+
 function updateUser( req, res ){
   var params = req.body;
   var user = new objUser();
@@ -99,8 +100,6 @@ function updateUser( req, res ){
       "inquest.biochemicals.question1": params.inquest.biochemicals.question1,
       "inquest.biochemicals.completedFlag": params.inquest.biochemicals.completedFlag
     }
-
-    // "inquest.biochemicals.attached": params.inquest.biochemicals.attached
 
     if( !req.files ){
       //Cambiar mensaje de error

@@ -4,13 +4,11 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var fileUpload = require('express-fileupload');
 
-
 /* Variable que sirve como motor de la aplicación, recibe peticiones http, crea controladores, rutas, etc. */
 var app = express();
 
 /* Se usa para poder subir archivos al servidor*/
 app.use( fileUpload( ) );
-
 
 /*=============================================>>>>>
 = Convertir a JSON los datos que lleguen vía las peticiones http =
@@ -41,7 +39,6 @@ var routeTopic = require("./routes/topics.route.js");
 var routeChallenge = require("./routes/challenges.route.js");
 var routeComment = require("./routes/comments.route.js");
 var routeUsers = require("./routes/users.route.js");
-
 
 /*=============================================>>>>>
 = Rutas Base de la aplicación =

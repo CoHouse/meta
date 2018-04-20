@@ -245,66 +245,67 @@ export class InquestComponent implements OnInit {
 
   saveDataBioquimicos( form:NgForm ){
 
-    console.log("Forma enviada", form)
+    // console.log("Forma enviada", form)
 
-    // this.user = {
-    //   inquest:{
-    //     generals: {
-    //       userName: null,
-    //       age: null,
-    //       email: null,
-    //       completedFlag: true
-    //     },
-    //     alimentary:{
-    //       question1: null,
-    //       question2: null,
-    //       question3: null,
-    //       question4: null,
-    //       question5: null,
-    //       question6: null,
-    //       question7A: null,
-    //       question7B: null,
-    //       question7C: null,
-    //       question7D: null,
-    //       question8A: null,
-    //       question8B: null,
-    //       question8C: null,
-    //       question8D: null,
-    //       question9: null,
-    //       completedFlag:true
-    //     },
-    //     anthropometric:{
-    //       question1: null,
-    //       question2: null,
-    //       question3: null,
-    //       completedFlag:true
-    //     },
-    //     biochemicals:{
-    //       completedFlag:false
-    //     },
-    //     clinical:{
-    //       completedFlag:false
-    //     },
-    //     dietetics:{
-    //       completedFlag: false
-    //     }
-    //   },
-    //   plan:{
-    //     alimentary:{
-    //       sendByDietist:false
-    //     },
-    //     exercise:{
-    //       sendByPlanner: false
-    //     }
-    //   }
-    // }
-    //
-    // this._user.updateUser( this.user, this._id ).subscribe( data => {
-    //   //Hacer Tab Inaccesible
-    //   $('.nav-tabs a[href="#bioquimicos"]').removeClass('active').addClass('disabled');
-    //   //Pasar al siguiente formulario
-    //   $('.nav-tabs a[href="#clinicos"]').removeClass('disabled').tab('show');
-    // });
+    this.user = {
+      inquest:{
+        generals: {
+          userName: null,
+          age: null,
+          email: null,
+          completedFlag: true
+        },
+        alimentary:{
+          question1: null,
+          question2: null,
+          question3: null,
+          question4: null,
+          question5: null,
+          question6: null,
+          question7A: null,
+          question7B: null,
+          question7C: null,
+          question7D: null,
+          question8A: null,
+          question8B: null,
+          question8C: null,
+          question8D: null,
+          question9: null,
+          completedFlag:true
+        },
+        anthropometric:{
+          question1: null,
+          question2: null,
+          question3: null,
+          completedFlag:true
+        },
+        biochemicals:{
+          question1: form['value']['bioquimicosPregunta1'],
+          completedFlag:true
+        },
+        clinical:{
+          completedFlag:false
+        },
+        dietetics:{
+          completedFlag: false
+        }
+      },
+      plan:{
+        alimentary:{
+          sendByDietist:false
+        },
+        exercise:{
+          sendByPlanner: false
+        }
+      }
+    }
+
+    this._user.updateUserF( this.user, this._id ).subscribe( data => {
+      //Hacer Tab Inaccesible
+      // $('.nav-tabs a[href="#bioquimicos"]').removeClass('active').addClass('disabled');
+      //Pasar al siguiente formulario
+      // $('.nav-tabs a[href="#clinicos"]').removeClass('disabled').tab('show');
+    });
 
   }
 

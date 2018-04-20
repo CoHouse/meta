@@ -30,4 +30,15 @@ export class UserService {
     return this._http.put( this.url, body, { headers } ).map( res => res );
   }
 
+  updateUserF( user:User, _id:string ){
+    this.url = Ruta.url + "updateUserF/" + _id;
+    let body = JSON.stringify( user );
+
+    let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
+
+    return this._http.put( this.url, body, { headers } ).map( res => res );
+  }
+
+
+
 }
