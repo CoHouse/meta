@@ -5,6 +5,7 @@ import { UserService } from '../../../services/user.service';
 import { User } from '../../../interfaces/user.interface';
 import { Router, ActivatedRoute } from '@angular/router';
 declare var $:any;
+import * as swal from 'sweetalert';
 
 @Component({
   selector: 'app-inquest',
@@ -14,6 +15,7 @@ export class InquestComponent implements OnInit {
 
   public profile;
   public _id;
+  attachFile: File;
 
   public user:User = {
     inquest:{
@@ -281,7 +283,7 @@ export class InquestComponent implements OnInit {
         },
         biochemicals:{
           question1: form['value']['bioquimicosPregunta1'],
-          completedFlag:true
+          completedFlag: true
         },
         clinical:{
           completedFlag:false
@@ -300,10 +302,12 @@ export class InquestComponent implements OnInit {
       }
     }
 
-    this._user.updateUserF( this.user, this._id ).subscribe( data => {
-      //Hacer Tab Inaccesible
+    this.attachFile = this.selectFile( this.attachFile );
+
+    this._user.updateUserF( this.attachFile, this.user, this._id ).subscribe( data => {
+      // Hacer Tab Inaccesible
       // $('.nav-tabs a[href="#bioquimicos"]').removeClass('active').addClass('disabled');
-      //Pasar al siguiente formulario
+      // Pasar al siguiente formulario
       // $('.nav-tabs a[href="#clinicos"]').removeClass('disabled').tab('show');
     });
 
@@ -434,6 +438,14 @@ export class InquestComponent implements OnInit {
       this.router.navigate(['/youchanger', this._id ]);
     });
 
+  }
+
+  selectFile( file:File ){
+    if( !file ){
+      this.attachFile = null;
+      return;
+    }
+    return this.attachFile = file;
   }
 
 }

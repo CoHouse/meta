@@ -43,7 +43,7 @@
       <div class="tab-content" id="myTabContent">
 
         <!-- Tab << Generales >> -->
-        <div class="tab-pane fade show active" id="generales" role="tabpanel" aria-labelledby="home-tab">
+        <div class="tab-pane fade show" id="generales" role="tabpanel" aria-labelledby="home-tab">
           <form class="py-3 col-6 offset-3" #formGenerales="ngForm">
             <div class="form-group">
               <label><h6>Nombre de Usuario <small class="text-muted">Cómo te gustaría que te llamémos.</small></h6></label>
@@ -289,7 +289,7 @@
         </div>
 
         <!-- Tab << Antropométricos >> -->
-        <div class="tab-pane fade" id="antropometricos" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="tab-pane fade show" id="antropometricos" role="tabpanel" aria-labelledby="profile-tab">
 
           <form #formAntropometricos="ngForm" >
 
@@ -325,28 +325,28 @@
         </div>
 
         <!-- Tab << Bioquímicos >> -->
-        <div class="tab-pane fade" id="bioquimicos" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="tab-pane fade show active" id="bioquimicos" role="tabpanel" aria-labelledby="contact-tab">
 
           <form #formBioquimicos="ngForm" >
 
             <h6 class="pt-4 pl-3">En caso de poder realizar un análisis de laboratorio, nos brindaría mucha mayor información para realizar su plan alimenticio y de ejercicio.</h6>
 
               <div class="custom-control custom-radio my-3">
-                <input type="radio" id="bioquimico1" class="custom-control-input py-2"  name="bioquimicosPregunta1" value="No cuenta con análisis" #bioquimicosOpcion1="ngModel" ngModel>
+                <input type="radio" id="bioquimico1" class="custom-control-input py-2" name="bioquimicosPregunta1" value="No cuenta con análisis" #bioquimicosOpcion1="ngModel" ngModel>
                 <label class="custom-control-label" for="bioquimico1"><strong>No</strong> cuento con un análisis de Laboratorio.</label>
               </div>
               <div class="custom-control custom-radio my-3">
-                <input type="radio" id="bioquimico2" class="custom-control-input py-2" name="bioquimicosPregunta1" value="Sí cuenta con análisis" #bioquimicosOpcion1="ngModel" ngOnInit="false" ngModel>
+                <input type="radio" id="bioquimico2" class="custom-control-input py-2" name="bioquimicosPregunta1" value="Si" #bioquimicosOpcion1="ngModel" ngOnInit="false" ngModel>
                 <label class="custom-control-label" for="bioquimico2"><strong>Sí</strong> cuento con un análisis de Laboratorio.</label>
               </div>
 
 
-              <div *ngIf="bioquimicosOpcion1.value == 'Sí cuenta con análisis' " > <small>Si cuentas con una copia, favor de subirla en cualquiera de los siguientes formatos: PDF, JPG, PNG</small>
+              <div *ngIf="bioquimicosOpcion1.value == 'Si' " > <small>Si cuentas con una copia, favor de subirla en cualquiera de los siguientes formatos: PDF, JPG, PNG</small>
 
 
                 <div class="form-group">
                   <label for="exampleFormControlFile1">Example file input</label>
-                  <input type="file" class="form-control-file" id="exampleFormControlFile1" name="attached" accept=".jpg, .jpeg, .png, .pdf" #attached=ngModel ngModel>
+                  <input (change)="selectFile($event.target.files[0])" type="file" class="form-control-file" id="exampleFormControlFile1" name="attached" accept=".jpg, .jpeg, .png, .pdf" #attached=ngModel ngModel>
                 </div>
 
 
@@ -358,6 +358,9 @@
               </div>
 
               <!-- Button -->
+              <!-- <div class="form-group pt-3" *ngIf="formGenerales">
+                <button [disabled]="!formBioquimicos.valid" (click)="saveDataBioquimicos( formBioquimicos )" class="btn btn-info px-5">Seguir a Clínicos (5 de 6)</button>
+              </div> -->
               <div class="form-group pt-3" *ngIf="formGenerales">
                 <button [disabled]="!formBioquimicos.valid" (click)="saveDataBioquimicos( formBioquimicos )" class="btn btn-info px-5">Seguir a Clínicos (5 de 6)</button>
               </div>

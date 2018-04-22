@@ -7,7 +7,7 @@ var fileUpload = require('express-fileupload');
 /* Variable que sirve como motor de la aplicación, recibe peticiones http, crea controladores, rutas, etc. */
 var app = express();
 
-/* Se usa para poder subir archivos al servidor*/
+/* Se usa para poder subir archivos al servidor */
 app.use( fileUpload( ) );
 
 /*=============================================>>>>>
@@ -38,7 +38,7 @@ var routeQuestion = require("./routes/questions.route.js");
 var routeTopic = require("./routes/topics.route.js");
 var routeChallenge = require("./routes/challenges.route.js");
 var routeComment = require("./routes/comments.route.js");
-var routeUsers = require("./routes/users.route.js");
+var routeUser = require("./routes/user.route.js");
 
 /*=============================================>>>>>
 = Rutas Base de la aplicación =
@@ -51,6 +51,6 @@ app.use( "/api", routeQuestion );
 app.use( "/api", routeTopic );
 app.use( "/api", routeChallenge );
 app.use( "/api", routeComment );
-app.use( "/api", routeUsers );
+app.use( "/api", routeUser );
 
 module.exports = app;

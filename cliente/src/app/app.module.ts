@@ -52,6 +52,7 @@ import { TopicService } from './services/topic.service';
 import { ChallengeService } from './services/challenge.service';
 import { CommentService } from './services/comment.service';
 import { UserService } from './services/user.service';
+import { FilesUploaderService } from './services/files-uploader.service';
 
 /* Routes */
 import { APP_ROUTING } from './app-routes';
@@ -112,7 +113,8 @@ import { YouchangerComponent } from './components/private/inquest/youchanger.com
     TopicService,
     ChallengeService,
     CommentService,
-    UserService
+    UserService,
+    FilesUploaderService
   ],
   bootstrap: [ AppComponent ]
 })
