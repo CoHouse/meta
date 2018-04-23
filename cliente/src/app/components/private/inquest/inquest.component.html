@@ -340,21 +340,13 @@
                 <label class="custom-control-label" for="bioquimico2"><strong>Sí</strong> cuento con un análisis de Laboratorio.</label>
               </div>
 
-
               <div *ngIf="bioquimicosOpcion1.value == 'Si' " > <small>Si cuentas con una copia, favor de subirla en cualquiera de los siguientes formatos: PDF, JPG, PNG</small>
-
 
                 <div class="form-group">
                   <label for="exampleFormControlFile1">Example file input</label>
                   <input (change)="selectFile($event.target.files[0])" type="file" class="form-control-file" id="exampleFormControlFile1" name="attached" accept=".jpg, .jpeg, .png, .pdf" #attached=ngModel ngModel>
                 </div>
 
-
-
-                <!-- <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="attachedFile" name="attached" accept=".jpg, .jpeg, .png, .pdf" #attached=ngModel ngModel>
-                  <label class="custom-file-label" for="attachedFile" ></label>
-                </div> -->
               </div>
 
               <!-- Button -->

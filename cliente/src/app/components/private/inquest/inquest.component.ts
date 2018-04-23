@@ -247,60 +247,125 @@ export class InquestComponent implements OnInit {
 
   saveDataBioquimicos( form:NgForm ){
 
-    this.user = {
-      inquest:{
-        generals: {
-          userName: null,
-          age: null,
-          email: null,
-          completedFlag: true
+    if( !this.attachFile ){
+      this.user = {
+        inquest:{
+          generals: {
+            userName: null,
+            age: null,
+            email: null,
+            completedFlag: true
+          },
+          alimentary:{
+            question1: null,
+            question2: null,
+            question3: null,
+            question4: null,
+            question5: null,
+            question6: null,
+            question7A: null,
+            question7B: null,
+            question7C: null,
+            question7D: null,
+            question8A: null,
+            question8B: null,
+            question8C: null,
+            question8D: null,
+            question9: null,
+            completedFlag:true
+          },
+          anthropometric:{
+            question1: null,
+            question2: null,
+            question3: null,
+            completedFlag:true
+          },
+          biochemicals:{
+            question1: form['value']['bioquimicosPregunta1'],
+            attached: "sin archivo",
+            completedFlag: true
+          },
+          clinical:{
+            completedFlag:false
+          },
+          dietetics:{
+            completedFlag: false
+          }
         },
-        alimentary:{
-          question1: null,
-          question2: null,
-          question3: null,
-          question4: null,
-          question5: null,
-          question6: null,
-          question7A: null,
-          question7B: null,
-          question7C: null,
-          question7D: null,
-          question8A: null,
-          question8B: null,
-          question8C: null,
-          question8D: null,
-          question9: null,
-          completedFlag:true
-        },
-        anthropometric:{
-          question1: null,
-          question2: null,
-          question3: null,
-          completedFlag:true
-        },
-        biochemicals:{
-          question1: form['value']['bioquimicosPregunta1'],
-          completedFlag: true
-        },
-        clinical:{
-          completedFlag:false
-        },
-        dietetics:{
-          completedFlag: false
-        }
-      },
-      plan:{
-        alimentary:{
-          sendByDietist:false
-        },
-        exercise:{
-          sendByPlanner: false
+        plan:{
+          alimentary:{
+            sendByDietist:false
+          },
+          exercise:{
+            sendByPlanner: false
+          }
         }
       }
-    }
+      this._user.updateUser( this.user, this._id ).subscribe( data => {  });
+    }else{
+      var splitName = this.attachFile.name.split('.');
+      var fileExtension = splitName[ splitName.length -1 ];
+      var fileName = `${ this._id }-${ new Date().getMilliseconds() }.${ fileExtension }`;
 
-    this._user.updateUserF( this.attachFile, this.user, this._id );
+      this.user = {
+        inquest:{
+          generals: {
+            userName: null,
+            age: null,
+            email: null,
+            completedFlag: true
+          },
+          alimentary:{
+            question1: null,
+            question2: null,
+            question3: null,
+            question4: null,
+            question5: null,
+            question6: null,
+            question7A: null,
+            question7B: null,
+            question7C: null,
+            question7D: null,
+            question8A: null,
+            question8B: null,
+            question8C: null,
+            question8D: null,
+            question9: null,
+            completedFlag:true
+          },
+          anthropometric:{
+            question1: null,
+            question2: null,
+            question3: null,
+            completedFlag:true
+          },
+          biochemicals:{
+            question1: form['value']['bioquimicosPregunta1'],
+            attached: fileName,
+            completedFlag: true
+          },
+          clinical:{
+            completedFlag:false
+          },
+          dietetics:{
+            completedFlag: false
+          }
+        },
+        plan:{
+          alimentary:{
+            sendByDietist:false
+          },
+          exercise:{
+            sendByPlanner: false
+          }
+        }
+      }
+      this._user.updateUser( this.user, this._id ).subscribe( data => {
+
+        this._user.saveFileUser( this.attachFile, this._id, this.user.inquest.biochemicals.attached );
+
+      });
+    }
 
     // .subscribe( data => {
     //   // Hacer Tab Inaccesible

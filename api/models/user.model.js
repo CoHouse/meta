@@ -38,7 +38,7 @@ var userSchema = schema({
     biochemicals:{
       question1: String,
       attached: String,
-      completedFlag: String 
+      completedFlag: String
     },
     clinical:{
       question1: String,

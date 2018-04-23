@@ -25,33 +25,18 @@ export class UserService {
   updateUser( user:User, _id:string ){
     this.url = Ruta.url + "updateUser/" + _id;
     let body = JSON.stringify( user );
-
     let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
-
     return this._http.put( this.url, body, { headers } ).map( res => res );
   }
 
-  updateUserF( file:File, user:User, _id:string ){
-
-    // Actualizar la información del usuario normalmente una vez que se ha guardado el archivo.
-    this.url = Ruta.url + "updateUser/" + _id;
-    let body = JSON.stringify( user );
-
-    let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
-
-    /*---------------*/
-
-    this._uploader.uploadFile( file, _id )
+  saveFileUser( file:File, _id:string, fileName:string ){
+    this._uploader.uploadFile( file, "lab" , _id, fileName )
     .then( resp =>{
-
-      console.log("No llega a guardar nada de los demás campos.")
-      return this._http.put( this.url, body, { headers } ).map( res => res );
-
+      console.log( "Archivo guardado correctamente para el usuario " + _id );
     }).catch( resp => {
       console.log(resp);
       return;
     });
   }
-
 
 }

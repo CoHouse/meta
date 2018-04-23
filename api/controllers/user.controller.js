@@ -97,53 +97,21 @@ function updateUser( req, res ){
   // Guardar tab Bioquímicos
   else if ( params.inquest.biochemicals.completedFlag && !params.inquest.clinical.completedFlag ) {
 
-    // var updatePack = {
-    //   "inquest.biochemicals.question1": params.inquest.biochemicals.question1,
-    //   "inquest.biochemicals.completedFlag": params.inquest.biochemicals.completedFlag
-    // }
-    //
-    // if( !req.files ){
-    //   res.status( 400 ).send({ message: "No se ha seleccionado ningún archivo para subir [updateUser Biochemicals]"});
-    // }
-    //
-    // //Validaciones al archivo subido
-    // var file = req.files.attached;
-    // var splitName = file.name.split('.');
-    // var fileExtension = splitName[ splitName.length -1 ];
-    //
-    // // Extensiones permitidas
-    // var validExtentions = [ 'png', 'jpg', 'jpeg', 'pdf' ];
-    //
-    // // Validarque el archivo sea permitido
-    // if( validExtentions.indexOf( fileExtension ) < 0 ){
-    //   res.status( 400 ).send({ message: "Extensión inválida [updateUser Biochemicals]"});
-    // }
-    //
-    // // Cambiar el nombre del archivo
-    // var userId = req.params.id;
-    // var fileName = `${ userId }-${ new Date().getMiliseconds() }.${ fileExtension }`;
-    //
-    // //Mover el archivo a un directorio en el servidor (publicación o node?)
-    // var path = `./uploads/${ fileName }`;
-    //
-    // file.mv( path, err =>{
-    //   if( err ){
-    //     //Cambiar mensaje de error
-    //     res.status( 400 ).send({ message: "Error al mover el archivo al servidor [updateUser Biochemicals]"});
-    //   }
-    //
-    //   // Actualización de datos luego del guardado delarchivo
-    //   objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
-    //     if( error ){
-    //       res.status( 500 ).send({ message: "Error al actualizar el usuario [updateUser Biochemicals]"});
-    //     }else{
-    //       return res.status( 200 ).send( updatedUser ); // Develop
-    //       //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
-    //     }
-    //   });
-    //
-    //
-    // });
+    var updatePack = {
+      "inquest.biochemicals.question1": params.inquest.biochemicals.question1,
+      "inquest.biochemicals.attached": params.inquest.biochemicals.attached,
+      "inquest.biochemicals.completedFlag": params.inquest.biochemicals.completedFlag
+    }
+
+      // Actualización de datos luego del guardado delarchivo
+      objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
+        if( error ){
+          res.status( 500 ).send({ message: "Error al actualizar el usuario [updateUser Biochemicals]"});
+        }else{
+          return res.status( 200 ).send( updatedUser ); // Develop
+          //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
+        }
+      });
 
 
   } else if ( params.inquest.clinical.completedFlag && !params.inquest.dietetics.completedFlag ) {
@@ -172,118 +140,37 @@ function getUser( req, res ){
   } ).where('email').equals( req.params._id );
 }
 
-function updateUserF( req, res ){
-  var params = req.body;
+function saveFileUser( req, res ){
 
-  console.log("Entra a updateUserF");
-  console.log("Esto trae req.body: ", req.body );
-
-  if( !req.files ){
-    console.log("Entra a NO HAY ARCHIVO");
-    return res.status( 400 ).send({ message: "No se ha seleccionado ningún archivo para subir [updateUser Biochemicals]"});
-
-    var updatePack = {
-      "inquest.biochemicals.question1": params.inquest.biochemicals.question1,
-      "inquest.biochemicals.attached": "sin archivo",
-      "inquest.biochemicals.completedFlag": params.inquest.biochemicals.completedFlag
-    }
-
-    objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
-      if( error ){
-        return res.status( 500 ).send({ message: "Error al actualizar el usuario [updateUser Anthropometric]"});
-      }else{
-        return res.status( 200 ).send( updatedUser ); // Develop
-        //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
-      }
-    });
-
-  }else{
-    console.log("Entra a SI HAY ARCHIVO");
-    //Validaciones al archivo subido
+    // //Validaciones al archivo subido
     var file = req.files.attached;
     var splitName = file.name.split('.');
-    var fileExtension = splitName[ splitName.length -1 ];
+    var fileExtension = splitName[ splitName.length -1 ].toLowerCase();
     var userId = req.params.id;
 
     // Extensiones permitidas
     var validExtentions = [ 'png', 'jpg', 'jpeg', 'pdf' ];
 
-    // Cambiar el nombre del archivo
-    var fileName = `${ userId }-${ new Date().getMilliseconds() }.${ fileExtension }`;
-
-    //Mover el archivo a un directorio en el servidor node
-    var path = `./uploads/dir/${ fileName }`;
-
-    var updatePack = {
-      "inquest.biochemicals.question1": params.inquest.biochemicals.question1,
-      "inquest.biochemicals.attached": fileName,
-      "inquest.biochemicals.completedFlag": params.inquest.biochemicals.completedFlag
+    // Validar que el archivo sea permitido
+    if( validExtentions.indexOf( fileExtension ) < 0 ){
+      return res.status( 400 ).send({ message: "Extensión inválida [saveFileUser userController]" });
     }
 
-    objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
-      if( error ){
-        return res.status( 500 ).send({ message: "Error al actualizar el usuario [updateUser Anthropometric]"});
+    //Mover el archivo a un directorio en el servidor node
+    var path = `./uploads/${req.params.tipo}/${ file.name }`;
+
+    file.mv( path, err =>{
+      if( err ){
+        return res.status( 500 ).send({ message: "Error al mover el archivo al servidor [saveFileUser userController]"});
       }else{
-
-        // Validar que el archivo sea permitido
-        if( validExtentions.indexOf( fileExtension ) < 0 ){
-          return res.status( 400 ).send({ message: "Extensión inválida [updateUser Biochemicals]"});
-        }
-
-        file.mv( path, err =>{
-          if( err ){
-            return res.status( 500 ).send({ message: "Error al mover el archivo al servidor [updateUser Biochemicals]"});
-          }else{
-            return res.status( 200 ).send({ message: "Registro actualizado exitosamente con archivo."});
-            //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
-          }
-        });
+        return res.status( 200 ).send({ message: "Archivo subido exitosamente"});
       }
     });
-  }
 }
-
-
-// Respaldo del método que guarda
-
-// function updateUserF( req, res ){
-//
-//   if( !req.files ){
-//     return res.status( 400 ).send({ message: "No se ha seleccionado ningún archivo para subir [updateUser Biochemicals]"});
-//   }
-//
-//     //Validaciones al archivo subido
-//     var file = req.files.attached;
-//     var splitName = file.name.split('.');
-//     var fileExtension = splitName[ splitName.length -1 ];
-//     var userId = req.params.id;
-//
-//     // Extensiones permitidas
-//     var validExtentions = [ 'png', 'jpg', 'jpeg', 'pdf' ];
-//
-//     // Validar que el archivo sea permitido
-//     if( validExtentions.indexOf( fileExtension ) < 0 ){
-//       return res.status( 400 ).send({ message: "Extensión inválida [updateUser Biochemicals]"});
-//     }
-//
-//     // Cambiar el nombre del archivo
-//     var fileName = `${ userId }-${ new Date().getMilliseconds() }.${ fileExtension }`;
-//
-//     //Mover el archivo a un directorio en el servidor node
-//     var path = `./uploads/${ fileName }`;
-//
-//     file.mv( path, err =>{
-//       if( err ){
-//         return res.status( 500 ).send({ message: "Error al mover el archivo al servidor [updateUser Biochemicals]"});
-//       }else{
-//         return res.status( 200 ).send({ message: "Archivo subido exitosamente"});
-//       }
-//     });
-// }
 
 module.exports = {
   saveUser,
   updateUser,
-  updateUserF,
+  saveFileUser,
   getUser
 }

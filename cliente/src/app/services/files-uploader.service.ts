@@ -8,7 +8,7 @@ export class FilesUploaderService {
 
   constructor() { }
 
-    uploadFile( file:File, id:string ){
+    uploadFile( file:File, type:string, id:string, fileName:string ){
 
       //Se crea como una promesa para que de esta forma los demás elementos "sepan" cuando ha finalizado la ejecución y qué es lo que devuelve la misma.
       return new Promise( ( resolve, reject ) =>{
@@ -18,8 +18,9 @@ export class FilesUploaderService {
           // 2. Inicializar la petición Ajax.
           let xhr = new XMLHttpRequest();
 
-          // 3. Hacer la confirguración del formdata.
-          formdata.append( 'attached', file, file.name );
+          // 3. Hacer la configuración del formdata.
+          // formdata.append( 'attached', file, file.name );
+          formdata.append('attached', file, fileName)
 
           // 4. Configurar la petición Ajax
           xhr.onreadystatechange = function(){
@@ -37,7 +38,7 @@ export class FilesUploaderService {
         };
 
         // 7. Definir la url a la que se le hará la petición.
-        let url = Ruta.url + 'upload/lab/' + id;
+        let url = Ruta.url + 'upload/'+ type +'/' + id;
 
         // 8. Preparar la petición Ajax
         xhr.open( 'PUT', url, true );
