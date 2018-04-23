@@ -247,8 +247,6 @@ export class InquestComponent implements OnInit {
 
   saveDataBioquimicos( form:NgForm ){
 
-    // console.log("Forma enviada", form)
-
     this.user = {
       inquest:{
         generals: {
@@ -302,14 +300,14 @@ export class InquestComponent implements OnInit {
       }
     }
 
-    this.attachFile = this.selectFile( this.attachFile );
+    this._user.updateUserF( this.attachFile, this.user, this._id );
 
-    this._user.updateUserF( this.attachFile, this.user, this._id ).subscribe( data => {
-      // Hacer Tab Inaccesible
-      // $('.nav-tabs a[href="#bioquimicos"]').removeClass('active').addClass('disabled');
-      // Pasar al siguiente formulario
-      // $('.nav-tabs a[href="#clinicos"]').removeClass('disabled').tab('show');
-    });
+    // .subscribe( data => {
+    //   // Hacer Tab Inaccesible
+    //   // $('.nav-tabs a[href="#bioquimicos"]').removeClass('active').addClass('disabled');
+    //   // Pasar al siguiente formulario
+    //   // $('.nav-tabs a[href="#clinicos"]').removeClass('disabled').tab('show');
+    // });
 
   }
 

@@ -14,7 +14,4 @@ api.post("/saveUser", userController.saveUser );
 api.put("/updateUser/:id", userController.updateUser );
 api.put("/upload/lab/:id", userController.updateUserF );
 
-// Método de prueba para guardar cosass
-api.put("/upload/:id", userController.update );
-
 module.exports = api;

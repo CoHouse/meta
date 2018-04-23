@@ -1,3 +1,5 @@
+/*Angular no cuenta con ninguna instrucción que tome un archivo y lo suba al servidor, por lo que en este caso la programación de esta funcionalidad se hará con Javascript puro. */
+
 import { Injectable } from '@angular/core';
 import { Ruta } from '../global_route';
 
@@ -6,8 +8,8 @@ export class FilesUploaderService {
 
   constructor() { }
 
-  /*Angiular no cuenta con ninguna instrucción que tome un archivo y lo suba al servidor, por lo que en este caso la programación de esta funcionalidad se hará con Javascript puro. */
     uploadFile( file:File, id:string ){
+
       //Se crea como una promesa para que de esta forma los demás elementos "sepan" cuando ha finalizado la ejecución y qué es lo que devuelve la misma.
       return new Promise( ( resolve, reject ) =>{
           // 1. Crear el formdata que es lo que se le enviará a la petición por Ajax, este es el payload que se enviará a subir.
@@ -35,7 +37,7 @@ export class FilesUploaderService {
         };
 
         // 7. Definir la url a la que se le hará la petición.
-        let url = Ruta.url + '/upload/lab/' + id;
+        let url = Ruta.url + 'upload/lab/' + id;
 
         // 8. Preparar la petición Ajax
         xhr.open( 'PUT', url, true );
