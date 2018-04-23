@@ -43,7 +43,7 @@
       <div class="tab-content" id="myTabContent">
 
         <!-- Tab << Generales >> -->
-        <div class="tab-pane fade show active" id="generales" role="tabpanel" aria-labelledby="home-tab">
+        <div class="tab-pane fade show" id="generales" role="tabpanel" aria-labelledby="home-tab">
           <form class="py-3 col-6 offset-3" #formGenerales="ngForm">
             <div class="form-group">
               <label><h6>Nombre de Usuario <small class="text-muted">Cómo te gustaría que te llamémos.</small></h6></label>
@@ -349,10 +349,6 @@
 
               </div>
 
-              <!-- Button -->
-              <!-- <div class="form-group pt-3" *ngIf="formGenerales">
-                <button [disabled]="!formBioquimicos.valid" (click)="saveDataBioquimicos( formBioquimicos )" class="btn btn-info px-5">Seguir a Clínicos (5 de 6)</button>
-              </div> -->
               <div class="form-group pt-3" *ngIf="formGenerales">
                 <button [disabled]="!formBioquimicos.valid" (click)="saveDataBioquimicos( formBioquimicos )" class="btn btn-info px-5">Seguir a Clínicos (5 de 6)</button>
               </div>
@@ -367,116 +363,124 @@
         </div>
 
         <!-- Tab << Clínicos >> -->
-        <div class="tab-pane fade show" id="clinicos" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="tab-pane fade show active" id="clinicos" role="tabpanel" aria-labelledby="contact-tab">
 
           <form #formClinicos="ngForm" >
             <!-- Cuestion 1 -->
             <h6 class="pt-4 pl-3">Antecedentes familiares de enfermedades crónicas degenerativas (diabetes, hipertension, cardiopatías, cáncer, etc.)</h6>
             <div class="form-group row">
-              <div class="custom-control custom-radio">
-                <input type="radio" id="clinicosPregunta1Opcion1" name="clinicosPregunta1" class="custom-control-input" value="No" ngModel>
-                <label class="custom-control-label" for="clinicosPregunta1Opcion1">No</label>
+              <div class="custom-control custom-radio px-3">
+                <input type="radio" id="clinicosPregunta1Opcion1" name="clinicosPregunta1" class="custom-control-input" value="No" #clinicosOpcion1="ngModel" ngModel>
+                <label class="custom-control-label px-3" for="clinicosPregunta1Opcion1">No</label>
               </div>
-              <div class="custom-control custom-radio">
-                <input type="radio" id="clinicosPregunta1Opcion2" name="clinicosPregunta1" class="custom-control-input" value="Sí" ngModel>
-                <label class="custom-control-label" for="clinicosPregunta1Opcion2">Sí</label>
+              <div class="custom-control custom-radio px-3">
+                <input type="radio" id="clinicosPregunta1Opcion2" name="clinicosPregunta1" class="custom-control-input" value="Si" #clinicosOpcion2="ngModel" ngModel>
+                <label class="custom-control-label px-3" for="clinicosPregunta1Opcion2">Sí</label>
               </div>
+            </div>
+            <div *ngIf="clinicosOpcion2.value == 'Si' " class="form-group">
+              <label for="exampleFormControlTextarea1">Por favor, descríbe los antecedentes de enfermedades familiares que tengas.</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" #clinicosOpcion2Descripcion="ngModel" ngModel></textarea>
             </div>
 
             <!-- Cuestion 2 -->
             <h6 class="pt-4 pl-3">Enfermedades sufridas anteriormente (Diabetes, hipertensión, cardiopatías, artritis, etc.)</h6>
             <div class="form-group row">
-              <div class="custom-control custom-radio">
-                <input type="radio" id="clinicosPregunta2Opcion1" name="clinicosPregunta2" class="custom-control-input" value="No" ngModel>
-                <label class="custom-control-label" for="clinicosPregunta2Opcion1">No</label>
+              <div class="custom-control custom-radio px-3">
+                <input type="radio" id="clinicosPregunta2Opcion1" name="clinicosPregunta2" class="custom-control-input" value="No" #clinicosPregunta2Opcion1="ngModel" ngModel>
+                <label class="custom-control-label px-3" for="clinicosPregunta2Opcion1">No</label>
               </div>
-              <div class="custom-control custom-radio">
-                <input type="radio" id="clinicosPregunta2Opcion2" name="clinicosPregunta2" class="custom-control-input" value="Sí" ngModel>
-                <label class="custom-control-label" for="clinicosPregunta2Opcion2">Sí</label>
+              <div class="custom-control custom-radio px-3">
+                <input type="radio" id="clinicosPregunta2Opcion2" name="clinicosPregunta2" class="custom-control-input" value="Si" #clinicosPregunta2Opcion2="ngModel" ngModel>
+                <label class="custom-control-label px-3" for="clinicosPregunta2Opcion2">Sí</label>
+              </div>
+              <div *ngIf="clinicosPregunta2Opcion2.value == 'Si' " class="form-group">
+                <label for="exampleFormControlTextarea1">Por favor, descríbe los antecedentes de enfermedades familiares que tengas.</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" #clinicosOpcion2Descripcion="ngModel" ngModel></textarea>
               </div>
             </div>
 
             <!-- Cuestion 3 -->
             <h6 class="pt-4 pl-3">¿Padece de alguna alergia, intolerancia o aversión alimenticia (algún alimento que no soporte comer)?</h6>
             <div class="form-group row">
-              <div class="custom-control custom-radio">
+              <div class="custom-control custom-radio px-3">
                 <input type="radio" id="clinicosPregunta3Opcion1" name="clinicosPregunta3" class="custom-control-input" value="No" ngModel>
-                <label class="custom-control-label" for="clinicosPregunta3Opcion1">No</label>
+                <label class="custom-control-label px-3" for="clinicosPregunta3Opcion1">No</label>
               </div>
 
-              <div class="custom-control custom-radio">
+              <div class="custom-control custom-radio px-3">
                 <input type="radio" id="clinicosPregunta3Opcion2" name="clinicosPregunta3" class="custom-control-input" value="Sí" ngModel>
-                <label class="custom-control-label" for="clinicosPregunta3Opcion2">Sí</label>
+                <label class="custom-control-label px-3" for="clinicosPregunta3Opcion2">Sí</label>
               </div>
             </div>
 
             <!-- Cuestion 4 -->
             <h6 class="pt-4 pl-3">¿Usa algún fármaco actualmente?</h6>
             <div class="form-group row">
-              <div class="custom-control custom-radio">
+              <div class="custom-control custom-radio px-3">
                 <input type="radio" id="clinicosPregunta4Opcion1" name="clinicosPregunta4" class="custom-control-input" value="No" ngModel>
-                <label class="custom-control-label" for="clinicosPregunta4Opcion1">No</label>
+                <label class="custom-control-label px-3" for="clinicosPregunta4Opcion1">No</label>
               </div>
 
-              <div class="custom-control custom-radio">
+              <div class="custom-control custom-radio px-3">
                 <input type="radio" id="clinicosPregunta4Opcion2" name="clinicosPregunta4" class="custom-control-input" value="Sí" ngModel>
-                <label class="custom-control-label" for="clinicosPregunta4Opcion2">Sí</label>
+                <label class="custom-control-label px-3" for="clinicosPregunta4Opcion2">Sí</label>
               </div>
             </div>
 
             <!-- Cuestion 5 -->
             <h6 class="pt-4 pl-3">¿Usa algún suplemento alimenticio actualmente?</h6>
             <div class="form-group row">
-              <div class="custom-control custom-radio">
+              <div class="custom-control custom-radio px-3">
                 <input type="radio" id="clinicosPregunta5Opcion1" name="clinicosPregunta5" class="custom-control-input" value="No" ngModel>
-                <label class="custom-control-label" for="clinicosPregunta5Opcion1">No</label>
+                <label class="custom-control-label px-3" for="clinicosPregunta5Opcion1">No</label>
               </div>
 
-              <div class="custom-control custom-radio">
+              <div class="custom-control custom-radio px-3">
                 <input type="radio" id="clinicosPregunta5Opcion2" name="clinicosPregunta5" class="custom-control-input" value="Sí" ngModel>
-                <label class="custom-control-label" for="clinicosPregunta5Opcion2">Sí</label>
+                <label class="custom-control-label px-3" for="clinicosPregunta5Opcion2">Sí</label>
               </div>
             </div>
 
             <!-- Cuestion 6 -->
             <h6 class="pt-4 pl-3">En caso de haber contestado si en la pregunta anterior, ¿Qué suplemento es y con qué objetivo?</h6>
             <div class="form-group row">
-              <div class="custom-control custom-radio">
+              <div class="custom-control custom-radio px-3">
                 <input type="radio" id="clinicosPregunta6Opcion1" name="clinicosPregunta6" class="custom-control-input" value="No" ngModel>
-                <label class="custom-control-label" for="clinicosPregunta6Opcion1">No</label>
+                <label class="custom-control-label px-3" for="clinicosPregunta6Opcion1">No</label>
               </div>
 
-              <div class="custom-control custom-radio">
+              <div class="custom-control custom-radio px-3">
                 <input type="radio" id="clinicosPregunta6Opcion2" name="clinicosPregunta6" class="custom-control-input" value="Sí" ngModel>
-                <label class="custom-control-label" for="clinicosPregunta6Opcion2">Sí</label>
+                <label class="custom-control-label px-3" for="clinicosPregunta6Opcion2">Sí</label>
               </div>
             </div>
 
             <!-- Cuestion 7 -->
             <h6 class="pt-4 pl-3">¿Cuántas horas duerme al día?</h6>
             <div class="form-group row">
-              <div class="custom-control custom-radio">
+              <div class="custom-control custom-radio px-3">
                 <input type="radio" id="clinicosPregunta7Opcion1" name="clinicosPregunta7" class="custom-control-input" value="No" ngModel>
-                <label class="custom-control-label" for="clinicosPregunta7Opcion1">No</label>
+                <label class="custom-control-label px-3" for="clinicosPregunta7Opcion1">No</label>
               </div>
 
-              <div class="custom-control custom-radio">
+              <div class="custom-control custom-radio px-3">
                 <input type="radio" id="clinicosPregunta7Opcion2" name="clinicosPregunta7" class="custom-control-input" value="Sí" ngModel>
-                <label class="custom-control-label" for="clinicosPregunta7Opcion2">Sí</label>
+                <label class="custom-control-label px-3" for="clinicosPregunta7Opcion2">Sí</label>
               </div>
             </div>
 
             <!-- Cuestion 8 -->
             <h6 class="pt-4 pl-3">Aviso de Provacidad y Descargo de Responsabilidad</h6>
             <div class="form-group row">
-              <div class="custom-control custom-radio">
+              <div class="custom-control custom-radio px-3">
                 <input type="radio" id="clinicosPregunta8Opcion1" name="clinicosPregunta8" class="custom-control-input" value="No" ngModel>
-                <label class="custom-control-label" for="clinicosPregunta8Opcion1">No</label>
+                <label class="custom-control-label px-3" for="clinicosPregunta8Opcion1">No</label>
               </div>
 
-              <div class="custom-control custom-radio">
+              <div class="custom-control custom-radio px-3">
                 <input type="radio" id="clinicosPregunta8Opcion2" name="clinicosPregunta8" class="custom-control-input" value="Sí" ngModel>
-                <label class="custom-control-label" for="clinicosPregunta8Opcion2">Sí</label>
+                <label class="custom-control-label px-3" for="clinicosPregunta8Opcion2">Sí</label>
               </div>
             </div>
 

@@ -234,8 +234,6 @@ export class InquestComponent implements OnInit {
       }
     }
 
-    console.log("Lo que trae user en el componente y le pasa al servicio: ", this.user);
-
     this._user.updateUser( this.user, this._id ).subscribe( data => {
       //Hacer Tab Inaccesible
       $('.nav-tabs a[href="#antropometricos"]').removeClass('active').addClass('disabled');
@@ -364,15 +362,12 @@ export class InquestComponent implements OnInit {
 
         this._user.saveFileUser( this.attachFile, this._id, this.user.inquest.biochemicals.attached );
 
+        // Hacer Tab Inaccesible
+        $('.nav-tabs a[href="#bioquimicos"]').removeClass('active').addClass('disabled');
+        // Pasar al siguiente formulario
+        $('.nav-tabs a[href="#clinicos"]').removeClass('disabled').tab('show');
       });
     }
-
-    // .subscribe( data => {
-    //   // Hacer Tab Inaccesible
-    //   // $('.nav-tabs a[href="#bioquimicos"]').removeClass('active').addClass('disabled');
-    //   // Pasar al siguiente formulario
-    //   // $('.nav-tabs a[href="#clinicos"]').removeClass('disabled').tab('show');
-    // });
 
   }
 
@@ -411,10 +406,20 @@ export class InquestComponent implements OnInit {
           completedFlag:true
         },
         biochemicals:{
-          completedFlag:false
+          question1: null,
+          attached: null,
+          completedFlag: true
         },
         clinical:{
-          completedFlag:false
+          question1: form['value']['clinicosPregunta1'],
+          question2: form['value']['clinicosPregunta2'],
+          question3: form['value']['clinicosPregunta3'],
+          question4: form['value']['clinicosPregunta4'],
+          question5: form['value']['clinicosPregunta5'],
+          question6: form['value']['clinicosPregunta6'],
+          question7: form['value']['clinicosPregunta7'],
+          question8: form['value']['clinicosPregunta8'],
+          completedFlag:true
         },
         dietetics:{
           completedFlag: false
