@@ -40,13 +40,21 @@ export interface User {
     },
     clinical:{
       question1?: string,
+      detailQuestion1?:string,
       question2?: string,
+      detailQuestion2?:string,
       question3?: string,
+      detailQuestion3?:string,
       question4?: string,
+      detailQuestion4?:string,
       question5?: string,
+      detailQuestion5?:string,
       question6?: string,
+      detailQuestion6?:string,
       question7?: string,
+      detailQuestion7?:string,
       question8?: string,
+      detailQuestion8?:string,
       completedFlag: boolean
     },
     dietetics:{

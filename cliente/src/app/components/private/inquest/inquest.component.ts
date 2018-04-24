@@ -373,6 +373,8 @@ export class InquestComponent implements OnInit {
 
   saveDataClinicos( form:NgForm ){
 
+    console.log("Esto trae el form: ", form );
+
     this.user = {
       inquest:{
         generals: {
@@ -412,13 +414,21 @@ export class InquestComponent implements OnInit {
         },
         clinical:{
           question1: form['value']['clinicosPregunta1'],
+          detailQuestion1: form['value']['detailQuestion1'],
           question2: form['value']['clinicosPregunta2'],
+          detailQuestion2: form['value']['detailQuestion2'],
           question3: form['value']['clinicosPregunta3'],
+          detailQuestion3: form['value']['detailQuestion3'],
           question4: form['value']['clinicosPregunta4'],
+          detailQuestion4: form['value']['detailQuestion4'],
           question5: form['value']['clinicosPregunta5'],
+          detailQuestion5: form['value']['detailQuestion5'],
           question6: form['value']['clinicosPregunta6'],
+          detailQuestion6: form['value']['detailQuestion6'],
           question7: form['value']['clinicosPregunta7'],
+          detailQuestion7: form['value']['detailQuestion7'],
           question8: form['value']['clinicosPregunta8'],
+          detailQuestion8: form['value']['detailQuestion8'],
           completedFlag:true
         },
         dietetics:{
