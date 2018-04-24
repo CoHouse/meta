@@ -373,8 +373,6 @@ export class InquestComponent implements OnInit {
 
   saveDataClinicos( form:NgForm ){
 
-    console.log("Esto trae el form: ", form );
-
     this.user = {
       inquest:{
         generals: {
@@ -424,11 +422,6 @@ export class InquestComponent implements OnInit {
           question5: form['value']['clinicosPregunta5'],
           detailQuestion5: form['value']['detailQuestion5'],
           question6: form['value']['clinicosPregunta6'],
-          detailQuestion6: form['value']['detailQuestion6'],
-          question7: form['value']['clinicosPregunta7'],
-          detailQuestion7: form['value']['detailQuestion7'],
-          question8: form['value']['clinicosPregunta8'],
-          detailQuestion8: form['value']['detailQuestion8'],
           completedFlag:true
         },
         dietetics:{
@@ -490,13 +483,20 @@ export class InquestComponent implements OnInit {
           completedFlag:true
         },
         biochemicals:{
-          completedFlag:false
+          completedFlag:true
         },
         clinical:{
-          completedFlag:false
+          completedFlag:true
         },
         dietetics:{
-          completedFlag: false
+          question1: form['value']['dieteticosPregunta1'],
+          question2: form['value']['dieteticosPregunta2'],
+          question3: form['value']['dieteticosPregunta3'],
+          question4: form['value']['dieteticosPregunta4'],
+          question5: form['value']['dieteticosPregunta5'],
+          question6: form['value']['dieteticosPregunta6'],
+          question7: form['value']['dieteticosPregunta7'],
+          completedFlag: true
         }
       },
       plan:{

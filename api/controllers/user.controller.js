@@ -77,6 +77,7 @@ function updateUser( req, res ){
 
   // Guardar tab Antropométricos
   else if( params.inquest.anthropometric.completedFlag && !params.inquest.biochemicals.completedFlag ){
+
     var updatePack = {
       "inquest.anthropometric.height": params.inquest.anthropometric.question1,
       "inquest.anthropometric.weight": params.inquest.anthropometric.question2,
@@ -103,7 +104,6 @@ function updateUser( req, res ){
       "inquest.biochemicals.completedFlag": params.inquest.biochemicals.completedFlag
     }
 
-      // Actualización de datos luego del guardado delarchivo
       objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
         if( error ){
           res.status( 500 ).send({ message: "Error al actualizar el usuario [updateUser Biochemicals]"});
@@ -113,16 +113,57 @@ function updateUser( req, res ){
         }
       });
 
+  }
 
-  } else if ( params.inquest.clinical.completedFlag && !params.inquest.dietetics.completedFlag ) {
+  //Guardar datos clínicos
+  else if ( params.inquest.clinical.completedFlag && !params.inquest.dietetics.completedFlag ) {
 
-  // Guardar datos Clínicos
-  } else if ( params.inquest.clinical.completedFlag && !params.inquest.dietetics.completedFlag ) {
+    var updatePack = {
+      "inquest.clinical.question1": params.inquest.clinical.question1,
+      "inquest.clinical.detailQuestion1": params.inquest.clinical.detailQuestion1,
+      "inquest.clinical.question2": params.inquest.clinical.question2,
+      "inquest.clinical.detailQuestion2": params.inquest.clinical.detailQuestion2,
+      "inquest.clinical.question3": params.inquest.clinical.question3,
+      "inquest.clinical.detailQuestion3": params.inquest.clinical.detailQuestion3,
+      "inquest.clinical.question4": params.inquest.clinical.question4,
+      "inquest.clinical.detailQuestion4": params.inquest.clinical.detailQuestion4,
+      "inquest.clinical.question5": params.inquest.clinical.question5,
+      "inquest.clinical.detailQuestion5": params.inquest.clinical.detailQuestion5,
+      "inquest.clinical.question6": params.inquest.clinical.question6,
+      "inquest.clinical.completedFlag": params.inquest.clinical.completedFlag
+    }
+
+      objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
+        if( error ){
+          res.status( 500 ).send({ message: "Error al actualizar el usuario [updateUser Clinical]"});
+        }else{
+          return res.status( 200 ).send( updatedUser ); // Develop
+          //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
+        }
+      });
 
   // Guardar datos dietéticos
-  }else if ( params.inquest.dietetics.completedFlag) {
+  } else if ( params.inquest.dietetics.completedFlag) {
+    var updatePack = {
+      "inquest.dietetics.question1": params.inquest.dietetics.question1,
+      "inquest.dietetics.question2": params.inquest.dietetics.question2,
+      "inquest.dietetics.question3": params.inquest.dietetics.question3,
+      "inquest.dietetics.question4": params.inquest.dietetics.question4,
+      "inquest.dietetics.question5": params.inquest.dietetics.question5,
+      "inquest.dietetics.question6": params.inquest.dietetics.question6,
+      "inquest.dietetics.question7": params.inquest.dietetics.question7,
+      "inquest.dietetics.completedFlag": params.inquest.dietetics.completedFlag
+    }
 
-  // Has llegado al final del formulario
+      objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
+        if( error ){
+          res.status( 500 ).send({ message: "Error al actualizar el usuario [updateUser Biochemicals]"});
+        }else{
+          return res.status( 200 ).send( updatedUser ); // Develop
+          //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
+        }
+      });
+
   }else{
     return null;
   }

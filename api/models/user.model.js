@@ -52,11 +52,6 @@ var userSchema = schema({
       question5: String,
       detailQuestion5: String,
       question6: String,
-      detailQuestion6: String,
-      question7: String,
-      detailQuestion7: String,
-      question8: String,
-      detailQuestion8: String,
       completedFlag: String
     },
     dietetics:{

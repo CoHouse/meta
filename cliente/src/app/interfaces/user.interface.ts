@@ -50,11 +50,6 @@ export interface User {
       question5?: string,
       detailQuestion5?:string,
       question6?: string,
-      detailQuestion6?:string,
-      question7?: string,
-      detailQuestion7?:string,
-      question8?: string,
-      detailQuestion8?:string,
       completedFlag: boolean
     },
     dietetics:{
