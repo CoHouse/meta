@@ -72,7 +72,10 @@ var userSchema = schema({
     exercise:{
       sendByPlanner: String
     }
-  }
+  },
+  completedInquestFlag?:String,
+  aPlan?:String,
+  ePlan?:String
 });
 
 module.exports = mongoose.model( 'users', userSchema );

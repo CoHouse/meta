@@ -26,12 +26,14 @@ import { DetailchallengeComponent } from './components/public/challenge/detailch
 
 import { TrainingComponent } from './components/private/training/training.component';
 import { AccountComponent } from './components/private/account/account.component';
-import { InquestComponent } from './components/private/inquest/inquest.component';
 import { GymsComponent } from './components/private/gyms/gyms.component';
+import { InquestComponent } from './components/private/inquest/inquest.component';
+import { YouchangerComponent } from './components/private/inquest/youchanger.component';
 
 import { ContentManagerComponent } from './components/admin/content-manager/content-manager.component';
 import { NutritionistManagerComponent } from './components/admin/nutritionist-manager/nutritionist-manager.component';
 import { PlannerManagerComponent } from './components/admin/planner-manager/planner-manager.component';
+import { PmdetailComponent } from './components/admin/planner-manager/pmdetail.component';
 
 /* Services */
 import { AuthService } from './services/auth.service';
@@ -56,7 +58,6 @@ import { FilesUploaderService } from './services/files-uploader.service';
 
 /* Routes */
 import { APP_ROUTING } from './app-routes';
-import { YouchangerComponent } from './components/private/inquest/youchanger.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { YouchangerComponent } from './components/private/inquest/youchanger.com
     TopicComponent,
     JoinComponent,
     DetailchallengeComponent,
-    YouchangerComponent
+    YouchangerComponent,
+    PmdetailComponent
   ],
   imports: [
     BrowserModule,

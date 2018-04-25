@@ -64,6 +64,8 @@ export interface User {
     }
   },
   completedInquestFlag?:boolean,
+  aPlan?:boolean,
+  ePlan?:boolean,
   plan:{
     alimentary:{
       sendByDietist: boolean
