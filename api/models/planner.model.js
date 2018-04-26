@@ -3,10 +3,10 @@
 var mongoose = require("mongoose");
 var schema = mongoose.Schema;
 
-var changerSchema = schema({
+var plannerSchema = schema({
   email: String,
   startDate:String,
   endDate:String
 });
 
- module.exports = mongoose.model( 'changerguard', changerSchema );
+ module.exports = mongoose.model( 'plannerguard', plannerSchema );

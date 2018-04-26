@@ -73,9 +73,9 @@ var userSchema = schema({
       sendByPlanner: String
     }
   },
-  completedInquestFlag?:String,
-  aPlan?:String,
-  ePlan?:String
+  completedInquestFlag:String,
+  aPlan:String,
+  ePlan:String
 });
 
 module.exports = mongoose.model( 'users', userSchema );

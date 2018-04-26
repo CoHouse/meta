@@ -1,29 +1,31 @@
 "use strict"
 
-var objChanger = require("../models/admin.model.js");
+var objAdmin = require("../models/admin.model.js");
 var bcrypt = require("bcrypt-nodejs");
 var dateformat = require('dateformat');
 
 /* GET */
 
 /* POST */
-function saveChanger( req, res ){
-  var changer = new objChanger();
+function saveAdmin( req, res ){
+  var admin = new objAdmin();
   var params = req.body;
 
-  changer.email = params.email;
-  changer.startDate = params.startDate;
-  changer.endDate = params.endDate;
+  console.log(params);
+
+  admin.email = params.email;
+  admin.startDate = params.startDate;
+  admin.endDate = params.endDate;
 
   if ( params.email != null && params.startDate != null && params.endDate != null ){
 
     bcrypt.hash( params.email, null, null, function( error, hash ){
 
-      changer.email = hash;
+      admin.email = hash;
 
-      changer.save( ( error, save ) => {
+      admin.save( ( error, save ) => {
         if( error ){
-          res.status( 500 ).send({ message: "Error al guardar el usuario [saveChanger]"});
+          res.status( 500 ).send({ message: "Error al guardar el usuario [saveAdmin]"});
         }else{
           res.status( 201 ).send( save ); // Develop
            //res.status( 201 ).send( { message: "Guardado con éxito." } ); // Production
@@ -32,23 +34,23 @@ function saveChanger( req, res ){
 
     });
   }else{
-    res.status( 500 ).send({ message: "Alguno de los datos viene vacío [saveChanger]"});
+    res.status( 400 ).send({ message: "Alguno de los datos viene vacío [saveAdmin]"});
   }
 }
 
-function getChanger( req, res ){
+function getAdmin( req, res ){
   var params = req.body;
 
-  objChanger.find( ( error, showChangers ) => {
-    if( error || showChangers.length <= 0 ){
-       return res.status( 404 ).send( { message: "[getChanger changerController]" } );
+  objAdmin.find( ( error, showAdmins ) => {
+    if( error || showAdmins.length <= 0 ){
+       return res.status( 404 ).send( { message: "[getAdmin adminController]" } );
     }else{
-      for ( let i in showChangers ){
-        if( !bcrypt.compareSync( params.email, showChangers[i].email ) ){
+      for ( let i in showAdmins ){
+        if( !bcrypt.compareSync( params.email, showAdmins[i].email ) ){
           /* hacer algo */
         }else{
           var today = dateformat( new Date(), "dd-mm-yyyy" );
-          var endDate = dateformat( showChangers[i].endDate, "dd-mm-yyyy" );
+          var endDate = dateformat( showAdmins[i].endDate, "dd-mm-yyyy" );
 
           if( endDate >= today ){
               return res.status( 200 ).send( { message: "true" } );
@@ -62,6 +64,6 @@ function getChanger( req, res ){
 }
 
 module.exports = {
-  saveChanger,
-  getChanger
+  saveAdmin,
+  getAdmin
 }

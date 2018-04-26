@@ -144,72 +144,41 @@
           <div class="text-center py-3">
             <div class="btn-group" role="group" aria-label="Basic example">
               <button (click)="activaAdmin()" type="button" class="btn btn-secondary">Administrador</button>
-              <button (click)="activaNutritionist()" type="button" class="btn btn-secondary">Nutricionista</button>
               <button (click)="activaPlanner()" type="button" class="btn btn-secondary">Planificador</button>
+              <button (click)="activaNutritionist()" type="button" class="btn btn-secondary">Nutricionista</button>
             </div>
           </div>
 
-          <h4 *ngIf="vActivaAdmin" class="pb-2">Alta de Registro - Administrador</h4>
-
+            <h4 *ngIf="vActivaAdmin" class="pb-2">Alta de Registro - Administrador</h4>
             <form class="form-inline" *ngIf="vActivaAdmin" (ngSubmit)="adminRegister(formAdmins)" #formAdmins="ngForm">
               <div class="row py-1">
 
-                <div class="input-group">
+                <div class="form-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">@</span>
                   </div>
-                  <input type="text" class="form-control" placeholder="email" name="adminEmail" aria-describedby="basic-addon1" >
+                  <input type="text" class="form-control" placeholder="email" name="email" aria-describedby="basic-addon1" ngModel required>
                 </div>
 
                 <div class="form-group">
                   <label class="px-2" for="mail"><h6>Fecha de Inicio</h6></label>
-                  <input type="email" class="form-control" name="adminFInicio" placeholder="aaaa/mm/dd" ngModel required >
+                  <input type="email" class="form-control" name="startDate" placeholder="aaaa/mm/dd" ngModel required >
                 </div>
 
                 <div class="form-group">
                   <label class="px-2" for="mail"><h6>Fecha de Fin</h6></label>
-                  <input type="email" class="form-control" name="adminFFin" placeholder="aaaa/mm/dd" ngModel required >
+                  <input type="email" class="form-control" name="endDate" placeholder="aaaa/mm/dd" ngModel required >
                 </div>
 
               </div>
               <div class="text-center py-3 px-4">
-                <button type="button" [disabled]="formAdmins.valid" class="btn btn-danger">Cancelar</button>
-                <button type="button" [disabled]="!formAdmins.valid" class="btn btn-success">Guardar</button>
+                <button type="button" [disabled]="formAdmins.valid" (click)="activaAdmin()" class="btn btn-danger">Cancelar</button>
+                <button type="button" [disabled]="!formAdmins.valid" (click)="adminRegister(formAdmins)" class="btn btn-success">Guardar</button>
               </div>
             </form>
+            <hr *ngIf="vActivaPlane">
 
-            <hr>
-
-          <h4 *ngIf="vActivaNutri" class="pb-2">Alta de Registro - Nutricionista</h4>
-            <form *ngIf="vActivaNutri" class="form-inline" #formNutris="ngForm">
-              <div class="row py-1">
-
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">@</span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="email" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-
-                <!-- <div class="form-group">
-                  <label class="px-2" for="mail"><h6>Email</h6></label>
-                  <input type="email" class="form-control" name="adminMail" placeholder="Ingresar email" ngModel required #adminMail="ngModel">
-                </div> -->
-
-                <div class="form-group">
-                  <label class="px-2" for="mail"><h6>Fecha de Inicio</h6></label>
-                  <input type="email" class="form-control" name="adminFInicio" placeholder="aaaa/mm/dd" ngModel required #adminIniVig="ngModel">
-                </div>
-
-                <div class="form-group">
-                  <label class="px-2" for="mail"><h6>Fecha de Fin</h6></label>
-                  <input type="email" class="form-control" name="adminFFin" placeholder="aaaa/mm/dd" ngModel required #adminFinVig="ngModel">
-                </div>
-
-              </div>
-            </form>
-            <hr>
-          <h4 *ngIf="vActivaPlane" class="pb-2">Alta de Registro - Planificador</h4>
+            <h4 *ngIf="vActivaPlane" class="pb-2">Alta de Registro - Planificador</h4>
             <form *ngIf="vActivaPlane" class="form-inline" #formPlanners="ngForm">
               <div class="row py-1">
 
@@ -217,27 +186,57 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">@</span>
                   </div>
-                  <input type="text" class="form-control" placeholder="email" aria-label="Username" aria-describedby="basic-addon1">
+                  <input type="text" class="form-control" placeholder="email" name="email" aria-label="Username" aria-describedby="basic-addon1" ngModel  required>
                 </div>
 
                 <div class="form-group">
                   <label class="px-2" for="mail"><h6>Fecha de Inicio</h6></label>
-                  <input type="email" class="form-control" name="adminFFin" placeholder="aaaa/mm/dd" ngModel required #adminFinVig="ngModel">
+                  <input type="email" class="form-control" name="startDate" placeholder="aaaa/mm/dd" ngModel required >
                 </div>
 
                 <div class="form-group">
                   <label class="px-2" for="mail"><h6>Fecha de Fin</h6></label>
-                  <input type="email" class="form-control" name="adminFFin" placeholder="aaaa/mm/dd" ngModel required #adminFinVig="ngModel">
+                  <input type="email" class="form-control" name="endDate" placeholder="aaaa/mm/dd" ngModel required >
                 </div>
 
               </div>
+              <div class="text-center py-3 px-4">
+                <button type="button" [disabled]="formPlanners.valid" (click)="activaPlanner()" class="btn btn-danger">Cancelar</button>
+                <button type="button" [disabled]="!formPlanners.valid" (click)="plannerRegister(formPlanners)" class="btn btn-success">Guardar</button>
+              </div>
             </form>
-            <hr>
+            <hr *ngIf="vActivaPlane">
 
-            <!-- <div class="text-center py-3">
-              <button type="button" [disabled]="formAdmins.valid" class="btn btn-danger">Cancelar</button>
-              <button type="button" [disabled]="!formAdmins.valid" class="btn btn-success">Guardar</button>
-            </div> -->
+            <hr *ngIf="vActivaNutri">
+            <h4 *ngIf="vActivaNutri" class="pb-2">Alta de Registro - Nutricionista</h4>
+            <form *ngIf="vActivaNutri" class="form-inline" #formNutris="ngForm">
+              <div class="row py-1">
+
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="email" name="email" aria-label="Username" aria-describedby="basic-addon1" ngModel required>
+                </div>
+
+                <div class="form-group">
+                  <label class="px-2" for="mail"><h6>Fecha de Inicio</h6></label>
+                  <input type="email" class="form-control" name="startDate" placeholder="aaaa/mm/dd" ngModel required #adminIniVig="ngModel">
+                </div>
+
+                <div class="form-group">
+                  <label class="px-2" for="mail"><h6>Fecha de Fin</h6></label>
+                  <input type="email" class="form-control" name="endDate" placeholder="aaaa/mm/dd" ngModel required #adminFinVig="ngModel">
+                </div>
+
+              </div>
+              <div class="text-center py-3 px-4">
+                <button type="button" [disabled]="formNutris.valid" class="btn btn-danger">Cancelar</button>
+                <button type="button" (click)="nutritionistRegister( formNutris )" [disabled]="!formNutris.valid" class="btn btn-success">Guardar</button>
+              </div>
+            </form>
+
+            <h3 *ngIf="!vActivaPlane && !vActivaNutri && !vActivaAdmin" class="text-center text-uppercase py-5">Selecciona el tipo de usuario a dar de alta</h3>
 
         </div>
 
