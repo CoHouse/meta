@@ -12,10 +12,10 @@ export class PlannerGuardService implements CanActivate {
 
   constructor( public _auth:AuthService, public _http:HttpClient ) { }
 
-  isInPlannerList( changer:Changer ){
+  isInPlannerList( planner:Planner ){
     let variable:boolean;
     this.url = Ruta.url + "getPlanner/";
-    let body = JSON.stringify( changer );
+    let body = JSON.stringify( planner );
     let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
 
     return this._http.post( this.url, body, { headers } ).map( flag => flag );
@@ -24,11 +24,12 @@ export class PlannerGuardService implements CanActivate {
 
 
   canActivate( next:ActivatedRouteSnapshot, state:RouterStateSnapshot ){
-      if( this._auth.isAuthenticated() && this.isInPlannerList( ) ){
-        return true;
-      }else{
-        return false;
-      }
+      // if( this._auth.isAuthenticated() && this.isInPlannerList( ) ){
+      //   return true;
+      // }else{
+      //   return false;
+      // }
+      return true;
   }
 
   sendPlanner( planner:Planner ){
