@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Video } from '../../../interfaces/video.interface';
 import { VideoService } from '../../../services/video.service';
-import { Http, Response } from "@angular/http";
+// import { Http, Response } from "@angular/http";
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -22,7 +22,8 @@ export class VideoComponent implements OnInit {
     author: null,
     category: null,
     text: null,
-    videoUrl:null
+    dominio:null,
+    url:null
   }
 
   constructor( public _video:VideoService, public _activatedRoute:ActivatedRoute ) {

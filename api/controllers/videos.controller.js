@@ -270,6 +270,8 @@ function saveVideo( req, res ){
   video.category = params.category;
   video.visibleLevel = params.visibleLevel;
   video.text = params.text;
+  video.dominio = params.dominio;
+  video.url = params.url;
 
   video.save( ( error, videoGuardado ) => {
     if( error ){

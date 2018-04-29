@@ -56,6 +56,9 @@ import { CommentService } from './services/comment.service';
 import { UserService } from './services/user.service';
 import { FilesUploaderService } from './services/files-uploader.service';
 
+/* Pipes */
+import { DomseguroPipe } from './pipes/domseguro.pipe';
+
 /* Routes */
 import { APP_ROUTING } from './app-routes';
 
@@ -87,7 +90,8 @@ import { APP_ROUTING } from './app-routes';
     JoinComponent,
     DetailchallengeComponent,
     YouchangerComponent,
-    PmdetailComponent
+    PmdetailComponent,
+    DomseguroPipe
   ],
   imports: [
     BrowserModule,

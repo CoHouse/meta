@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-7 offset-lg-1 col-md-7 offset-md-1 col-sm-12 col-xs-12 pt-3 animated fadeIn">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pt-3 animated fadeIn">
       <h1>Titulo</h1>
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -41,7 +41,7 @@
 
     <!-- Columna 2 -->
 
-    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pt-3 animated fadeIn">
+    <!-- <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pt-3 animated fadeIn">
       <h2>Reto Diario</h2>
       <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
         <div class="card-header">Header</div>
@@ -59,7 +59,8 @@
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
       </div>
-    </div>
+    </div> -->
+
   </div>
 </div>
 
@@ -68,6 +69,7 @@
 <div class="container">
   <div class="row">
     <h2>Mi entrenamiento</h2>
+
     <div class="col-12">
       <div class="text-center">
         <img src="assets/img/img-ejerc.svg" alt="..." class="img-thumbnail">
@@ -77,10 +79,8 @@
         <img src="assets/img/img-ejerc.svg" alt="..." class="img-thumbnail">
       </div>
     </div>
-  </div>
 
-  <a *ngIf="!this.auth.isAuthenticated()" class="btn btn-danger bg-red btn-block mt-3" [routerLink]="['register']"><h4>Empieza tu entrenamiento personalizado hoy mismo</h4></a>
-  <a *ngIf="this.auth.isAuthenticated()" class="btn btn-success btn-block mt-3" [routerLink]="['training']"><h4>Ir a mi Plan Personalizado</h4></a>
+  </div>
 
 </div>
 

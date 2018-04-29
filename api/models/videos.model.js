@@ -11,7 +11,9 @@ var videoSchema = schema({
   author: String,
   category: String,
   visibleLevel: String,
-  text: String
+  text: String,
+  dominio:String,
+  url: String
 });
 
  module.exports = mongoose.model( 'videos', videoSchema );

@@ -1,9 +1,11 @@
 <div class="container-fluid">
   <div class="row pt-3">
     <div class="col-lg-2 col-md-2 col-sm-11 col-xs-11 offset-sm-1 offset-xs-1 text-center ml-3">
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-action flex-column align-items-start background-black white-font">Categorías</li>
-        <li *ngFor="let category of categories" class="list-group-item"><a [routerLink]="[ '/blog', category.ref ]"><h6>{{ category.name }}</h6></a> </li>
+      <ul class="nav nav-tabs flex-column list-group text-uppercase shadow">
+        <li class="list-group-item list-group-item-action flex-column align-items-start background-black white-font"><h5>Categorías</h5></li>
+        <li *ngFor="let category of categories" class="list-group-item">
+          <a [routerLink]="[ '/blog', category.ref ]"><h5>{{ category.name }}</h5></a>
+        </li>
       </ul>
     </div>
 

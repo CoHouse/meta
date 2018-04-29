@@ -8,5 +8,6 @@ export interface Video{
   category: string,
   visibleLevel?: string,
   text: string,
-  videoUrl: string
+  dominio:string,
+  url: string
 }

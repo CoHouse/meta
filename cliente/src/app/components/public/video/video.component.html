@@ -1,32 +1,33 @@
 <div class="container-fluid">
   <div class="row pt-3">
     <div class="col-lg-2 col-md-2 col-sm-11 col-xs-11 offset-sm-1 offset-xs-1 text-center ml-3">
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-action flex-column align-items-start active">Categorías</li>
-        <li *ngFor="let category of categories" class="list-group-item"><a [routerLink]="[ '/videos', category.ref ]">{{ category.name }}</a> </li>
+      <ul class="list-group nav nav-tabs flex-column text-uppercase shadow">
+        <li class="list-group-item list-group-item-action flex-column align-items-start background-black white-font"><h5>Categorías</h5></li>
+        <li *ngFor="let category of categories" class="list-group-item">
+          <a class="video-link" [routerLink]="[ '/videos', category.ref ]"><h5>{{ category.name }}</h5>
+          </a> </li>
         <!-- <span class="badge badge-primary badge-pill">14</span> -->
       </ul>
     </div>
 
     <div class="col-lg-9 col-md-9 col-sm-10 col-xs-10 offset-lg-0 offset-md-0 offset-sm-1 offset-xs-1 text-center">
-        <div class="carousel-inner">
-          <div class="carousel-item active pt-1">
-            <img class="d-block w-75" src="{{ video.image }}" alt="{{ video.title }} | {{ video.subtitle }}">
-            <div class="carousel-caption d-none d-md-block">
-              <h1 class="display-1 py-5">{{ video.title }}</h1>
-              <h3 class="text-center py-2">{{ video.subtitle }}</h3>
-            </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active pt-1">
+          <img class="d-block w-100" [src]="video.image" alt="{{ video.title }} | {{ video.subtitle }}">
+          <div class="carousel-caption d-none d-md-block">
+            <h1 class="display-1 py-2 black-font">{{ video.title }}</h1>
+            <h3 class="text-center py-1 black-font">{{ video.subtitle }}</h3>
           </div>
         </div>
-      <h6 class="text-center py-3"> Categoría: {{ video.category }} </h6>
+      </div>
 
-      <div class="embed-responsive embed-responsive-16by9 py-4">
-        <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/256160363" allowfullscreen></iframe>
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" [src]="video.url | domseguro:video.dominio" allowfullscreen></iframe>
       </div>
 
     </div>
 
-    <div class="row py-2 text-justify">
+    <div class="row py-1 text-justify">
       <div class="col-lg-9 col-md-9 col-sm-10 col-xs-10 offset-lg-2 offset-md-2 offset-sm-1 offset-xs-1" [innerHtml]='video.text'></div>
     </div>
 
@@ -34,8 +35,8 @@
 
   <div class="py-2 text-right">
     <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
-      <h6 class="py-2">Fecha de publicación: {{ video.date }}</h6>
-      <h6 class="py-2">Publicado por: {{ video.author }}</h6>
+      <h5><strong>Fecha de publicación:</strong> {{ video.date }}</h5>
+      <h5 class="py-2"><strong>Publicado por:</strong> {{ video.author }}</h5>
     </div>
   </div>
 

@@ -8,6 +8,7 @@
         <li class="list-group-item list-group-item-action flex-column align-items-start background-black white-font"><h5>Categorías</h5></li>
         <li *ngFor="let category of categories; let i = index;" class="list-group-item">
           <a
+          class="video-link"
           id="v-pills-{{ category.name }}-tab"
           data-toggle="tab"
           href="#v-pills-{{ category.ref }}"

@@ -18,6 +18,7 @@ import 'sweetalert';
   templateUrl: './content-manager.component.html',
   styles: []
 })
+
 export class ContentManagerComponent implements OnInit {
 
   vActivaAdmin = false;
@@ -26,6 +27,7 @@ export class ContentManagerComponent implements OnInit {
 
   changer:Changer = {
     email: "",
+    user:"",
     startDate:"",
     endDate: ""
   }
@@ -60,6 +62,7 @@ export class ContentManagerComponent implements OnInit {
   changerRegister( form:NgForm ){
     this.changer = {
       email: form['value']['paymentEmail'],
+      user: null,
       startDate: form['value']['paymentStartDate'],
       endDate: form['value']['paymentEndDate']
     }
@@ -73,8 +76,6 @@ export class ContentManagerComponent implements OnInit {
   }
 
   adminRegister( form:NgForm ){
-
-    console.log(form);
 
     this.admin = {
       email: form['value']['email'],
@@ -114,7 +115,9 @@ export class ContentManagerComponent implements OnInit {
     }
 
     this._nutritionist.sendNutritionist( this.nutritionist ).subscribe( data => {
+      swal("Registro Exitoso", "Nutricionista dado de alta correctamente", "success");
       form.reset();
+      this.activaNutritionist();
     }, error => console.error( error ) );
   }
 

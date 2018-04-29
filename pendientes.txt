@@ -1,0 +1,8 @@
+- Implementar sweetalert en el guardado de registros de los changers
+- CSS visibilidad y pantalla completa en "our system"
+- Cambiar el nombre a la pestaña "Alimenticios" del cuestionario
+- Validar el texto muted en el cuestionario si se deja con o sin parténtesis (estandarizar)
+- Quitar la pregunta 6 del cuestionario "Alimenticios"
+- Varlidar los datos de autor entradas de blog
+- Validar el tamaño ideal para la imagen de video
+- 
