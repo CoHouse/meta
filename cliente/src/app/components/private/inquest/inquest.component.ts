@@ -114,13 +114,13 @@ export class InquestComponent implements OnInit {
       // 3. Enviar id de usuario (ya existe) a la url
       this.router.navigate(['/inquest', this._id ]);
       // 4. Ir al siguiente Tab
-      $('.nav-tabs a[href="#alimenticios"]').removeClass('disabled').tab('show');
+      $('.nav-tabs a[href="#antecedentes"]').removeClass('disabled').tab('show');
 
 
     }, error => console.error( error ) );
   }
 
-  saveDataAlimenticios( form:NgForm ){
+  saveDataAntecedentes( form:NgForm ){
     // Llenar los datos a enviar
     this.user = {
       inquest:{
@@ -131,21 +131,21 @@ export class InquestComponent implements OnInit {
           completedFlag: true
         },
         alimentary:{
-          question1: form['value']['alimentacionPregunta1'],
-          question2: form['value']['alimentacionPregunta2'],
-          question3: form['value']['alimentacionPregunta3'],
-          question4: form['value']['alimentacionPregunta4'],
-          question5: form['value']['alimentacionPregunta5'],
-          question6: form['value']['alimentacionPregunta6'],
-          question7A: form['value']['alimentacionPregunta7A'],
-          question7B: form['value']['alimentacionPregunta7B'],
-          question7C: form['value']['alimentacionPregunta7C'],
-          question7D: form['value']['alimentacionPregunta7D'],
-          question8A: form['value']['alimentacionPregunta8A'],
-          question8B: form['value']['alimentacionPregunta8B'],
-          question8C: form['value']['alimentacionPregunta8C'],
-          question8D: form['value']['alimentacionPregunta8D'],
-          question9: form['value']['alimentacionPregunta9'],
+          question1: form['value']['antecedentesPregunta1'],
+          question2: form['value']['antecedentesPregunta2'],
+          question3: form['value']['antecedentesPregunta3'],
+          question4: form['value']['antecedentesPregunta4'],
+          question5: form['value']['antecedentesPregunta5'],
+          question6: form['value']['antecedentesPregunta6'],
+          question7A: form['value']['antecedentesPregunta7A'],
+          question7B: form['value']['antecedentesPregunta7B'],
+          question7C: form['value']['antecedentesPregunta7C'],
+          question7D: form['value']['antecedentesPregunta7D'],
+          question8A: form['value']['antecedentesPregunta8A'],
+          question8B: form['value']['antecedentesPregunta8B'],
+          question8C: form['value']['antecedentesPregunta8C'],
+          question8D: form['value']['antecedentesPregunta8D'],
+          question9: form['value']['antecedentesPregunta9'],
           completedFlag:true
         },
         anthropometric:{
@@ -174,7 +174,7 @@ export class InquestComponent implements OnInit {
     // Hacer actualización
     this._user.updateUser( this.user, this._id ).subscribe( data => {
       //Hacer Tab Inaccesible
-      $('.nav-tabs a[href="#alimenticios"]').removeClass('active').addClass('disabled');
+      $('.nav-tabs a[href="#antecedentes"]').removeClass('active').addClass('disabled');
       //Pasar al siguiente formulario
       $('.nav-tabs a[href="#antropometricos"]').removeClass('disabled').tab('show');
     });

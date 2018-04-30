@@ -24,11 +24,10 @@ export class AuthService {
 
   changer:Changer = {
     email: "",
+    user: "",
     startDate:"",
     endDate: ""
   }
-
-  isChangerFlag;
 
   constructor( public router: Router, public _changer:ChangerGuardService ) {
     if ( !this.isAuthenticated() ){
@@ -65,14 +64,14 @@ export class AuthService {
 
       this.changer = {
         email: this.userProfile['email'],
+        user: null,
         startDate:null,
         endDate: null
       }
 
       this._changer.isChanger( this.changer ).subscribe( result => {
-        this.isChangerFlag = result['message'];
 
-        if( this.isChangerFlag == "true" ){
+        if( result ){
           localStorage.setItem('about', "2018 MBC / 190318");
         }else{
           localStorage.setItem('about', "2018 MBC / 160318");
@@ -80,7 +79,6 @@ export class AuthService {
       }, error => {
         var errorMessage = <any>error;
       });
-
     });
 
   }

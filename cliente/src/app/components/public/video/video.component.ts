@@ -22,7 +22,7 @@ export class VideoComponent implements OnInit {
     author: null,
     category: null,
     text: null,
-    dominio:null,
+    domain:null,
     url:null
   }
 

@@ -75,3 +75,6 @@ https://stackoverflow.com/questions/38996376/generate-pdf-file-from-html-using-a
 
 Generador de IMG a URL data
 http://dataurl.net/#cssoptimizer
+
+Fechas en Typescript
+https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date

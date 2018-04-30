@@ -1,6 +1,6 @@
 "use strict"
 
-var objChanger = require("../models/admin.model.js");
+var objChanger = require("../models/changer.model.js");
 var bcrypt = require("bcrypt-nodejs");
 var dateformat = require('dateformat');
 
@@ -12,10 +12,11 @@ function saveChanger( req, res ){
   var params = req.body;
 
   changer.email = params.email;
+  changer.user = params.user;
   changer.startDate = params.startDate;
   changer.endDate = params.endDate;
 
-  if ( params.email != null && params.startDate != null && params.endDate != null ){
+  if ( params.email != null && params.user != null && params.startDate != null && params.endDate != null ){
 
     bcrypt.hash( params.email, null, null, function( error, hash ){
 
@@ -23,16 +24,16 @@ function saveChanger( req, res ){
 
       changer.save( ( error, save ) => {
         if( error ){
-          res.status( 500 ).send({ message: "Error al guardar el usuario [saveChanger]"});
+          res.status( 500 ).send( { message: "Error al guardar el usuario [saveChanger]" } );
         }else{
           res.status( 201 ).send( save ); // Develop
-           //res.status( 201 ).send( { message: "Guardado con éxito." } ); // Production
+           //res.status( 201 ).send( { message: "Registro guardado con éxito." } ); // Production
         }
       });
 
     });
   }else{
-    res.status( 500 ).send({ message: "Alguno de los datos viene vacío [saveChanger]"});
+    res.status( 500 ).send( { message: "Alguno de los datos viene vacío [saveChanger]"} );
   }
 }
 
@@ -47,13 +48,14 @@ function getChanger( req, res ){
         if( !bcrypt.compareSync( params.email, showChangers[i].email ) ){
           /* hacer algo */
         }else{
-          var today = dateformat( new Date(), "dd-mm-yyyy" );
-          var endDate = dateformat( showChangers[i].endDate, "dd-mm-yyyy" );
+          var today = new Date( ).getTime( );
+          var endDate = new Date( showChangers[i].endDate ).getTime( );
+          var startDate = new Date( showChangers[i].startDate ).getTime( );
 
-          if( endDate >= today ){
-              return res.status( 200 ).send( { message: "true" } );
+          if( startDate <= today && endDate >= today ){
+              return res.status( 200 ).send( true );
             } else {
-              return res.status( 200 ).send( { message: "false" } );
+              return res.status( 200 ).send( false );
           }
         }
       }

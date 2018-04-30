@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormsModule } from '@angular/forms';
+import { Pipe, PipeTransform } from '@angular/core';
 
 import { ChangerGuardService } from '../../../services/changer-guard.service';
 import { AdminGuardService } from '../../../services/admin-guard.service';
@@ -24,6 +25,7 @@ export class ContentManagerComponent implements OnInit {
   vActivaAdmin = false;
   vActivaNutri = false;
   vActivaPlane = false;
+  today = new Date();
 
   changer:Changer = {
     email: "",
@@ -60,18 +62,23 @@ export class ContentManagerComponent implements OnInit {
   ngOnInit() { }
 
   changerRegister( form:NgForm ){
+
+    let splitEmail = form['value']['paymentEmail'].split('@');
+    let userSp = splitEmail[0];
+
+    let endDate = new Date(form['value']['paymentEndDate']).toString();
+
     this.changer = {
       email: form['value']['paymentEmail'],
-      user: null,
-      startDate: form['value']['paymentStartDate'],
-      endDate: form['value']['paymentEndDate']
+      user: userSp,
+      startDate: this.today.toString(),
+      endDate: endDate
     }
 
     this._changer.sendChanger( this.changer ).subscribe( data => {
       swal("Registro Exitoso", "Changer dado de alta correctamente", "success");
       form.reset();
       this.activaAdmin();
-
     }, error => console.error( error ) );
   }
 

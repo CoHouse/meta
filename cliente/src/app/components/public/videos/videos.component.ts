@@ -31,7 +31,8 @@ export class VideosComponent implements OnInit {
     author: "MBC Crew",
     category: "Ejercicios",
     text: "text",
-    videoUrl:""
+    url:"",
+    domain:""
   }
 
   constructor( public _videos:VideosService, public _activatedRoute:ActivatedRoute ) {
