@@ -13,7 +13,7 @@ function saveUser( req, res ){
   user.inquest.generals.email = params.inquest.generals.email;
   user.inquest.generals.completedFlag = params.inquest.generals.completedFlag;
 
-  user.inquest.alimentary.completedFlag = params.inquest.alimentary.completedFlag;
+  user.inquest.background.completedFlag = params.inquest.background.completedFlag;
   user.inquest.anthropometric.completedFlag = params.inquest.anthropometric.completedFlag;
   user.inquest.biochemicals.completedFlag = params.inquest.biochemicals.completedFlag;
   user.inquest.clinical.completedFlag = params.inquest.clinical.completedFlag;
@@ -40,28 +40,27 @@ function updateUser( req, res ){
   var user = new objUser();
 
   // Guardar tab Alimenticios
-  if( params.inquest.alimentary.completedFlag && !params.inquest.anthropometric.completedFlag ){
+  if( params.inquest.background.completedFlag && !params.inquest.anthropometric.completedFlag ){
 
     var updatePack = {
-        "inquest.alimentary.question1": params.inquest.alimentary.question1,
-        "inquest.alimentary.question2": params.inquest.alimentary.question2,
-        "inquest.alimentary.question3": params.inquest.alimentary.question3,
-        "inquest.alimentary.question4": params.inquest.alimentary.question4,
-        "inquest.alimentary.question5": params.inquest.alimentary.question5,
-        "inquest.alimentary.question6": params.inquest.alimentary.question6,
+        "inquest.background.question1": params.inquest.background.question1,
+        "inquest.background.question2": params.inquest.background.question2,
+        "inquest.background.question3": params.inquest.background.question3,
+        "inquest.background.question4": params.inquest.background.question4,
+        "inquest.background.question5": params.inquest.background.question5,
 
-        "inquest.alimentary.question7A": params.inquest.alimentary.question7A,
-        "inquest.alimentary.question7B": params.inquest.alimentary.question7B,
-        "inquest.alimentary.question7C": params.inquest.alimentary.question7C,
-        "inquest.alimentary.question7D": params.inquest.alimentary.question7D,
+        "inquest.background.question6A": params.inquest.background.question6A,
+        "inquest.background.question6B": params.inquest.background.question6B,
+        "inquest.background.question6C": params.inquest.background.question6C,
+        "inquest.background.question6D": params.inquest.background.question6D,
 
-        "inquest.alimentary.question8A": params.inquest.alimentary.question8A,
-        "inquest.alimentary.question8B": params.inquest.alimentary.question8B,
-        "inquest.alimentary.question8C": params.inquest.alimentary.question8C,
-        "inquest.alimentary.question8D": params.inquest.alimentary.question8D,
+        "inquest.background.question7A": params.inquest.background.question7A,
+        "inquest.background.question7B": params.inquest.background.question7B,
+        "inquest.background.question7C": params.inquest.background.question7C,
+        "inquest.background.question7D": params.inquest.background.question7D,
 
-        "inquest.alimentary.question9": params.inquest.alimentary.question9,
-        "inquest.alimentary.completedFlag": params.inquest.alimentary.completedFlag
+        "inquest.background.question8": params.inquest.background.question8,
+        "inquest.background.completedFlag": params.inquest.background.completedFlag
     }
 
     objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{

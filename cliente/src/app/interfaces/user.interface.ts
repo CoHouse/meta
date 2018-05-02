@@ -6,25 +6,24 @@ export interface User {
       email: string,
       completedFlag: boolean
     },
-    alimentary:{
+    background:{
       question1?: string,
       question2?: string,
       question3?: string,
       question4?: string,
       question5?: string,
-      question6?: string,
+
+      question6A?: string,
+      question6B?: string,
+      question6C?: string,
+      question6D?: string,
 
       question7A?: string,
       question7B?: string,
       question7C?: string,
       question7D?: string,
 
-      question8A?: string,
-      question8B?: string,
-      question8C?: string,
-      question8D?: string,
-
-      question9?: string,
+      question8?: string,
       completedFlag: boolean
     },
     anthropometric:{

@@ -25,7 +25,7 @@ export class InquestComponent implements OnInit {
         email:null,
         completedFlag: true
       },
-      alimentary:{
+      background:{
         completedFlag:false
       },
       anthropometric:{
@@ -77,7 +77,7 @@ export class InquestComponent implements OnInit {
           email: this.profile.email,
           completedFlag: true
         },
-        alimentary:{
+        background:{
           completedFlag:false
         },
         anthropometric:{
@@ -130,22 +130,21 @@ export class InquestComponent implements OnInit {
           email: null,
           completedFlag: true
         },
-        alimentary:{
+        background:{
           question1: form['value']['antecedentesPregunta1'],
           question2: form['value']['antecedentesPregunta2'],
           question3: form['value']['antecedentesPregunta3'],
           question4: form['value']['antecedentesPregunta4'],
           question5: form['value']['antecedentesPregunta5'],
-          question6: form['value']['antecedentesPregunta6'],
+          question6A: form['value']['antecedentesPregunta6A'],
+          question6B: form['value']['antecedentesPregunta6B'],
+          question6C: form['value']['antecedentesPregunta6C'],
+          question6D: form['value']['antecedentesPregunta6D'],
           question7A: form['value']['antecedentesPregunta7A'],
           question7B: form['value']['antecedentesPregunta7B'],
           question7C: form['value']['antecedentesPregunta7C'],
           question7D: form['value']['antecedentesPregunta7D'],
-          question8A: form['value']['antecedentesPregunta8A'],
-          question8B: form['value']['antecedentesPregunta8B'],
-          question8C: form['value']['antecedentesPregunta8C'],
-          question8D: form['value']['antecedentesPregunta8D'],
-          question9: form['value']['antecedentesPregunta9'],
+          question8: form['value']['antecedentesPregunta8'],
           completedFlag:true
         },
         anthropometric:{
@@ -190,22 +189,21 @@ export class InquestComponent implements OnInit {
           email: null,
           completedFlag: true
         },
-        alimentary:{
+        background:{
           question1: null,
           question2: null,
           question3: null,
           question4: null,
           question5: null,
-          question6: null,
+          question6A: null,
+          question6B: null,
+          question6C: null,
+          question6D: null,
           question7A: null,
           question7B: null,
           question7C: null,
           question7D: null,
-          question8A: null,
-          question8B: null,
-          question8C: null,
-          question8D: null,
-          question9: null,
+          question8: null,
           completedFlag:true
         },
         anthropometric:{
@@ -254,22 +252,21 @@ export class InquestComponent implements OnInit {
             email: null,
             completedFlag: true
           },
-          alimentary:{
+          background:{
             question1: null,
             question2: null,
             question3: null,
             question4: null,
             question5: null,
-            question6: null,
+            question6A: null,
+            question6B: null,
+            question6C: null,
+            question6D: null,
             question7A: null,
             question7B: null,
             question7C: null,
             question7D: null,
-            question8A: null,
-            question8B: null,
-            question8C: null,
-            question8D: null,
-            question9: null,
+            question8: null,
             completedFlag:true
           },
           anthropometric:{
@@ -318,22 +315,21 @@ export class InquestComponent implements OnInit {
             email: null,
             completedFlag: true
           },
-          alimentary:{
+          background:{
             question1: null,
             question2: null,
             question3: null,
             question4: null,
             question5: null,
-            question6: null,
+            question6A: null,
+            question6B: null,
+            question6C: null,
+            question6D: null,
             question7A: null,
             question7B: null,
             question7C: null,
             question7D: null,
-            question8A: null,
-            question8B: null,
-            question8C: null,
-            question8D: null,
-            question9: null,
+            question8: null,
             completedFlag:true
           },
           anthropometric:{
@@ -386,22 +382,21 @@ export class InquestComponent implements OnInit {
           email: null,
           completedFlag: true
         },
-        alimentary:{
+        background:{
           question1: null,
           question2: null,
           question3: null,
           question4: null,
           question5: null,
-          question6: null,
+          question6A: null,
+          question6B: null,
+          question6C: null,
+          question6D: null,
           question7A: null,
           question7B: null,
           question7C: null,
           question7D: null,
-          question8A: null,
-          question8B: null,
-          question8C: null,
-          question8D: null,
-          question9: null,
+          question8: null,
           completedFlag:true
         },
         anthropometric:{
@@ -417,15 +412,15 @@ export class InquestComponent implements OnInit {
         },
         clinical:{
           question1: form['value']['clinicosPregunta1'],
-          detailQuestion1: form['value']['detailQuestion1'],
+          detailQuestion1: form['value']['clinicosPregunta1Desc'],
           question2: form['value']['clinicosPregunta2'],
-          detailQuestion2: form['value']['detailQuestion2'],
+          detailQuestion2: form['value']['clinicosPregunta2Desc'],
           question3: form['value']['clinicosPregunta3'],
-          detailQuestion3: form['value']['detailQuestion3'],
+          detailQuestion3: form['value']['clinicosPregunta3Desc'],
           question4: form['value']['clinicosPregunta4'],
-          detailQuestion4: form['value']['detailQuestion4'],
+          detailQuestion4: form['value']['clinicosPregunta4Desc'],
           question5: form['value']['clinicosPregunta5'],
-          detailQuestion5: form['value']['detailQuestion5'],
+          detailQuestion5: form['value']['clinicosPregunta5Desc'],
           question6: form['value']['clinicosPregunta6'],
           completedFlag:true
         },
@@ -463,22 +458,21 @@ export class InquestComponent implements OnInit {
           email: null,
           completedFlag: true
         },
-        alimentary:{
+        background:{
           question1: null,
           question2: null,
           question3: null,
           question4: null,
           question5: null,
-          question6: null,
+          question6A: null,
+          question6B: null,
+          question6C: null,
+          question6D: null,
           question7A: null,
           question7B: null,
           question7C: null,
           question7D: null,
-          question8A: null,
-          question8B: null,
-          question8C: null,
-          question8D: null,
-          question9: null,
+          question8: null,
           completedFlag:true
         },
         anthropometric:{

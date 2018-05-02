@@ -1,7 +1,9 @@
+- Implementar servicios que validen si un usuario es admin, nutri o planner
+
+- Validar la facebook app para login, por el momento solo es sandbox.
+- Validar la microsoft app para login, por el momento solo es sandbox.
 - Implementar sweetalert en el guardado de registros de los changers
+
 - CSS visibilidad y pantalla completa en "our system"
 - CSS visibilidad y pantalla completa en "felicidades ahora eres un changer"
-- Validar el texto muted en el cuestionario si se deja con o sin parténtesis (estandarizar)
-- Quitar la pregunta 6 del cuestionario "Alimenticios"
 - Validar el tamaño ideal para la imagen de video
--Implementar servicios que validen si un usuario es admin, nutri o planner

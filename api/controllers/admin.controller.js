@@ -49,13 +49,14 @@ function getAdmin( req, res ){
         if( !bcrypt.compareSync( params.email, showAdmins[i].email ) ){
           /* hacer algo */
         }else{
-          var today = dateformat( new Date(), "dd-mm-yyyy" );
-          var endDate = dateformat( showAdmins[i].endDate, "dd-mm-yyyy" );
+          var today = new Date( ).getTime( );
+          var endDate = new Date( showAdmins[i].endDate ).getTime( );
+          var startDate = new Date( showAdmins[i].startDate ).getTime( );
 
-          if( endDate >= today ){
-              return res.status( 200 ).send( { message: "true" } );
+          if( startDate <= today && endDate >= today ){
+              return res.status( 200 ).send( true );
             } else {
-              return res.status( 200 ).send( { message: "false" } );
+              return res.status( 200 ).send( false );
           }
         }
       }

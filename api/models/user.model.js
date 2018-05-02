@@ -11,22 +11,21 @@ var userSchema = schema({
       email: {type:String, unique:true},
       completedFlag: String
     },
-    alimentary:{
+    background:{
       question1: String,
       question2: String,
       question3: String,
       question4: String,
       question5: String,
-      question6: String,
+      question6A: String,
+      question6B: String,
+      question6C: String,
+      question6D: String,
       question7A: String,
       question7B: String,
       question7C: String,
       question7D: String,
-      question8A: String,
-      question8B: String,
-      question8C: String,
-      question8D: String,
-      question9: String,
+      question8: String,
       completedFlag: String
     },
     anthropometric:{

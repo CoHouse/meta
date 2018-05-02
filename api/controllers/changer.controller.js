@@ -15,6 +15,8 @@ function saveChanger( req, res ){
   changer.user = params.user;
   changer.startDate = params.startDate;
   changer.endDate = params.endDate;
+  changer.pAlimenticio = params. pAlimenticio;
+  changer.pEjercicio = params. pEjercicio;
 
   if ( params.email != null && params.user != null && params.startDate != null && params.endDate != null ){
 

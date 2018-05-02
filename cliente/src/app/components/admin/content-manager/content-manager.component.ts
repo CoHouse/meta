@@ -31,7 +31,9 @@ export class ContentManagerComponent implements OnInit {
     email: "",
     user:"",
     startDate:"",
-    endDate: ""
+    endDate: "",
+    pAlimenticio: "",
+    pEjercicio: ""
   }
 
   admin:Admin = {
@@ -72,7 +74,9 @@ export class ContentManagerComponent implements OnInit {
       email: form['value']['paymentEmail'],
       user: userSp,
       startDate: this.today.toString(),
-      endDate: endDate
+      endDate: endDate,
+      pAlimenticio: form['value']['pAlimenticio'],
+      pEjercicio: form['value']['pEjercicio']
     }
 
     this._changer.sendChanger( this.changer ).subscribe( data => {

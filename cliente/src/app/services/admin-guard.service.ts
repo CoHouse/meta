@@ -14,10 +14,6 @@ export class AdminGuardService implements CanActivate {
 
   constructor( private _auth:AuthService, public _http:HttpClient ) { }
 
-  isInAdminList():boolean{
-    return true;
-  }
-
   canActivate( next:ActivatedRouteSnapshot, state:RouterStateSnapshot ){
       if( this._auth.isAuthenticated() && this.isInAdminList() ){
         return true;
@@ -26,7 +22,15 @@ export class AdminGuardService implements CanActivate {
       }
   }
 
-  isChanger( admin:Admin ){
+  isInAdminList( admin?:Admin ):boolean{
+    if( this.isAdmin( admin ) ){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  isAdmin( admin:Admin ){
     this.url = Ruta.url + "getAdmin/";
     let body = JSON.stringify( admin );
     let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
