@@ -26,7 +26,9 @@ export class AuthService {
     email: "",
     user: "",
     startDate:"",
-    endDate: ""
+    endDate: "",
+    pAlimenticio: "",
+    pEjercicio: ""
   }
 
   constructor( public router: Router, public _changer:ChangerGuardService ) {
@@ -66,7 +68,9 @@ export class AuthService {
         email: this.userProfile['email'],
         user: null,
         startDate:null,
-        endDate: null
+        endDate: null,
+        pAlimenticio: null,
+        pEjercicio: null
       }
 
       this._changer.isChanger( this.changer ).subscribe( result => {
