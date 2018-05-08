@@ -75,10 +75,10 @@ export class AuthService {
 
       this._changer.isChanger( this.changer ).subscribe( result => {
 
-        if( result ){
-          localStorage.setItem('about', "2018 MBC / 190318");
-        }else{
+        if( !result ){
           localStorage.setItem('about', "2018 MBC / 160318");
+        }else{
+          localStorage.setItem('about', "2018 MBC / 190318");
         }
       }, error => {
         var errorMessage = <any>error;

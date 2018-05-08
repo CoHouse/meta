@@ -46,19 +46,27 @@ function getChanger( req, res ){
     if( error || showChangers.length <= 0 ){
        return res.status( 404 ).send( { message: "[getChanger changerController]" } );
     }else{
-      for ( let i in showChangers ){
-        if( !bcrypt.compareSync( params.email, showChangers[i].email ) ){
-          /* hacer algo */
-        }else{
+      for( let i in showChangers ){
+        console.log("params.email: ",params.email);
+        if( bcrypt.compareSync( params.email, showChangers[i].email ) ){
+
+          console.log("Mail encontrado en la tabla: ", showChangers[i].email);
+          console.log("Fecha de Inicio: ", showChangers[i].endDate);
+          console.log("Fecha de Fin: ", showChangers[i].startDate);
+
           var today = new Date( ).getTime( );
           var endDate = new Date( showChangers[i].endDate ).getTime( );
           var startDate = new Date( showChangers[i].startDate ).getTime( );
 
           if( startDate <= today && endDate >= today ){
-              return res.status( 200 ).send( true );
-            } else {
-              return res.status( 200 ).send( false );
+            console.log("Usuario válido.");
+            return res.status( 200 ).send( true );
+          } else {
+            console.log("Usuario NO válido.");
+            return res.status( 200 ).send( false );
           }
+        }else{
+
         }
       }
     }

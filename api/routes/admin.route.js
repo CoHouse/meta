@@ -3,7 +3,7 @@
 var express = require("express");
 
 /* Carga del módulo */
-var changerController = require("../controllers/admin.controller.js");
+var adminController = require("../controllers/admin.controller.js");
 
 /* Carga de Router de ExpressJS para crear rutas en la API REST */
 var api = express.Router();
@@ -11,7 +11,7 @@ var api = express.Router();
 /* Métodos GET */
 
 /* Métodos POST */
-api.post("/getAdmin", changerController.getAdmin );
-api.post("/saveAdmin", changerController.saveAdmin );
+api.post("/getAdmin", adminController.getAdmin );
+api.post("/saveAdmin", adminController.saveAdmin );
 
 module.exports = api;

@@ -23,7 +23,6 @@ export class ChangerGuardService {
   sendChanger( changer:Changer ){
     this.url = Ruta.url + "saveChanger/";
     let body = JSON.stringify( changer );
-
     let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
 
     return this._httpClient.post( this.url, body, { headers } ).map( res => res );
