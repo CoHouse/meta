@@ -77,8 +77,10 @@ export class AuthService {
 
         if( !result ){
           localStorage.setItem('about', "2018 MBC / 160318");
+          localStorage.setItem('email', this.changer['email'] );
         }else{
           localStorage.setItem('about', "2018 MBC / 190318");
+          localStorage.setItem('email', this.changer['email'] );
         }
       }, error => {
         var errorMessage = <any>error;
@@ -93,6 +95,7 @@ export class AuthService {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
     localStorage.removeItem('about');
+    localStorage.removeItem('email');
     // Go back to the home route
     this.router.navigate(['/']);
   }

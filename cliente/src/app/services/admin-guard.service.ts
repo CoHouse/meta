@@ -11,39 +11,54 @@ import 'rxjs/add/operator/map';
 export class AdminGuardService implements CanActivate {
 
   url = Ruta.url;
+  flagGen:boolean;
   userProfile: any;
-
   admin:Admin;
 
   constructor( private _auth:AuthService, public _http:HttpClient ) {
-
-    this._auth.getProfile( ( err, profile ) => {
-       this.admin = {
-         email: profile['email'],
-         startDate: null,
-         endDate: null
-       }
-     });
-
+    this.flagGen = this.isAdmin();
   }
 
   canActivate( next:ActivatedRouteSnapshot, state:RouterStateSnapshot ){
-      if( this.isAdmin(  ) ){
+      if( this.flagGen ){
+        console.log("esto trae this.isAdmin dentro del if: ", this.isAdmin() );
         return true;
       }else{
+        console.log("Entró al else.");
         return false;
       }
   }
 
-  isAdmin( admin?:Admin ):boolean{
+
+  isAdmin(){
+    this.getIfIsAdmin().subscribe( result => {
+
+      console.log("ya entró a ejecutar el getIfIsAdmin desde isAdmin");
+
+      console.log("esto vale result dentro del result: ", result);
+    flag = <boolean>result;
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
+    console.log("esto vale flag justo antes de retornar: ", flag);
+    return flag;
+  }
+
+  getIfIsAdmin( ){
+    this.admin = {
+      email : localStorage.getItem("email"),
+      startDate: null,
+      endDate: null
+    }
+
     this.url = Ruta.url + "getAdmin/";
-    let body = JSON.stringify( admin );
+    let body = JSON.stringify( this.admin );
     let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
 
-    this._http.post( this.url, body, { headers } ).map( flag => flag );
-
-    return true;
+    return this._http.post( this.url, body, { headers } ).map( flag => flag );
   }
+
 
   sendAdmin( admin:Admin ){
     this.url = Ruta.url + "saveAdmin/";

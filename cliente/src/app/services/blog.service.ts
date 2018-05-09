@@ -25,7 +25,7 @@ export class BlogService {
   */
 
   constructor( public _http:HttpClient ) {
-    this.getCategories();
+    this.getCategories( );
     this.getPosts( );
   }
 

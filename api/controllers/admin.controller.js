@@ -42,30 +42,25 @@ function getAdmin( req, res ){
   var params = req.body;
 
   objAdmin.find( ( error, showAdmins ) => {
-
-
-    console.log("length: ", showAdmins.length);
-
-
-
     if( error || showAdmins.length <= 0 ){
-       return res.status( 404 ).send( { message: "[getAdmin adminController]" } );
+       return res.status( 404 ).send( { message: "[getChanger changerController]" } );
     }else{
-      // for ( let i in showAdmins ){
-      for ( let i = 0 ; i < showAdmins.length ; i++ ){
+      for( let i in showAdmins ){
 
         if( bcrypt.compareSync( params.email, showAdmins[i].email ) ){
           var today = new Date( ).getTime( );
-          var endDate = new Date( showAdmins[i].endDate ).getTime( );
           var startDate = new Date( showAdmins[i].startDate ).getTime( );
+          var endDate = new Date( showAdmins[i].endDate ).getTime( );
 
           if( startDate <= today && endDate >= today ){
             return res.status( 200 ).send( true );
           } else {
-            return res.status( 200 ).send( {message: "mamaste, admin fuera de vigencia false" } );
+            return res.status( 200 ).send( false );
           }
         }else{
-          console.log("vuelta ", i);
+          if( parseInt(i) + 1 == showAdmins.length ){
+            return res.status( 200 ).send( false );
+          }
         }
       }
     }
