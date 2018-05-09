@@ -23,26 +23,26 @@ export class AdminGuardService implements CanActivate {
          startDate: null,
          endDate: null
        }
-
-
      });
 
   }
 
   canActivate( next:ActivatedRouteSnapshot, state:RouterStateSnapshot ){
-      if( this._auth.isAuthenticated() && this.isAdmin( ) ){
+      if( this.isAdmin(  ) ){
         return true;
       }else{
         return false;
       }
   }
 
-  isAdmin( admin?:Admin ){
+  isAdmin( admin?:Admin ):boolean{
     this.url = Ruta.url + "getAdmin/";
     let body = JSON.stringify( admin );
     let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
 
-    return this._http.post( this.url, body, { headers } ).map( flag => flag );
+    this._http.post( this.url, body, { headers } ).map( flag => flag );
+
+    return true;
   }
 
   sendAdmin( admin:Admin ){

@@ -9,7 +9,7 @@ var changerSchema = schema({
   startDate:String,
   endDate:String,
   pAlimenticio:String,
-  pEjercicio:String
+  pEjercicio:String 
 });
 
  module.exports = mongoose.model( 'changerguards', changerSchema );

@@ -47,26 +47,21 @@ function getChanger( req, res ){
        return res.status( 404 ).send( { message: "[getChanger changerController]" } );
     }else{
       for( let i in showChangers ){
-        console.log("params.email: ",params.email);
+
         if( bcrypt.compareSync( params.email, showChangers[i].email ) ){
-
-          console.log("Mail encontrado en la tabla: ", showChangers[i].email);
-          console.log("Fecha de Inicio: ", showChangers[i].endDate);
-          console.log("Fecha de Fin: ", showChangers[i].startDate);
-
           var today = new Date( ).getTime( );
-          var endDate = new Date( showChangers[i].endDate ).getTime( );
           var startDate = new Date( showChangers[i].startDate ).getTime( );
+          var endDate = new Date( showChangers[i].endDate ).getTime( );
 
           if( startDate <= today && endDate >= today ){
-            console.log("Usuario válido.");
             return res.status( 200 ).send( true );
           } else {
-            console.log("Usuario NO válido.");
             return res.status( 200 ).send( false );
           }
         }else{
-
+          if( parseInt(i) + 1 == showChangers.length ){
+            return res.status( 200 ).send( false );
+          }
         }
       }
     }
