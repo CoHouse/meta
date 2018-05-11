@@ -6,6 +6,7 @@ import { ForumService } from '../../../services/forum.service';
 import { TopicService } from '../../../services/topic.service';
 import { CommentService } from '../../../services/comment.service';
 import { Topic } from '../../../interfaces/topic.interface';
+import 'sweetalert';
 
 @Component({
   selector: 'app-topic',
@@ -36,7 +37,7 @@ export class TopicComponent implements OnInit {
     text: null
   }
 
-  constructor( public _activatedRoute:ActivatedRoute, public _forum:ForumService, public _topic:TopicService, public _comment:CommentService ) {
+  constructor( public _activatedRoute:ActivatedRoute, public _forum:ForumService, public _topic:TopicService, public _comment:CommentService, public router:Router ) {
     this._activatedRoute.params.subscribe( params => {
       this.ref = params['category'];
 
@@ -152,9 +153,10 @@ export class TopicComponent implements OnInit {
 
     this._comment.sendComment( this.comment ).subscribe( data => {
       this.response = !this.response
-      // saveSucess = !saveSucess;
       form.reset();
-
+      swal("Registro Exitoso", "Comentario Guardado Correctamente", "success");
+      console.log(this.router.url);
+      this.router.navigateByUrl(this.router.url);
     }, error => console.error( error ) );
   }
 

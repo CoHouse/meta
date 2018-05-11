@@ -6,7 +6,7 @@ import { ForumService } from '../../../services/forum.service';
 import { TopicService } from '../../../services/topic.service';
 import { AuthService } from '../../../services/auth.service';
 import { Topic } from '../../../interfaces/topic.interface';
-
+import 'sweetalert';
 import { ForumComponent } from './forum.component';
 
 @Component({
@@ -35,7 +35,7 @@ export class ForumcatComponent implements OnInit {
 
   moment = new Date();
 
-  constructor( public _activatedRoute:ActivatedRoute, public _forum:ForumService, public _topic:TopicService, public _auth:AuthService ) {
+  constructor( public _activatedRoute:ActivatedRoute, public _forum:ForumService, public _topic:TopicService, public _auth:AuthService, public router:Router ) {
     this._activatedRoute.params.subscribe( params => {
       switch( params['category'] ) {
           case "presentations":
@@ -107,7 +107,6 @@ export class ForumcatComponent implements OnInit {
  }
 
   saveTopic( form:NgForm ){
-
     if ( this._auth.isAuthenticated() ){
       this.authorName = this.profile.name;
     }else{
@@ -123,19 +122,9 @@ export class ForumcatComponent implements OnInit {
     }
 
     this._topic.sendTopic( this.topic ).subscribe( data => {
-      this.saveSucess = !this.saveSucess;
       form.reset();
-
-      setTimeout( function(){
-        var x = document.getElementById("alertSucess");
-        this.saveSucess = false;
-        x.remove();
-      }, 2000);
-
-      setTimeout( function(){
-        this._activatedRoute.navigate(['/forum']);
-      }, 100 );
-
+      swal("Registro Exitoso", "Registro Guardado Correctamente", "success");
+      this.router.navigate(['/forum']);
     }, error => console.error( error ) );
   }
 

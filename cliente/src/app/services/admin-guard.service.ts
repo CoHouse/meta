@@ -3,7 +3,6 @@ import { Router, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate } from
 import { AuthService } from '../services/auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Ruta } from '../global_route';
-import { NgForm, FormsModule } from '@angular/forms';
 import { Admin } from '../interfaces/admin.interface';
 import 'rxjs/add/operator/map';
 
@@ -11,38 +10,25 @@ import 'rxjs/add/operator/map';
 export class AdminGuardService implements CanActivate {
 
   url = Ruta.url;
-  flagGen:boolean;
   userProfile: any;
   admin:Admin;
 
-  constructor( private _auth:AuthService, public _http:HttpClient ) {
-    this.flagGen = this.isAdmin();
-  }
+  constructor( private _auth:AuthService, public _http:HttpClient ) { }
 
   canActivate( next:ActivatedRouteSnapshot, state:RouterStateSnapshot ){
-      if( this.flagGen ){
-        console.log("esto trae this.isAdmin dentro del if: ", this.isAdmin() );
-        return true;
-      }else{
-        console.log("Entró al else.");
-        return false;
-      }
-  }
+    return new Promise( resolve => {
 
-
-  isAdmin(){
-    this.getIfIsAdmin().subscribe( result => {
-
-      console.log("ya entró a ejecutar el getIfIsAdmin desde isAdmin");
-
-      console.log("esto vale result dentro del result: ", result);
-    flag = <boolean>result;
-    }, error => {
-      var errorMessage = <any>error;
+      this.getIfIsAdmin().subscribe( result => {
+        if ( <boolean>result ){
+          resolve( true );
+        }else{
+          resolve( false );
+        }
+      }, error => {
+        var errorMessage = <any>error;
+        resolve( false );
+      });
     });
-
-    console.log("esto vale flag justo antes de retornar: ", flag);
-    return flag;
   }
 
   getIfIsAdmin( ){
@@ -58,7 +44,6 @@ export class AdminGuardService implements CanActivate {
 
     return this._http.post( this.url, body, { headers } ).map( flag => flag );
   }
-
 
   sendAdmin( admin:Admin ){
     this.url = Ruta.url + "saveAdmin/";
