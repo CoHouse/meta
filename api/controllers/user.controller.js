@@ -21,6 +21,7 @@ function saveUser( req, res ){
 
   user.plan.alimentary.sendByDietist = params.plan.alimentary.sendByDietist;
   user.plan.exercise.sendByPlanner = params.plan.exercise.sendByPlanner;
+  user.completedInquestFlag = params.completedInquestFlag;
 
   user.save( ( error, save ) => {
     if( error ){
@@ -29,7 +30,23 @@ function saveUser( req, res ){
         message: "Error al guardar el usuario [saveChanger]"});
     }else{
       res.status( 200 ).send( save ); // Develop
-      //res.status( 200 ).send( { message: "Guardado con éxito." } ); // Production
+      //res.status( 201 ).send( { message: "Guardado con éxito." } ); // Production
+    }
+  });
+}
+
+function getUser( req, res ){
+  var params = req.body;
+
+  objUser.findOne( { "inquest.generals.email": params.inquest.generals.email }, ( error, user ) => {
+    if( error ){
+      return res.status( 404 ).send( { message: "[getUser UserController]" } );
+    }else{
+      if( user != null ){
+        return res.status( 200 ).send( user );
+      }else{
+        return res.status( 200 ).send( { message: "No existe el usuario." } );
+      }
     }
   });
 }
@@ -39,7 +56,7 @@ function updateUser( req, res ){
   var params = req.body;
   var user = new objUser();
 
-  // Guardar tab Alimenticios
+  // Guardar tab Antecedentes
   if( params.inquest.background.completedFlag && !params.inquest.anthropometric.completedFlag ){
 
     var updatePack = {
@@ -60,7 +77,9 @@ function updateUser( req, res ){
         "inquest.background.question7D": params.inquest.background.question7D,
 
         "inquest.background.question8": params.inquest.background.question8,
-        "inquest.background.completedFlag": params.inquest.background.completedFlag
+        "inquest.background.completedFlag": params.inquest.background.completedFlag,
+
+        "completedInquestFlag": params.completedInquestFlag
     }
 
     objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
@@ -151,7 +170,8 @@ function updateUser( req, res ){
       "inquest.dietetics.question5": params.inquest.dietetics.question5,
       "inquest.dietetics.question6": params.inquest.dietetics.question6,
       "inquest.dietetics.question7": params.inquest.dietetics.question7,
-      "inquest.dietetics.completedFlag": params.inquest.dietetics.completedFlag
+      "inquest.dietetics.completedFlag": params.inquest.dietetics.completedFlag,
+      "completedInquestFlag": params.completedInquestFlag
     }
 
       objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
@@ -167,24 +187,6 @@ function updateUser( req, res ){
     return null;
   }
 
-}
-
-// todavía no se usa
-function getUser( req, res ){
-  var params = req.body;
-
-  objUser.findOne( { "inquest.generals.email": params.email }, ( error, user ) => {
-    // if( error || showUsers.length <= 0 ){
-    if( error ){
-      return res.status( 404 ).send( { message: "[getUser UserController]" } );
-    }else{
-      if( user == null ){
-        return res.status( 200 ).send( { message: "No existe el usuario." } );
-      }else{
-        return res.status( 200 ).send( user );
-      }
-    }
-  });
 }
 
 function saveFileUser( req, res ){

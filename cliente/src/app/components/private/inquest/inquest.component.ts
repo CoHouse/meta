@@ -5,7 +5,7 @@ import { UserService } from '../../../services/user.service';
 import { User } from '../../../interfaces/user.interface';
 import { Router, ActivatedRoute } from '@angular/router';
 declare var $:any;
-import * as swal from 'sweetalert';
+import 'sweetalert';
 
 @Component({
   selector: 'app-inquest',
@@ -15,6 +15,7 @@ export class InquestComponent implements OnInit {
 
   public profile;
   public _id;
+  public inquestFlag;
   attachFile: File;
 
   public user:User = {
@@ -41,6 +42,7 @@ export class InquestComponent implements OnInit {
         completedFlag: false
       }
     },
+    completedInquestFlag:false,
     plan:{
       alimentary:{
         sendByDietist:false
@@ -51,7 +53,31 @@ export class InquestComponent implements OnInit {
     }
   }
 
-  constructor( public _auth:AuthService, public _user:UserService, public _activatedRoute:ActivatedRoute, public router:Router ) {
+  constructor(
+    public _auth:AuthService,
+    public _user:UserService,
+    public _activatedRoute:ActivatedRoute,
+    public router:Router ) {
+
+    this._user.getUser().subscribe( result => {
+      /* Asignar arreglos y variables de lo que viene en la base */
+      this.user.inquest = result["inquest"];
+      this.user.completedInquestFlag = result["completedInquestFlag"];
+      this.user.plan = result["plan"];
+
+      console.log("esto trae <boolean>this.user.completedInquestFlag", <boolean>this.user.completedInquestFlag);
+      console.log("inquest: ", this.user.inquest);
+
+      if( <boolean>this.user.completedInquestFlag ){
+        console.log("Aquí es donde hay que inactivar alv todo el formulario");
+      }else{
+        console.log("no hay usuario con ese correo.");
+      }
+
+    }, error => {
+      var errorMessage = <any>error;
+    });
+
     this._activatedRoute.params.subscribe( params => {
       this._id = params['_id'];
     });
@@ -93,6 +119,7 @@ export class InquestComponent implements OnInit {
           completedFlag: false
         }
       },
+      completedInquestFlag:false,
       plan:{
         alimentary:{
           sendByDietist:false
@@ -160,6 +187,7 @@ export class InquestComponent implements OnInit {
           completedFlag: false
         }
       },
+      completedInquestFlag:false,
       plan:{
         alimentary:{
           sendByDietist:false
@@ -222,6 +250,7 @@ export class InquestComponent implements OnInit {
           completedFlag: false
         }
       },
+      completedInquestFlag:false,
       plan:{
         alimentary:{
           sendByDietist:false
@@ -287,6 +316,7 @@ export class InquestComponent implements OnInit {
             completedFlag: false
           }
         },
+        completedInquestFlag:false,
         plan:{
           alimentary:{
             sendByDietist:false
@@ -428,6 +458,7 @@ export class InquestComponent implements OnInit {
           completedFlag: false
         }
       },
+      completedInquestFlag:false,
       plan:{
         alimentary:{
           sendByDietist:false
@@ -448,7 +479,6 @@ export class InquestComponent implements OnInit {
   }
 
   saveDataDieteticos( form:NgForm ){
-    console.log( 'Formulario Posteado', form );
 
     this.user = {
       inquest:{
@@ -498,6 +528,7 @@ export class InquestComponent implements OnInit {
           completedFlag: true
         }
       },
+      completedInquestFlag:true,
       plan:{
         alimentary:{
           sendByDietist:false
@@ -512,6 +543,7 @@ export class InquestComponent implements OnInit {
       //Hacer Tab Inaccesible
       $('.nav-tabs a[href="#dieteticos"]').removeClass('active').addClass('disabled');
       // Enviar a pantalla de confirmación
+      swal("Gracias por responder la encuesta completa", "En breve un especialista empezará a trabajar en tu plan y te lo haremos llegar vía correo electrónico.", "success");
       this.router.navigate(['/youchanger', this._id ]);
     });
 

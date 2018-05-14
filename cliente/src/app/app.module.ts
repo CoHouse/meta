@@ -11,14 +11,14 @@ import { PreFooterComponent } from './components/shared/pre-footer/pre-footer.co
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { HomeComponent } from './components/public/home/home.component';
 import { BlogComponent } from './components/public/blog/blog.component';
+import { PostComponent } from './components/public/blog/post.component';
 import { VideosComponent } from './components/public/videos/videos.component';
+import { VideoComponent } from './components/public/videos/video.component';
 import { AskComponent } from './components/public/ask/ask.component';
 import { ChallengeComponent } from './components/public/challenge/challenge.component';
 import { ForumComponent } from './components/public/forum/forum.component';
 import { RegisterComponent } from './components/public/register/register.component';
-import { PostComponent } from './components/public/post/post.component';
 import { OursystemComponent } from './components/public/oursystem/oursystem.component';
-import { VideoComponent } from './components/public/video/video.component';
 import { ForumcatComponent } from './components/public/forum/forumcat.component';
 import { TopicComponent } from './components/public/forum/topic.component';
 import { JoinComponent } from './components/public/join/join.component';
@@ -32,8 +32,9 @@ import { YouchangerComponent } from './components/private/inquest/youchanger.com
 
 import { ContentManagerComponent } from './components/admin/content-manager/content-manager.component';
 import { NutritionistManagerComponent } from './components/admin/nutritionist-manager/nutritionist-manager.component';
+  import { NmdetailComponent } from './components/admin/nutritionist-manager/nmdetail.component';
 import { PlannerManagerComponent } from './components/admin/planner-manager/planner-manager.component';
-import { PmdetailComponent } from './components/admin/planner-manager/pmdetail.component';
+  import { PmdetailComponent } from './components/admin/planner-manager/pmdetail.component';
 
 /* Services */
 import { AuthService } from './services/auth.service';
@@ -91,7 +92,8 @@ import { APP_ROUTING } from './app-routes';
     DetailchallengeComponent,
     YouchangerComponent,
     PmdetailComponent,
-    DomseguroPipe
+    DomseguroPipe,
+    NmdetailComponent
   ],
   imports: [
     BrowserModule,

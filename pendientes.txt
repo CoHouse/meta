@@ -1,8 +1,8 @@
-- Implementar servicios que validen si un usuario es admin, nutri o planner
-- Validar si están funcionando bien los servicios de planer y nutricionista (sobretodo el último)
+- Implementar sistema que gestione al user
 - Implementar servicio que define si eres usuario e implementar el seguro del alta de inquest
 - Iniciar a construír el motor que genera planes de ejercicios
 
+- Implementar una forma de cachar el error de usuario duplicado para que devuelva el error preciso en el front
 - Validar la facebook app para login, por el momento solo es sandbox.
 - Validar la microsoft app para login, por el momento solo es sandbox.
 - Implementar sweetalert en el guardado de registros de los changers
@@ -11,3 +11,5 @@
 - CSS visibilidad y pantalla completa en "felicidades ahora eres un changer"
 - Validar el tamaño ideal para la imagen de video
 - Generar el contenido del sitio
+- Cambiar el color del bottón de inicio para coincidir con el tema
+- Al pasar a producción validar que todos los controlers que guardan, no devuelvan los objetos guardados, sino estatus 201 y un mensaje breve al servidor.

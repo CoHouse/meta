@@ -4,12 +4,31 @@
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5 background-black white-font">
       <h4 class="text-center text-uppercase">Cuestionario <b class="underlined">Inicial&emsp;&emsp;</b></h4>
-      <h4 class="text-center text-uppercase"><small>Gracias por responderlo completo</small></h4>
+      <h4 class="text-center text-uppercase"><small>Es muy importante que lo respondas completo</small></h4>
     </div>
   </div>
 </div>
 
-<div class="container">
+<div *ngIf="this.user.completedInquestFlag" class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <h4 class="py-3">Anuncio:</h4>
+      <p>Nuestra plataforma registra que ya finalizaste de responder la encuesta inicial, sin embargo si necesitas actualizar un dato presiona el siguiente botón, es muy importante que sepas que si haces eso, tendrás que responder todo el cuestionario de nuevo ¿Por qué? Muy sencillo, el plan personalizado se basa en todas y cada una de tus respuestas, si cambias alguna, es probable que eso influya en tu plan, solo recomendamos actualizar el cuestionario en estos casos:</p>
+      <ul class="text-left text-uppercase">
+        <li><strong><h6>Terminé mi plan de 40 días y mis medidas cambiaron.</h6></strong></li>
+        <li><strong><h6>Quiero cambiar mi alimentación por una más sana.</h6></strong></li>
+        <li><strong><h6>No tenía plan de alimentación y he adquirido uno.</h6></strong></li>
+      </ul>
+
+      <p>Si tu caso es uno de la lista, por favor, procede a actualizar tus datos llenando nuevamente el formulario:</p>
+
+      <button (click)="this.user.completedInquestFlag = !this.user.completedInquestFlag" type="button" class="btn btn-primary btn-lg">Actualizar mis datos</button>
+
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!this.user.completedInquestFlag" class="container">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
@@ -56,6 +75,9 @@
 
             <div class="form-group pt-3" *ngIf="formGenerales">
               <button [disabled]="!formGenerales.valid" (click)="saveDataGenerales( formGenerales )" class="btn btn-info px-5">Seguir a Alimenticios (2 de 6)</button>
+            </div>
+            <div class="form-group pt-3" *ngIf="this.user.inquest.dietetics.completedFlag && this.user.inquest.clinical.completedFlag && !this.user.completedInquestFlag">
+              <button (click)="this.user.completedInquestFlag = !this.user.completedInquestFlag" class="btn btn-danger px-5">Cancelar Actualización de datos</button>
             </div>
 
             <div *ngIf="age.dirty && age.errors?.pattern" class="alert alert-danger" role="alert">

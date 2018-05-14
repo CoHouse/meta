@@ -2,7 +2,6 @@
 
 var objAdmin = require("../models/admin.model.js");
 var bcrypt = require("bcrypt-nodejs");
-var dateformat = require('dateformat');
 
 /* GET */
 

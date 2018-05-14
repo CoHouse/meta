@@ -2,7 +2,6 @@
 
 var objNutritionist = require("../models/nutritionist.model.js");
 var bcrypt = require("bcrypt-nodejs");
-var dateformat = require('dateformat');
 
 /* GET */
 
@@ -41,7 +40,7 @@ function saveNutritionist( req, res ){
 function getNutritionist( req, res ){
   var params = req.body;
 
-  objAdmin.find( ( error, showNutritionists ) => {
+  objNutritionist.find( ( error, showNutritionists ) => {
     if( error || showNutritionists.length <= 0 ){
        return res.status( 404 ).send( { message: "[getNutritionist nutritionistController]" } );
     }else{

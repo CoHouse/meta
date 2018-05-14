@@ -2,7 +2,6 @@
 
 var objPlanner = require("../models/planner.model.js");
 var bcrypt = require("bcrypt-nodejs");
-var dateformat = require('dateformat');
 
 /* GET */
 

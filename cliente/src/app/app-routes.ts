@@ -4,9 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/public/home/home.component';
 import { OursystemComponent } from './components/public/oursystem/oursystem.component';
 import { BlogComponent } from './components/public/blog/blog.component';
-  import { PostComponent } from './components/public/post/post.component';
+  import { PostComponent } from './components/public/blog/post.component';
 import { VideosComponent } from './components/public/videos/videos.component';
-  import { VideoComponent } from './components/public/video/video.component';
+  import { VideoComponent } from './components/public/videos/video.component';
 import { AskComponent } from './components/public/ask/ask.component';
 import { ForumComponent } from './components/public/forum/forum.component';
   import { ForumcatComponent } from './components/public/forum/forumcat.component';
@@ -46,7 +46,7 @@ const APP_ROUTES: Routes = [
   { path: 'forum', component: ForumComponent },
   { path: 'forum/category/:category', component: ForumcatComponent },
   { path: 'forum/category/:category/topic/:topic', component: TopicComponent },
-  { path: 'register', component: RegisterComponent },
+  // { path: 'register', component: RegisterComponent },
   { path: 'cuenta', component: AccountComponent },
   { path: 'post/:_id', component: PostComponent },
   { path: 'video/:_id', component: VideoComponent },
@@ -58,8 +58,8 @@ const APP_ROUTES: Routes = [
   { path: 'youchanger/:_id', component: YouchangerComponent, canActivate: [ AuthGuardService ] },
 
   { path: 'content-manager', component: ContentManagerComponent, canActivate: [ AdminGuardService ] },
-  { path: 'eplans-manager', component: PlannerManagerComponent, canActivate: [ PlannerGuardService ] },
-  { path: 'aplans-manager', component: NutritionistManagerComponent, canActivate: [ NutritionistGuardService ] },
+  { path: 'planner', component: PlannerManagerComponent, canActivate: [ PlannerGuardService ] },
+  { path: 'nutritionist', component: NutritionistManagerComponent, canActivate: [ NutritionistGuardService ] },
 
   { path: '**',  component: HomeComponent },
   { path: '', pathMatch: 'full', redirectTo: 'home' }
