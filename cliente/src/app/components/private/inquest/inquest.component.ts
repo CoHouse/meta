@@ -64,9 +64,7 @@ export class InquestComponent implements OnInit {
       this.user.inquest = result["inquest"];
       this.user.completedInquestFlag = result["completedInquestFlag"];
       this.user.plan = result["plan"];
-
-      console.log("esto trae <boolean>this.user.completedInquestFlag", <boolean>this.user.completedInquestFlag);
-      console.log("inquest: ", this.user.inquest);
+      this._id = result["_id"];
 
       if( <boolean>this.user.completedInquestFlag ){
         console.log("Aquí es donde hay que inactivar alv todo el formulario");
@@ -555,6 +553,65 @@ export class InquestComponent implements OnInit {
       return;
     }
     return this.attachFile = file;
+  }
+
+  updateUserData( _id ){
+
+    this.user.completedInquestFlag = !this.user.completedInquestFlag;
+
+    // Llenar los datos a enviar
+    this.user = {
+      inquest:{
+        generals: {
+          userName: null,
+          age: null,
+          email: localStorage.getItem("email") + " - El usuario actualizó sus datos el día: " + new Date(),
+          completedFlag: true
+        },
+        background:{
+          completedFlag:false
+        },
+        anthropometric:{
+          completedFlag:false
+        },
+        biochemicals:{
+          completedFlag:false
+        },
+        clinical:{
+          completedFlag:false
+        },
+        dietetics:{
+          completedFlag: false
+        }
+      },
+      completedInquestFlag:false,
+      plan:{
+        alimentary:{
+          sendByDietist:false
+        },
+        exercise:{
+          sendByPlanner: false
+        }
+      }
+    }
+
+    // this._user.sendUser( this.user ).subscribe( data => {
+    //
+    //   // 1. Obtener el ID del registro guardado
+    //   this._id = data['_id'];
+    //
+    //   // 2. Hacer Tab Anterior Inaccesible
+    //   $('.nav-tabs a[href="#generales"]').removeClass('active').addClass('disabled');
+    //
+    //   // 3. Enviar id de usuario (ya existe) a la url
+    //   this.router.navigate(['/inquest', this._id ]);
+    //   // 4. Ir al siguiente Tab
+    //   $('.nav-tabs a[href="#antecedentes"]').removeClass('disabled').tab('show');
+    //
+    //
+    // }, error => console.error( error ) );
+
+
   }
 
 }
