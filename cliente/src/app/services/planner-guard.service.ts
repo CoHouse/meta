@@ -15,7 +15,7 @@ export class PlannerGuardService implements CanActivate {
 
   constructor( private _auth:AuthService, public _http:HttpClient ) { }
 
-  canActivate( next:ActivatedRouteSnapshot, state:RouterStateSnapshot ){
+  canActivate( next:ActivatedRouteSnapshot, state:RouterStateSnapshot ):Promise<boolean>{
     return new Promise( resolve => {
 
       this.getIfIsPlanner().subscribe( result => {

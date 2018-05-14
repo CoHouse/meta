@@ -41,21 +41,25 @@ function saveNutritionist( req, res ){
 function getNutritionist( req, res ){
   var params = req.body;
 
-  objNutritionist.find( ( error, showNutritionists ) => {
+  objAdmin.find( ( error, showNutritionists ) => {
     if( error || showNutritionists.length <= 0 ){
        return res.status( 404 ).send( { message: "[getNutritionist nutritionistController]" } );
     }else{
-      for ( let i in showNutritionists ){
-        if( !bcrypt.compareSync( params.email, showNutritionists[i].email ) ){
-          /* hacer algo */
-        }else{
-          var today = dateformat( new Date(), "dd-mm-yyyy" );
-          var endDate = dateformat( showNutritionists[i].endDate, "dd-mm-yyyy" );
+      for( let i in showNutritionists ){
 
-          if( endDate >= today ){
-              return res.status( 200 ).send( { message: "true" } );
-            } else {
-              return res.status( 200 ).send( { message: "false" } );
+        if( bcrypt.compareSync( params.email, showNutritionists[i].email ) ){
+          var today = new Date( ).getTime( );
+          var startDate = new Date( showNutritionists[i].startDate ).getTime( );
+          var endDate = new Date( showNutritionists[i].endDate ).getTime( );
+
+          if( startDate <= today && endDate >= today ){
+            return res.status( 200 ).send( true );
+          } else {
+            return res.status( 200 ).send( false );
+          }
+        }else{
+          if( parseInt(i) + 1 == showNutritionists.length ){
+            return res.status( 200 ).send( false );
           }
         }
       }

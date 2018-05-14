@@ -3,22 +3,22 @@ import { Router, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate } from
 import { AuthService } from '../services/auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Ruta } from '../global_route';
-import { Admin } from '../interfaces/admin.interface';
+import { User } from '../interfaces/user.interface';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class AdminGuardService implements CanActivate {
+export class UserGuardService implements CanActivate {
 
   url = Ruta.url;
   userProfile: any;
-  admin:Admin;
+  user:User;
 
   constructor( private _auth:AuthService, public _http:HttpClient ) { }
 
   canActivate( next:ActivatedRouteSnapshot, state:RouterStateSnapshot ):Promise<boolean>{
     return new Promise( resolve => {
 
-      this.getIfIsAdmin().subscribe( result => {
+      this.getIfIsUser().subscribe( result => {
         if ( <boolean>result ){
           resolve( true );
         }else{
@@ -31,27 +31,48 @@ export class AdminGuardService implements CanActivate {
     });
   }
 
-  getIfIsAdmin( ){
-    this.admin = {
-      email : localStorage.getItem("email"),
-      startDate: null,
-      endDate: null
+  getIfIsUser( ){
+
+    this.user = {
+      inquest: {
+        generals:{
+          userName: null,
+          age: null,
+          email: localStorage.getItem("email"),
+          completedFlag: null
+        },
+        background:{
+          completedFlag: null
+        },
+        anthropometric:{
+          completedFlag: null
+        },
+        biochemicals:{
+          completedFlag: null
+        },
+        clinical:{
+          completedFlag: null
+        },
+        dietetics:{
+          completedFlag: null
+        }
+      },
+      completedInquestFlag:null,
+      plan:{
+        alimentary:{
+          sendByDietist: null
+        },
+        exercise:{
+          sendByPlanner: null
+        }
+      }
     }
 
-    this.url = Ruta.url + "getAdmin/";
-    let body = JSON.stringify( this.admin );
+    this.url = Ruta.url + "getUser/";
+    let body = JSON.stringify( this.user );
     let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
 
     return this._http.post( this.url, body, { headers } ).map( flag => flag );
-  }
-
-  sendAdmin( admin:Admin ){
-    this.url = Ruta.url + "saveAdmin/";
-    let body = JSON.stringify( admin );
-
-    let headers = new HttpHeaders( { 'Content-Type':'application/json' } );
-
-    return this._http.post( this.url, body, { headers } ).map( res => res );
   }
 
 }

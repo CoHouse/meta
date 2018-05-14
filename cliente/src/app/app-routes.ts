@@ -57,9 +57,9 @@ const APP_ROUTES: Routes = [
   { path: 'inquest/:_id', component: InquestComponent, canActivate: [ AuthGuardService ] },
   { path: 'youchanger/:_id', component: YouchangerComponent, canActivate: [ AuthGuardService ] },
 
-  { path: 'content-manager', component: ContentManagerComponent, canActivate: [ AuthGuardService, AdminGuardService ] },
-  { path: 'eplans-manager', component: PlannerManagerComponent, canActivate: [ AuthGuardService, PlannerGuardService ] },
-  { path: 'aplans-manager', component: NutritionistManagerComponent, canActivate: [ AuthGuardService, NutritionistGuardService ] },
+  { path: 'content-manager', component: ContentManagerComponent, canActivate: [ AdminGuardService ] },
+  { path: 'eplans-manager', component: PlannerManagerComponent, canActivate: [ PlannerGuardService ] },
+  { path: 'aplans-manager', component: NutritionistManagerComponent, canActivate: [ NutritionistGuardService ] },
 
   { path: '**',  component: HomeComponent },
   { path: '', pathMatch: 'full', redirectTo: 'home' }

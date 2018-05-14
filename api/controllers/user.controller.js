@@ -171,13 +171,20 @@ function updateUser( req, res ){
 
 // todavía no se usa
 function getUser( req, res ){
-  objUser.find( ( error, showUser )=>{
+  var params = req.body;
+
+  objUser.findOne( { "inquest.generals.email": params.email }, ( error, user ) => {
+    // if( error || showUsers.length <= 0 ){
     if( error ){
-      res.status(500).send( { message: "Error en la petición: [getUser()]"} );
+      return res.status( 404 ).send( { message: "[getUser UserController]" } );
     }else{
-        res.status(200).send( { showUser } );
+      if( user == null ){
+        return res.status( 200 ).send( { message: "No existe el usuario." } );
+      }else{
+        return res.status( 200 ).send( user );
+      }
     }
-  } ).where('email').equals( req.params._id );
+  });
 }
 
 function saveFileUser( req, res ){

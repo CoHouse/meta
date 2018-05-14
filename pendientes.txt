@@ -1,4 +1,7 @@
 - Implementar servicios que validen si un usuario es admin, nutri o planner
+- Validar si están funcionando bien los servicios de planer y nutricionista (sobretodo el último)
+- Implementar servicio que define si eres usuario e implementar el seguro del alta de inquest
+- Iniciar a construír el motor que genera planes de ejercicios
 
 - Validar la facebook app para login, por el momento solo es sandbox.
 - Validar la microsoft app para login, por el momento solo es sandbox.
@@ -7,3 +10,4 @@
 - CSS visibilidad y pantalla completa en "our system"
 - CSS visibilidad y pantalla completa en "felicidades ahora eres un changer"
 - Validar el tamaño ideal para la imagen de video
+- Generar el contenido del sitio

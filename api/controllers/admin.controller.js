@@ -11,8 +11,6 @@ function saveAdmin( req, res ){
   var admin = new objAdmin();
   var params = req.body;
 
-  console.log(params);
-
   admin.email = params.email;
   admin.startDate = params.startDate;
   admin.endDate = params.endDate;
@@ -43,7 +41,7 @@ function getAdmin( req, res ){
 
   objAdmin.find( ( error, showAdmins ) => {
     if( error || showAdmins.length <= 0 ){
-       return res.status( 404 ).send( { message: "[getChanger changerController]" } );
+       return res.status( 404 ).send( { message: "[getAdmin adminController]" } );
     }else{
       for( let i in showAdmins ){
 

@@ -41,19 +41,23 @@ function getPlanner( req, res ){
 
   objPlanner.find( ( error, showPlanners ) => {
     if( error || showPlanners.length <= 0 ){
-       return res.status( 404 ).send( { message: "No existen planners [getPlanner plannerController]" } );
+       return res.status( 404 ).send( { message: "[getPlanner plannerController]" } );
     }else{
-      for ( let i in showPlanners ){
-        if( !bcrypt.compareSync( params.email, showPlanners[i].email ) ){
-          /* hacer algo */
-        }else{
-          var today = dateformat( new Date(), "dd-mm-yyyy" );
-          var endDate = dateformat( showPlanners[i].endDate, "dd-mm-yyyy" );
+      for( let i in showPlanners ){
 
-          if( endDate >= today ){
-              return res.status( 200 ).send( { message: "true" } );
-            } else {
-              return res.status( 200 ).send( { message: "false" } );
+        if( bcrypt.compareSync( params.email, showPlanners[i].email ) ){
+          var today = new Date( ).getTime( );
+          var startDate = new Date( showPlanners[i].startDate ).getTime( );
+          var endDate = new Date( showPlanners[i].endDate ).getTime( );
+
+          if( startDate <= today && endDate >= today ){
+            return res.status( 200 ).send( true );
+          } else {
+            return res.status( 200 ).send( false );
+          }
+        }else{
+          if( parseInt(i) + 1 == showPlanners.length ){
+            return res.status( 200 ).send( false );
           }
         }
       }

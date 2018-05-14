@@ -15,7 +15,7 @@ export class NutritionistGuardService implements CanActivate {
 
   constructor( private _auth:AuthService, public _http:HttpClient ) { }
 
-  canActivate( next:ActivatedRouteSnapshot, state:RouterStateSnapshot ){
+  canActivate( next:ActivatedRouteSnapshot, state:RouterStateSnapshot ):Promise<boolean>{
     return new Promise( resolve => {
 
       this.getIfIsNutritionist().subscribe( result => {

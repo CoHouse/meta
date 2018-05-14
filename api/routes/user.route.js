@@ -5,7 +5,7 @@ var userController = require("../controllers/user.controller.js");
 var api = express.Router();
 
 /* Métodos GET */
-api.get("/getUser", userController.getUser );
+api.post("/getUser", userController.getUser );
 
 /* Métodos POST */
 api.post("/saveUser", userController.saveUser );
