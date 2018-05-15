@@ -53,8 +53,8 @@ const APP_ROUTES: Routes = [
   { path: 'our-system', component: OursystemComponent },
   { path: 'join', component: JoinComponent },
 
-  { path: 'training', component: TrainingComponent, canActivate: [ AuthGuardService ] },
-  { path: 'inquest/:_id', component: InquestComponent, canActivate: [ AuthGuardService ] },
+  { path: 'training', component: TrainingComponent, canActivate: [ ChangerGuardService ] },
+  { path: 'inquest/:_id', component: InquestComponent, canActivate: [ ChangerGuardService ] },
   { path: 'youchanger/:_id', component: YouchangerComponent, canActivate: [ AuthGuardService ] },
 
   { path: 'content-manager', component: ContentManagerComponent, canActivate: [ AdminGuardService ] },
