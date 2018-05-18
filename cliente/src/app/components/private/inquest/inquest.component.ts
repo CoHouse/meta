@@ -16,6 +16,7 @@ export class InquestComponent implements OnInit {
   public profile;
   public _id;
   public inquestFlag;
+  public updateFlag = false;
   attachFile: File;
 
   public user:User = {
@@ -91,7 +92,63 @@ export class InquestComponent implements OnInit {
     }
   }
 
+  /*Método de guardado inicial*/
   saveDataGenerales( form:NgForm ){
+    // 1. Guardar el formulario
+    this.user = {
+      inquest:{
+        generals: {
+          userName: form['value']['userName'],
+          age: form['value']['age'],
+          email: this.profile.email,
+          completedFlag: true
+        },
+        background:{
+          completedFlag:false
+        },
+        anthropometric:{
+          completedFlag:false
+        },
+        biochemicals:{
+          completedFlag:false
+        },
+        clinical:{
+          completedFlag:false
+        },
+        dietetics:{
+          completedFlag: false
+        }
+      },
+      completedInquestFlag:false,
+      plan:{
+        alimentary:{
+          sendByDietist:false
+        },
+        exercise:{
+          sendByPlanner: false
+        }
+      }
+    }
+
+    this._user.sendUser( this.user ).subscribe( data => {
+
+      // 1. Obtener el ID del registro guardado
+      this._id = data['_id'];
+
+      // 2. Hacer Tab Anterior Inaccesible
+      $('.nav-tabs a[href="#generales"]').removeClass('active').addClass('disabled');
+
+      // 3. Enviar id de usuario (ya existe) a la url
+      this.router.navigate(['/inquest', this._id ]);
+      // 4. Ir al siguiente Tab
+      $('.nav-tabs a[href="#antecedentes"]').removeClass('disabled').tab('show');
+
+
+    }, error => console.error( error ) );
+  }
+
+  /*Cambiar método usando el userID*/
+  updateDataGenerales( form:NgForm ){
     // 1. Guardar el formulario
     this.user = {
       inquest:{
@@ -557,43 +614,68 @@ export class InquestComponent implements OnInit {
 
   updateUserData( _id ){
 
-    this.user.completedInquestFlag = !this.user.completedInquestFlag;
+    console.log("ID en el método updateUserData: ", this._id );
 
-    // Llenar los datos a enviar
-    this.user = {
-      inquest:{
-        generals: {
-          userName: null,
-          age: null,
-          email: localStorage.getItem("email") + " - El usuario actualizó sus datos el día: " + new Date(),
-          completedFlag: true
-        },
-        background:{
-          completedFlag:false
-        },
-        anthropometric:{
-          completedFlag:false
-        },
-        biochemicals:{
-          completedFlag:false
-        },
-        clinical:{
-          completedFlag:false
-        },
-        dietetics:{
-          completedFlag: false
+    // this.user.completedInquestFlag = !this.user.completedInquestFlag;
+
+    swal({
+      title: "¿Estás seguro de que quieres actualizar tus datos?",
+      text: "Una vez hayas aceptado, será necesario llenar la encuesta completa nuevamente.",
+      icon: "warning",
+      buttons: ["Cancelar", "Sí, actualizar"]
+    })
+    .then( ( Cancelar ) => {
+      if ( Cancelar ) {
+        swal("Aquí se edita el usuario y luego el proceso de actualización normal, tomando en cuenta que -generales- ha de ser un update y no un save", {
+          icon: "success",
+        });
+
+        this.updateFlag = true;
+
+        // Llenar los datos a enviar
+        this.user = {
+          inquest:{
+            generals: {
+              userName: null,
+              age: null,
+              email: localStorage.getItem("email") + " - El usuario actualizó sus datos el día: " + new Date(),
+              completedFlag: true
+            },
+            background:{
+              completedFlag:false
+            },
+            anthropometric:{
+              completedFlag:false
+            },
+            biochemicals:{
+              completedFlag:false
+            },
+            clinical:{
+              completedFlag:false
+            },
+            dietetics:{
+              completedFlag: false
+            }
+          },
+          completedInquestFlag:false,
+          plan:{
+            alimentary:{
+              sendByDietist:false
+            },
+            exercise:{
+              sendByPlanner: false
+            }
+          }
         }
-      },
-      completedInquestFlag:false,
-      plan:{
-        alimentary:{
-          sendByDietist:false
-        },
-        exercise:{
-          sendByPlanner: false
-        }
+
+        console.log("Este es el usuario: ", this.user);
+      } else {
+        swal("Cancelaste la edición del registro");
       }
-    }
+    });
+
+
+
 
     // this._user.sendUser( this.user ).subscribe( data => {
     //
