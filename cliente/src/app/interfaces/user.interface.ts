@@ -1,4 +1,8 @@
 export interface User {
+  completedInquestFlag?:boolean,
+  aPlan?:boolean,
+  ePlan?:boolean,
+  _id?:string,
   inquest: {
     generals:{
       userName: string,
@@ -62,9 +66,6 @@ export interface User {
       completedFlag: boolean
     }
   },
-  completedInquestFlag?:boolean,
-  aPlan?:boolean,
-  ePlan?:boolean,
   plan:{
     alimentary:{
       sendByDietist: boolean

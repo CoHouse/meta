@@ -69,8 +69,7 @@ export class InquestComponent implements OnInit {
 
       if( <boolean>this.user.completedInquestFlag ){
         console.log("Aquí es donde hay que inactivar alv todo el formulario");
-      }else{
-        console.log("no hay usuario con ese correo.");
+        console.log("ID inicial a penas entrar a user: ", this._id);
       }
 
     }, error => {
@@ -147,14 +146,13 @@ export class InquestComponent implements OnInit {
     }, error => console.error( error ) );
   }
 
-  /*Cambiar método usando el userID*/
   updateDataGenerales( form:NgForm ){
-    // 1. Guardar el formulario
+    // 1. Obtener nuevos datos
     this.user = {
       inquest:{
         generals: {
-          userName: form['value']['userName'],
-          age: form['value']['age'],
+          userName: form['value']['userNameU'],
+          age: form['value']['ageU'],
           email: this.profile.email,
           completedFlag: true
         },
@@ -185,21 +183,15 @@ export class InquestComponent implements OnInit {
       }
     }
 
-    this._user.sendUser( this.user ).subscribe( data => {
-
-      // 1. Obtener el ID del registro guardado
-      this._id = data['_id'];
-
+    // Hacer actualización
+    this._user.updateUserGenerals( this.user, this._id ).subscribe( data => {
       // 2. Hacer Tab Anterior Inaccesible
       $('.nav-tabs a[href="#generales"]').removeClass('active').addClass('disabled');
-
       // 3. Enviar id de usuario (ya existe) a la url
       this.router.navigate(['/inquest', this._id ]);
       // 4. Ir al siguiente Tab
       $('.nav-tabs a[href="#antecedentes"]').removeClass('disabled').tab('show');
-
-
-    }, error => console.error( error ) );
+    });
   }
 
   saveDataAntecedentes( form:NgForm ){
@@ -612,87 +604,22 @@ export class InquestComponent implements OnInit {
     return this.attachFile = file;
   }
 
-  updateUserData( _id ){
-
-    console.log("ID en el método updateUserData: ", this._id );
-
-    // this.user.completedInquestFlag = !this.user.completedInquestFlag;
+  updateUserData( ){
 
     swal({
       title: "¿Estás seguro de que quieres actualizar tus datos?",
       text: "Una vez hayas aceptado, será necesario llenar la encuesta completa nuevamente.",
       icon: "warning",
-      buttons: ["Cancelar", "Sí, actualizar"]
+      buttons: ["Cancelar", "Sí, quiero actualizar"]
     })
     .then( ( Cancelar ) => {
       if ( Cancelar ) {
-        swal("Aquí se edita el usuario y luego el proceso de actualización normal, tomando en cuenta que -generales- ha de ser un update y no un save", {
-          icon: "success",
-        });
-
         this.updateFlag = true;
-
-        // Llenar los datos a enviar
-        this.user = {
-          inquest:{
-            generals: {
-              userName: null,
-              age: null,
-              email: localStorage.getItem("email") + " - El usuario actualizó sus datos el día: " + new Date(),
-              completedFlag: true
-            },
-            background:{
-              completedFlag:false
-            },
-            anthropometric:{
-              completedFlag:false
-            },
-            biochemicals:{
-              completedFlag:false
-            },
-            clinical:{
-              completedFlag:false
-            },
-            dietetics:{
-              completedFlag: false
-            }
-          },
-          completedInquestFlag:false,
-          plan:{
-            alimentary:{
-              sendByDietist:false
-            },
-            exercise:{
-              sendByPlanner: false
-            }
-          }
-        }
-
-        console.log("Este es el usuario: ", this.user);
+        this.user.completedInquestFlag = false;
       } else {
-        swal("Cancelaste la edición del registro");
+        swal("Tus datos no fueron actualizados", "Si necesitas actualizar, no dudes en regresar a esta pantalla" ,"success");
       }
     });
-
-
-
-
-    // this._user.sendUser( this.user ).subscribe( data => {
-    //
-    //   // 1. Obtener el ID del registro guardado
-    //   this._id = data['_id'];
-    //
-    //   // 2. Hacer Tab Anterior Inaccesible
-    //   $('.nav-tabs a[href="#generales"]').removeClass('active').addClass('disabled');
-    //
-    //   // 3. Enviar id de usuario (ya existe) a la url
-    //   this.router.navigate(['/inquest', this._id ]);
-    //   // 4. Ir al siguiente Tab
-    //   $('.nav-tabs a[href="#antecedentes"]').removeClass('disabled').tab('show');
-    //
-    //
-    // }, error => console.error( error ) );
-
 
   }
 

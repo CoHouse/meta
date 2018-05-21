@@ -2,6 +2,17 @@
 
 var objUser = require("../models/user.model.js");
 
+/* GET */
+function getPlannerUsers( req, res ){
+  objUser.find( ( error, showPlannerUsers ) => {
+    if( error ){
+      res.status( 500 ).send( { message: "Error al recuperar los users: [getPlannerUsers]" } );
+    }else{
+      res.status( 200 ).send( { showPlannerUsers } );
+    }
+  }).where('').equals(  );
+}
+
 /* POST */
 function saveUser( req, res ){
   var user = new objUser();
@@ -29,7 +40,7 @@ function saveUser( req, res ){
         error: error,
         message: "Error al guardar el usuario [saveChanger]"});
     }else{
-      res.status( 200 ).send( save ); // Develop
+      res.status( 201 ).send( save ); // Develop
       //res.status( 201 ).send( { message: "Guardado con éxito." } ); // Production
     }
   });
@@ -189,6 +200,39 @@ function updateUser( req, res ){
 
 }
 
+function updateUserGenerals( req, res ){
+  var user = new objUser();
+  var params = req.body;
+
+  /* Llenado del TAB Generales - Método POST */
+  var updatePack = {
+    "inquest.generals.userName" : params.inquest.generals.userName,
+    "inquest.generals.age" : params.inquest.generals.age,
+    "inquest.generals.email" : params.inquest.generals.email,
+    "inquest.generals.completedFlag" : params.inquest.generals.completedFlag,
+
+    "inquest.background.completedFlag" : params.inquest.background.completedFlag,
+    "inquest.anthropometric.completedFlag" : params.inquest.anthropometric.completedFlag,
+    "inquest.biochemicals.completedFlag" : params.inquest.biochemicals.completedFlag,
+    "inquest.clinical.completedFlag" : params.inquest.clinical.completedFlag,
+    "inquest.dietetics.completedFlag" : params.inquest.dietetics.completedFlag,
+
+    "plan.alimentary.sendByDietist" : params.plan.alimentary.sendByDietist,
+    "plan.exercise.sendByPlanner" : params.plan.exercise.sendByPlanner,
+    "completedInquestFlag" : params.completedInquestFlag
+  }
+
+  objUser.findByIdAndUpdate( req.params.id, updatePack, ( error, updatedUser )=>{
+    if( error ){
+      return res.status( 500 ).send( {  message: "Error al actualizar el usuario [updateUserGenerals]" } );
+    }else{
+      return res.status( 200 ).send( updatedUser ); // Develop
+      //res.status( 200 ).send( { message: "Actualizado con éxito." } ); // Production
+    }
+  });
+
+}
+
 function saveFileUser( req, res ){
 
     // //Validaciones al archivo subido
@@ -221,5 +265,6 @@ module.exports = {
   saveUser,
   updateUser,
   saveFileUser,
+  updateUserGenerals,
   getUser
 }

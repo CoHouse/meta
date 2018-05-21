@@ -12,6 +12,7 @@ api.post("/saveUser", userController.saveUser );
 
 /* Métodos PUT */
 api.put("/updateUser/:id", userController.updateUser );
+api.put("/updateUserGenerals/:id", userController.updateUserGenerals );
 api.put("/upload/:tipo/:id", userController.saveFileUser );
 
 module.exports = api;

@@ -28,9 +28,6 @@
   </div>
 </div>
 
-<!--=============================================>>>>>
-= Section comment block =
-===============================================>>>>-->
 <div *ngIf="!this.user.completedInquestFlag" class="container">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -64,9 +61,11 @@
 
       <div class="tab-content" id="myTabContent">
 
+        <!-- && this.user.completedInquestFlag == 'false'
+&& this.user.completedInquestFlag == 'true' -->
+
         <!-- Tab << Generales Inicial (método save) >> -->
-        <div *ngIf="!updateFlag" class="tab-pane fade show active" id="generales" role="tabpanel" aria-labelledby="home-tab">
-          <h2>METODO SAVE</h2>
+        <div *ngIf="!this.updateFlag" class="tab-pane fade show active" id="generales" role="tabpanel" aria-labelledby="home-tab">
           <form class="py-3 col-6 offset-3" #formGenerales="ngForm">
             <div class="form-group">
               <label><h6><strong>Nombre de Usuario <small class="text-muted">Cómo te gustaría que te llamémos.</small></strong></h6></label>
@@ -79,9 +78,6 @@
 
             <div class="form-group pt-3" *ngIf="formGenerales">
               <button [disabled]="!formGenerales.valid" (click)="saveDataGenerales( formGenerales )" class="btn btn-info px-5">Seguir a Alimenticios (2 de 6)</button>
-            </div>
-            <div class="form-group pt-3" *ngIf="this.user.inquest.dietetics.completedFlag && this.user.inquest.clinical.completedFlag && !this.user.completedInquestFlag">
-              <button (click)="this.user.completedInquestFlag = !this.user.completedInquestFlag" class="btn btn-danger px-5">Cancelar Actualización de datos</button>
             </div>
 
             <div *ngIf="age.dirty && age.errors?.pattern" class="alert alert-danger" role="alert">
@@ -91,27 +87,26 @@
           </form>
         </div>
 
-        <!-- Tab << Generales Emergente (método update) >> -->
-        <div *ngIf="updateFlag" class="tab-pane fade show active" id="generales" role="tabpanel" aria-labelledby="home-tab">
-          <h2>METODO UPDATE</h2>
-          <form class="py-3 col-6 offset-3" #formGenerales="ngForm">
+        <!-- Tab << Generales Emergente (método update) >>  && this.user.completedInquestFlag  == 'false'  -->
+        <div *ngIf="this.updateFlag" class="tab-pane fade show active" id="generalesU" role="tabpanel" aria-labelledby="home-tab">
+          <form class="py-3 col-6 offset-3" #formGeneralesU="ngForm">
             <div class="form-group">
               <label><h6><strong>Nombre de Usuario <small class="text-muted">Cómo te gustaría que te llamémos.</small></strong></h6></label>
-              <input type="text" class="form-control" placeholder="Nombre de usuario" name="userName" #userName="ngModel" ngModel required>
+              <input type="text" class="form-control" placeholder="Nombre de usuario" name="userNameU" #userNameU="ngModel" ngModel required>
             </div>
             <div class="form-group">
               <label><h6><strong>Edad</strong></h6></label>
-              <input type="text" class="form-control" placeholder="25" name="age" pattern="[0-9]{2,3}$" #age="ngModel" ngModel required>
+              <input type="text" class="form-control" placeholder="25" name="ageU" pattern="[0-9]{2,3}$" #ageU="ngModel" ngModel required>
             </div>
 
-            <div class="form-group pt-3" *ngIf="formGenerales">
-              <button [disabled]="!formGenerales.valid" (click)="saveDataGenerales( formGenerales )" class="btn btn-info px-5">Seguir a Alimenticios (2 de 6)</button>
+            <div class="form-group pt-3" *ngIf="formGeneralesU">
+              <button [disabled]="!formGeneralesU.valid" (click)="updateDataGenerales( formGeneralesU )" class="btn btn-info px-5">Seguir a Alimenticios (2 de 6)</button>
             </div>
             <div class="form-group pt-3" *ngIf="this.user.inquest.dietetics.completedFlag && this.user.inquest.clinical.completedFlag && !this.user.completedInquestFlag">
-              <button (click)="this.user.completedInquestFlag = !this.user.completedInquestFlag" class="btn btn-danger px-5">Cancelar Actualización de datos</button>
+              <button (click)="this.user.completedInquestFlag = !this.user.completedInquestFlag" class="btn btn-danger">Cancelar Actualización de datos</button>
             </div>
 
-            <div *ngIf="age.dirty && age.errors?.pattern" class="alert alert-danger" role="alert">
+            <div *ngIf="ageU.dirty && ageU.errors?.pattern" class="alert alert-danger" role="alert">
               Favor de ingresar solo caractéres numéricos. Mínimo 2 caracteres máximo 3.
             </div>
 
@@ -343,13 +338,8 @@
           </div>
 
             <!-- Button -->
-            <div class="form-group pt-3" *ngIf="formGenerales">
+            <div class="form-group pt-3" *ngIf="formAntropometricos">
               <button [disabled]="!formAntropometricos.valid" (click)="saveDataAntropometricos( formAntropometricos )" class="btn btn-info px-5">Seguir a Bioquímicos (4 de 6)</button>
-            </div>
-
-            <!-- Alert -->
-            <div *ngIf="age.dirty && age.errors?.pattern" class="alert alert-danger" role="alert">
-              Favor de ingresar solo caractéres numéricos. Mínimo 2 caracteres máximo 3.
             </div>
 
           </form>
@@ -379,13 +369,8 @@
 
               </div>
 
-              <div class="form-group pt-3" *ngIf="formGenerales">
+              <div class="form-group pt-3" *ngIf="formBioquimicos">
                 <button [disabled]="!formBioquimicos.valid" (click)="saveDataBioquimicos( formBioquimicos )" class="btn btn-info px-5">Seguir a Clínicos (5 de 6)</button>
-              </div>
-
-              <!-- Alert -->
-              <div *ngIf="age.dirty && age.errors?.pattern" class="alert alert-danger" role="alert">
-                Favor de ingresar solo caractéres numéricos. Mínimo 2 caracteres máximo 3.
               </div>
 
           </form>

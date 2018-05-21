@@ -103,3 +103,8 @@ pre-footer-font > li > a{
   p{
     font-size: 1.2rem;
   }
+
+  .img-thumbnail{
+    width: 200px;
+    height: 200px;
+  }

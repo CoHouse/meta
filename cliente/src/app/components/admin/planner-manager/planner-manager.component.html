@@ -43,11 +43,11 @@
                 </thead>
                 <tbody>
                   <tr>
-                  <!-- <tr *ngFor="let changer of changersList"> -->
+                  <!-- <tr *ngFor="let user of usersList"> -->
                     <th scope="row">1</th>
                     <td>José</td>
                     <td>24/12/1982</td>
-                    <td><a href="#">Ver Detalle</a></td>
+                    <td><a [routerLink]="['/plan-detail']">Ver Detalle</a></td>
                   </tr>
                 </tbody>
               </table>
@@ -57,16 +57,48 @@
 
             <!-- Tab panel dos días -->
             <div class="tab-pane fade show" id="pills-twoday" role="tabpanel" aria-labelledby="pills-profile-tab">
-              <p class="text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi repellendus accusamus vel cupiditate ullam optio non aperiam a soluta sequi, doloremque harum. Suscipit doloribus natus omnis, tenetur nulla esse sed.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti nulla, sequi aliquid dolorem doloremque, placeat amet, ea ut similique dicta, maiores eius. Laudantium doloremque consectetur alias officia ad facilis qui.
-              </p>
+              <table class="table table-ligth table-bordered table-hover table-responsive-sm table-responsive-md">
+                <thead>
+                  <tr>
+                    <th class="text-center background-blue text-uppercase white-font" scope="col">#</th>
+                    <th class="text-center background-blue text-uppercase white-font" scope="col">Nombre</th>
+                    <th class="text-center background-blue text-uppercase white-font" scope="col">Fecha de Pago/Alta</th>
+                    <th class="text-center background-blue text-uppercase white-font" scope="col">Detalle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  <!-- <tr *ngFor="let changer of changersList"> -->
+                    <th scope="row">1</th>
+                    <td>José</td>
+                    <td>24/12/1982</td>
+                    <td><a href="#">Ver Detalle</a></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
 
             <!-- Tab panel tres o más días -->
             <div class="tab-pane fade show" id="pills-threeday" role="tabpanel" aria-labelledby="pills-contact-tab">
-              <p class="text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur laboriosam saepe voluptates minus natus, quisquam perspiciatis dolorem minima, ea magni voluptatem voluptatibus, suscipit debitis cumque autem. Hic consequatur dicta earum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora nihil ullam amet tempore dolore delectus asperiores non quos minus. Quae consequatur cum sunt eligendi amet recusandae esse libero minima nisi.
-              </p>
+              <table class="table table-ligth table-bordered table-hover table-responsive-sm table-responsive-md">
+                <thead>
+                  <tr>
+                    <th class="text-center background-blue text-uppercase white-font" scope="col">#</th>
+                    <th class="text-center background-blue text-uppercase white-font" scope="col">Nombre</th>
+                    <th class="text-center background-blue text-uppercase white-font" scope="col">Fecha de Pago/Alta</th>
+                    <th class="text-center background-blue text-uppercase white-font" scope="col">Detalle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  <!-- <tr *ngFor="let changer of changersList"> -->
+                    <th scope="row">1</th>
+                    <td>José</td>
+                    <td>24/12/1982</td>
+                    <td><a href="#">Ver Detalle</a></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
 
           </div>

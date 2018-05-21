@@ -24,6 +24,7 @@ import { YouchangerComponent } from './components/private/inquest/youchanger.com
 import { AccountComponent } from './components/private/account/account.component';
 import { ContentManagerComponent } from './components/admin/content-manager/content-manager.component';
 import { PlannerManagerComponent } from './components/admin/planner-manager/planner-manager.component';
+import { PmdetailComponent } from './components/admin/planner-manager/pmdetail.component';
 import { NutritionistManagerComponent } from './components/admin/nutritionist-manager/nutritionist-manager.component';
 
 /* Guards */
@@ -59,6 +60,7 @@ const APP_ROUTES: Routes = [
 
   { path: 'content-manager', component: ContentManagerComponent, canActivate: [ AdminGuardService ] },
   { path: 'planner', component: PlannerManagerComponent, canActivate: [ PlannerGuardService ] },
+  { path: 'plan-detail/:_id', component: PmdetailComponent, canActivate: [ PlannerGuardService ] },
   { path: 'nutritionist', component: NutritionistManagerComponent, canActivate: [ NutritionistGuardService ] },
 
   { path: '**',  component: HomeComponent },

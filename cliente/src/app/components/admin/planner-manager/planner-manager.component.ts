@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlannerManagerComponent implements OnInit {
 
-  public changersList;
+  public userList;
   public pendientes = 10;
 
   constructor() { }
