@@ -8,8 +8,8 @@ var changerSchema = schema({
   user: String,
   startDate:String,
   endDate:String,
-  pAlimenticio:String,
-  pEjercicio:String 
+  pAlimentary:String,
+  pExercise:String 
 });
 
  module.exports = mongoose.model( 'changerguards', changerSchema );

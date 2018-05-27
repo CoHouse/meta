@@ -3,6 +3,6 @@ export interface Changer{
   user:string,
   startDate: string,
   endDate: string,
-  pAlimenticio: string,
-  pEjercicio: string
+  pAlimentary: string,
+  pExercise: string
 }

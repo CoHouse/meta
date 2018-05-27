@@ -15,7 +15,6 @@ export class InquestComponent implements OnInit {
 
   public profile;
   public _id;
-  public inquestFlag;
   public updateFlag = false;
   attachFile: File;
 
@@ -63,13 +62,14 @@ export class InquestComponent implements OnInit {
     this._user.getUser().subscribe( result => {
       /* Asignar arreglos y variables de lo que viene en la base */
       this.user.inquest = result["inquest"];
-      this.user.completedInquestFlag = result["completedInquestFlag"];
       this.user.plan = result["plan"];
       this._id = result["_id"];
+      this.user.completedInquestFlag = result["completedInquestFlag"];
 
-      if( <boolean>this.user.completedInquestFlag ){
-        console.log("Aquí es donde hay que inactivar alv todo el formulario");
-        console.log("ID inicial a penas entrar a user: ", this._id);
+      if( result["completedInquestFlag"] == 'true'){
+        this.user.completedInquestFlag = true;
+      }else{
+        this.user.completedInquestFlag = false;
       }
 
     }, error => {

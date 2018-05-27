@@ -32,8 +32,8 @@ export class ContentManagerComponent implements OnInit {
     user:"",
     startDate:"",
     endDate: "",
-    pAlimenticio: "",
-    pEjercicio: ""
+    pAlimentary: "",
+    pExercise: ""
   }
 
   admin:Admin = {
@@ -75,8 +75,8 @@ export class ContentManagerComponent implements OnInit {
       user: userSp,
       startDate: this.today.toString(),
       endDate: endDate,
-      pAlimenticio: form['value']['pAlimenticio'],
-      pEjercicio: form['value']['pEjercicio']
+      pAlimentary: form['value']['pAlimentary'],
+      pExercise: form['value']['pExercise']
     }
 
     this._changer.sendChanger( this.changer ).subscribe( data => {

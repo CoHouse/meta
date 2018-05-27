@@ -31,6 +31,16 @@ export class ChangerGuardService implements CanActivate {
     return this._httpClient.post( this.url, body, { headers } ).map( flag => flag );
   }
 
+  getPendingPlans(){
+    this.url = Ruta.url + "getPendingPlans/";
+    return this._httpClient.get( this.url ).map( showPendingPlans => showPendingPlans );
+  }
+
+  getPlann( _id:string ){
+    this.url = Ruta.url + "getPlann/" + _id;
+    return this._httpClient.get( this.url ).map( res => res );
+  }
+
   sendChanger( changer:Changer ){
     this.url = Ruta.url + "saveChanger/";
     let body = JSON.stringify( changer );

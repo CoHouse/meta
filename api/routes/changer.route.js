@@ -9,6 +9,7 @@ var changerController = require("../controllers/changer.controller.js");
 var api = express.Router();
 
 /* Métodos GET */
+api.get("/getPendingPlans", changerController.getPendingPlans );
 
 /* Métodos POST */
 api.post("/getChanger", changerController.getChanger );

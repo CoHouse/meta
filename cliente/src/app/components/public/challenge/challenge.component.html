@@ -21,17 +21,12 @@
               <h3 class="text-uppercase">{{ validChallenge.challenge.title }}</h3>
               <h4><strong>Objetivo:</strong> {{ validChallenge.challenge.text }} </h4>
             </div>
-            <div class="col-lg-3 col-md-3"><h5 class="text-uppercase"><strong>Fecha de vigencia:</strong></h5> <h4><small>{{ validChallenge.challenge.startDate | date:"dd/LLLL/yyyy" }} al {{ validChallenge.challenge.endDate | date:"dd/LLLL/yyyy" }}</small></h4></div>
+            <div class="col-lg-3 col-md-3">
+              <h5 class="text-uppercase"><strong>Fecha de vigencia:</strong></h5> <h4><small>{{ validChallenge.challenge.startDate | date:"dd/LLLL/yyyy" }} al {{ validChallenge.challenge.endDate | date:"dd/LLLL/yyyy" }}</small></h4>
+              <h5><small><strong>Changers que lo han finalizado:</strong> {{validChallenge.challenge.userSucess.length + 1}}</small></h5>
+            </div>
             <div class="col-lg-3 col-md-3">
               <button class="btn btn-danger btn-block bg-red" [routerLink]="[ '/detail-challenge', validChallenge.challenge._id ]" >Ver el Reto</button>
-              <!-- <h4 class="py-3"><small>Finalizado por {{  }} Changers</small></h4> -->
-
-              Usuarios que lo terminaron:
-
-              <ul>
-                <li *ngFor="let user of successUsers">validChallenge.challenge.userSucess</li>
-              </ul>
-
             </div>
           </div>
         </div>
@@ -56,7 +51,9 @@
               <h3>{{ challenge.title }}</h3>
               <h4><strong>Objetivo:</strong> {{ challenge.text }} </h4>
             </div>
-            <div class="col-lg-3 col-md-3"><h5>Fecha de vigencia:</h5> <h4><small>{{ challenge.startDate | date:"dd/LLLL/yyyy" }} al {{ challenge.endDate | date:"dd/LLLL/yyyy" }}</small></h4></div>
+            <div class="col-lg-3 col-md-3"><h5>Fecha de vigencia:</h5> <h4><small>{{ challenge.startDate | date:"dd/LLLL/yyyy" }} al {{ challenge.endDate | date:"dd/LLLL/yyyy" }}</small></h4>
+              <h5><small><strong>Changers que lo han finalizado:</strong> {{validChallenge.challenge.userSucess.length + 1}}</small></h5>
+            </div>
             <div class="col-lg-3 col-md-3"><button class="btn btn-outline-secondary btn-block" [routerLink]="[ '/detail-challenge', challenge._id ]">Ver el Reto</button></div>
           </div>
         </div>

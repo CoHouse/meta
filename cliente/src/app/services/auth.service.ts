@@ -27,8 +27,8 @@ export class AuthService {
     user: "",
     startDate:"",
     endDate: "",
-    pAlimenticio: "",
-    pEjercicio: ""
+    pAlimentary: "",
+    pExercise: ""
   }
 
   constructor( public router: Router, public _changer:ChangerGuardService ) {
@@ -49,7 +49,6 @@ export class AuthService {
         this.router.navigate(['/home']);
       } else if (err) {
         this.router.navigate(['/home']);
-        console.log(err);
       }
     });
   }
@@ -69,12 +68,11 @@ export class AuthService {
         user: null,
         startDate:null,
         endDate: null,
-        pAlimenticio: null,
-        pEjercicio: null
+        pAlimentary: null,
+        pExercise: null
       }
 
       this._changer.isChanger( this.changer ).subscribe( result => {
-
         if( !result ){
           localStorage.setItem('about', "2018 MBC / 160318");
           localStorage.setItem('email', this.changer['email'] );

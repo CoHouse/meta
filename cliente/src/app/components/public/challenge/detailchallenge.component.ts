@@ -12,6 +12,7 @@ export class DetailchallengeComponent implements OnInit {
 
   public _id;
   public challenge;
+  public userSucess;
 
   constructor( public _activatedRoute:ActivatedRoute, public _challenge:ChallengeService ) {
     this._activatedRoute.params.subscribe( params => {
@@ -20,6 +21,8 @@ export class DetailchallengeComponent implements OnInit {
 
     this._challenge.getChallenge( this._id ).subscribe( result => {
       this.challenge = result['showChallenge'][0];
+
+      this.userSucess = this.challenge.userSucess;
     });
   }
 

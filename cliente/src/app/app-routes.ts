@@ -56,7 +56,7 @@ const APP_ROUTES: Routes = [
 
   { path: 'training', component: TrainingComponent, canActivate: [ ChangerGuardService ] },
   { path: 'inquest/:_id', component: InquestComponent, canActivate: [ ChangerGuardService ] },
-  { path: 'youchanger/:_id', component: YouchangerComponent, canActivate: [ AuthGuardService ] },
+  { path: 'youchanger/:_id', component: YouchangerComponent, canActivate: [ ChangerGuardService ] },
 
   { path: 'content-manager', component: ContentManagerComponent, canActivate: [ AdminGuardService ] },
   { path: 'planner', component: PlannerManagerComponent, canActivate: [ PlannerGuardService ] },

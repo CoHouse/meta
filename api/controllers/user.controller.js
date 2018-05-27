@@ -1,17 +1,8 @@
-"use strict"
+ "use strict"
 
 var objUser = require("../models/user.model.js");
 
 /* GET */
-function getPlannerUsers( req, res ){
-  objUser.find( ( error, showPlannerUsers ) => {
-    if( error ){
-      res.status( 500 ).send( { message: "Error al recuperar los users: [getPlannerUsers]" } );
-    }else{
-      res.status( 200 ).send( { showPlannerUsers } );
-    }
-  }).where('').equals(  );
-}
 
 /* POST */
 function saveUser( req, res ){
@@ -61,6 +52,7 @@ function getUser( req, res ){
     }
   });
 }
+
 
 /* UPDATE */
 function updateUser( req, res ){

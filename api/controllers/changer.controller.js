@@ -15,8 +15,8 @@ function saveChanger( req, res ){
   changer.user = params.user;
   changer.startDate = params.startDate;
   changer.endDate = params.endDate;
-  changer.pAlimenticio = params. pAlimenticio;
-  changer.pEjercicio = params. pEjercicio;
+  changer.pAlimentary = params. pAlimentary;
+  changer.pExercise = params. pExercise;
 
   if ( params.email != null && params.user != null && params.startDate != null && params.endDate != null ){
 
@@ -40,7 +40,9 @@ function saveChanger( req, res ){
 }
 
 function getChanger( req, res ){
+
   var params = req.body;
+  console.log("esto trae params dentro de getChanger: ", params);
 
   objChanger.find( ( error, showChangers ) => {
     if( error || showChangers.length <= 0 ){
@@ -68,7 +70,18 @@ function getChanger( req, res ){
   });
 }
 
+function getPendingPlans( req, res ){
+  objChanger.find( ( error, showPendingPlans )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición: [userController getPendingPlans()]"} );
+    }else{
+      res.status(200).send( showPendingPlans );
+    }
+  } ).where('pExercise').equals( "true" ).sort('_id');
+}
+
 module.exports = {
   saveChanger,
-  getChanger
+  getChanger,
+  getPendingPlans
 }

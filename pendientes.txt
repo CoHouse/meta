@@ -1,6 +1,7 @@
 - Implementar sistema que gestione al user
 - Implementar servicio que define si eres usuario e implementar el seguro del alta de inquest
 - Iniciar a construír el motor que genera planes de ejercicios
+- Actualizar el modo en el que se muetsra el conteo de usuarios que terminaron un reto
 
 - Implementar una forma de cachar el error de usuario duplicado para que devuelva el error preciso en el front
 - Validar la facebook app para login, por el momento solo es sandbox.
