@@ -29,4 +29,8 @@ export class PmdetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  createPlann(){
+    /* Comment */
+  }
+
 }
