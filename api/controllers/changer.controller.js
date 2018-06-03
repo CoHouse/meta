@@ -3,6 +3,7 @@
 var objChanger = require("../models/changer.model.js");
 var bcrypt = require("bcrypt-nodejs");
 var dateformat = require('dateformat');
+var objUser = require("../models/user.model.js");
 
 /* GET */
 
@@ -80,8 +81,41 @@ function getPendingPlans( req, res ){
   } ).where('pExercise').equals( "true" ).sort('_id');
 }
 
+function getPlann( req, res ){
+  objChanger.findOne( { "_id": req.params._id }, (error, showUser )=>{
+    if( error ){
+      res.status(500).send( { message: "Error en la petición: [getPlann()]" } );
+    }else{
+      /* --------------------------------------------------- */
+
+      var email = showUser["email"];
+
+      objUser.find( ( error, showUsers ) => {
+
+        for( let i in showUsers ){
+
+          if( bcrypt.compareSync( showUsers[i]["inquest"]["generals"].email, email ) ){
+            
+            console.log("El usuario es: ",showUsers[i] );
+            return res.status(200).send( showUsers[i] );
+          }else{
+            // console.log("error");
+          }
+
+        }
+      });
+
+      /* --------------------------------------------------- */
+
+
+    }
+  });
+
+}
+
 module.exports = {
   saveChanger,
   getChanger,
+  getPlann,
   getPendingPlans
 }

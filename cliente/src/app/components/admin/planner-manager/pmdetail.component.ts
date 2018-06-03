@@ -21,7 +21,7 @@ export class PmdetailComponent implements OnInit {
     });
 
     this._plann.getPlann( this._id ).subscribe( result => {
-      this.plann = result['showPlan'][0];
+      this.plann = result;
     });
 
   }

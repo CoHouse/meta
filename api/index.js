@@ -12,7 +12,7 @@ mongoose.connect("mongodb://localhost:27017/metadb", (error, response) => {
   if( error ){
     throw error;
   } else {
-    console.log("La conexión a la base es correcta");
+    console.log("Conexión inicial en: " + Date());
     app.listen( port, function(){
       console.log("mongodb://localhost:"+port+"/metadb");
     })

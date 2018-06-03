@@ -10,6 +10,7 @@ var api = express.Router();
 
 /* Métodos GET */
 api.get("/getPendingPlans", changerController.getPendingPlans );
+api.get("/getPlann/:_id", changerController.getPlann );
 
 /* Métodos POST */
 api.post("/getChanger", changerController.getChanger );
