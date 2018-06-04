@@ -61,6 +61,10 @@ arrancar servidor en local MX
 
 ng serve --aot --locale es
 
+Compilar localizado
+
+ng build --prod --aot --locale es
+
 material Angular, Validar
 
 https://material.angularjs.org/latest/getting-started
