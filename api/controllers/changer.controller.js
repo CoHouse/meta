@@ -43,7 +43,6 @@ function saveChanger( req, res ){
 function getChanger( req, res ){
 
   var params = req.body;
-  console.log("esto trae params dentro de getChanger: ", params);
 
   objChanger.find( ( error, showChangers ) => {
     if( error || showChangers.length <= 0 ){
@@ -94,8 +93,43 @@ function getPlann( req, res ){
 
           if( bcrypt.compareSync( showUsers[i]["inquest"]["generals"].email, email ) ){
 
-            console.log("El usuario es: ",showUsers[i] );
-            return res.status(200).send( showUsers[i] );
+            // clasificar
+            switch( showUsers[i]["inquest"]["background"].question5 ) {
+              case "A":
+                  // Usuario Ligero
+                  console.log("tipo de usuario: Usuario Ligero");
+                  console.log("Inquest de usuario, respuestas background: ", showUsers[i]["inquest"]["background"]);
+                  return res.status(200).send( console.log("Todo ok") );
+                  break;
+              case "B":
+                  // Usuario Moderado
+                  console.log("tipo de usuario: Usuario Moderado");
+                  console.log("Inquest de usuario, respuestas background: ", showUsers[i]["inquest"]["background"]);
+                  return res.status(200).send( console.log("Todo ok") );
+                  break;
+              case "C":
+                  // Usuario Vigoroso
+                  console.log("tipo de usuario: Usuario Vigoroso");
+                  console.log("Inquest de usuario, respuestas background: ", showUsers[i]["inquest"]["background"]);
+                  return res.status(200).send( console.log("Todo ok") );
+                  break;
+              case "D":
+                  // Usuario Cardiovascular
+console.log("tipo de usuario: Usuario Cardiovascular");
+                  console.log("Inquest de usuario, respuestas background: ", showUsers[i]["inquest"]["background"]);
+                  return res.status(200).send( console.log("Todo ok") );
+                  break;
+              default:
+                  // code block
+                  console.log("tipo de usuario: code block");
+                  console.log("Inquest de usuario, respuestas background: ", showUsers[i]["inquest"]["background"]);
+                  return res.status(200).send( console.log("Todo ok") );
+          }
+
+            // generar
+
+
+            // return res.status(200).send( showUsers[i] );
           }else{
 
           }

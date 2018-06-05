@@ -53,7 +53,6 @@ function getUser( req, res ){
   });
 }
 
-
 /* UPDATE */
 function updateUser( req, res ){
   var params = req.body;
