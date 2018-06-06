@@ -96,10 +96,9 @@ function getPlann( req, res ){
             // clasificar
             switch( showUsers[i]["inquest"]["background"].question5 ) {
               case "A":
-                  // Usuario Ligero
-                  console.log("tipo de usuario: Usuario Ligero");
-                  console.log("Inquest de usuario, respuestas background: ", showUsers[i]["inquest"]["background"]);
+                  // Clasificar usuario
                   return res.status(200).send( console.log("Todo ok") );
+                  // return res.status(200).send( showUsers[i] );
                   break;
               case "B":
                   // Usuario Moderado
@@ -115,7 +114,7 @@ function getPlann( req, res ){
                   break;
               case "D":
                   // Usuario Cardiovascular
-console.log("tipo de usuario: Usuario Cardiovascular");
+                  console.log("tipo de usuario: Usuario Cardiovascular");
                   console.log("Inquest de usuario, respuestas background: ", showUsers[i]["inquest"]["background"]);
                   return res.status(200).send( console.log("Todo ok") );
                   break;
