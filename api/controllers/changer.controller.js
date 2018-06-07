@@ -4,6 +4,7 @@ var objChanger = require("../models/changer.model.js");
 var bcrypt = require("bcrypt-nodejs");
 var dateformat = require('dateformat');
 var objUser = require("../models/user.model.js");
+var objEjercicios = require("../models/exercise.model.js");
 
 /* GET */
 
@@ -81,6 +82,7 @@ function getPendingPlans( req, res ){
 }
 
 function getPlann( req, res ){
+
   objChanger.findOne( { "_id": req.params._id }, (error, showUser )=>{
     if( error ){
       res.status(500).send( { message: "Error en la petición: [getPlann()]" } );
@@ -93,44 +95,40 @@ function getPlann( req, res ){
 
           if( bcrypt.compareSync( showUsers[i]["inquest"]["generals"].email, email ) ){
 
+            console.log("Respuesta pregunta 1: ", showUsers[i]["inquest"]["background"].question1);
+
             // clasificar
-            switch( showUsers[i]["inquest"]["background"].question5 ) {
+            switch( showUsers[i]["inquest"]["background"].question1 ) {
               case "A":
-                  // Clasificar usuario
-                  return res.status(200).send( console.log("Todo ok") );
+
+                  // Clasificar y Generar plan de ejercicios
+                  generarEjerciciosLigeros( );
+
+                  return res.status(200).send( console.log("Usuario ligero") );
                   // return res.status(200).send( showUsers[i] );
                   break;
               case "B":
-                  // Usuario Moderado
-                  console.log("tipo de usuario: Usuario Moderado");
-                  console.log("Inquest de usuario, respuestas background: ", showUsers[i]["inquest"]["background"]);
-                  return res.status(200).send( console.log("Todo ok") );
+
+                  // Clasificar usuario - Moderado
+                  // return res.status(200).send( console.log("Usuario moderado") );
                   break;
               case "C":
                   // Usuario Vigoroso
-                  console.log("tipo de usuario: Usuario Vigoroso");
-                  console.log("Inquest de usuario, respuestas background: ", showUsers[i]["inquest"]["background"]);
-                  return res.status(200).send( console.log("Todo ok") );
+                  return res.status(200).send( console.log("Usuario Vigoroso") );
                   break;
               case "D":
                   // Usuario Cardiovascular
-                  console.log("tipo de usuario: Usuario Cardiovascular");
-                  console.log("Inquest de usuario, respuestas background: ", showUsers[i]["inquest"]["background"]);
-                  return res.status(200).send( console.log("Todo ok") );
+                  return res.status(200).send( console.log("Usuario Cardiovascular") );
                   break;
               default:
                   // code block
-                  console.log("tipo de usuario: code block");
-                  console.log("Inquest de usuario, respuestas background: ", showUsers[i]["inquest"]["background"]);
-                  return res.status(200).send( console.log("Todo ok") );
-          }
-
-            // generar
-
-
-            // return res.status(200).send( showUsers[i] );
+                  return res.status(200).send( console.log("Entró al default") );
+            }
           }else{
-
+            if( parseInt(i) + 1 == showUsers.length ){
+              // return res.status(200).send( showUsers[i] );
+              return res.status( 200 ).send( {message: "Este usuario no ha respondido su encuesta"} );
+            }
           }
         }
       });
@@ -138,6 +136,72 @@ function getPlann( req, res ){
   });
 
 }
+
+
+function generarEjerciciosLigeros( ){
+  var changer = new objChanger();
+  var arr = [];
+  var cantidadNumeros = 7;
+  var hasta = 10;
+
+  changer.userType = "ligero";
+
+
+  // Obtener los ejercicios de fase 1 - pierna
+  function llenarFaseUno(a){
+    var v = Math.floor( Math.random() * hasta );
+    if( !a.some( function(e){ return e == v } ) ){
+      a.push(v);
+    }
+  }
+
+  while( arr.length < cantidadNumeros && cantidadNumeros < hasta ){
+    llenarFaseUno(arr);
+  }
+
+  // Obtener los ejercicios de fase 2 - abdomen
+  // Obtener los ejercicios de fase 3 - brazo
+  // Obtener los ejercicios de fase 4 - trote
+
+console.log(arr);
+
+
+
+
+  // changer.email = params.email;
+  // changer.user = params.user;
+  // changer.startDate = params.startDate;
+  // changer.endDate = params.endDate;
+  // changer.pAlimentary = params. pAlimentary;
+  // changer.pExercise = params. pExercise;
+  //
+  // if ( params.email != null && params.user != null && params.startDate != null && params.endDate != null ){
+  //
+  //   bcrypt.hash( params.email, null, null, function( error, hash ){
+  //
+  //     changer.email = hash;
+  //
+  //     changer.save( ( error, save ) => {
+  //       if( error ){
+  //         res.status( 500 ).send( { message: "Error al guardar el usuario [saveChanger]" } );
+  //       }else{
+  //         res.status( 201 ).send( save ); // Develop
+  //          //res.status( 201 ).send( { message: "Registro guardado con éxito." } ); // Production
+  //       }
+  //     });
+  //
+  //   });
+  // }else{
+  //   res.status( 500 ).send( { message: "Alguno de los datos viene vacío [saveChanger]"} );
+  // }
+}
+
+function generarEjerciciosModerados(){}
+
+function generarEjerciciosVigorosos(){}
+
+function generarEjerciciosCardiovasculares(){}
+
 
 module.exports = {
   saveChanger,

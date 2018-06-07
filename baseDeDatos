@@ -538,3 +538,422 @@ mongo ds259768.mlab.com:59768/metadb -u mbchanger -p 5al1x9SP45ED@us3Ac5
 /*=============================================>>>>>
 = Section comment block =
 ===============================================>>>>>*/
+
+/*=============================================>>>>>
+= Posible insert ejercicios =
+===============================================>>>>>*/
+{
+  "idArray": "0",
+  "name": "Cuadricep en maquina.",
+  "text": "Cuadricep en maquina.",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "1",
+  "name": "Bicep Crural en maquina",
+  "text": "Bicep Crural en maquina",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "2",
+  "name": "Aductores en maquina",
+  "text": "Aductores en maquina",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "3",
+  "name": "Abductores en maquina",
+  "text": "Abductores en maquina",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "4",
+  "name": "Desplantes sin peso",
+  "text": "Desplantes sin peso",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "5",
+  "name": "Elevacion de rodilla a la altura de la cadera (paso jogging) en el mismo lugar",
+  "text": "Elevacion de rodilla a la altura de la cadera (paso jogging) en el mismo lugar",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "6",
+  "name": "Elevacion sobre punta del pie (pantorrilla)",
+  "text": "Elevacion sobre punta del pie (pantorrilla)",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "7",
+  "name": "Sentadillas “sumo” sin peso",
+  "text": "Sentadillas “sumo” sin peso",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "8",
+  "name": "Sentadilla sin peso",
+  "text": "Sentadilla sin peso",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "9",
+  "name": "Ciccsors en step bajo",
+  "text": "Ciccsors en step bajo",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "10",
+  "name": "Patos sin peso",
+  "text": "Patos sin peso",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "11",
+  "name": "Puente sin peso",
+  "text": "Puente sin peso",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "12",
+  "name": "Saltos con desplazamiento",
+  "text": "Saltos con desplazamiento",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "13",
+  "name": "Saltos pliometricos lado a lado",
+  "text": "Saltos pliometricos lado a lado",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "14",
+  "name": "Saltos pliometricos a step bajo",
+  "text": "Saltos pliometricos a step bajo",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "15",
+  "name": "Escalera a step medio",
+  "text": "Escalera a step medio",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "16",
+  "name": "Sentadilla con salto a step bajo",
+  "text": "Sentadilla con salto a step bajo",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "17",
+  "name": "Patada de caballo sin peso",
+  "text": "Patada de caballo sin peso",
+  "phase": "1",
+  "classification": "1"
+}
+{
+  "idArray": "18",
+  "name": "“Crab walk” sin peso",
+  "text": "“Crab walk” sin peso",
+  "phase": "1",
+  "classification": "1"
+}
+
+{
+  "idArray": "0",
+  "name": "Sentadilla Con barra (peso ligero)",
+  "text": "Sentadilla Con barra (peso ligero)",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "1",
+  "name": "Desplantes con peso (peso ligero)",
+  "text": "Desplantes con peso (peso ligero)",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "2",
+  "name": "Cuadricep en máquina (peso intermedio)",
+  "text": "Cuadricep en máquina (peso intermedio)",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "3",
+  "name": "Bicep Crural (peso intermedio)",
+  "text": "Bicep Crural (peso intermedio)",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "4",
+  "name": "Aductores (peso intermedio)",
+  "text": "Aductores (peso intermedio)",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "5",
+  "name": "Abductores (peso intermedio)",
+  "text": "Abductores (peso intermedio)",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "6",
+  "name": "Desplantes con peso intermedio",
+  "text": "Desplantes con peso intermedio",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "7",
+  "name": "Paso jogging en superficie semiblanda",
+  "text": "Paso jogging en superficie semiblanda",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "8",
+  "name": "Elevacion de sobre punta del pie (pantorrilla) con peso intermedio",
+  "text": "Elevacion de sobre punta del pie (pantorrilla) con peso intermedio",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "9",
+  "name": "Sentadillas “sumo” con peso intermedio",
+  "text": "Sentadillas “sumo” con peso intermedio",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "10",
+  "name": "Ciccsors en step medio",
+  "text": "Ciccsors en step medio",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "11",
+  "name": "Patos con peso ligero",
+  "text": "Patos con peso ligero",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "12",
+  "name": "Puentes con peso ligero",
+  "text": "Puentes con peso ligero",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "13",
+  "name": "Saltos con desplazamiento con cuclilla media",
+  "text": "Saltos con desplazamiento con cuclilla media",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "14",
+  "name": "Saltos pliometricos lado a lado en un pie",
+  "text": "Saltos pliometricos lado a lado en un pie",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "15",
+  "name": "Saltos pliometricos a step intermedio",
+  "text": "Saltos pliometricos a step intermedio",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "16",
+  "name": "Escalera a step medio con peso ligero",
+  "text": "Escalera a step medio con peso ligero",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "17",
+  "name": "Sentadilla con salto a step medio",
+  "text": "Sentadilla con salto a step medio",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "18",
+  "name": "Patada de caballo con peso ligero",
+  "text": "Patada de caballo con peso ligero",
+  "phase": "1",
+  "classification": "2"
+}
+{
+  "idArray": "19",
+  "name": "Crab walk con peso ligero",
+  "text": "Crab walk con peso ligero",
+  "phase": "1",
+  "classification": "2"
+}
+
+{
+  "idArray": "0",
+  "name": "Sentadilla Con barra (peso moderado o alto en dependencia del objetivo)",
+  "text": "Sentadilla Con barra (peso moderado o alto en dependencia del objetivo)",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "1",
+  "name": "Desplantes con peso (peso moderado o alto en dependencia del objetivo)",
+  "text": "Desplantes con peso (peso moderado o alto en dependencia del objetivo)",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "2",
+  "name": "Cuadricep en maquina (peso intermedio)",
+  "text": "Cuadricep en maquina (peso intermedio)",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "3",
+  "name": "Bicep Crural (peso moderado o alto en dependencia del objetivo)",
+  "text": "Bicep Crural (peso moderado o alto en dependencia del objetivo)",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "4",
+  "name": "Aductores (peso moderado o alto en dependencia del objetivo)",
+  "text": "Aductores (peso moderado o alto en dependencia del objetivo)",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "5",
+  "name": "Abductores (peso moderado o alto en dependencia del objetivo)",
+  "text": "Abductores (peso moderado o alto en dependencia del objetivo)",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "6",
+  "name": "Desplantes con (peso moderado o alto en dependencia del objetivo)",
+  "text": "Desplantes con (peso moderado o alto en dependencia del objetivo)",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "7",
+  "name": "Paso jogging en superficie bland",
+  "text": "Paso jogging en superficie bland",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "8",
+  "name": "Elevacion de sobre punta del pie (pantorrilla) (peso moderado o alto en dependencia del objetivo)",
+  "text": "Elevacion de sobre punta del pie (pantorrilla) (peso moderado o alto en dependencia del objetivo)",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "9",
+  "name": "Sentadillas “sumo” (peso moderado o alto en dependencia del objetivo)",
+  "text": "Sentadillas “sumo” (peso moderado o alto en dependencia del objetivo)",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "10",
+  "name": "Ciccsors en step medio",
+  "text": "Ciccsors en step medio",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "11",
+  "name": "Patos con peso moderado",
+  "text": "Patos con peso moderado",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "12",
+  "name": "Puentes con peso (peso moderado o alto en dependencia del objetivo)",
+  "text": "Puentes con peso (peso moderado o alto en dependencia del objetivo)",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "13",
+  "name": "Saltos con desplazamiento con cuclilla profunda",
+  "text": "Saltos con desplazamiento con cuclilla profunda",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "14",
+  "name": "Saltos pliometricos lado a lado en un pie con pequeña altura a vencer",
+  "text": "Saltos pliometricos lado a lado en un pie con pequeña altura a vencer",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "15",
+  "name": "Saltos pliometricos a step alto",
+  "text": "Saltos pliometricos a step alto",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "16",
+  "name": "Escalera a step medio con peso moderado",
+  "text": "Escalera a step medio con peso moderado",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "17",
+  "name": "Sentadilla con salto a step medio",
+  "text": "Sentadilla con salto a step medio",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "18",
+  "name": "Patada de caballo con peso (peso moderado o alto en dependencia del objetivo).",
+  "text": "Patada de caballo con peso (peso moderado o alto en dependencia del objetivo).",
+  "phase": "1",
+  "classification": "3"
+}
+{
+  "idArray": "19",
+  "name": "Crab walk con peso ligero mas liga rigida en rodillas",
+  "text": "Crab walk con peso ligero mas liga rigida en rodillas",
+  "phase": "1",
+  "classification": "3"
+}

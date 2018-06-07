@@ -2,6 +2,7 @@ export interface User {
   completedInquestFlag?:boolean,
   pAlimentary?:boolean,
   pExercise?:boolean,
+  userType?:string,
   _id?:string,
   inquest: {
     generals:{

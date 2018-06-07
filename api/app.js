@@ -42,6 +42,7 @@ var routeTopic = require("./routes/topics.route.js");
 var routeChallenge = require("./routes/challenges.route.js");
 var routeComment = require("./routes/comments.route.js");
 var routeUser = require("./routes/user.route.js");
+var routeExercise = require("./routes/exercises.route.js");
 
 /*=============================================>>>>>
 = Rutas Base de la aplicación =
@@ -58,5 +59,6 @@ app.use( "/api", routeTopic );
 app.use( "/api", routeChallenge );
 app.use( "/api", routeComment );
 app.use( "/api", routeUser );
+app.use( "/api", routeExercise );
 
 module.exports = app;
