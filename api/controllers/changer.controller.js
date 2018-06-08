@@ -101,33 +101,33 @@ function getPlann( req, res ){
             switch( showUsers[i]["inquest"]["background"].question1 ) {
               case "A":
 
-                  // Clasificar y Generar plan de ejercicios
-                  generarEjerciciosLigeros( );
+              // Clasificar y Generar plan de ejercicios
+              generarEjerciciosLigeros( );
 
-                  return res.status(200).send( console.log("Usuario ligero") );
-                  // return res.status(200).send( showUsers[i] );
-                  break;
+              return res.status(200).send( console.log("Usuario ligero") );
+              // return res.status(200).send( showUsers[i] );
+              break;
               case "B":
 
-                  // Clasificar usuario - Moderado
-                  // return res.status(200).send( console.log("Usuario moderado") );
-                  break;
+              // Clasificar usuario - Moderado
+              // return res.status(200).send( console.log("Usuario moderado") );
+              break;
               case "C":
-                  // Usuario Vigoroso
-                  return res.status(200).send( console.log("Usuario Vigoroso") );
-                  break;
+              // Usuario Vigoroso
+              return res.status(200).send( console.log("Usuario Vigoroso") );
+              break;
               case "D":
-                  // Usuario Cardiovascular
-                  return res.status(200).send( console.log("Usuario Cardiovascular") );
-                  break;
+              // Usuario Cardiovascular
+              return res.status(200).send( console.log("Usuario Cardiovascular") );
+              break;
               default:
-                  // code block
-                  return res.status(200).send( console.log("Entró al default") );
+              // code block
+              return res.status(200).send( console.log("Entró al default") );
             }
           }else{
             if( parseInt(i) + 1 == showUsers.length ){
               // return res.status(200).send( showUsers[i] );
-              return res.status( 200 ).send( {message: "Este usuario no ha respondido su encuesta"} );
+              return res.status( 200 ).send( { message: "Este usuario no ha respondido su encuesta" } );
             }
           }
         }
@@ -137,63 +137,50 @@ function getPlann( req, res ){
 
 }
 
-
 function generarEjerciciosLigeros( ){
+
   var changer = new objChanger();
   var arr = [];
-  var cantidadNumeros = 7;
-  var hasta = 10;
-
-  changer.userType = "ligero";
-
+  var cantidadEjercicios = 7;
+  var limite = 10;
 
   // Obtener los ejercicios de fase 1 - pierna
-  function llenarFaseUno(a){
-    var v = Math.floor( Math.random() * hasta );
+  function generarFaseUno(a){
+    var v = Math.floor( Math.random() * limite );
     if( !a.some( function(e){ return e == v } ) ){
       a.push(v);
     }
   }
 
-  while( arr.length < cantidadNumeros && cantidadNumeros < hasta ){
-    llenarFaseUno(arr);
+  while( arr.length < cantidadEjercicios && cantidadEjercicios < limite ){
+    generarFaseUno( arr );
   }
 
-  // Obtener los ejercicios de fase 2 - abdomen
-  // Obtener los ejercicios de fase 3 - brazo
-  // Obtener los ejercicios de fase 4 - trote
-
-console.log(arr);
-
-
-
-
-  // changer.email = params.email;
-  // changer.user = params.user;
-  // changer.startDate = params.startDate;
-  // changer.endDate = params.endDate;
-  // changer.pAlimentary = params. pAlimentary;
-  // changer.pExercise = params. pExercise;
+  // objEjercicios.find( ( error, showExercisesPhaseOne )=>{
+  //   if( error ){
+  //     return false;
+  //   }else{
   //
-  // if ( params.email != null && params.user != null && params.startDate != null && params.endDate != null ){
+  //     console.log("Arreglo: ", arr);
+  //     console.log("Ejercicios: ", showExercisesPhaseOne );
   //
-  //   bcrypt.hash( params.email, null, null, function( error, hash ){
+  //     changer.userType = "ligero";
+  //     return showExercisesPhaseOne;
   //
-  //     changer.email = hash;
+  //     // res.status( 201 ).send( save ); // Develop
+  //     //res.status( 201 ).send( { message: "Registro guardado con éxito." } ); // Production
   //
-  //     changer.save( ( error, save ) => {
-  //       if( error ){
-  //         res.status( 500 ).send( { message: "Error al guardar el usuario [saveChanger]" } );
-  //       }else{
-  //         res.status( 201 ).send( save ); // Develop
-  //          //res.status( 201 ).send( { message: "Registro guardado con éxito." } ); // Production
-  //       }
-  //     });
-  //
-  //   });
-  // }else{
-  //   res.status( 500 ).send( { message: "Alguno de los datos viene vacío [saveChanger]"} );
-  // }
+  //   }
+  // }).where("classification").equals("1").where('idArray').in( arr );
+
+  getExercisesPhaseOne(arr).then( ejercicios =>{
+    console.log(ejercicios[2]);
+
+
+  }, (error)=>{
+    console.log(error);
+  });
+
 }
 
 function generarEjerciciosModerados(){}
@@ -202,6 +189,18 @@ function generarEjerciciosVigorosos(){}
 
 function generarEjerciciosCardiovasculares(){}
 
+let getExercisesPhaseOne = (arr) => {
+  return new Promise( ( resolve, reject ) =>{
+    let ejercicios = objEjercicios.find({ classification: '1', idArray: { $in: arr } });
+
+    if(!ejercicios){
+      reject("No existen ejercicios");
+    }else{
+      resolve(ejercicios);
+    }
+
+  });
+}
 
 module.exports = {
   saveChanger,
