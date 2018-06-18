@@ -83,7 +83,7 @@ function getPendingPlans( req, res ){
 
 function getPlann( req, res ){
 
-  objChanger.findOne( { "_id": req.params._id }, (error, showUser )=>{
+  objChanger.findOne( { "_id": req.params._id }, ( error, showUser )=>{
     if( error ){
       res.status(500).send( { message: "Error en la petición: [getPlann()]" } );
     }else{
@@ -95,33 +95,39 @@ function getPlann( req, res ){
 
           if( bcrypt.compareSync( showUsers[i]["inquest"]["generals"].email, email ) ){
 
-            console.log("Respuesta pregunta 1: ", showUsers[i]["inquest"]["background"].question1);
+            // console.log("Respuesta pregunta 1: ", showUsers[i]["inquest"]["background"].question1);
 
             // clasificar
             switch( showUsers[i]["inquest"]["background"].question1 ) {
               case "A":
 
               // Clasificar y Generar plan de ejercicios
-              generarEjerciciosLigeros( );
+              generarEjerciciosLigeros( 7, 5, 7, 1, 1 );
 
+              //Actualizar el registro de usuario con el plan de ejercicios
+
+              // retornar estatus final
               return res.status(200).send( console.log("Usuario ligero") );
               // return res.status(200).send( showUsers[i] );
               break;
+
               case "B":
 
               // Clasificar usuario - Moderado
               // return res.status(200).send( console.log("Usuario moderado") );
               break;
+
               case "C":
               // Usuario Vigoroso
               return res.status(200).send( console.log("Usuario Vigoroso") );
               break;
+
               case "D":
               // Usuario Cardiovascular
               return res.status(200).send( console.log("Usuario Cardiovascular") );
               break;
+
               default:
-              // code block
               return res.status(200).send( console.log("Entró al default") );
             }
           }else{
@@ -137,64 +143,215 @@ function getPlann( req, res ){
 
 }
 
-function generarEjerciciosLigeros( ){
+function generarEjerciciosLigeros( cantidadEjerciciosFU, cantidadEjerciciosFD, cantidadEjerciciosFT, cantidadEjerciciosFC, cantidadEjerciciosFCin ){
 
   var changer = new objChanger();
-  var arr = [];
-  var cantidadEjercicios = 7;
-  var limite = 10;
 
-  // Obtener los ejercicios de fase 1 - pierna
+  var arr1 = [];
+  var arr2 = [];
+  var arr3 = [];
+  var arr4 = [];
+  var arr5 = [];
+
+  var cantidadEjerciciosGFU = cantidadEjerciciosFU;
+  var cantidadEjerciciosGFD = cantidadEjerciciosFD;
+  var cantidadEjerciciosGFT = cantidadEjerciciosFT;
+  var cantidadEjerciciosGFC = cantidadEjerciciosFC;
+  var cantidadEjerciciosGFCin = cantidadEjerciciosFCin;
+
+  var limiteF1 = 19;
+  var limiteF2 = 20;
+  var limiteF3 = 19;
+  var limiteF4 = 2;
+  var limiteF5 = 2;
+
+  /*=============================================>>>>>
+  = Generación ejercicios fase 1 - Pierna =
+  ===============================================>>>>>*/
   function generarFaseUno(a){
-    var v = Math.floor( Math.random() * limite );
+    var v = Math.floor( Math.random() * limiteF1 );
     if( !a.some( function(e){ return e == v } ) ){
       a.push(v);
     }
   }
 
-  while( arr.length < cantidadEjercicios && cantidadEjercicios < limite ){
-    generarFaseUno( arr );
+  while( arr1.length < cantidadEjerciciosGFU && cantidadEjerciciosGFU < limiteF1 ){
+    generarFaseUno( arr1 );
   }
+  console.log("Arreglo 1: ",arr1);
 
-  // objEjercicios.find( ( error, showExercisesPhaseOne )=>{
-  //   if( error ){
-  //     return false;
-  //   }else{
-  //
-  //     console.log("Arreglo: ", arr);
-  //     console.log("Ejercicios: ", showExercisesPhaseOne );
-  //
-  //     changer.userType = "ligero";
-  //     return showExercisesPhaseOne;
-  //
-  //     // res.status( 201 ).send( save ); // Develop
-  //     //res.status( 201 ).send( { message: "Registro guardado con éxito." } ); // Production
-  //
-  //   }
-  // }).where("classification").equals("1").where('idArray').in( arr );
-
-  getExercisesPhaseOne(arr).then( ejercicios =>{
-    console.log(ejercicios[2]);
-
-
-  }, (error)=>{
+  getExercisesPhaseOne( arr1 ).then( ejercicios =>{
+    console.log("Ejercicios Generados Fase 1: ", ejercicios );
+    // console.log(this.ejerciciosPhaseOne);
+  }, ( error )=>{
     console.log(error);
   });
+  /*= End of Generación ejercicios fase 1 - Pierna =*/
+  /*=============================================<<<<<*/
+
+
+  /*=============================================>>>>>
+  = Generación ejercicios fase 2 - Abdomen =
+  ===============================================>>>>>*/
+  function generarFaseDos(a){
+    var v = Math.floor( Math.random() * limiteF2 );
+    if( !a.some( function(e){ return e == v } ) ){
+      a.push(v);
+    }
+  }
+
+  while( arr2.length < cantidadEjerciciosGFD && cantidadEjerciciosGFD < limiteF2 ){
+    generarFaseDos( arr2 );
+  }
+  console.log("Arreglo 2: ",arr2);
+
+  getExercisesPhaseTwo( arr2 ).then( ejercicios =>{
+    console.log("Ejercicios Generados Fase 2: ", ejercicios );
+    // console.log(this.ejerciciosPhaseOne);
+  }, ( error )=>{
+    console.log(error);
+  });
+  /*= end of Generación ejercicios fase 2 - Abdomen =*/
+  /*=============================================<<<<<*/
+
+
+  /*=============================================>>>>>
+  = Generación ejercicios fase 3 - Brazo =
+  ===============================================>>>>>*/
+  function generarFaseTres(a){
+    var v = Math.floor( Math.random() * limiteF3 );
+    if( !a.some( function(e){ return e == v } ) ){
+      a.push(v);
+    }
+  }
+
+  while( arr3.length < cantidadEjerciciosGFT && cantidadEjerciciosGFT < limiteF3 ){
+    generarFaseTres( arr3 );
+  }
+  console.log( "Arreglo 3: ", arr3 );
+
+  getExercisesPhaseThree( arr3 ).then( ejercicios =>{
+    console.log("Ejercicios Generados Fase 3: ", ejercicios );
+  }, ( error )=>{
+    console.log(error);
+  });
+  /*= end of Generación ejercicios fase 3 - Brazo =*/
+  /*=============================================<<<<<*/
+
+
+  /*=============================================>>>>>
+  = Generación ejercicios fase 4 - Trote =
+  ===============================================>>>>>*/
+  function generarFaseCuatro(a){
+    var v = Math.floor( Math.random() * limiteF4 );
+    if( !a.some( function(e){ return e == v } ) ){
+      a.push(v);
+    }
+  }
+
+  while( arr4.length < cantidadEjerciciosGFC && cantidadEjerciciosGFC < limiteF4 ){
+    generarFaseCuatro( arr4 );
+  }
+  console.log( "Arreglo 4: ", arr4 );
+
+  getExercisesPhaseFour( arr4 ).then( ejercicios =>{
+    console.log("Ejercicios Generados Fase 4: ", ejercicios );
+  }, ( error )=>{
+    console.log(error);
+  });
+  /*= end of Generación ejercicios fase 4 - Trote =*/
+  /*=============================================<<<<<*/
+
+
+  /*=============================================>>>>>
+  = Generación ejercicios fase 5 - Estiramiento =
+  ===============================================>>>>>*/
+  function generarFaseCinco(a){
+    var v = Math.floor( Math.random() * limiteF5 );
+    if( !a.some( function(e){ return e == v } ) ){
+      a.push(v);
+    }
+  }
+
+  while( arr5.length < cantidadEjerciciosGFCin && cantidadEjerciciosGFCin < limiteF5 ){
+    generarFaseCinco( arr5 );
+  }
+  console.log( "Arreglo 5: ", arr5 );
+
+  getExercisesPhaseFive( arr5 ).then( ejercicios =>{
+    console.log("Ejercicios Generados Fase 5: ", ejercicios );
+  }, ( error )=>{
+    console.log(error);
+  });
+  /*= end of Generación ejercicios fase 5 - Estiramiento =*/
+  /*=============================================<<<<<*/
 
 }
 
-function generarEjerciciosModerados(){}
+function generarEjerciciosModerados(  ){}
 
-function generarEjerciciosVigorosos(){}
+function generarEjerciciosVigorosos(  ){}
 
-function generarEjerciciosCardiovasculares(){}
+function generarEjerciciosCardiovasculares(  ){}
 
 let getExercisesPhaseOne = (arr) => {
   return new Promise( ( resolve, reject ) =>{
-    let ejercicios = objEjercicios.find({ classification: '1', idArray: { $in: arr } });
+    let ejercicios = objEjercicios.find( { classification: '1', phase:'1', idArray: { $in: arr } } );
 
     if(!ejercicios){
-      reject("No existen ejercicios");
+      reject("No existen ejercicios, favor de validar manualmente");
+    }else{
+      resolve(ejercicios);
+    }
+
+  });
+}
+
+let getExercisesPhaseTwo = (arr) =>{
+  return new Promise( ( resolve, reject ) =>{
+    let ejercicios = objEjercicios.find( { classification: '1', phase:'2', idArray: { $in: arr } } );
+
+    if(!ejercicios){
+      reject("No existen ejercicios, favor de validar manualmente");
+    }else{
+      resolve(ejercicios);
+    }
+
+  });
+}
+
+let getExercisesPhaseThree = (arr) =>{
+  return new Promise( ( resolve, reject ) =>{
+    let ejercicios = objEjercicios.find( { classification: '1', phase:'3', idArray: { $in: arr } } );
+
+    if(!ejercicios){
+      reject("No existen ejercicios, favor de validar manualmente");
+    }else{
+      resolve(ejercicios);
+    }
+
+  });
+}
+
+let getExercisesPhaseFour = (arr) =>{
+  return new Promise( ( resolve, reject ) =>{
+    let ejercicios = objEjercicios.find( { classification: '1', phase:'4', idArray: { $in: arr } } );
+
+    if(!ejercicios){
+      reject("No existen ejercicios, favor de validar manualmente");
+    }else{
+      resolve(ejercicios);
+    }
+
+  });
+}
+
+let getExercisesPhaseFive = (arr) =>{
+  return new Promise( ( resolve, reject ) =>{
+    let ejercicios = objEjercicios.find( { classification: '1', phase:'5', idArray: { $in: arr } } );
+
+    if( ejercicios.length <= 0 ){
+      reject("No existen ejercicios, favor de validar manualmente");
     }else{
       resolve(ejercicios);
     }
