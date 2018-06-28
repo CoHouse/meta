@@ -1,8 +1,17 @@
 <div class="container">
+
+  <!-- Regresar al panel anterior -->
+  <div class="row text-right">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <button type="button" class="btn btn-outline-info btn-lg mt-2 ">Regresar a Planes Pendientes</button>
+    </div>
+  </div>
+
+  <!-- Respuestas y plan sugerido por el sistema -->
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-      <div class="py-5" id="accordion">
+      <div class="py-3" id="accordion">
         <div class="card">
           <div class="card-header" id="headingOne">
             <h2 class="mb-0">
@@ -372,4 +381,18 @@
 
     </div>
   </div>
+
+  <!-- Panel de revisión -->
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+      <div class="custom-control custom-checkbox my-2">
+        <input type="checkbox" class="custom-control-input" id="confirmadoRevisado" name="confirmadoRevisado" #confirmadoRevisado="ngModel"  ngModel>
+        <label class="custom-control-label" for="confirmadoRevisado">He revisado el plan de ejercicios y confirmo que no contiene errores</label>
+      </div>
+
+      <button [disabled]="!confirmadoRevisado.value" class="btn btn-danger btn-lg my-2 ">Guardar y Enviar Plan</button>
+    </div>
+  </div>
+
 </div>

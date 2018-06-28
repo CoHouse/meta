@@ -5,7 +5,7 @@
 1. Crear y configurar server.js
 2. modificar el package.json poniendo "server.js" en el campo "main"
 
-
+--------------------------------------------------
 Package.json
 
 {
@@ -35,3 +35,5 @@ Package.json
 
 allowed callbacks en author
 http://localhost:4200/callback, http://mbchanger.com/
+
+Cambiar la línea "redirectUri" en el auth service

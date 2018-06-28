@@ -102,8 +102,10 @@ function getPlann( req, res ){
               case "A":
 
               // Clasificar y Generar plan de ejercicios
-              generarEjerciciosLigeros( 7, 5, 7, 1, 1 );
+              let ejercicios = generarEjerciciosLigeros( 7, 5, 7, 1, 1 );
 
+
+              console.log("Ejercicios: ", ejercicios);
               //Actualizar el registro de usuario con el plan de ejercicios
 
               // retornar estatus final
@@ -132,7 +134,6 @@ function getPlann( req, res ){
             }
           }else{
             if( parseInt(i) + 1 == showUsers.length ){
-              // return res.status(200).send( showUsers[i] );
               return res.status( 200 ).send( { message: "Este usuario no ha respondido su encuesta" } );
             }
           }
@@ -165,6 +166,8 @@ function generarEjerciciosLigeros( cantidadEjerciciosFU, cantidadEjerciciosFD, c
   var limiteF4 = 2;
   var limiteF5 = 2;
 
+  var ejerciciosFase1 = {};
+
   /*=============================================>>>>>
   = Generación ejercicios fase 1 - Pierna =
   ===============================================>>>>>*/
@@ -178,12 +181,11 @@ function generarEjerciciosLigeros( cantidadEjerciciosFU, cantidadEjerciciosFD, c
   while( arr1.length < cantidadEjerciciosGFU && cantidadEjerciciosGFU < limiteF1 ){
     generarFaseUno( arr1 );
   }
-  console.log("Arreglo 1: ",arr1);
 
   getExercisesPhaseOne( arr1 ).then( ejercicios =>{
-    console.log("Ejercicios Generados Fase 1: ", ejercicios );
-    // console.log(this.ejerciciosPhaseOne);
-  }, ( error )=>{
+    // console.log("Ejercicios Generados Fase 1: ", ejercicios );
+    return ejercicios;
+  },  error =>{
     console.log(error);
   });
   /*= End of Generación ejercicios fase 1 - Pierna =*/
@@ -203,10 +205,45 @@ function generarEjerciciosLigeros( cantidadEjerciciosFU, cantidadEjerciciosFD, c
   while( arr2.length < cantidadEjerciciosGFD && cantidadEjerciciosGFD < limiteF2 ){
     generarFaseDos( arr2 );
   }
-  console.log("Arreglo 2: ",arr2);
 
   getExercisesPhaseTwo( arr2 ).then( ejercicios =>{
-    console.log("Ejercicios Generados Fase 2: ", ejercicios );
+    // console.log("Ejercicios Generados Fase 2: ", ejercicios );
+
+
+    /*=============================================>>>>>
+    = Actualizar usuario con los ejercicios de la fase 1 =
+    ===============================================>>>>>*/
+    // function updateExcersisePlanPhase1( req, res ){
+    //   var user = new objUser();
+    //
+    //   /* Llenado los primeros ejercicios - Método POST */
+    //   var updatePack = {
+    //     "plan.exercise.phaseOne.e1" : ejercicios[0]["name"],
+    //     "plan.exercise.phaseOne.e2" : ejercicios[1]["name"],
+    //     "plan.exercise.phaseOne.e3" : ejercicios[2]["name"],
+    //     "plan.exercise.phaseOne.e4" : ejercicios[3]["name"],
+    //     "plan.exercise.phaseOne.e5" : ejercicios[4]["name"],
+    //     "plan.exercise.phaseOne.e6" : ejercicios[5]["name"],
+    //     "plan.exercise.phaseOne.e7" : ejercicios[6]["name"]
+    //   }
+    //
+    //   console.log("dentro de la fase 2 en el update");
+    //
+    //   user.findByIdAndUpdate( showUsers[i][_id], updatePack, ( error, updatedUser )=>{
+    //     if( error ){
+    //       return res.status( 500 ).send( {  message: "Error al actualizar el plan de ejercicios del usuario [getExercisesPhaseTwo]" } );
+    //     }else{
+    //       return res.status( 200 ).send( updatedUser ); // Develop
+    //       //res.status( 200 ).send( { message: "Actualizado con éxito." } ); // Production
+    //     }
+    //   });
+    //
+    // }
+    /*= End of Actualizar usuario con los ejercicios de la fase 1 =*/
+    /*=============================================<<<<<*/
+
+    return ejericios;
+
     // console.log(this.ejerciciosPhaseOne);
   }, ( error )=>{
     console.log(error);
@@ -228,10 +265,12 @@ function generarEjerciciosLigeros( cantidadEjerciciosFU, cantidadEjerciciosFD, c
   while( arr3.length < cantidadEjerciciosGFT && cantidadEjerciciosGFT < limiteF3 ){
     generarFaseTres( arr3 );
   }
-  console.log( "Arreglo 3: ", arr3 );
 
   getExercisesPhaseThree( arr3 ).then( ejercicios =>{
-    console.log("Ejercicios Generados Fase 3: ", ejercicios );
+    // console.log("Ejercicios Generados Fase 3: ", ejercicios );
+
+    return ejericios;
+
   }, ( error )=>{
     console.log(error);
   });
@@ -252,10 +291,11 @@ function generarEjerciciosLigeros( cantidadEjerciciosFU, cantidadEjerciciosFD, c
   while( arr4.length < cantidadEjerciciosGFC && cantidadEjerciciosGFC < limiteF4 ){
     generarFaseCuatro( arr4 );
   }
-  console.log( "Arreglo 4: ", arr4 );
 
   getExercisesPhaseFour( arr4 ).then( ejercicios =>{
-    console.log("Ejercicios Generados Fase 4: ", ejercicios );
+    // console.log("Ejercicios Generados Fase 4: ", ejercicios );
+
+    return ejercicios;
   }, ( error )=>{
     console.log(error);
   });
@@ -276,15 +316,18 @@ function generarEjerciciosLigeros( cantidadEjerciciosFU, cantidadEjerciciosFD, c
   while( arr5.length < cantidadEjerciciosGFCin && cantidadEjerciciosGFCin < limiteF5 ){
     generarFaseCinco( arr5 );
   }
-  console.log( "Arreglo 5: ", arr5 );
 
   getExercisesPhaseFive( arr5 ).then( ejercicios =>{
-    console.log("Ejercicios Generados Fase 5: ", ejercicios );
+    // console.log("Ejercicios Generados Fase 5: ", ejercicios );
+
+    return ejercicios;
   }, ( error )=>{
     console.log(error);
   });
   /*= end of Generación ejercicios fase 5 - Estiramiento =*/
   /*=============================================<<<<<*/
+
+  // console.log("Esto trae ejercicios fase 1: ", this.ejerciciosFase1);
 
 }
 
@@ -301,7 +344,7 @@ let getExercisesPhaseOne = (arr) => {
     if(!ejercicios){
       reject("No existen ejercicios, favor de validar manualmente");
     }else{
-      resolve(ejercicios);
+      resolve( ejercicios );
     }
 
   });

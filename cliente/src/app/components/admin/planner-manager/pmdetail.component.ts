@@ -3,6 +3,8 @@ import { Post } from '../../../interfaces/post.interface';
 import { ChangerGuardService } from '../../../services/changer-guard.service';
 import { PostService } from '../../../services/post.service';
 import { Http, Response } from "@angular/http";
+import { User } from "../../../interfaces/user.interface";
+
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -20,6 +22,7 @@ export class PmdetailComponent implements OnInit {
       this._id = params['_id'];
     });
 
+    /* Traer el usuario actualizado en vez de un plan por separado */
     this._plann.getPlann( this._id ).subscribe( result => {
       this.plann = result;
     });

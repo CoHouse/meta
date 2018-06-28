@@ -12,10 +12,10 @@ declare var $:any;
 })
 export class PlannerManagerComponent implements OnInit {
 
-  public userList;
-  public pendientes = 10;
+  // public userList;
+  // public pendientes = 10;
 
-  public _id;
+  // public _id;
   public plannsPending;
 
   constructor( public _planns:ChangerGuardService, public _activatedRoute:ActivatedRoute ) {
@@ -26,7 +26,6 @@ export class PlannerManagerComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }
